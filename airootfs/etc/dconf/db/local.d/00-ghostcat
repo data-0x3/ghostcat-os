@@ -4,6 +4,7 @@ color-scheme='prefer-dark'
 gtk-theme='adw-gtk3-dark'
 icon-theme='Papirus-Dark'
 accent-color='slate'
+cursor-size=24
 monospace-font-name='JetBrainsMono Nerd Font 11'
 clock-show-seconds=true
 enable-hot-corners=false
@@ -26,12 +27,16 @@ button-layout='appmenu:minimize,maximize,close'
 
 [org/gnome/shell]
 favorite-apps=['ghostcat-hub.desktop','org.gnome.Console.desktop','firefox.desktop','org.gnome.Nautilus.desktop','code-oss.desktop','org.wireshark.Wireshark.desktop']
-enabled-extensions=['blur-my-shell@aunetx','dash-to-dock@micxgx.gmail.com']
+enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com','blur-my-shell@aunetx','dash-to-dock@micxgx.gmail.com','burn-my-windows@schneegans.github.com']
 disable-user-extensions=false
 # l'assistant GhostCat Setup remplace la visite de bienvenue de GNOME
 welcome-dialog-last-shown-version='999'
 
 # --- effet verre : flou derrière le panneau, la vue d'ensemble et le dock
+# --- thème GNOME Shell GhostCat (barre, menus, grille d'applis, dock)
+[org/gnome/shell/extensions/user-theme]
+name='GhostCat'
+
 [org/gnome/shell/extensions/blur-my-shell/panel]
 blur=true
 
@@ -39,6 +44,9 @@ blur=true
 blur=true
 
 [org/gnome/shell/extensions/blur-my-shell/dash-to-dock]
+blur=true
+
+[org/gnome/shell/extensions/blur-my-shell/appfolder]
 blur=true
 
 # --- dock flottant translucide
@@ -54,12 +62,14 @@ background-opacity=0.15
 running-indicator-style='DOTS'
 show-trash=false
 click-action='minimize-or-previews'
+apply-custom-theme=false
+show-apps-icon-file='/usr/share/themes/GhostCat/gnome-shell/assets/ghost-apps.png'
+show-apps-at-top=true
+animation-time=0.25
+hot-keys=false
 
 [org/gnome/Console]
 theme='night'
-
-[org/gnome/terminal/legacy]
-theme-variant='dark'
 
 # --- vie privée ---
 [org/gnome/system/location]
@@ -92,3 +102,37 @@ whitelisted-providers=['']
 [org/gnome/software]
 allow-updates=false
 download-updates=false
+
+# --- terminal GhostCat (noir profond, texte blanc, palette en nuances de gris + touches de couleur)
+[org/gnome/terminal/legacy/profiles:]
+default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+visible-name='GhostCat'
+use-theme-colors=false
+background-color='#08080b'
+foreground-color='#e8e8f0'
+bold-color-same-as-fg=true
+cursor-colors-set=true
+cursor-background-color='#ffffff'
+cursor-foreground-color='#08080b'
+cursor-shape='ibeam'
+cursor-blink-mode='on'
+highlight-colors-set=true
+highlight-background-color='#e8e8f0'
+highlight-foreground-color='#08080b'
+palette=['#16161c', '#ff4d6d', '#3ddc97', '#ffd76b', '#4d8dff', '#b26bff', '#5ad4e6', '#c8c8d2', '#4a4a56', '#ff7a90', '#6ff0b5', '#ffe49a', '#7aa9ff', '#c995ff', '#8ae6f2', '#ffffff']
+use-system-font=false
+font='JetBrainsMono Nerd Font 11'
+use-transparent-background=true
+background-transparency-percent=8
+scrollbar-policy='never'
+audible-bell=false
+default-size-columns=110
+default-size-rows=30
+
+[org/gnome/terminal/legacy]
+theme-variant='dark'
+default-show-menubar=false
+headerbar=@mb true

@@ -102,7 +102,7 @@ GS_VER="$(pacman -Si gnome-shell 2>/dev/null | awk -F': ' '/^Version/{print $2}'
 [[ -n $GS_VER ]] || GS_VER=49
 EXT_DIR="$PROFILE/airootfs/usr/share/gnome-shell/extensions"
 mkdir -p "$EXT_DIR"
-for uuid in blur-my-shell@aunetx dash-to-dock@micxgx.gmail.com; do
+for uuid in blur-my-shell@aunetx dash-to-dock@micxgx.gmail.com burn-my-windows@schneegans.github.com; do
   tmp="$(mktemp --suffix=.zip)"
   if curl -fsSL -o "$tmp" \
       "https://extensions.gnome.org/download-extension/${uuid}.shell-extension.zip?shell_version=${GS_VER}"; then
@@ -115,6 +115,22 @@ for uuid in blur-my-shell@aunetx dash-to-dock@micxgx.gmail.com; do
   fi
   rm -f "$tmp"
 done
+
+say "4c/5 thème GNOME Shell GhostCat"
+# le thème importe le thème sombre officiel : on vérifie son nom exact pour cette version de GNOME
+BASE_CSS=gnome-shell-dark.css
+GS_RES=/usr/share/gnome-shell/gnome-shell-theme.gresource
+if [[ -f $GS_RES ]] && command -v gresource >/dev/null; then
+  RES_LIST="$(gresource list "$GS_RES")"
+  if grep -q '/gnome-shell-dark\.css$' <<<"$RES_LIST"; then BASE_CSS=gnome-shell-dark.css
+  elif grep -q '/gnome-shell\.css$' <<<"$RES_LIST"; then BASE_CSS=gnome-shell.css
+  fi
+  say "     base : $BASE_CSS (détectée)"
+else
+  say "     base : $BASE_CSS (par défaut, gnome-shell absent de la machine de build)"
+fi
+sed -i "s/__GHOSTCAT_BASE_CSS__/$BASE_CSS/" \
+  "$PROFILE/airootfs/usr/share/themes/GhostCat/gnome-shell/gnome-shell.css"
 
 say "5/5  mkarchiso (ça prend un moment ☕)"
 rm -rf "$WORK"

@@ -70,6 +70,8 @@ window.GHOSTCAT_TOOLS = [
   {"id":"attack-nav","name":"ATT&CK Navigator","team":"purple","cat":"Référentiels","desc":"Carte interactive des techniques ATT&CK pour planifier et suivre la couverture.","url":"https://mitre-attack.github.io/attack-navigator/","docs":"https://attack.mitre.org/"},
   {"id":"d3fend","name":"MITRE D3FEND","team":"purple","cat":"Référentiels","desc":"Le pendant défensif d'ATT&CK : quelles contre-mesures pour quelle technique.","url":"https://d3fend.mitre.org/","docs":"https://d3fend.mitre.org/"},
 
+  {"id":"sys-setup","name":"Réglages GhostCat","team":"system","cat":"Système","desc":"Langue, clavier, fuseau horaire et vie privée : relance l'assistant GhostCat Setup.","check":[],"run":"ghostcat-setup --windowed","gui":true},
+  {"id":"sys-wallpaper","name":"Fonds d'écran GhostCat","team":"system","cat":"Système","desc":"7 fonds GhostCat (Glitch, Grid, Rain, Liquid, ASCII…) et un diaporama qui les fait tourner.","check":["gnome-control-center"],"run":"gnome-control-center background","gui":true},
   {"id":"sys-update","name":"Mettre à jour le système","team":"system","cat":"Système","desc":"Met à jour GhostCat OS et tous les outils.","check":[],"run":"sudo pacman -Syu"},
   {"id":"sys-fw","name":"Activer le pare-feu","team":"system","cat":"Système","desc":"Active UFW en bloquant les connexions entrantes.","check":["ufw"],"pkg":"ufw","run":"sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable && sudo ufw status verbose"},
   {"id":"sys-audit","name":"Bilan de sécurité","team":"system","cat":"Système","desc":"Audit rapide de ta machine avec Lynis et un score de durcissement.","check":["lynis"],"pkg":"lynis","run":"sudo lynis audit system --quick"},

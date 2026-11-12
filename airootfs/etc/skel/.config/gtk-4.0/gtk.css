@@ -1,0 +1,74 @@
+/* GhostCat OS — couleurs de toutes les applis GTK — developed by 0x3 */
+@define-color accent_color #ffffff;
+@define-color accent_bg_color #e8e8f0;
+@define-color accent_fg_color #0b0b0f;
+@define-color window_bg_color #0b0b0f;
+@define-color window_fg_color #f2f2f6;
+@define-color view_bg_color #08080b;
+@define-color view_fg_color #f2f2f6;
+@define-color headerbar_bg_color #101016;
+@define-color headerbar_fg_color #f2f2f6;
+@define-color headerbar_backdrop_color #0b0b0f;
+@define-color headerbar_border_color rgba(255,255,255,0.08);
+@define-color headerbar_shade_color rgba(0,0,0,0.6);
+@define-color sidebar_bg_color #0e0e13;
+@define-color sidebar_fg_color #f2f2f6;
+@define-color sidebar_backdrop_color #0b0b0f;
+@define-color secondary_sidebar_bg_color #0c0c11;
+@define-color secondary_sidebar_fg_color #f2f2f6;
+@define-color card_bg_color rgba(255,255,255,0.05);
+@define-color card_fg_color #f2f2f6;
+@define-color dialog_bg_color #121218;
+@define-color dialog_fg_color #f2f2f6;
+@define-color popover_bg_color #141419;
+@define-color popover_fg_color #f2f2f6;
+@define-color thumbnail_bg_color #141419;
+@define-color thumbnail_fg_color #f2f2f6;
+@define-color destructive_bg_color #ff4d6d;
+@define-color destructive_fg_color #ffffff;
+@define-color destructive_color #ff6b85;
+@define-color success_bg_color #2bb37a;
+@define-color success_color #3ddc97;
+@define-color warning_bg_color #c7a33b;
+@define-color warning_color #ffd76b;
+@define-color error_bg_color #ff4d6d;
+@define-color error_color #ff6b85;
+:root {
+  --accent-color: #ffffff;
+  --accent-bg-color: #e8e8f0;
+  --accent-fg-color: #0b0b0f;
+  --window-bg-color: #0b0b0f;
+  --window-fg-color: #f2f2f6;
+  --view-bg-color: #08080b;
+  --view-fg-color: #f2f2f6;
+  --headerbar-bg-color: #101016;
+  --headerbar-fg-color: #f2f2f6;
+  --headerbar-backdrop-color: #0b0b0f;
+  --headerbar-border-color: rgba(255,255,255,0.08);
+  --headerbar-shade-color: rgba(0,0,0,0.6);
+  --sidebar-bg-color: #0e0e13;
+  --sidebar-fg-color: #f2f2f6;
+  --sidebar-backdrop-color: #0b0b0f;
+  --secondary-sidebar-bg-color: #0c0c11;
+  --secondary-sidebar-fg-color: #f2f2f6;
+  --card-bg-color: rgba(255,255,255,0.05);
+  --card-fg-color: #f2f2f6;
+  --dialog-bg-color: #121218;
+  --dialog-fg-color: #f2f2f6;
+  --popover-bg-color: #141419;
+  --popover-fg-color: #f2f2f6;
+  --thumbnail-bg-color: #141419;
+  --thumbnail-fg-color: #f2f2f6;
+  --destructive-bg-color: #ff4d6d;
+  --destructive-fg-color: #ffffff;
+  --destructive-color: #ff6b85;
+  --success-bg-color: #2bb37a;
+  --success-color: #3ddc97;
+  --warning-bg-color: #c7a33b;
+  --warning-color: #ffd76b;
+  --error-bg-color: #ff4d6d;
+  --error-color: #ff6b85;
+}
+
+/* boutons « pilule » comme le reste de GhostCat */
+button.pill, button.suggested-action { border-radius: 999px; }

@@ -1,0 +1,237 @@
+/* ==========================================================================
+   GhostCat OS — thème GNOME Shell — developed by 0x3 · https://t.me/data0x3
+   Repose sur le thème sombre officiel (importé ci-dessous, nom détecté au
+   build) et ne fait que le surcharger : si un sélecteur change d'une version
+   de GNOME à l'autre, le thème officiel reste dessous.
+   ========================================================================== */
+@import url("resource:///org/gnome/shell/theme/__GHOSTCAT_BASE_CSS__");
+
+/* ---------- palette ----------
+   verre       rgba(16,16,22,0.72)   bord   rgba(255,255,255,0.10)
+   reflet      rgba(255,255,255,0.08)  texte  #f2f2f6   accent  #ffffff
+   ------------------------------------------------------------------------ */
+
+stage { color: #f2f2f6; }
+
+/* ================= BARRE DU HAUT ================= */
+#panel {
+  background-color: rgba(8, 8, 12, 0.35);
+  height: 34px;
+  font-weight: 700;
+  transition-duration: 250ms;
+}
+#panel:overview { background-color: transparent; }
+#panel.solid { background-color: rgba(6, 6, 9, 0.88); }
+#panel.unlock-screen, #panel.login-screen, #panel:overview.unlock-screen { background-color: transparent; }
+
+#panel .panel-button {
+  color: #f2f2f6;
+  border-radius: 99px;
+  margin: 4px 2px;
+  padding: 0 11px;
+  border: 1px solid transparent;
+  transition-duration: 200ms;
+}
+#panel .panel-button:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.10);
+}
+#panel .panel-button:active, #panel .panel-button:checked, #panel .panel-button:focus {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.18);
+}
+/* fantôme GhostCat devant les points des espaces de travail */
+#panel #panelActivities.panel-button {
+  background-image: url("assets/ghost-panel.png");
+  background-size: 20px;
+  background-position: 9px center;
+  padding-left: 33px;
+}
+#panel .workspace-dot { background-color: rgba(255, 255, 255, 0.45); }
+#panel .workspace-dot:active, #panel .workspace-dot.active { background-color: #ffffff; }
+#panel .clock-display .clock { font-weight: 800; letter-spacing: 0.5px; }
+#panel .panel-status-indicators-box, #panel .panel-status-menu-box { spacing: 6px; }
+
+/* ================= MENUS ET RÉGLAGES RAPIDES ================= */
+.popup-menu-boxpointer, .candidate-popup-boxpointer { -arrow-rise: 6px; }
+.popup-menu-content, .candidate-popup-content, .quick-settings {
+  background-color: rgba(16, 16, 22, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 24px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55), inset 0 1px rgba(255, 255, 255, 0.10);
+  padding: 10px;
+}
+.popup-menu-item { border-radius: 14px; transition-duration: 150ms; }
+.popup-menu-item:hover, .popup-menu-item:focus, .popup-menu-item.selected {
+  background-color: rgba(255, 255, 255, 0.10);
+}
+.popup-menu-item:active { background-color: rgba(255, 255, 255, 0.18); }
+.popup-separator-menu-item .popup-separator-menu-item-separator { background-color: rgba(255, 255, 255, 0.08); }
+
+.quick-toggle, .quick-menu-toggle .quick-toggle {
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition-duration: 200ms;
+}
+.quick-toggle:hover { background-color: rgba(255, 255, 255, 0.13); }
+.quick-toggle:checked, .quick-menu-toggle .quick-toggle:checked {
+  background-color: #f2f2f6;
+  color: #0b0b0f;
+  border-color: #ffffff;
+}
+.quick-toggle:checked:hover { background-color: #ffffff; }
+.quick-menu-toggle .quick-toggle-arrow { border-radius: 0 99px 99px 0; }
+.quick-toggle-menu {
+  background-color: rgba(28, 28, 36, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 22px;
+}
+.quick-settings-system-item .icon-button, .quick-settings .button {
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.slider { -barlevel-active-background-color: #ffffff; -barlevel-background-color: rgba(255, 255, 255, 0.14); -slider-handle-border-color: rgba(0, 0, 0, 0.35); }
+.toggle-switch:checked { background-color: #ffffff; }
+.check-box:checked StBin { background-color: #ffffff; color: #0b0b0f; }
+
+/* ================= CALENDRIER / NOTIFICATIONS ================= */
+.datemenu-today-button, .events-button, .world-clocks-button, .weather-button, .message {
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.datemenu-today-button:hover, .events-button:hover, .world-clocks-button:hover, .weather-button:hover, .message:hover {
+  background-color: rgba(255, 255, 255, 0.11);
+}
+.calendar-day:selected, .calendar-today:selected { background-color: #ffffff; color: #0b0b0f; }
+.calendar-today { font-weight: 800; border: 1px solid rgba(255, 255, 255, 0.4); }
+.notification-banner, .notification-banner:hover, .notification-banner:focus {
+  background-color: rgba(16, 16, 22, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 22px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= VUE D'ENSEMBLE / GRILLE D'APPLIS ================= */
+.search-entry {
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.10);
+  padding: 9px 16px;
+  color: #f2f2f6;
+  transition-duration: 200ms;
+}
+.search-entry:hover { background-color: rgba(255, 255, 255, 0.11); }
+.search-entry:focus {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.search-entry .search-entry-icon { color: rgba(255, 255, 255, 0.6); }
+
+.overview-tile, .app-well-app, .grid-search-result, .app-folder {
+  border-radius: 26px;
+  transition-duration: 220ms;
+}
+.overview-tile:hover, .app-well-app:hover, .grid-search-result:hover, .app-folder:hover,
+.overview-tile:focus, .app-well-app:focus, .grid-search-result:focus, .app-folder:focus {
+  background-color: rgba(255, 255, 255, 0.10);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.14);
+}
+.overview-tile:active, .app-well-app:active, .overview-tile:checked, .app-well-app:checked {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+.overview-tile .overview-icon-label, .app-well-app .overview-icon-label { font-weight: 600; }
+.app-folder { background-color: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.08); }
+.app-folder-dialog {
+  background-color: rgba(16, 16, 22, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 36px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6), inset 0 1px rgba(255, 255, 255, 0.10);
+}
+.app-folder-dialog .folder-name-entry { border-radius: 99px; }
+.page-indicator .page-indicator-icon { background-color: rgba(255, 255, 255, 0.28); }
+.page-indicator:checked .page-indicator-icon { background-color: #ffffff; }
+.app-grid-running-dot, .app-well-app-running-dot { background-color: #ffffff; }
+
+.list-search-result, .search-provider-icon { border-radius: 18px; }
+.list-search-result:hover, .list-search-result:focus, .search-provider-icon:hover, .search-provider-icon:focus {
+  background-color: rgba(255, 255, 255, 0.10);
+}
+.search-section-content {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 26px;
+}
+
+.workspace-thumbnail { border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.10); }
+.workspace-thumbnail-indicator { border: 2px solid #ffffff; border-radius: 16px; }
+.window-caption {
+  background-color: rgba(16, 16, 22, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 99px;
+  color: #f2f2f6;
+}
+.window-close { background-color: rgba(255, 255, 255, 0.9); color: #0b0b0f; }
+
+/* ================= DOCK (dash intégré + Dash to Dock) ================= */
+#dash .dash-background, #dashtodockContainer .dash-background {
+  background-color: rgba(14, 14, 20, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.16), 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+#dashtodockContainer .dash-item-container .app-well-app,
+#dashtodockContainer .dash-item-container .overview-tile,
+#dash .dash-item-container .overview-tile,
+#dash .dash-item-container .app-well-app {
+  border-radius: 18px;
+}
+#dashtodockContainer .show-apps .overview-icon,
+#dash .show-apps .overview-icon { border-radius: 18px; }
+.dash-separator { background-color: rgba(255, 255, 255, 0.16); }
+.dash-label {
+  background-color: rgba(16, 16, 22, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 99px;
+  color: #f2f2f6;
+  font-weight: 600;
+  padding: 6px 14px;
+}
+
+/* ================= ALT+TAB / OSD / DIALOGUES ================= */
+.switcher-list, .osd-window, .resize-popup, .workspace-switcher, .pad-osd-window {
+  background-color: rgba(16, 16, 22, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), inset 0 1px rgba(255, 255, 255, 0.10);
+}
+.switcher-list .item-box { border-radius: 18px; }
+.switcher-list .item-box:hover { background-color: rgba(255, 255, 255, 0.08); }
+.switcher-list .item-box:selected { background-color: rgba(255, 255, 255, 0.16); }
+.osd-window .level { -barlevel-active-background-color: #ffffff; }
+
+.modal-dialog {
+  background-color: rgba(16, 16, 22, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 28px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+}
+.modal-dialog .modal-dialog-button-box { background-color: transparent; }
+.modal-dialog .modal-dialog-button {
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin: 6px;
+}
+.modal-dialog .modal-dialog-button:hover { background-color: rgba(255, 255, 255, 0.15); }
+.modal-dialog .modal-dialog-button:default { background-color: #f2f2f6; color: #0b0b0f; }
+
+/* ================= ÉCRAN DE VERROUILLAGE ================= */
+.unlock-dialog-clock-time { font-weight: 800; letter-spacing: -1px; }
+.unlock-dialog .login-dialog-prompt-entry, .login-dialog .login-dialog-prompt-entry {
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}

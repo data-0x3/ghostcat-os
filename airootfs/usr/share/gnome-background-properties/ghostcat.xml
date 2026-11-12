@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>GhostCat — Classique</name>
+    <filename>/usr/share/backgrounds/ghostcat/ghostcat-dark.png</filename>
+    <filename-dark>/usr/share/backgrounds/ghostcat/ghostcat-dark.png</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#000000</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>GhostCat — Glitch</name>
+    <filename>/usr/share/backgrounds/ghostcat/ghostcat-glitch.jpg</filename>
+    <filename-dark>/usr/share/backgrounds/ghostcat/ghostcat-glitch.jpg</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#000000</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>GhostCat — Grid</name>
+    <filename>/usr/share/backgrounds/ghostcat/ghostcat-grid.jpg</filename>
+    <filename-dark>/usr/share/backgrounds/ghostcat/ghostcat-grid.jpg</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#000000</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>GhostCat — Rain</name>
+    <filename>/usr/share/backgrounds/ghostcat/ghostcat-rain.jpg</filename>
+    <filename-dark>/usr/share/backgrounds/ghostcat/ghostcat-rain.jpg</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#000000</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>GhostCat — Liquid Glass</name>
+    <filename>/usr/share/backgrounds/ghostcat/ghostcat-liquid.jpg</filename>
+    <filename-dark>/usr/share/backgrounds/ghostcat/ghostcat-liquid.jpg</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#000000</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>GhostCat — ASCII</name>
+    <filename>/usr/share/backgrounds/ghostcat/ghostcat-ascii.jpg</filename>
+    <filename-dark>/usr/share/backgrounds/ghostcat/ghostcat-ascii.jpg</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#000000</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>GhostCat — Minimal</name>
+    <filename>/usr/share/backgrounds/ghostcat/ghostcat-minimal.jpg</filename>
+    <filename-dark>/usr/share/backgrounds/ghostcat/ghostcat-minimal.jpg</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#000000</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>GhostCat — Diaporama</name>
+    <filename>/usr/share/backgrounds/ghostcat/ghostcat-slideshow.xml</filename>
+    <options>zoom</options>
+  </wallpaper>
+</wallpapers>

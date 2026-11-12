@@ -1,0 +1,17 @@
+<background>
+  <starttime><year>2026</year><month>1</month><day>1</day><hour>0</hour><minute>0</minute><second>0</second></starttime>
+  <static><duration>1196.0</duration><file>/usr/share/backgrounds/ghostcat/ghostcat-dark.png</file></static>
+  <transition><duration>4.0</duration><from>/usr/share/backgrounds/ghostcat/ghostcat-dark.png</from><to>/usr/share/backgrounds/ghostcat/ghostcat-glitch.jpg</to></transition>
+  <static><duration>1196.0</duration><file>/usr/share/backgrounds/ghostcat/ghostcat-glitch.jpg</file></static>
+  <transition><duration>4.0</duration><from>/usr/share/backgrounds/ghostcat/ghostcat-glitch.jpg</from><to>/usr/share/backgrounds/ghostcat/ghostcat-grid.jpg</to></transition>
+  <static><duration>1196.0</duration><file>/usr/share/backgrounds/ghostcat/ghostcat-grid.jpg</file></static>
+  <transition><duration>4.0</duration><from>/usr/share/backgrounds/ghostcat/ghostcat-grid.jpg</from><to>/usr/share/backgrounds/ghostcat/ghostcat-rain.jpg</to></transition>
+  <static><duration>1196.0</duration><file>/usr/share/backgrounds/ghostcat/ghostcat-rain.jpg</file></static>
+  <transition><duration>4.0</duration><from>/usr/share/backgrounds/ghostcat/ghostcat-rain.jpg</from><to>/usr/share/backgrounds/ghostcat/ghostcat-liquid.jpg</to></transition>
+  <static><duration>1196.0</duration><file>/usr/share/backgrounds/ghostcat/ghostcat-liquid.jpg</file></static>
+  <transition><duration>4.0</duration><from>/usr/share/backgrounds/ghostcat/ghostcat-liquid.jpg</from><to>/usr/share/backgrounds/ghostcat/ghostcat-ascii.jpg</to></transition>
+  <static><duration>1196.0</duration><file>/usr/share/backgrounds/ghostcat/ghostcat-ascii.jpg</file></static>
+  <transition><duration>4.0</duration><from>/usr/share/backgrounds/ghostcat/ghostcat-ascii.jpg</from><to>/usr/share/backgrounds/ghostcat/ghostcat-minimal.jpg</to></transition>
+  <static><duration>1196.0</duration><file>/usr/share/backgrounds/ghostcat/ghostcat-minimal.jpg</file></static>
+  <transition><duration>4.0</duration><from>/usr/share/backgrounds/ghostcat/ghostcat-minimal.jpg</from><to>/usr/share/backgrounds/ghostcat/ghostcat-dark.png</to></transition>
+</background>
