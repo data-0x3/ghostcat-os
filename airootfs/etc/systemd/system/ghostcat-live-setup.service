@@ -1,13 +1,13 @@
 [Unit]
 Description=GhostCat OS live session setup
+# Doit rester instantané : ne dépend de rien de lent (réseau, horloge, trousseau pacman)
 Before=display-manager.service
-After=pacman-init.service
 
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/ghostcat-live-setup
 RemainAfterExit=yes
-TimeoutStartSec=60
+TimeoutStartSec=30
 
 [Install]
 WantedBy=multi-user.target

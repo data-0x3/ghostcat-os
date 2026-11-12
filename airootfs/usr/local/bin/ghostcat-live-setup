@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# GhostCat OS — préparation de la session live (au boot)
+# GhostCat OS — préparation de la session live (au boot, rapide, sans réseau)
 dconf update
 chown -R ghost:ghost /home/ghost
-timeout 30 pacman-key --populate blackarch >/dev/null 2>&1 || true

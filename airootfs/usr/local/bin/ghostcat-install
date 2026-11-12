@@ -49,6 +49,14 @@ fi
 say "système cible : $T"
 
 # --- dépôts + paquets ------------------------------------------------------
+say "trousseau de clés pacman"
+systemctl stop systemd-time-wait-sync.service 2>/dev/null || true
+timedatectl set-ntp true 2>/dev/null || true
+if ! systemctl is-active -q pacman-init.service; then
+  pacman-key --init && pacman-key --populate archlinux
+fi
+pacman-key --populate blackarch
+
 say "dépôt BlackArch + clé"
 cp /etc/pacman.conf "$T/etc/pacman.conf"
 pacman --root "$T" --config /etc/pacman.conf --noconfirm -Sy --needed blackarch-keyring
