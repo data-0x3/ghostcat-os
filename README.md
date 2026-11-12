@@ -21,6 +21,8 @@ L'ISO est construite automatiquement par GitHub Actions :
 
 ## Ce que tu obtiens
 
+- **GhostCat Setup** : au démarrage, avant le bureau, un assistant Liquid Glass règle langue, clavier (avec zone de test), fuseau horaire et vie privée. Relançable depuis « Réglages GhostCat ».
+- **Vie privée par défaut** : MAC aléatoire, DNS chiffré (DoT Quad9/Mullvad), pare-feu, appareil anonyme (pas de hostname DHCP, IPv6 temporaires, pas de test de connectivité), Firefox durci (anti-pistage strict, HTTPS forcé, uBlock Origin, DuckDuckGo, zéro télémétrie), GNOME sans localisation ni historique, SSH coupé.
 - **GhostCat Hub** : l'app centrale en Liquid Glass. Red / Blue / Purple Team, recherche (Ctrl K), favoris, statut de chaque outil, installation et lancement en un clic. S'ouvre toute seule au premier login.
 - **Bureau en verre** : panneau, vue d'ensemble et dock flous et translucides (Blur my Shell + Dash to Dock, récupérés au build)
 - **Boot animé** : ton fantôme-chat qui flotte et glitche (120 images) pendant le démarrage
@@ -41,6 +43,8 @@ L'ISO est construite automatiquement par GitHub Actions :
 | `airootfs/usr/share/plymouth/themes/ghostcat/` | écran de boot (logo qui « respire » + barre) |
 | `airootfs/etc/dconf/` | réglages GNOME forcés (thème, fond, favoris) |
 | `airootfs/usr/local/bin/ghostcat-install` | installeur sur disque |
+| `airootfs/opt/ghostcat-setup/` + `usr/local/lib/ghostcat/setup-apply` | assistant de démarrage (interface) + application root des réglages (liste blanche) |
+| `airootfs/usr/share/ghostcat/privacy/` | modèles des réglages de confidentialité activables |
 | `airootfs/opt/ghostcat-hub/` | le Hub : `index.html` (interface), `tools.js` (catalogue), `ghostcat_hub.py` (fenêtre GTK4/WebKit) |
 
 ## Ajouter un outil au Hub

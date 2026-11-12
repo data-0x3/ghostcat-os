@@ -1,0 +1,58 @@
+{
+  "policies": {
+    "DisableTelemetry": true,
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DisableFeedbackCommands": true,
+    "DisableFirefoxAccounts": false,
+    "DontCheckDefaultBrowser": true,
+    "NoDefaultBookmarks": true,
+    "OfferToSaveLogins": false,
+    "PasswordManagerEnabled": true,
+    "HttpsOnlyMode": "force_enabled",
+    "EnableTrackingProtection": {
+      "Value": true, "Locked": false, "Cryptomining": true, "Fingerprinting": true,
+      "EmailTracking": true, "Category": "strict"
+    },
+    "Cookies": { "Behavior": "reject-tracker-and-partition-foreign", "Locked": false },
+    "DNSOverHTTPS": { "Enabled": false, "Locked": false },
+    "FirefoxHome": {
+      "Search": true, "TopSites": false, "SponsoredTopSites": false, "Highlights": false,
+      "Pocket": false, "SponsoredPocket": false, "Snippets": false, "Locked": true
+    },
+    "FirefoxSuggest": { "WebSuggestions": false, "SponsoredSuggestions": false, "ImproveSuggest": false, "Locked": true },
+    "UserMessaging": {
+      "ExtensionRecommendations": false, "FeatureRecommendations": false, "UrlbarInterventions": false,
+      "SkipOnboarding": true, "MoreFromMozilla": false, "FirefoxLabs": false, "Locked": true
+    },
+    "Homepage": { "URL": "file:///usr/share/ghostcat/start/index.html", "StartPage": "homepage", "Locked": false },
+    "NewTabPage": true,
+    "SearchEngines": {
+      "Default": "DuckDuckGo",
+      "Remove": ["Google", "Bing", "Amazon.com", "eBay"]
+    },
+    "SearchSuggestEnabled": false,
+    "Permissions": {
+      "Location": { "BlockNewRequests": true },
+      "Notifications": { "BlockNewRequests": true },
+      "Autoplay": { "Default": "block-audio-video" }
+    },
+    "ExtensionSettings": {
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+      }
+    },
+    "Preferences": {
+      "privacy.resistFingerprinting.letterboxing": { "Value": false, "Status": "default" },
+      "privacy.globalprivacycontrol.enabled": { "Value": true, "Status": "default" },
+      "network.prefetch-next": { "Value": false, "Status": "default" },
+      "network.dns.disablePrefetch": { "Value": true, "Status": "default" },
+      "browser.urlbar.speculativeConnect.enabled": { "Value": false, "Status": "default" },
+      "geo.enabled": { "Value": false, "Status": "default" },
+      "media.peerconnection.ice.default_address_only": { "Value": true, "Status": "default" },
+      "browser.theme.toolbar-theme": { "Value": 0, "Status": "default" },
+      "layout.css.prefers-color-scheme.content-override": { "Value": 0, "Status": "default" }
+    }
+  }
+}

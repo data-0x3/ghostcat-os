@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+"""GhostCat OS — applique les choix de GhostCat Setup (exécuté en root).
+developed by 0x3 · https://t.me/data0x3
+
+Lit un JSON sur l'entrée standard. Chaque valeur est vérifiée contre une
+liste blanche : rien de ce qui vient de l'interface n'est passé tel quel
+à une commande.
+
+Variables de test : GHOSTCAT_ROOT (préfixe des fichiers), GHOSTCAT_DRYRUN=1
+(n'exécute pas les commandes, les affiche).
+"""
+import json
+import os
+import pwd
+import re
+import shutil
+import subprocess
+import sys
+
+ROOT = os.environ.get("GHOSTCAT_ROOT", "")
+DRY = os.environ.get("GHOSTCAT_DRYRUN") == "1"
+TEMPLATES = "/usr/share/ghostcat/privacy"
+
+LANGS = {
+    "fr_FR", "fr_BE", "fr_CA", "fr_CH", "en_US", "en_GB", "es_ES", "de_DE", "de_CH",
+    "it_IT", "pt_PT", "pt_BR", "nl_NL", "pl_PL", "tr_TR", "ru_RU", "uk_UA",
+}
+# disposition xkb (layout, variant) -> clavier console
+KEYMAPS = {
+    "fr": ("fr", "", "fr"), "fr-bepo": ("fr", "bepo", "fr-bepo"), "be": ("be", "", "be-latin1"),
+    "ch-fr": ("ch", "fr", "fr_CH"), "ca-fr": ("ca", "", "cf"), "us": ("us", "", "us"),
+    "us-intl": ("us", "intl", "us-acentos"), "gb": ("gb", "", "uk"), "de": ("de", "", "de-latin1"),
+    "ch-de": ("ch", "", "de_CH-latin1"), "es": ("es", "", "es"), "it": ("it", "", "it"),
+    "pt": ("pt", "", "pt-latin1"), "br": ("br", "", "br-abnt2"), "nl": ("nl", "", "nl"),
+    "pl": ("pl", "", "pl2"), "tr": ("tr", "", "trq"), "ru": ("ru", "", "ru"), "ua": ("ua", "", "ua"),
+}
+TZ_RE = re.compile(r"^[A-Za-z0-9_+\-]+(/[A-Za-z0-9_+\-]+){0,2}$")
+PRIVACY = {
+    # clé : (fichier modèle, destination)
+    "mac":  ("90-ghostcat-mac.conf",  "/etc/NetworkManager/conf.d/90-ghostcat-mac.conf"),
+    "anon": ("91-ghostcat-anon.conf", "/etc/NetworkManager/conf.d/91-ghostcat-anon.conf"),
+    "dns":  ("90-ghostcat-dns.conf",  "/etc/systemd/resolved.conf.d/90-ghostcat-dns.conf"),
+    "browser": ("policies.json",      "/etc/firefox/policies/policies.json"),
+}
+
+
+def p(path):
+    return ROOT + path
+
+
+def run(*cmd):
+    if DRY:
+        print("RUN", " ".join(cmd))
+        return 0
+    return subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode
+
+
+def write(path, text):
+    os.makedirs(os.path.dirname(p(path)), exist_ok=True)
+    with open(p(path), "w", encoding="utf-8") as f:
+        f.write(text)
+
+
+def target_user():
+    """L'utilisateur qui a lancé Setup (via sudo ou pkexec), jamais une valeur de la page."""
+    if os.environ.get("SUDO_USER"):
+        return os.environ["SUDO_USER"]
+    if os.environ.get("PKEXEC_UID"):
+        return pwd.getpwuid(int(os.environ["PKEXEC_UID"])).pw_name
+    return None
+
+
+def apply(cfg):
+    done = {}
+
+    lang = cfg.get("lang")
+    if lang in LANGS:
+        loc = f"{lang}.UTF-8"
+        write("/etc/locale.conf", f"LANG={loc}\n")
+        run("localectl", "set-locale", f"LANG={loc}")
+        user = target_user()
+        if user and re.fullmatch(r"[a-z_][a-z0-9_-]{0,31}", user):
+            write(f"/var/lib/AccountsService/users/{user}",
+                  f"[User]\nLanguage={loc}\nSystemAccount=false\n")
+        done["lang"] = lang
+
+    km = cfg.get("keymap")
+    if km in KEYMAPS:
+        layout, variant, console = KEYMAPS[km]
+        write("/etc/vconsole.conf", f"KEYMAP={console}\n")
+        write("/etc/X11/xorg.conf.d/00-keyboard.conf",
+              'Section "InputClass"\n  Identifier "system-keyboard"\n  MatchIsKeyboard "on"\n'
+              f'  Option "XkbLayout" "{layout}"\n'
+              + (f'  Option "XkbVariant" "{variant}"\n' if variant else "") + "EndSection\n")
+        run("localectl", "set-keymap", "--no-convert", console)
+        run("localectl", "set-x11-keymap", "--no-convert", layout, "", variant)
+        done["keymap"] = km
+
+    tz = cfg.get("timezone")
+    if isinstance(tz, str) and TZ_RE.match(tz) and ".." not in tz and os.path.isfile(f"/usr/share/zoneinfo/{tz}"):
+        try:
+            os.remove(p("/etc/localtime"))
+        except FileNotFoundError:
+            pass
+        os.makedirs(p("/etc"), exist_ok=True)
+        os.symlink(f"/usr/share/zoneinfo/{tz}", p("/etc/localtime"))
+        run("timedatectl", "set-timezone", tz)
+        done["timezone"] = tz
+
+    priv = cfg.get("privacy", {})
+    if isinstance(priv, dict):
+        net_changed = False
+        for key, (tpl, dest) in PRIVACY.items():
+            if key not in priv:
+                continue
+            want = bool(priv[key])
+            if want:
+                os.makedirs(os.path.dirname(p(dest)), exist_ok=True)
+                shutil.copyfile(p(f"{TEMPLATES}/{tpl}"), p(dest))
+            elif os.path.exists(p(dest)):
+                os.remove(p(dest))
+            done[key] = want
+            net_changed = net_changed or key in ("mac", "anon")
+        if "dns" in priv:
+            run("systemctl", "restart", "systemd-resolved")
+        if "firewall" in priv:
+            if priv["firewall"]:
+                run("systemctl", "enable", "--now", "ufw")
+                run("ufw", "default", "deny", "incoming")
+                run("ufw", "default", "allow", "outgoing")
+                run("ufw", "--force", "enable")
+            else:
+                run("ufw", "disable")
+                run("systemctl", "disable", "ufw")
+            done["firewall"] = bool(priv["firewall"])
+        if "tor" in priv:
+            run("systemctl", "enable" if priv["tor"] else "disable", "--now", "tor")
+            done["tor"] = bool(priv["tor"])
+        if net_changed:
+            run("systemctl", "reload-or-restart", "NetworkManager")
+
+    os.makedirs(p("/etc/ghostcat"), exist_ok=True)
+    saved = {}
+    try:
+        with open(p("/etc/ghostcat/setup.json"), encoding="utf-8") as f:
+            saved = json.load(f)
+    except (FileNotFoundError, ValueError):
+        pass
+    saved.update(done)
+    write("/etc/ghostcat/setup.json", json.dumps(saved, indent=2, ensure_ascii=False) + "\n")
+    return done
+
+
+if __name__ == "__main__":
+    if os.geteuid() != 0 and not ROOT:
+        sys.exit("ghostcat setup-apply : doit être lancé en root")
+    try:
+        cfg = json.load(sys.stdin)
+        if not isinstance(cfg, dict):
+            raise ValueError
+    except ValueError:
+        sys.exit("JSON invalide")
+    print(json.dumps(apply(cfg)))

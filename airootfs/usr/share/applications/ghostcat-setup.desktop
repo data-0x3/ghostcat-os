@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Réglages GhostCat
+Name[en]=GhostCat Settings
+Comment=Langue, clavier, fuseau horaire et vie privée
+Comment[en]=Language, keyboard, time zone and privacy
+Exec=ghostcat-setup --windowed
+Icon=ghostcat-hub
+Terminal=false
+Categories=Settings;System;
+Keywords=privacy;language;keyboard;timezone;vie privée;langue;clavier;

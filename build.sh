@@ -85,6 +85,15 @@ grep -q '^ghost:' "$A/passwd" || {
   echo 'ghost:x:1000:'                                          >> "$A/group"
   echo 'ghost:!*::'                                             >> "$A/gshadow"
 }
+# services de la base releng inutiles ou bloquants pour un live graphique privé
+for unit in sshd.service systemd-time-wait-sync.service choose-mirror.service; do
+  find "$PROFILE/airootfs/etc/systemd/system" -name "$unit" -path '*.wants/*' -delete 2>/dev/null || true
+done
+# DNS : systemd-resolved (DNS chiffré, voir resolved.conf.d)
+mkdir -p "$PROFILE/airootfs/etc/systemd/system/multi-user.target.wants"
+ln -sf /usr/lib/systemd/system/systemd-resolved.service \
+  "$PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/systemd-resolved.service"
+ln -sf /run/systemd/resolve/stub-resolv.conf "$PROFILE/airootfs/etc/resolv.conf"
 mkdir -p "$PROFILE/airootfs/home/ghost"
 cp -a "$HERE/airootfs/etc/skel/." "$PROFILE/airootfs/home/ghost/"
 

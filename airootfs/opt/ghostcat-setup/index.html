@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GhostCat Setup</title>
+<style>
+:root{
+  --text:#f2f2f6; --muted:rgba(255,255,255,.58); --faint:rgba(255,255,255,.34); --line:rgba(255,255,255,.13);
+  --ok:#3ddc97; --spring:cubic-bezier(.34,1.56,.64,1); --smooth:cubic-bezier(.22,1,.36,1);
+  --sans:"Adwaita Sans","Inter","Cantarell",system-ui,sans-serif; --mono:"JetBrainsMono Nerd Font","DejaVu Sans Mono",monospace;
+}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:#000;color:var(--text);font:15px/1.45 var(--sans);overflow:hidden;user-select:none;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid rgba(255,255,255,.75);outline-offset:3px;border-radius:12px}
+
+/* fond liquide */
+.liquid{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:42% 58% 63% 37%/45% 41% 59% 55%;filter:blur(80px);opacity:.5;
+  animation:drift 28s var(--smooth) infinite alternate,morph 15s ease-in-out infinite alternate}
+.b1{width:50vw;height:50vw;left:-12vw;top:-16vw;background:radial-gradient(circle at 30% 30%,#5d5d6a,#141418 70%)}
+.b2{width:40vw;height:40vw;right:-10vw;bottom:-14vw;background:radial-gradient(circle,#3c3c4a,#0b0b0e 70%);animation-duration:34s,19s}
+.b3{width:28vw;height:28vw;left:40vw;top:52vh;background:radial-gradient(circle,#8a8a99,transparent 68%);opacity:.18;animation-duration:22s,12s}
+@keyframes drift{50%{transform:translate(6vw,5vh) scale(1.08)}100%{transform:translate(-4vw,9vh) scale(.94)}}
+@keyframes morph{to{border-radius:61% 39% 36% 64%/58% 62% 38% 42%}}
+
+.glass{position:relative;isolation:isolate;
+  background:linear-gradient(140deg,rgba(255,255,255,.12),rgba(255,255,255,.035) 45%,rgba(255,255,255,.07));
+  backdrop-filter:blur(30px) saturate(170%);-webkit-backdrop-filter:blur(30px) saturate(170%);
+  border:1px solid var(--line);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 0 0 26px rgba(255,255,255,.035),0 30px 90px rgba(0,0,0,.6)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;
+  background:radial-gradient(520px circle at var(--mx,50%) var(--my,-20%),rgba(255,255,255,.12),transparent 45%)}
+
+/* carte principale */
+.stage{position:fixed;inset:0;display:grid;place-items:center;padding:4vh 4vw}
+.card{width:min(980px,100%);height:min(680px,92vh);border-radius:34px;display:grid;grid-template-rows:auto 1fr auto;overflow:hidden}
+.head{display:flex;align-items:center;gap:14px;padding:22px 28px 0}
+.head img{width:40px;height:40px;filter:drop-shadow(0 0 10px rgba(255,255,255,.35))}
+.head b{font-size:15px;letter-spacing:.3px}
+.head small{display:block;color:var(--faint);font:11px var(--mono)}
+.dots{margin-left:auto;display:flex;gap:7px}
+.dots i{width:8px;height:8px;border-radius:5px;background:rgba(255,255,255,.2);transition:width .6s var(--spring),background .4s}
+.dots i.on{width:28px;background:#fff}
+.dots i.done{background:rgba(255,255,255,.55)}
+
+.steps{position:relative;overflow:hidden}
+.step{position:absolute;inset:0;padding:24px 44px;display:flex;flex-direction:column;
+  opacity:0;pointer-events:none;transform:translateX(60px) scale(.98);filter:blur(10px);
+  transition:opacity .55s var(--smooth),transform .8s var(--spring),filter .55s var(--smooth)}
+.step.on{opacity:1;pointer-events:auto;transform:none;filter:none}
+.step.left{transform:translateX(-60px) scale(.98)}
+.step h2{font-size:34px;letter-spacing:-.6px;line-height:1.1}
+.step .sub{color:var(--muted);margin:8px 0 20px;max-width:640px}
+
+.foot{display:flex;align-items:center;gap:12px;padding:16px 28px 22px}
+.foot .hint{color:var(--faint);font:12px var(--mono)}
+.btn{height:46px;padding:0 24px;border-radius:15px;font-weight:650;
+  background:linear-gradient(140deg,rgba(255,255,255,.2),rgba(255,255,255,.07));border:1px solid rgba(255,255,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35);transition:transform .45s var(--spring),opacity .3s,background .2s}
+.btn:hover{transform:translateY(-2px)} .btn:active{transform:scale(.95)}
+.btn.pri{background:linear-gradient(140deg,#fff,#d8d8e2);color:#09090b;border-color:#fff;box-shadow:0 10px 30px rgba(255,255,255,.18)}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.ml{margin-left:auto}
+
+/* accueil */
+.welcome{align-items:center;justify-content:center;text-align:center}
+.welcome img{width:190px;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(255,255,255,.28))}
+@keyframes float{50%{transform:translateY(-10px)}}
+.hello{height:62px;margin-top:10px;position:relative;width:100%}
+.hello span{position:absolute;left:0;right:0;font-size:50px;font-weight:750;letter-spacing:-1px;opacity:0;transform:translateY(16px);filter:blur(8px);
+  transition:opacity .7s var(--smooth),transform .9s var(--spring),filter .7s}
+.hello span.on{opacity:1;transform:none;filter:none}
+.welcome .sub{margin:14px auto 0}
+
+/* listes de choix */
+.search{display:flex;align-items:center;gap:10px;height:46px;padding:0 16px;border-radius:15px;margin-bottom:14px;max-width:440px}
+.search input{flex:1;background:none;border:0;outline:0;color:var(--text);font:inherit}
+.search input::placeholder{color:var(--faint)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;overflow:auto;padding:4px 4px 10px;margin:0 -4px;
+  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.2) transparent}
+.opt{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:14px 16px;border-radius:17px;text-align:left;
+  background:rgba(255,255,255,.05);border:1px solid var(--line);transition:transform .45s var(--spring),background .25s,border-color .25s}
+.opt:hover{transform:translateY(-2px);background:rgba(255,255,255,.09)}
+.opt b{font-size:15px} .opt span{color:var(--faint);font-size:12px}
+.opt.sel{background:linear-gradient(140deg,rgba(255,255,255,.24),rgba(255,255,255,.08));border-color:rgba(255,255,255,.5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 26px rgba(0,0,0,.4)}
+.opt.sel b::after{content:"  ✓";color:var(--ok)}
+.try{margin-top:12px;display:flex;align-items:center;gap:10px;height:50px;padding:0 16px;border-radius:15px}
+.try input{flex:1;background:none;border:0;outline:0;color:var(--text);font:16px var(--mono)}
+.tzclock{margin-left:auto;text-align:right}
+.tzclock b{font-size:30px;display:block;letter-spacing:-.5px}
+.tzclock span{color:var(--faint);font-size:12px}
+.row{display:flex;align-items:flex-end;gap:16px}
+
+/* confidentialité */
+.toggles{display:grid;grid-template-columns:1fr 1fr;gap:10px;overflow:auto;padding:2px}
+.tg{display:flex;gap:14px;align-items:flex-start;padding:15px 16px;border-radius:18px;text-align:left;background:rgba(255,255,255,.05);border:1px solid var(--line);
+  transition:background .3s,border-color .3s}
+.tg.on{background:rgba(61,220,151,.07);border-color:rgba(61,220,151,.32)}
+.tg .ic{font-size:20px;line-height:1;margin-top:2px}
+.tg b{display:block;font-size:14.5px}
+.tg span{color:var(--muted);font-size:12.5px}
+.sw{margin-left:auto;flex:none;width:46px;height:28px;border-radius:14px;background:rgba(255,255,255,.18);position:relative;transition:background .3s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.4);transition:transform .5s var(--spring)}
+.tg.on .sw{background:var(--ok)} .tg.on .sw::after{transform:translateX(18px)}
+.score{display:flex;align-items:center;gap:12px;margin:-6px 0 14px;color:var(--muted);font-size:13px}
+.bar{flex:0 0 220px;height:6px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#ffd76b,var(--ok));transition:width .8s var(--spring)}
+
+/* récapitulatif */
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.sum{padding:16px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.sum span{color:var(--faint);font-size:12px} .sum b{display:block;font-size:16px;margin-top:2px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:auto}
+.choice{padding:22px;border-radius:22px;text-align:left;transition:transform .5s var(--spring),border-color .3s}
+.choice:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.35)}
+.choice:active{transform:scale(.98)}
+.choice h3{font-size:20px;margin:8px 0 4px} .choice p{color:var(--muted);font-size:13px}
+.choice .em{font-size:26px}
+
+/* application */
+.apply{position:fixed;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.4);backdrop-filter:blur(8px);
+  opacity:0;pointer-events:none;transition:opacity .5s}
+.apply.on{opacity:1;pointer-events:auto}
+.apply .glass{width:min(460px,90vw);padding:30px;border-radius:30px;text-align:center;transform:scale(.92);transition:transform .7s var(--spring)}
+.apply.on .glass{transform:none}
+.apply img{width:110px;animation:float 3s ease-in-out infinite}
+.apply h3{font-size:22px;margin:6px 0 16px}
+.tasks{text-align:left;display:grid;gap:8px}
+.task{display:flex;align-items:center;gap:10px;color:var(--faint);transition:color .3s}
+.task i{width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,.25);display:grid;place-items:center;font-style:normal;font-size:11px;flex:none}
+.task.run{color:var(--text)} .task.run i{border-color:#fff;border-right-color:transparent;animation:spin .8s linear infinite}
+.task.ok{color:var(--text)} .task.ok i{border-color:var(--ok);background:var(--ok);color:#000}
+.task.err i{border-color:#ff4d6d;background:#ff4d6d;color:#000}
+@keyframes spin{to{transform:rotate(360deg)}}
+.err-msg{color:#ff8fa3;font-size:13px;margin-top:12px;min-height:18px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="liquid"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+<div class="stage">
+  <div class="card glass" id="card">
+    <div class="head"><img src="ghost.webp" alt=""><div><b>GhostCat Setup</b><small>developed by 0x3</small></div><div class="dots" id="dots"></div></div>
+    <div class="steps" id="steps">
+
+      <section class="step welcome" data-k="welcome">
+        <img src="ghost.webp" alt="">
+        <div class="hello" id="hello"></div>
+        <p class="sub" data-t="welcome_sub"></p>
+      </section>
+
+      <section class="step" data-k="lang">
+        <h2 data-t="lang_t"></h2><p class="sub" data-t="lang_sub"></p>
+        <label class="search glass"><span>🔍</span><input id="q-lang" data-ph="search"></label>
+        <div class="grid" id="g-lang"></div>
+      </section>
+
+      <section class="step" data-k="kbd">
+        <h2 data-t="kbd_t"></h2><p class="sub" data-t="kbd_sub"></p>
+        <div class="grid" id="g-kbd" style="flex:1"></div>
+        <label class="try glass"><span>⌨️</span><input id="try" data-ph="kbd_try"></label>
+      </section>
+
+      <section class="step" data-k="tz">
+        <div class="row"><div><h2 data-t="tz_t"></h2><p class="sub" data-t="tz_sub"></p></div>
+          <div class="tzclock"><b id="tz-time">--:--</b><span id="tz-name"></span></div></div>
+        <label class="search glass"><span>🔍</span><input id="q-tz" data-ph="tz_search"></label>
+        <div class="grid" id="g-tz"></div>
+      </section>
+
+      <section class="step" data-k="privacy">
+        <h2 data-t="priv_t"></h2><p class="sub" data-t="priv_sub"></p>
+        <div class="score"><span data-t="priv_level"></span><div class="bar"><i id="score"></i></div><b id="score-l"></b></div>
+        <div class="toggles" id="g-priv"></div>
+      </section>
+
+      <section class="step" data-k="ready">
+        <h2 data-t="ready_t"></h2><p class="sub" data-t="ready_sub"></p>
+        <div class="summary" id="summary"></div>
+        <div class="choices">
+          <button class="choice glass" data-finish="try"><div class="em">👻</div><h3 data-t="try_t"></h3><p data-t="try_d"></p></button>
+          <button class="choice glass" data-finish="install"><div class="em">💾</div><h3 data-t="inst_t"></h3><p data-t="inst_d"></p></button>
+        </div>
+      </section>
+    </div>
+    <div class="foot">
+      <button class="btn" id="back" data-t="back"></button>
+      <span class="hint" id="hint"></span>
+      <button class="btn pri ml" id="next" data-t="next"></button>
+    </div>
+  </div>
+</div>
+
+<div class="apply" id="apply"><div class="glass">
+  <img src="ghost.webp" alt=""><h3 data-t="applying"></h3>
+  <div class="tasks" id="tasks"></div><div class="err-msg" id="err"></div>
+</div></div>
+
+<script>
+"use strict";
+/* ---------- textes (fr + en, l'anglais sert de repli) ---------- */
+const T = {
+  fr:{welcome_sub:"Quelques réglages et ton système est prêt. Tout reste sur ta machine.",
+      lang_t:"Ta langue",lang_sub:"Elle sera utilisée partout : menus, applications, dates.",search:"Rechercher…",
+      kbd_t:"Ton clavier",kbd_sub:"Choisis la disposition de tes touches, puis vérifie en tapant ci-dessous.",kbd_try:"Essaie ton clavier ici : azerty, @, €, é…",
+      tz_t:"Ton fuseau horaire",tz_sub:"Pour l'heure et la date. Aucune localisation n'est utilisée.",tz_search:"Ville ou région…",
+      priv_t:"Ta vie privée",priv_sub:"Tout est activé par défaut. Désactive seulement ce qui te gêne.",priv_level:"Niveau de protection",
+      ready_t:"Tout est prêt",ready_sub:"Voici tes choix. Tu pourras les modifier plus tard dans « Réglages GhostCat ».",
+      try_t:"Essayer GhostCat",try_d:"Découvre le bureau et le Hub sans rien toucher à ton disque.",
+      inst_t:"Installer GhostCat",inst_d:"Garde tes réglages et installe GhostCat sur un disque.",
+      back:"Retour",next:"Continuer",start:"Commencer",applying:"Application de tes réglages…",
+      t_lang:"Langue",t_kbd:"Clavier",t_tz:"Fuseau horaire",t_priv:"Confidentialité",t_session:"Préparation de la session",
+      lvl:["Basique","Correct","Bon","Élevé","Maximal"],fail:"Une étape a échoué. Tu peux continuer, et réessayer plus tard dans Réglages GhostCat.",
+      p:{mac:["Adresse MAC aléatoire","Les réseaux Wi-Fi ne peuvent pas suivre ton appareil d'un lieu à l'autre."],
+         dns:["DNS chiffré","Ton fournisseur d'accès ne voit plus les sites que tu demandes (Quad9 / Mullvad)."],
+         firewall:["Pare-feu","Bloque toutes les connexions entrantes non sollicitées."],
+         anon:["Appareil anonyme","Ton nom d'appareil n'est jamais envoyé au réseau, IPv6 non traçable."],
+         browser:["Navigateur blindé","Anti-pistage strict, HTTPS forcé, uBlock Origin, zéro télémétrie."],
+         traces:["Aucune trace","Ni localisation, ni historique des fichiers récents ; corbeille vidée après 7 jours."],
+         tor:["Tor au démarrage","Lance le réseau Tor (pour utiliser proxychains). Plus lent : désactivé par défaut."]}},
+  en:{welcome_sub:"A few settings and your system is ready. Everything stays on your machine.",
+      lang_t:"Your language",lang_sub:"Used everywhere: menus, apps, dates.",search:"Search…",
+      kbd_t:"Your keyboard",kbd_sub:"Pick your key layout, then check it by typing below.",kbd_try:"Try your keyboard here: qwerty, @, €…",
+      tz_t:"Your time zone",tz_sub:"For time and date. No location services are used.",tz_search:"City or region…",
+      priv_t:"Your privacy",priv_sub:"Everything is on by default. Only turn off what gets in your way.",priv_level:"Protection level",
+      ready_t:"All set",ready_sub:"Here are your choices. You can change them later in “GhostCat Settings”.",
+      try_t:"Try GhostCat",try_d:"Explore the desktop and the Hub without touching your disk.",
+      inst_t:"Install GhostCat",inst_d:"Keep your settings and install GhostCat on a disk.",
+      back:"Back",next:"Continue",start:"Get started",applying:"Applying your settings…",
+      t_lang:"Language",t_kbd:"Keyboard",t_tz:"Time zone",t_priv:"Privacy",t_session:"Preparing your session",
+      lvl:["Basic","Fair","Good","High","Maximum"],fail:"A step failed. You can continue and retry later in GhostCat Settings.",
+      p:{mac:["Random MAC address","Wi-Fi networks can't follow your device from place to place."],
+         dns:["Encrypted DNS","Your ISP no longer sees which sites you look up (Quad9 / Mullvad)."],
+         firewall:["Firewall","Blocks every unsolicited incoming connection."],
+         anon:["Anonymous device","Your device name is never sent to the network; untraceable IPv6."],
+         browser:["Hardened browser","Strict anti-tracking, HTTPS-only, uBlock Origin, zero telemetry."],
+         traces:["No traces","No location, no recent-files history; trash emptied after 7 days."],
+         tor:["Tor at startup","Starts the Tor network (for proxychains). Slower: off by default."]}},
+};
+const HELLO = ["Bienvenue","Welcome","Bienvenido","Willkommen","Benvenuto","Bem-vindo","Welkom","Witaj","Hoş geldin","Добро пожаловать","Ласкаво просимо"];
+const LANGS = [
+  ["fr_FR","Français","France"],["fr_BE","Français","Belgique"],["fr_CH","Français","Suisse"],["fr_CA","Français","Canada"],
+  ["en_US","English","United States"],["en_GB","English","United Kingdom"],["es_ES","Español","España"],["de_DE","Deutsch","Deutschland"],
+  ["de_CH","Deutsch","Schweiz"],["it_IT","Italiano","Italia"],["pt_PT","Português","Portugal"],["pt_BR","Português","Brasil"],
+  ["nl_NL","Nederlands","Nederland"],["pl_PL","Polski","Polska"],["tr_TR","Türkçe","Türkiye"],["ru_RU","Русский","Россия"],["uk_UA","Українська","Україна"]];
+const KBDS = [
+  ["fr","Français (AZERTY)","France"],["fr-bepo","Français (BÉPO)","Ergonomique"],["be","Belge (AZERTY)","Belgique"],
+  ["ch-fr","Suisse romand (QWERTZ)","Suisse"],["ca-fr","Canadien français","Canada"],["us","Anglais US (QWERTY)","United States"],
+  ["us-intl","US international","Accents par touches mortes"],["gb","Anglais UK (QWERTY)","United Kingdom"],["de","Allemand (QWERTZ)","Deutschland"],
+  ["ch-de","Suisse allemand","Schweiz"],["es","Espagnol","España"],["it","Italien","Italia"],["pt","Portugais","Portugal"],
+  ["br","Brésilien (ABNT2)","Brasil"],["nl","Néerlandais","Nederland"],["pl","Polonais","Polska"],["tr","Turc (Q)","Türkiye"],
+  ["ru","Russe","Россия"],["ua","Ukrainien","Україна"]];
+const LANG_DEFAULTS = {fr_FR:["fr","Europe/Paris"],fr_BE:["be","Europe/Brussels"],fr_CH:["ch-fr","Europe/Zurich"],fr_CA:["ca-fr","America/Toronto"],
+  en_US:["us","America/New_York"],en_GB:["gb","Europe/London"],es_ES:["es","Europe/Madrid"],de_DE:["de","Europe/Berlin"],de_CH:["ch-de","Europe/Zurich"],
+  it_IT:["it","Europe/Rome"],pt_PT:["pt","Europe/Lisbon"],pt_BR:["br","America/Sao_Paulo"],nl_NL:["nl","Europe/Amsterdam"],pl_PL:["pl","Europe/Warsaw"],
+  tr_TR:["tr","Europe/Istanbul"],ru_RU:["ru","Europe/Moscow"],uk_UA:["ua","Europe/Kyiv"]};
+const PRIV = [["mac","📡",true],["dns","🔐",true],["firewall","🛡️",true],["anon","🫥",true],["browser","🦊",true],["traces","🧹",true],["tor","🧅",false]];
+const STEPS = ["welcome","lang","kbd","tz","privacy","ready"];
+
+/* ---------- état ---------- */
+const S = {lang:"fr_FR", keymap:"fr", timezone:"Europe/Paris", privacy:Object.fromEntries(PRIV.map(p => [p[0], p[2]]))};
+let step = 0, zones = [], userPickedKbd = false, userPickedTz = false;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const tx = () => T[S.lang.slice(0,2)] || T.en;
+
+/* ---------- pont vers l'app ---------- */
+const bridge = window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.ghostcat;
+function send(m){ if (bridge) bridge.postMessage(JSON.stringify(m)); }
+window.ghostcatReply = m => {
+  if (m.type === "init") {
+    zones = m.zones || zones;
+    if (m.current) Object.assign(S, Object.fromEntries(Object.entries(m.current).filter(([k,v]) => v != null && k in S)));
+    renderAll();
+  }
+  if (m.type === "progress") setTask(m.task, m.state);
+  if (m.type === "done") finished(m.ok);
+};
+
+/* ---------- rendu ---------- */
+function i18n(){
+  const t = tx();
+  document.documentElement.lang = S.lang.slice(0,2);
+  document.querySelectorAll("[data-t]").forEach(e => e.textContent = t[e.dataset.t] ?? T.en[e.dataset.t] ?? "");
+  document.querySelectorAll("[data-ph]").forEach(e => e.placeholder = t[e.dataset.ph] ?? "");
+  $("#next").textContent = step === 0 ? t.start : t.next;
+}
+function opts(el, list, cur, attr, filter=""){
+  const f = filter.toLowerCase();
+  el.innerHTML = list.filter(o => (o[1]+" "+o[2]+" "+o[0]).toLowerCase().includes(f))
+    .map(o => `<button class="opt ${o[0]===cur?"sel":""}" data-${attr}="${esc(o[0])}"><b>${esc(o[1])}</b><span>${esc(o[2])}</span></button>`).join("");
+}
+function zoneList(){
+  const list = (zones.length ? zones : Object.values(LANG_DEFAULTS).map(d => d[1]));
+  return [...new Set(list)].filter(z => z.includes("/")).map(z => { const [r,...c] = z.split("/"); return [z, c.join(" / ").replace(/_/g," "), r]; });
+}
+function renderPrivacy(){
+  const t = tx();
+  $("#g-priv").innerHTML = PRIV.map(([k, ic]) => `<button class="tg ${S.privacy[k]?"on":""}" data-priv="${k}" role="switch" aria-checked="${S.privacy[k]}">
+    <span class="ic">${ic}</span><div><b>${esc(t.p[k][0])}</b><span>${esc(t.p[k][1])}</span></div><span class="sw"></span></button>`).join("");
+  const n = PRIV.filter(([k]) => k !== "tor" && S.privacy[k]).length, pct = Math.round(n*100/6);
+  $("#score").style.width = pct + "%";
+  $("#score-l").textContent = t.lvl[Math.min(4, Math.floor(n*4/6))];
+}
+function renderSummary(){
+  const t = tx(), L = LANGS.find(l => l[0]===S.lang), K = KBDS.find(k => k[0]===S.keymap);
+  const on = PRIV.filter(([k]) => S.privacy[k]).length;
+  $("#summary").innerHTML = [[t.t_lang, L ? `${L[1]} (${L[2]})` : S.lang],[t.t_kbd, K ? K[1] : S.keymap],[t.t_tz, S.timezone.replace(/_/g," ")],
+    [t.t_priv, `${on}/${PRIV.length} · ${$("#score-l").textContent}`]].slice(0,3).map(([a,b]) => `<div class="sum"><span>${esc(a)}</span><b>${esc(b)}</b></div>`).join("");
+}
+function tzClock(){
+  try {
+    $("#tz-time").textContent = new Date().toLocaleTimeString(S.lang.replace("_","-"), {hour:"2-digit",minute:"2-digit",timeZone:S.timezone});
+    $("#tz-name").textContent = S.timezone.replace(/_/g," ");
+  } catch(e) { $("#tz-time").textContent = "--:--"; }
+}
+function renderAll(){
+  i18n();
+  opts($("#g-lang"), LANGS, S.lang, "lang", $("#q-lang").value);
+  opts($("#g-kbd"), KBDS, S.keymap, "kbd");
+  opts($("#g-tz"), zoneList(), S.timezone, "tz", $("#q-tz").value);
+  renderPrivacy(); renderSummary(); tzClock();
+}
+
+/* ---------- navigation ---------- */
+function dots(){ $("#dots").innerHTML = STEPS.map((_,i) => `<i class="${i===step?"on":i<step?"done":""}"></i>`).join(""); }
+function go(n){
+  if (n < 0 || n >= STEPS.length) return;
+  const secs = document.querySelectorAll(".step");
+  secs.forEach((s,i) => { s.classList.toggle("on", i===n); s.classList.toggle("left", i<n); });
+  step = n; dots(); i18n(); renderSummary();
+  $("#back").style.visibility = n === 0 ? "hidden" : "visible";
+  $("#next").style.display = n === STEPS.length-1 ? "none" : "";
+  $("#hint").textContent = n === 0 ? "" : `${n} / ${STEPS.length-1}`;
+  const sel = secs[n].querySelector(".opt.sel"); if (sel) sel.scrollIntoView({block:"nearest"});
+  const inp = secs[n].querySelector("input"); if (inp && n !== 2) setTimeout(() => inp.focus(), 350);
+}
+$("#next").onclick = () => go(step + 1);
+$("#back").onclick = () => go(step - 1);
+document.addEventListener("keydown", e => {
+  if ($("#apply").classList.contains("on")) return;
+  if (e.key === "Enter" && step < STEPS.length-1 && !(e.target.id === "try")) { e.preventDefault(); go(step + 1); }
+  if (e.key === "Escape") go(step - 1);
+});
+
+/* ---------- choix ---------- */
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-lang],[data-kbd],[data-tz],[data-priv],[data-finish]"); if (!b) return;
+  if (b.dataset.lang) { S.lang = b.dataset.lang; const d = LANG_DEFAULTS[S.lang];
+    if (d) { if (!userPickedKbd) S.keymap = d[0]; if (!userPickedTz) S.timezone = d[1]; }
+    send({action:"kbd_preview", keymap:S.keymap}); renderAll(); }
+  if (b.dataset.kbd)  { S.keymap = b.dataset.kbd; userPickedKbd = true; send({action:"kbd_preview", keymap:S.keymap}); renderAll(); $("#try").focus(); }
+  if (b.dataset.tz)   { S.timezone = b.dataset.tz; userPickedTz = true; renderAll(); }
+  if (b.dataset.priv) { S.privacy[b.dataset.priv] = !S.privacy[b.dataset.priv]; renderPrivacy(); }
+  if (b.dataset.finish) startApply(b.dataset.finish);
+});
+$("#q-lang").addEventListener("input", e => opts($("#g-lang"), LANGS, S.lang, "lang", e.target.value));
+$("#q-tz").addEventListener("input", e => opts($("#g-tz"), zoneList(), S.timezone, "tz", e.target.value));
+
+/* ---------- application ---------- */
+const TASKS = ["t_lang","t_kbd","t_tz","t_priv","t_session"];
+function startApply(mode){
+  const t = tx();
+  $("#tasks").innerHTML = TASKS.map(k => `<div class="task" id="task-${k}"><i></i>${esc(t[k])}</div>`).join("");
+  $("#err").textContent = ""; $("#apply").classList.add("on");
+  if (bridge) send({action:"apply", mode, settings:S});
+  else { let i = 0; const tick = () => { if (i>0) setTask(TASKS[i-1],"ok"); if (i<TASKS.length) { setTask(TASKS[i],"run"); i++; setTimeout(tick, 650); } else finished(true); }; tick(); }
+}
+function setTask(k, state){
+  const el = document.getElementById("task-"+k); if (!el) return;
+  el.className = "task " + state; el.querySelector("i").textContent = state === "ok" ? "✓" : state === "err" ? "!" : "";
+}
+function finished(ok){ if (!ok) $("#err").textContent = tx().fail; }
+
+/* ---------- animations ---------- */
+let h = 0;
+$("#hello").innerHTML = HELLO.map(w => `<span>${esc(w)}</span>`).join("");
+function hello(){ const s = $("#hello").children; [...s].forEach((e,i) => e.classList.toggle("on", i===h)); h = (h+1) % s.length; }
+hello(); setInterval(hello, 1900);
+setInterval(tzClock, 15000);
+document.addEventListener("pointermove", e => {
+  const g = $("#card"), r = g.getBoundingClientRect();
+  g.style.setProperty("--mx", (e.clientX-r.left)+"px"); g.style.setProperty("--my", (e.clientY-r.top)+"px");
+}, {passive:true});
+
+renderAll(); go(0); send({action:"init"});
+</script>
+</body>
+</html>

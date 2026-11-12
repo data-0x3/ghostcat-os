@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# GhostCat OS — enchaînement à l'ouverture de session (developed by 0x3)
+#   1er démarrage  -> GhostCat Setup (langue, clavier, fuseau, vie privée)
+#   "Installer"    -> terminal avec ghostcat-install
+#   sinon          -> GhostCat Hub (bienvenue, une seule fois)
+C="$HOME/.config/ghostcat"
+if [[ ! -f $C/setup-done ]]; then
+  exec /usr/local/bin/ghostcat-setup
+fi
+if [[ -f $C/launch-install ]]; then
+  rm -f "$C/launch-install"
+  exec gnome-terminal --title "Installation de GhostCat" -- bash -lc 'ghostcat-install; exec bash'
+fi
+exec /usr/local/bin/ghostcat-hub --welcome

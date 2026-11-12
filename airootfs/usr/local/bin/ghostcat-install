@@ -77,9 +77,13 @@ mkdir -p "$T/usr/share/gnome-shell/extensions" "$T/opt"
 cp -a /usr/share/gnome-shell/extensions/. "$T/usr/share/gnome-shell/extensions/" 2>/dev/null || true
 cp -a /usr/share/icons/hicolor/. "$T/usr/share/icons/hicolor/"
 cp -a /opt/ghostcat-hub "$T/opt/"
-cp /usr/local/bin/ghostcat-hub "$T/usr/local/bin/"
-cp /usr/share/applications/ghostcat-hub.desktop "$T/usr/share/applications/"
-mkdir -p "$T/etc/xdg/autostart" && cp /etc/xdg/autostart/ghostcat-hub-welcome.desktop "$T/etc/xdg/autostart/"
+cp /usr/local/bin/ghostcat-hub /usr/local/bin/ghostcat-setup /usr/local/bin/ghostcat-session-start "$T/usr/local/bin/"
+cp -a /opt/ghostcat-setup "$T/opt/"
+mkdir -p "$T/usr/local/lib" "$T/usr/share/ghostcat" "$T/etc/xdg/autostart"
+cp -a /usr/local/lib/ghostcat "$T/usr/local/lib/"
+cp -a /usr/share/ghostcat/privacy /usr/share/ghostcat/start "$T/usr/share/ghostcat/"
+cp /usr/share/applications/ghostcat-hub.desktop /usr/share/applications/ghostcat-setup.desktop "$T/usr/share/applications/"
+cp /etc/xdg/autostart/ghostcat-session-start.desktop "$T/etc/xdg/autostart/"
 mkdir -p "$T/etc/plymouth" "$T/etc/dconf"
 cp /etc/plymouth/plymouthd.conf "$T/etc/plymouth/"
 cp -a /etc/dconf/profile /etc/dconf/db "$T/etc/dconf/"
@@ -92,6 +96,30 @@ for h in "$T"/home/*/; do
   # capture réseau et docker sans sudo
   for g in wireshark docker; do arch-chroot "$T" gpasswd -a "$u" "$g" >/dev/null 2>&1 || true; done
 done
+
+# --- tes choix de GhostCat Setup (langue, clavier, fuseau, vie privée) --------
+say "réglages GhostCat Setup"
+mkdir -p "$T/etc/NetworkManager/conf.d"
+cp /etc/NetworkManager/conf.d/80-ghostcat-dns.conf "$T/etc/NetworkManager/conf.d/"
+SETUP=/etc/ghostcat/setup.json
+[[ -f $SETUP ]] || echo '{"mac":true,"anon":true,"dns":true,"firewall":true,"browser":true,"tor":false}' > /tmp/ghostcat-default.json
+python3 - "${SETUP}" <<'PY' | GHOSTCAT_ROOT="$T" GHOSTCAT_DRYRUN=1 /usr/local/lib/ghostcat/setup-apply >/dev/null
+import json, sys, os
+path = sys.argv[1] if os.path.exists(sys.argv[1]) else "/tmp/ghostcat-default.json"
+s = json.load(open(path))
+keys = ("mac", "anon", "dns", "browser", "firewall", "tor")
+print(json.dumps({**{k: s[k] for k in ("lang", "keymap", "timezone") if k in s},
+                  "privacy": {k: bool(s.get(k, k != "tor")) for k in keys}}))
+PY
+ln -sf /run/systemd/resolve/stub-resolv.conf "$T/etc/resolv.conf"
+arch-chroot "$T" systemctl enable systemd-resolved
+if python3 -c "import json,sys; sys.exit(0 if json.load(open('$T/etc/ghostcat/setup.json')).get('firewall', True) else 1)"; then
+  sed -i 's/^ENABLED=.*/ENABLED=yes/' "$T/etc/ufw/ufw.conf" 2>/dev/null || true
+  arch-chroot "$T" systemctl enable ufw
+fi
+if python3 -c "import json,sys; sys.exit(0 if json.load(open('$T/etc/ghostcat/setup.json')).get('tor') else 1)"; then
+  arch-chroot "$T" systemctl enable tor
+fi
 
 # --- Plymouth + services ---------------------------------------------------
 say "écran de démarrage Plymouth"

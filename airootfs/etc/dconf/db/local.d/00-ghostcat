@@ -1,7 +1,7 @@
 # GhostCat OS — réglages GNOME par défaut — developed by 0x3
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
-gtk-theme='Adwaita-dark'
+gtk-theme='adw-gtk3-dark'
 icon-theme='Papirus-Dark'
 accent-color='slate'
 monospace-font-name='JetBrainsMono Nerd Font 11'
@@ -16,6 +16,8 @@ picture-options='zoom'
 primary-color='#000000'
 
 [org/gnome/desktop/screensaver]
+lock-enabled=true
+lock-delay=uint32 0
 picture-uri='file:///usr/share/backgrounds/ghostcat/ghostcat-dark.png'
 primary-color='#000000'
 
@@ -26,6 +28,8 @@ button-layout='appmenu:minimize,maximize,close'
 favorite-apps=['ghostcat-hub.desktop','org.gnome.Console.desktop','firefox.desktop','org.gnome.Nautilus.desktop','code-oss.desktop','org.wireshark.Wireshark.desktop']
 enabled-extensions=['blur-my-shell@aunetx','dash-to-dock@micxgx.gmail.com']
 disable-user-extensions=false
+# l'assistant GhostCat Setup remplace la visite de bienvenue de GNOME
+welcome-dialog-last-shown-version='999'
 
 # --- effet verre : flou derrière le panneau, la vue d'ensemble et le dock
 [org/gnome/shell/extensions/blur-my-shell/panel]
@@ -56,3 +60,35 @@ theme='night'
 
 [org/gnome/terminal/legacy]
 theme-variant='dark'
+
+# --- vie privée ---
+[org/gnome/system/location]
+enabled=false
+
+[org/gnome/desktop/privacy]
+remember-recent-files=false
+recent-files-max-age=1
+remove-old-temp-files=true
+remove-old-trash-files=true
+old-files-age=uint32 7
+report-technical-problems=false
+send-software-usage-stats=false
+remember-app-usage=false
+hide-identity=true
+show-full-name-in-top-bar=false
+
+[org/gnome/desktop/search-providers]
+disable-external=true
+
+[org/gnome/desktop/notifications]
+show-in-lock-screen=false
+
+[org/gnome/desktop/session]
+idle-delay=uint32 300
+
+[org/gnome/online-accounts]
+whitelisted-providers=['']
+
+[org/gnome/software]
+allow-updates=false
+download-updates=false

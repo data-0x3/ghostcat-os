@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=GhostCat (démarrage de session)
+Exec=/usr/local/bin/ghostcat-session-start
+Icon=ghostcat-hub
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Phase=Applications

@@ -158,3 +158,8 @@ ddrescue
 perl-image-exiftool
 lnav
 trivy
+
+### Langues, thème, confidentialité
+glibc-locales
+noto-fonts
+adw-gtk-theme

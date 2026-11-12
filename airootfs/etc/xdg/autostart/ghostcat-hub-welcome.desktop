@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=GhostCat Hub (bienvenue)
-Exec=ghostcat-hub --welcome
-Icon=ghostcat-hub
-NoDisplay=true
-X-GNOME-Autostart-enabled=true
