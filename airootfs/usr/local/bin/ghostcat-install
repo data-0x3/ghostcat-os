@@ -98,6 +98,7 @@ for e in "$T"/boot/loader/entries/*.conf; do                  # systemd-boot
 done
 arch-chroot "$T" mkinitcpio -P
 arch-chroot "$T" systemctl enable gdm NetworkManager
+arch-chroot "$T" systemctl set-default graphical.target
 
 say "nettoyage"
 sync; umount -R "$T" 2>/dev/null || true
