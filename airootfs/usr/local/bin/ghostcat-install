@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+# GhostCat OS — installeur — developed by 0x3 · https://t.me/data0x3
+#
+# 1. lance archinstall (partitions, utilisateur, langue, bootloader)
+# 2. transforme l'Arch installé en GhostCat OS complet :
+#    tous les paquets, BlackArch, branding, Plymouth, réglages GNOME.
+set -euo pipefail
+
+W='\e[1;37m'; G='\e[90m'; R='\e[1;31m'; N='\e[0m'
+say()  { printf "${W}[ghostcat]${N} %s\n" "$*"; }
+die()  { printf "${R}[ghostcat] %s${N}\n" "$*" >&2; exit 1; }
+[[ $EUID -eq 0 ]] || exec sudo "$0" "$@"
+
+PKGS=/usr/share/ghostcat/packages.txt
+T=/mnt/ghostcat
+
+cat <<'EOF'
+
+          /\_/\       GHOSTCAT OS — installation
+         ( o.o )      developed by 0x3
+          \~~~/
+
+EOF
+printf "${G}Étape 1 : archinstall. Choisis le profil « Desktop → GNOME »,\n"
+printf "crée ton utilisateur, et à la fin réponds NON au chroot.${N}\n\n"
+read -rp "Entrée pour lancer archinstall…"
+archinstall || die "archinstall a échoué ou a été annulé"
+
+# --- monter le système installé -------------------------------------------
+if mountpoint -q /mnt/archinstall 2>/dev/null; then
+  T=/mnt/archinstall
+else
+  echo; lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINTS -e7
+  read -rp $'\nPartition racine du système installé (ex : nvme0n1p2) : ' P
+  [[ -b /dev/$P ]] || die "/dev/$P introuvable"
+  mkdir -p "$T"; mount "/dev/$P" "$T"
+  if [[ -d $T/@ && ! -d $T/etc ]]; then          # btrfs façon archinstall
+    umount "$T"; mount -o subvol=@ "/dev/$P" "$T"
+  fi
+  [[ -f $T/etc/fstab ]] || die "pas de système Arch sur /dev/$P"
+  # monter /boot, /home… d'après le fstab de la cible
+  findmnt --fstab --tab-file "$T/etc/fstab" --evaluate -rn \
+      -o SOURCE,TARGET,FSTYPE,OPTIONS |
+  while read -r src tgt fs opt; do
+    [[ $tgt == / || $fs == swap || $tgt == none ]] && continue
+    mkdir -p "$T$tgt"; mountpoint -q "$T$tgt" || mount -t "$fs" -o "$opt" "$src" "$T$tgt"
+  done
+fi
+say "système cible : $T"
+
+# --- dépôts + paquets ------------------------------------------------------
+say "dépôt BlackArch + clé"
+cp /etc/pacman.conf "$T/etc/pacman.conf"
+pacman --root "$T" --config /etc/pacman.conf --noconfirm -Sy --needed blackarch-keyring
+arch-chroot "$T" pacman-key --populate blackarch
+
+say "installation de la panoplie GhostCat (long, c'est normal)"
+grep -vE '^(mkinitcpio-archiso|arch-install-scripts|archinstall)$' "$PKGS" \
+  | arch-chroot "$T" pacman -S --needed --noconfirm -
+
+# --- branding --------------------------------------------------------------
+say "branding"
+cp /etc/os-release /etc/motd "$T/etc/"
+cp -a /etc/skel/. "$T/etc/skel/"
+cp -a /usr/share/backgrounds/ghostcat "$T/usr/share/backgrounds/"
+cp -a /usr/share/plymouth/themes/ghostcat "$T/usr/share/plymouth/themes/"
+cp /usr/share/pixmaps/ghostcat.png "$T/usr/share/pixmaps/"
+mkdir -p "$T/usr/share/gnome-shell/extensions" "$T/opt"
+cp -a /usr/share/gnome-shell/extensions/. "$T/usr/share/gnome-shell/extensions/" 2>/dev/null || true
+cp -a /usr/share/icons/hicolor/. "$T/usr/share/icons/hicolor/"
+cp -a /opt/ghostcat-hub "$T/opt/"
+cp /usr/local/bin/ghostcat-hub "$T/usr/local/bin/"
+cp /usr/share/applications/ghostcat-hub.desktop "$T/usr/share/applications/"
+mkdir -p "$T/etc/xdg/autostart" && cp /etc/xdg/autostart/ghostcat-hub-welcome.desktop "$T/etc/xdg/autostart/"
+mkdir -p "$T/etc/plymouth" "$T/etc/dconf"
+cp /etc/plymouth/plymouthd.conf "$T/etc/plymouth/"
+cp -a /etc/dconf/profile /etc/dconf/db "$T/etc/dconf/"
+arch-chroot "$T" dconf update
+# config shell/fastfetch aux utilisateurs déjà créés
+for h in "$T"/home/*/; do
+  u=$(basename "$h"); id_line=$(grep "^$u:" "$T/etc/passwd") || continue
+  uid=$(cut -d: -f3 <<<"$id_line"); gid=$(cut -d: -f4 <<<"$id_line")
+  cp -a /etc/skel/. "$h"; chown -R "$uid:$gid" "$h"
+  # capture réseau et docker sans sudo
+  for g in wireshark docker; do arch-chroot "$T" gpasswd -a "$u" "$g" >/dev/null 2>&1 || true; done
+done
+
+# --- Plymouth + services ---------------------------------------------------
+say "écran de démarrage Plymouth"
+sed -i -E '/^HOOKS=/ { /plymouth/! s/\b(udev|systemd)\b/\1 plymouth/ }' "$T/etc/mkinitcpio.conf"
+if [[ -f $T/etc/default/grub ]] && grep -q '^GRUB_CMDLINE_LINUX_DEFAULT=' "$T/etc/default/grub"; then
+  sed -i -E '/^GRUB_CMDLINE_LINUX_DEFAULT=/ { /splash/! s/"$/ quiet splash"/ }' "$T/etc/default/grub"
+  sed -i -E 's/^#?GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="GhostCat OS"/' "$T/etc/default/grub"
+  arch-chroot "$T" grub-mkconfig -o /boot/grub/grub.cfg
+fi
+for e in "$T"/boot/loader/entries/*.conf; do                  # systemd-boot
+  [[ -f $e ]] && sed -i -E '/^options/ { /splash/! s/$/ quiet splash/ }; s/^title.*/title   GhostCat OS/' "$e"
+done
+arch-chroot "$T" mkinitcpio -P
+arch-chroot "$T" systemctl enable gdm NetworkManager
+
+say "nettoyage"
+sync; umount -R "$T" 2>/dev/null || true
+
+printf "\n${W}  GhostCat OS est installé. Retire la clé et redémarre 👻${N}\n\n"

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# GhostCat OS — préparation de la session live (au boot)
+dconf update
+chown -R ghost:ghost /home/ghost
+pacman-key --populate blackarch >/dev/null 2>&1 || true

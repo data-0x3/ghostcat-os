@@ -1,0 +1,12 @@
+[Unit]
+Description=GhostCat OS live session setup
+Before=display-manager.service
+After=pacman-init.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ghostcat-live-setup
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

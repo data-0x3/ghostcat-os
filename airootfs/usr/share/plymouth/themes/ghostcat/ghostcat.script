@@ -1,0 +1,59 @@
+# GhostCat OS — Plymouth — logo animé (120 images) — developed by 0x3
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
+
+W = Window.GetWidth(); H = Window.GetHeight();
+NFRAMES = 120;
+
+for (i = 0; i < NFRAMES; i++) {
+  if (i < 10)       name = "ghost-00" + i + ".png";
+  else if (i < 100) name = "ghost-0"  + i + ".png";
+  else              name = "ghost-"   + i + ".png";
+  frames[i] = Image(name);
+}
+FW = frames[0].GetWidth(); FH = frames[0].GetHeight();
+
+ghost = Sprite(frames[0]);
+ghost.SetX(W / 2 - FW / 2);
+ghost.SetY(H / 2 - FH / 2 - 30);
+ghost.SetZ(1);
+
+# barre de progression fine
+bar_w = 200; bar_y = H / 2 + FH / 2 + 4;
+bg.sprite = Sprite(Image("bar_bg.png").Scale(bar_w, 2));
+bg.sprite.SetPosition(W / 2 - bar_w / 2, bar_y, 1);
+fg.raw = Image("bar.png");
+fg.sprite = Sprite();
+fg.sprite.SetPosition(W / 2 - bar_w / 2, bar_y, 2);
+
+tick = 0; fade = 0;
+fun refresh_cb() {
+  tick++;
+  ghost.SetImage(frames[Math.Int(tick / 2) % NFRAMES]);   # ~25 i/s
+  if (fade < 1) { fade += 0.04; ghost.SetOpacity(fade); }  # apparition douce
+}
+Plymouth.SetRefreshFunction(refresh_cb);
+
+fun progress_cb(duration, progress) {
+  w = Math.Int(bar_w * progress); if (w < 1) w = 1;
+  fg.sprite.SetImage(fg.raw.Scale(w, 2));
+}
+Plymouth.SetBootProgressFunction(progress_cb);
+
+# mot de passe (disque chiffré)
+fun password_cb(prompt, bullets) {
+  s = ""; for (i = 0; i < bullets; i++) s += "•";
+  pw.image  = Image.Text(prompt + "  " + s, 1, 1, 1);
+  pw.sprite = Sprite(pw.image);
+  pw.sprite.SetPosition(W / 2 - pw.image.GetWidth() / 2, bar_y + 30, 3);
+}
+Plymouth.SetDisplayPasswordFunction(password_cb);
+fun normal_cb() { pw.sprite = NULL; }
+Plymouth.SetDisplayNormalFunction(normal_cb);
+
+fun message_cb(text) {
+  msg.image  = Image.Text(text, 0.5, 0.5, 0.5);
+  msg.sprite = Sprite(msg.image);
+  msg.sprite.SetPosition(W / 2 - msg.image.GetWidth() / 2, H - 60, 3);
+}
+Plymouth.SetMessageFunction(message_cb);

@@ -1,0 +1,126 @@
+# GhostCat OS — construit l'ISO dans le cloud et la publie en Release
+# developed by 0x3 · https://t.me/data0x3
+#
+# Déclenchement :
+#   - onglet "Actions" > "Build GhostCat ISO" > "Run workflow"  (bouton)
+#   - ou en poussant un tag :  git tag v2026.11 && git push --tags
+name: Build GhostCat ISO
+
+on:
+  workflow_dispatch:
+    inputs:
+      edition:
+        description: "Édition (lite = < 2 Go, full = tout dans l'ISO)"
+        type: choice
+        options: [lite, full]
+        default: lite
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-iso
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      EDITION: ${{ github.event.inputs.edition || 'lite' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Libérer de l'espace disque
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+                      /opt/hostedtoolcache /usr/local/share/boost /usr/share/swift
+          sudo docker image prune -af >/dev/null
+          df -h /
+
+      - name: Construire l'ISO dans un conteneur Arch Linux
+        run: |
+          sudo docker run --rm --privileged \
+            -v "$PWD:/build" -w /build \
+            -e EDITION="$EDITION" \
+            archlinux:latest bash -euo pipefail -c '
+              pacman-key --init && pacman-key --populate archlinux
+              pacman -Syu --noconfirm --needed archiso curl git libarchive glib2
+              curl -fsSLO https://blackarch.org/strap.sh
+              chmod +x strap.sh && ./strap.sh
+              rm -f strap.sh
+              WORK=/tmp/ghostcat-work OUT=/build/out ./build.sh
+              chown -R '"$(id -u):$(id -g)"' /build/out /build/packages.missing 2>/dev/null || true
+            '
+
+      - name: Somme de contrôle et découpage si > 2 Go
+        id: iso
+        run: |
+          cd out
+          ISO="$(ls -1 ghostcat-*.iso | head -1)"
+          sha256sum "$ISO" > "$ISO.sha256"
+          SIZE=$(stat -c %s "$ISO")
+          echo "name=$ISO" >> "$GITHUB_OUTPUT"
+          echo "size=$(numfmt --to=iec "$SIZE")" >> "$GITHUB_OUTPUT"
+          if (( SIZE > 2000000000 )); then
+            split -b 1900M -d "$ISO" "$ISO.part"
+            rm "$ISO"
+            echo "split=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "split=no" >> "$GITHUB_OUTPUT"
+          fi
+          ls -lh
+
+      - name: Notes de version
+        run: |
+          ISO="${{ steps.iso.outputs.name }}"
+          {
+            echo "## 👻 GhostCat OS — édition $EDITION"
+            echo
+            echo "Distribution cybersécurité basée sur Arch Linux — **developed by 0x3** · https://t.me/data0x3"
+            echo
+            echo "Taille de l'ISO : **${{ steps.iso.outputs.size }}**"
+            echo
+            if [ "${{ steps.iso.outputs.split }}" = yes ]; then
+              echo "### ⚠ L'ISO est en plusieurs morceaux (limite GitHub de 2 Go)"
+              echo "Télécharge **tous** les fichiers \`.part\`, puis recolle-les :"
+              echo
+              echo "- **Windows** (invite de commandes, dans le dossier Téléchargements) :"
+              echo "  \`copy /b $ISO.part00 + $ISO.part01 $ISO\`  (ajoute + $ISO.part02 s'il existe)"
+              echo "- **Linux** : \`cat $ISO.part* > $ISO\`"
+              echo
+            fi
+            echo "### Installation"
+            echo "1. **Rufus** : choisis la clé USB et l'ISO, schéma **GPT**, puis mode **Image DD**."
+            echo "2. Redémarre et choisis la clé dans le menu de boot (F12 / F8 / F11 / Échap). Désactive le Secure Boot si besoin."
+            echo "3. Le bureau live s'ouvre. Dans un terminal, lance \`ghostcat-install\`."
+            echo "4. archinstall : profil **Desktop → GNOME**, ton disque (interne ou externe), ton utilisateur. Réponds **non** au chroot final."
+            echo "5. GhostCat installe tout le reste (outils, Hub, thème). Redémarre, c'est prêt."
+            echo
+            if [ "$EDITION" = lite ]; then
+              echo "> Édition **lite** : les outils les plus lourds (Ghidra, Metasploit, Burp, LibreOffice…) ne sont pas dans le live,"
+              echo "> mais \`ghostcat-install\` les installe sur le disque. Une connexion Internet est nécessaire pendant l'installation."
+              echo
+            fi
+            echo "Vérifier l'ISO : \`sha256sum -c $ISO.sha256\` (Linux) ou \`certutil -hashfile $ISO SHA256\` (Windows)."
+            if [ -s packages.missing ]; then
+              echo
+              echo "<details><summary>Paquets introuvables lors de ce build (installables depuis le Hub)</summary>"
+              echo; sed 's/^/- /' packages.missing; echo; echo "</details>"
+            fi
+          } > release-notes.md
+          cat release-notes.md
+
+      - name: Publier la Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('build-{0}', github.run_number) }}
+          name: GhostCat OS ${{ env.EDITION }} — ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('build {0}', github.run_number) }}
+          body_path: release-notes.md
+          files: |
+            out/ghostcat-*.iso
+            out/ghostcat-*.iso.part*
+            out/ghostcat-*.iso.sha256
+          fail_on_unmatched_files: false

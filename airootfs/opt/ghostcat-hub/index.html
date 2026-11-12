@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GhostCat Hub</title>
+<script src="tools.js"></script>
+<style>
+:root{
+  --bg:#000; --text:#f2f2f6; --muted:rgba(255,255,255,.56); --faint:rgba(255,255,255,.32);
+  --line:rgba(255,255,255,.12); --glass:rgba(255,255,255,.07);
+  --red:#ff4d6d; --blue:#4d8dff; --purple:#b26bff; --system:#e8e8f0; --ok:#3ddc97;
+  --accent:#e8e8f0;
+  --spring:cubic-bezier(.34,1.56,.64,1); --smooth:cubic-bezier(.22,1,.36,1);
+  --sans:"Adwaita Sans","Inter","Cantarell",system-ui,sans-serif;
+  --mono:"JetBrainsMono Nerd Font","JetBrains Mono","DejaVu Sans Mono",monospace;
+}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font:14px/1.45 var(--sans);overflow:hidden;
+  -webkit-font-smoothing:antialiased;user-select:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid rgba(255,255,255,.7);outline-offset:2px;border-radius:10px}
+
+/* ---------- fond liquide ---------- */
+.liquid{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.blob{position:absolute;border-radius:42% 58% 63% 37%/45% 41% 59% 55%;filter:blur(70px);opacity:.55;
+  animation:drift 26s var(--smooth) infinite alternate, morph 14s ease-in-out infinite alternate}
+.b1{width:46vw;height:46vw;left:-8vw;top:-12vw;background:radial-gradient(circle at 30% 30%,#5a5a66,#1a1a20 70%)}
+.b2{width:38vw;height:38vw;right:-6vw;top:20vh;background:radial-gradient(circle at 60% 40%,#3a3a44,#0d0d10 70%);animation-duration:32s,18s}
+.b3{width:34vw;height:34vw;left:30vw;bottom:-14vw;background:radial-gradient(circle,var(--accent),transparent 68%);
+  opacity:.22;transition:background 1.2s var(--smooth);animation-duration:22s,11s}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(6vw,4vh) scale(1.08)}100%{transform:translate(-4vw,8vh) scale(.95)}}
+@keyframes morph{0%{border-radius:42% 58% 63% 37%/45% 41% 59% 55%}100%{border-radius:61% 39% 36% 64%/58% 62% 38% 42%}}
+
+/* ---------- verre ---------- */
+.glass{position:relative;isolation:isolate;
+  background:linear-gradient(140deg,rgba(255,255,255,.11),rgba(255,255,255,.03) 45%,rgba(255,255,255,.06));
+  backdrop-filter:blur(26px) saturate(170%);-webkit-backdrop-filter:blur(26px) saturate(170%);
+  border:1px solid var(--line);border-radius:22px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -1px 0 rgba(255,255,255,.04),
+             inset 0 0 22px rgba(255,255,255,.035),0 18px 50px rgba(0,0,0,.5)}
+/* reflet qui suit la souris */
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,-20%),rgba(255,255,255,.13),transparent 45%);
+  opacity:0;transition:opacity .35s}
+.glass:hover::before{opacity:1}
+/* bord réfractant */
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(160deg,rgba(255,255,255,.55),rgba(255,255,255,0) 30%,rgba(255,255,255,0) 70%,rgba(255,255,255,.22));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+
+/* ---------- structure ---------- */
+.app{position:relative;z-index:2;display:grid;grid-template-columns:248px 1fr;height:100vh;gap:16px;padding:16px}
+aside{display:flex;flex-direction:column;padding:18px 14px;border-radius:28px}
+.brand{display:flex;align-items:center;gap:10px;padding:2px 6px 18px}
+.brand img{width:46px;height:46px;filter:drop-shadow(0 0 12px rgba(255,255,255,.35))}
+.brand b{display:block;font-size:15px;letter-spacing:.3px}
+.brand small{color:var(--faint);font:11px var(--mono)}
+nav{position:relative;display:flex;flex-direction:column;gap:2px}
+.pill{position:absolute;left:0;right:0;height:42px;border-radius:14px;z-index:0;
+  background:linear-gradient(140deg,rgba(255,255,255,.16),rgba(255,255,255,.05));
+  border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 6px 20px rgba(0,0,0,.35);
+  transition:transform .55s var(--spring),height .3s}
+.nav-i{position:relative;z-index:1;display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;border-radius:14px;
+  color:var(--muted);text-align:left;transition:color .25s}
+.nav-i:hover{color:var(--text)}
+.nav-i.on{color:var(--text)}
+.dot{width:9px;height:9px;border-radius:50%;flex:none;box-shadow:0 0 10px currentColor}
+.nav-i .n{margin-left:auto;font:11px var(--mono);color:var(--faint)}
+.nav-sep{height:1px;background:var(--line);margin:12px 8px}
+.side-foot{margin-top:auto;padding:12px 8px 0;color:var(--faint);font:11px var(--mono);line-height:1.7}
+.side-foot a{color:var(--muted);text-decoration:none}
+
+main{position:relative;overflow:hidden;border-radius:28px;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:14px;padding:18px 22px 12px}
+.top h1{font-size:24px;font-weight:700;letter-spacing:-.3px}
+.top h1 span{color:var(--accent);transition:color .6s}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;width:min(360px,40vw);height:40px;padding:0 14px;border-radius:14px}
+.search input{flex:1;background:none;border:0;outline:0;color:var(--text);font:inherit}
+.search input::placeholder{color:var(--faint)}
+.kbd{font:11px var(--mono);color:var(--faint);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+.scroll{flex:1;overflow:auto;padding:6px 22px 28px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.18) transparent}
+.view{animation:viewIn .6s var(--smooth) both}
+@keyframes viewIn{from{opacity:0;transform:translateY(14px) scale(.99);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+
+/* ---------- accueil ---------- */
+.hero{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:26px;padding:26px 30px;margin-bottom:18px}
+.hero img{width:150px;height:150px;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(255,255,255,.25))}
+@keyframes float{50%{transform:translateY(-8px)}}
+.hero h2{font-size:30px;letter-spacing:-.5px}
+.hero p{color:var(--muted);max-width:560px;margin-top:6px}
+.meter{display:flex;gap:18px;margin-top:16px;flex-wrap:wrap}
+.meter div{font:12px var(--mono);color:var(--muted)}
+.meter b{display:block;font:600 22px var(--sans);color:var(--text)}
+.teams{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.team{padding:20px;text-align:left;cursor:pointer;transition:transform .5s var(--spring),box-shadow .4s}
+.team:hover{transform:translateY(-5px)}
+.team:active{transform:scale(.98);transition-duration:.15s}
+.team .glow{position:absolute;inset:auto -30% -60% auto;width:220px;height:220px;border-radius:50%;
+  background:var(--c);filter:blur(60px);opacity:.28;z-index:-1;transition:opacity .4s}
+.team:hover .glow{opacity:.5}
+.team h3{font-size:18px;display:flex;align-items:center;gap:10px}
+.team p{color:var(--muted);margin:6px 0 14px;min-height:42px}
+.ring{--p:0;width:46px;height:46px;border-radius:50%;
+  background:conic-gradient(var(--c) calc(var(--p)*1%),rgba(255,255,255,.08) 0);
+  -webkit-mask:radial-gradient(circle,transparent 58%,#000 60%);transition:--p 1s}
+.team .row{display:flex;align-items:center;gap:12px;font:12px var(--mono);color:var(--muted)}
+.section-t{font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:var(--faint);margin:6px 2px 12px}
+.notice{padding:14px 18px;color:var(--muted);font-size:13px;margin-top:20px;display:flex;gap:12px;align-items:center}
+
+/* ---------- catégories ---------- */
+.seg{position:relative;display:inline-flex;gap:2px;padding:4px;border-radius:16px;margin:4px 0 18px;flex-wrap:wrap}
+.seg .sp{position:absolute;top:4px;height:32px;border-radius:12px;background:rgba(255,255,255,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3);transition:transform .5s var(--spring),width .5s var(--spring)}
+.seg button{position:relative;z-index:1;height:32px;padding:0 14px;border-radius:12px;color:var(--muted);font-size:13px;white-space:nowrap}
+.seg button.on{color:var(--text)}
+
+/* ---------- cartes ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{padding:16px;border-radius:20px;text-align:left;display:flex;flex-direction:column;gap:10px;min-height:168px;
+  animation:cardIn .7s var(--spring) both;animation-delay:calc(var(--i)*28ms);
+  transition:transform .5s var(--spring),border-color .3s}
+@keyframes cardIn{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:none}}
+.card:hover{transform:translateY(-4px) scale(1.012);border-color:rgba(255,255,255,.22)}
+.card:active{transform:scale(.97);transition-duration:.12s}
+.card .h{display:flex;align-items:center;gap:10px}
+.ico{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none;
+  font:700 15px var(--mono);color:#fff;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--c) 55%,transparent),color-mix(in srgb,var(--c) 15%,transparent));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 4px 14px color-mix(in srgb,var(--c) 35%,transparent)}
+.card .t{font-weight:650;font-size:15px}
+.card .c{font:11px var(--mono);color:var(--faint)}
+.card .d{color:var(--muted);font-size:13px;flex:1}
+.card .f{display:flex;align-items:center;gap:8px}
+.state{font:11px var(--mono);color:var(--faint);display:flex;align-items:center;gap:6px}
+.state i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25)}
+.state.ok{color:var(--ok)} .state.ok i{background:var(--ok);box-shadow:0 0 8px var(--ok)}
+.star{margin-left:auto;font-size:16px;color:var(--faint);padding:4px;border-radius:8px;transition:transform .4s var(--spring),color .2s}
+.star:hover{transform:scale(1.2)} .star.on{color:#ffd76b;text-shadow:0 0 10px rgba(255,215,107,.6)}
+.btn{height:32px;padding:0 14px;border-radius:11px;font-size:13px;font-weight:600;
+  background:linear-gradient(140deg,rgba(255,255,255,.2),rgba(255,255,255,.07));border:1px solid rgba(255,255,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35);transition:transform .35s var(--spring),background .2s}
+.btn:hover{transform:translateY(-1px);background:linear-gradient(140deg,rgba(255,255,255,.28),rgba(255,255,255,.1))}
+.btn:active{transform:scale(.95)}
+.btn.pri{background:linear-gradient(140deg,color-mix(in srgb,var(--c) 70%,#fff 10%),color-mix(in srgb,var(--c) 35%,transparent));
+  border-color:color-mix(in srgb,var(--c) 60%,#fff 20%)}
+
+/* ---------- purple workflow ---------- */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.step{padding:18px;border-radius:22px;animation:cardIn .8s var(--spring) both;animation-delay:calc(var(--i)*90ms)}
+.step .k{font:12px var(--mono);color:var(--purple)}
+.step h4{font-size:17px;margin:4px 0}
+.step p{color:var(--muted);font-size:13px;min-height:40px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{height:28px;padding:0 10px;border-radius:10px;font-size:12px;background:rgba(255,255,255,.07);border:1px solid var(--line);
+  display:inline-flex;align-items:center;gap:6px;transition:transform .35s var(--spring),background .2s}
+.chip:hover{background:rgba(255,255,255,.14);transform:translateY(-1px)}
+.chip .dot{width:6px;height:6px}
+
+/* ---------- fiche détail ---------- */
+.veil{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s}
+.veil.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:21;left:50%;top:50%;width:min(560px,92vw);padding:26px;border-radius:30px;
+  transform:translate(-50%,-46%) scale(.92);opacity:0;pointer-events:none;transition:transform .6s var(--spring),opacity .3s}
+.sheet.on{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto}
+.sheet .h{display:flex;gap:14px;align-items:center}
+.sheet .ico{width:54px;height:54px;font-size:20px;border-radius:16px}
+.sheet h3{font-size:22px}
+.sheet .d{color:var(--muted);margin:14px 0}
+.code{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;background:rgba(0,0,0,.45);border:1px solid var(--line);
+  font:12.5px var(--mono);color:#dfe3ea;user-select:text;overflow:auto;white-space:nowrap}
+.code button{margin-left:auto;color:var(--muted);font-size:12px}
+.sheet .acts{display:flex;gap:10px;margin-top:18px;align-items:center}
+.sheet .acts a{color:var(--muted);font-size:13px;margin-left:auto;cursor:pointer}
+.x{position:absolute;right:16px;top:16px;width:32px;height:32px;border-radius:50%;color:var(--muted);font-size:18px}
+.x:hover{background:rgba(255,255,255,.1);color:var(--text)}
+
+/* ---------- toasts ---------- */
+.toasts{position:fixed;z-index:30;bottom:22px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;gap:8px;align-items:center}
+.toast{padding:11px 18px;border-radius:16px;font-size:13px;animation:toastIn .6s var(--spring) both}
+.toast.out{animation:toastOut .35s var(--smooth) both}
+@keyframes toastIn{from{opacity:0;transform:translateY(20px) scale(.9)}}
+@keyframes toastOut{to{opacity:0;transform:translateY(10px) scale(.95)}}
+
+.empty{color:var(--muted);text-align:center;padding:60px 0}
+@media (max-width:980px){.teams,.flow{grid-template-columns:1fr 1fr}.app{grid-template-columns:76px 1fr}
+  .brand div,.nav-i span:not(.dot),.nav-i .n,.side-foot{display:none}.nav-i{justify-content:center}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="liquid"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3" id="accentBlob"></div></div>
+<div class="grain"></div>
+
+<div class="app">
+  <aside class="glass">
+    <div class="brand"><img src="ghostcat-anim.webp" alt=""><div><b>GhostCat Hub</b><small>by 0x3</small></div></div>
+    <nav id="nav">
+      <div class="pill" id="pill"></div>
+      <button class="nav-i" data-v="home"><span class="dot" style="color:#fff;background:#fff"></span><span>Accueil</span></button>
+      <button class="nav-i" data-v="red"><span class="dot" style="color:var(--red);background:var(--red)"></span><span>Red Team</span><em class="n" id="n-red"></em></button>
+      <button class="nav-i" data-v="blue"><span class="dot" style="color:var(--blue);background:var(--blue)"></span><span>Blue Team</span><em class="n" id="n-blue"></em></button>
+      <button class="nav-i" data-v="purple"><span class="dot" style="color:var(--purple);background:var(--purple)"></span><span>Purple Team</span><em class="n" id="n-purple"></em></button>
+      <div class="nav-sep"></div>
+      <button class="nav-i" data-v="favs"><span class="dot" style="color:#ffd76b;background:#ffd76b"></span><span>Favoris</span><em class="n" id="n-favs"></em></button>
+      <button class="nav-i" data-v="system"><span class="dot" style="color:var(--system);background:var(--system)"></span><span>Système</span></button>
+    </nav>
+    <div class="side-foot">GhostCat OS<br>developed by 0x3<br><a id="tg">t.me/data0x3</a></div>
+  </aside>
+
+  <main class="glass">
+    <div class="top">
+      <h1 id="title">Accueil</h1>
+      <label class="search glass"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" opacity=".6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" placeholder="Rechercher un outil…" autocomplete="off"><span class="kbd">Ctrl K</span></label>
+    </div>
+    <div class="scroll" id="scroll"><div id="view"></div></div>
+  </main>
+</div>
+
+<div class="veil" id="veil"></div>
+<div class="sheet glass" id="sheet" role="dialog" aria-modal="true"></div>
+<div class="toasts" id="toasts"></div>
+
+<script>
+"use strict";
+const TOOLS = window.GHOSTCAT_TOOLS || [];
+const BY_ID = Object.fromEntries(TOOLS.map(t => [t.id, t]));
+const TEAM = {
+  red:    {label:"Red Team",    c:"var(--red)",    hex:"#ff4d6d", blurb:"Attaquer pour tester : reconnaissance, web, exploitation, mots de passe, Wi-Fi, reverse."},
+  blue:   {label:"Blue Team",   c:"var(--blue)",   hex:"#4d8dff", blurb:"Défendre et surveiller : réseau, pare-feu, malwares, forensique, journaux."},
+  purple: {label:"Purple Team", c:"var(--purple)", hex:"#b26bff", blurb:"Faire travailler attaque et défense ensemble pour prouver que tes détections marchent."},
+  system: {label:"Système",     c:"var(--system)", hex:"#e8e8f0", blurb:"Les réglages essentiels de ta machine en un clic."},
+  favs:   {label:"Favoris",     c:"#ffd76b",       hex:"#ffd76b"},
+  home:   {label:"Accueil",     c:"#e8e8f0",       hex:"#9a9aa8"},
+};
+const FLOW = [
+  {k:"01", t:"Planifier",  p:"Choisis une technique MITRE ATT&CK à tester.",           ids:["attack-nav","d3fend"]},
+  {k:"02", t:"Émuler",     p:"Rejoue l'attaque de façon contrôlée sur ton labo.",     ids:["atomic","caldera","metasploit"]},
+  {k:"03", t:"Détecter",   p:"Vérifie que tes défenses l'ont bien vue.",              ids:["suricata","zeek","auditd","chainsaw","lnav"]},
+  {k:"04", t:"Améliorer",  p:"Écris ou ajuste la règle, puis recommence.",            ids:["sigma","yara","lynis"]},
+];
+
+/* ---------- pont vers l'app (GTK/WebKit) ---------- */
+const bridge = window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.ghostcat;
+const PREVIEW = !bridge;
+let installed = {};
+function send(msg){ if (bridge) bridge.postMessage(JSON.stringify(msg)); }
+window.ghostcatReply = (m) => {
+  if (m.type === "status") { installed = m.installed; refreshCounts(); render(false); }
+  if (m.type === "toast")  toast(m.text);
+};
+function requestStatus(){
+  if (PREVIEW) { TOOLS.forEach((t,i) => installed[t.id] = t.url || (i % 5 !== 3)); refreshCounts(); render(false); }
+  else send({action:"status"});
+}
+
+/* ---------- favoris (stockage local, facultatif) ---------- */
+let favs = new Set();
+try { favs = new Set(JSON.parse(localStorage.getItem("ghostcat-favs") || "[]")); } catch (e) {}
+function saveFavs(){ try { localStorage.setItem("ghostcat-favs", JSON.stringify([...favs])); } catch (e) {} }
+
+/* ---------- état ---------- */
+let view = "home", cat = "Tout", query = "";
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const initials = n => n.replace(/[^A-Za-z0-9 ]/g," ").trim().split(/\s+/).slice(0,2).map(w=>w[0]).join("").toUpperCase() || "•";
+const teamOf = t => TEAM[t.team] || TEAM.system;
+
+function refreshCounts(){
+  ["red","blue","purple"].forEach(k => {
+    const list = TOOLS.filter(t => t.team === k);
+    $("#n-"+k).textContent = list.filter(t => installed[t.id]).length + "/" + list.length;
+  });
+  $("#n-favs").textContent = favs.size || "";
+}
+
+/* ---------- rendu ---------- */
+function card(t, i){
+  const tm = teamOf(t), ok = !!installed[t.id], isUrl = !!t.url;
+  const action = isUrl ? `<button class="btn pri" data-act="open" data-id="${t.id}">Ouvrir</button>`
+    : ok ? `<button class="btn pri" data-act="launch" data-id="${t.id}">Lancer</button>`
+         : `<button class="btn" data-act="install" data-id="${t.id}">Installer</button>`;
+  return `<article class="card glass" style="--i:${i};--c:${tm.c}" data-id="${t.id}" tabindex="0">
+    <div class="h"><div class="ico">${esc(initials(t.name))}</div>
+      <div><div class="t">${esc(t.name)}</div><div class="c">${esc(t.cat)}</div></div>
+      <button class="star ${favs.has(t.id)?"on":""}" data-act="fav" data-id="${t.id}" aria-label="Favori">★</button></div>
+    <div class="d">${esc(t.desc)}</div>
+    <div class="f"><span class="state ${ok?"ok":""}"><i></i>${isUrl?"en ligne":ok?"installé":"non installé"}</span>
+      <span style="margin-left:auto"></span>${action}</div>
+  </article>`;
+}
+function grid(list){
+  return list.length ? `<div class="grid">${list.map(card).join("")}</div>`
+                     : `<div class="empty">Aucun outil ici pour l'instant.</div>`;
+}
+function segmented(list){
+  const cats = ["Tout", ...new Set(list.map(t => t.cat))];
+  if (!cats.includes(cat)) cat = "Tout";
+  return `<div class="seg glass" id="seg"><div class="sp" id="sp"></div>${cats.map(c =>
+    `<button class="${c===cat?"on":""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("")}</div>`;
+}
+
+function render(animate = true){
+  const v = $("#view");
+  const tm = TEAM[view];
+  $("#title").innerHTML = view === "home" ? `Bonjour, <span>ghost</span>` : `<span>${tm.label}</span>`;
+  document.documentElement.style.setProperty("--accent", tm.hex);
+  let html = "";
+
+  if (query) {
+    const q = query.toLowerCase();
+    const res = TOOLS.filter(t => (t.name+" "+t.desc+" "+t.cat+" "+t.team).toLowerCase().includes(q));
+    $("#title").innerHTML = `Résultats <span>« ${esc(query)} »</span>`;
+    html = grid(res);
+  } else if (view === "home") {
+    const tot = TOOLS.filter(t => !t.url && t.team !== "system");
+    const inst = tot.filter(t => installed[t.id]).length;
+    html = `<section class="hero glass"><img src="ghostcat-anim.webp" alt="">
+      <div><h2>GhostCat OS</h2><p>Tout ton arsenal de cybersécurité au même endroit. Choisis une équipe, trouve l'outil, lance-le en un clic. S'il manque, on l'installe pour toi.</p>
+      <div class="meter"><div><b>${inst}</b>outils prêts</div><div><b>${tot.length}</b>au catalogue</div><div><b>${favs.size}</b>favoris</div></div></div></section>
+      <div class="section-t">Équipes</div>
+      <div class="teams">${["red","blue","purple"].map(k => {
+        const l = TOOLS.filter(t => t.team === k), n = l.filter(t => installed[t.id]).length, p = l.length ? Math.round(n*100/l.length) : 0;
+        return `<button class="team glass" data-go="${k}" style="--c:${TEAM[k].c}"><span class="glow"></span>
+          <h3><span class="dot" style="color:${TEAM[k].c};background:${TEAM[k].c}"></span>${TEAM[k].label}</h3>
+          <p>${TEAM[k].blurb}</p><div class="row"><div class="ring" style="--p:${p}"></div>${n}/${l.length} prêts</div></button>`;
+      }).join("")}</div>
+      <div class="section-t">Actions rapides</div>
+      ${grid(TOOLS.filter(t => t.team === "system"))}
+      <div class="notice glass"><span style="font-size:18px">⚖️</span>Utilise les outils offensifs uniquement sur des systèmes que tu possèdes ou que tu as l'autorisation écrite de tester.</div>`;
+  } else if (view === "favs") {
+    html = grid(TOOLS.filter(t => favs.has(t.id)));
+  } else if (view === "purple") {
+    html = `<p style="color:var(--muted);margin:0 2px 16px;max-width:720px">${TEAM.purple.blurb} Suis la boucle : chaque étape propose les bons outils, qu'ils viennent du Red ou du Blue.</p>
+      <div class="flow">${FLOW.map((s,i) => `<div class="step glass" style="--i:${i}"><div class="k">ÉTAPE ${s.k}</div><h4>${s.t}</h4><p>${s.p}</p>
+        <div class="chips">${s.ids.filter(id => BY_ID[id]).map(id => { const t = BY_ID[id];
+          return `<button class="chip" data-open="${id}"><span class="dot" style="color:${teamOf(t).c};background:${teamOf(t).c}"></span>${esc(t.name)}</button>`; }).join("")}</div></div>`).join("")}</div>
+      <div class="section-t">Outils Purple</div>${grid(TOOLS.filter(t => t.team === "purple"))}`;
+  } else {
+    const list = TOOLS.filter(t => t.team === view);
+    const shown = cat === "Tout" ? list : list.filter(t => t.cat === cat);
+    html = (view === "system" ? `<p style="color:var(--muted);margin:0 2px 16px">${TEAM.system.blurb}</p>` : segmented(list)) + grid(shown);
+  }
+  v.innerHTML = html;
+  if (animate) { v.classList.remove("view"); void v.offsetWidth; v.classList.add("view"); }
+  else v.querySelectorAll(".card,.step").forEach(e => e.style.animation = "none");
+  movePill(); moveSeg();
+}
+
+/* ---------- indicateurs coulissants ---------- */
+function movePill(){
+  const on = document.querySelector(`.nav-i[data-v="${query ? "" : view}"]`);
+  document.querySelectorAll(".nav-i").forEach(b => b.classList.toggle("on", b === on));
+  const pill = $("#pill");
+  if (!on) { pill.style.opacity = 0; return; }
+  pill.style.opacity = 1; pill.style.transform = `translateY(${on.offsetTop}px)`;
+}
+function moveSeg(){
+  const on = document.querySelector("#seg button.on"), sp = $("#sp");
+  if (!on || !sp) return;
+  sp.style.width = on.offsetWidth + "px"; sp.style.transform = `translateX(${on.offsetLeft - 4}px)`;
+}
+
+/* ---------- fiche ---------- */
+function openSheet(id){
+  const t = BY_ID[id]; if (!t) return;
+  const tm = teamOf(t), ok = !!installed[t.id];
+  const ex = t.example || (t.run && !t.gui ? t.run : "");
+  $("#sheet").style.setProperty("--c", tm.c);
+  $("#sheet").innerHTML = `<button class="x" data-act="close" aria-label="Fermer">×</button>
+    <div class="h"><div class="ico" style="--c:${tm.c}">${esc(initials(t.name))}</div>
+      <div><h3>${esc(t.name)}</h3><div class="c" style="font:12px var(--mono);color:var(--faint)">${esc(tm.label)} · ${esc(t.cat)}</div></div></div>
+    <p class="d">${esc(t.desc)}</p>
+    ${ex ? `<div class="code"><span>$ ${esc(ex)}</span><button data-act="copy" data-text="${esc(ex)}">Copier</button></div>` : ""}
+    <div class="acts">
+      ${t.url ? `<button class="btn pri" style="--c:${tm.c}" data-act="open" data-id="${t.id}">Ouvrir</button>`
+        : ok ? `<button class="btn pri" style="--c:${tm.c}" data-act="launch" data-id="${t.id}">Lancer</button>`
+             : `<button class="btn pri" style="--c:${tm.c}" data-act="install" data-id="${t.id}">Installer</button>`}
+      <button class="btn" data-act="fav" data-id="${t.id}">${favs.has(t.id) ? "★ Retirer des favoris" : "☆ Favori"}</button>
+      ${t.docs ? `<a data-act="docs" data-id="${t.id}">Documentation ↗</a>` : ""}
+    </div>`;
+  $("#veil").classList.add("on"); $("#sheet").classList.add("on");
+}
+function closeSheet(){ $("#veil").classList.remove("on"); $("#sheet").classList.remove("on"); }
+
+/* ---------- toasts ---------- */
+function toast(text){
+  const el = document.createElement("div"); el.className = "toast glass"; el.textContent = text;
+  $("#toasts").appendChild(el);
+  setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 400); }, 2600);
+}
+
+/* ---------- actions ---------- */
+function act(a, id, el){
+  const t = BY_ID[id];
+  if (a === "fav") { favs.has(id) ? favs.delete(id) : favs.add(id); saveFavs(); refreshCounts();
+    if ($("#sheet").classList.contains("on")) openSheet(id); render(false); return; }
+  if (a === "close") return closeSheet();
+  if (a === "copy") { const txt = el.dataset.text;
+    (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).catch(() => send({action:"copy", text:txt}));
+    return toast("Commande copiée"); }
+  if (a === "launch")  { send({action:"launch", id}); toast(PREVIEW ? `Aperçu : ${t.name} se lancerait` : `${t.name} se lance…`); }
+  if (a === "install") { send({action:"install", id}); toast(PREVIEW ? `Aperçu : installation de ${t.name}` : `Installation de ${t.name} dans le terminal…`); }
+  if (a === "open")    { send({action:"open", id}); if (PREVIEW) window.open(t.url); }
+  if (a === "docs")    { send({action:"docs", id}); if (PREVIEW) window.open(t.docs); }
+}
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-act],[data-v],[data-go],[data-cat],[data-open],.card");
+  if (!b) return;
+  if (b.dataset.act) { e.stopPropagation(); return act(b.dataset.act, b.dataset.id, b); }
+  if (b.dataset.v || b.dataset.go) { view = b.dataset.v || b.dataset.go; cat = "Tout"; query = ""; $("#q").value = ""; render(); $("#scroll").scrollTop = 0; return; }
+  if (b.dataset.cat) { cat = b.dataset.cat; render(false);
+    document.querySelectorAll(".card").forEach((c,i) => { c.style.animation = ""; c.style.setProperty("--i", i); }); return; }
+  if (b.dataset.open) return openSheet(b.dataset.open);
+  if (b.classList.contains("card")) return openSheet(b.dataset.id);
+});
+$("#veil").addEventListener("click", closeSheet);
+$("#tg").addEventListener("click", () => { send({action:"url", url:"https://t.me/data0x3"}); if (PREVIEW) window.open("https://t.me/data0x3"); });
+$("#q").addEventListener("input", e => { query = e.target.value.trim(); render(); });
+document.addEventListener("keydown", e => {
+  if ((e.ctrlKey && e.key.toLowerCase() === "k") || (e.key === "/" && document.activeElement !== $("#q"))) { e.preventDefault(); $("#q").focus(); $("#q").select(); }
+  if (e.key === "Escape") { if ($("#sheet").classList.contains("on")) closeSheet(); else if (query) { query = ""; $("#q").value = ""; render(); } }
+  if (e.key === "Enter" && document.activeElement.classList.contains("card")) openSheet(document.activeElement.dataset.id);
+});
+/* reflet qui suit la souris sur toutes les surfaces en verre */
+document.addEventListener("pointermove", e => {
+  const g = e.target.closest(".glass"); if (!g) return;
+  const r = g.getBoundingClientRect();
+  g.style.setProperty("--mx", (e.clientX - r.left) + "px"); g.style.setProperty("--my", (e.clientY - r.top) + "px");
+}, {passive:true});
+window.addEventListener("resize", () => { movePill(); moveSeg(); });
+window.addEventListener("focus", () => send({action:"status"}));
+
+const start = new URLSearchParams(location.search).get("view");
+if (start && TEAM[start]) view = start;
+refreshCounts(); render(); requestStatus();
+</script>
+</body>
+</html>

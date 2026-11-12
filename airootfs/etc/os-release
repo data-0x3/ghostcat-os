@@ -1,0 +1,12 @@
+NAME="GhostCat OS"
+PRETTY_NAME="GhostCat OS"
+ID=ghostcat
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="1;37"
+HOME_URL="https://t.me/data0x3"
+DOCUMENTATION_URL="https://t.me/data0x3"
+SUPPORT_URL="https://t.me/data0x3"
+LOGO=ghostcat
+VARIANT="Cybersecurity Edition"
+VARIANT_ID=cyber

@@ -1,0 +1,5 @@
+[org/gnome/login-screen]
+logo='/usr/share/pixmaps/ghostcat.png'
+
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'

@@ -1,0 +1,2 @@
+# live uniquement — non copié par ghostcat-install
+ghost ALL=(ALL:ALL) NOPASSWD: ALL

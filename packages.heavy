@@ -1,0 +1,20 @@
+# GhostCat OS — paquets lourds retirés de l'ISO "lite" (live)
+# Ils restent installés par ghostcat-install sur le disque, et installables depuis le Hub.
+ghidra
+metasploit
+burpsuite
+bloodhound
+libreoffice-fresh
+gimp
+vlc
+code
+docker
+docker-compose
+go
+rustup
+linux-headers
+kismet
+volatility3
+trivy
+nuclei
+zaproxy
