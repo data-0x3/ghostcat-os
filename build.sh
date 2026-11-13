@@ -120,8 +120,9 @@ say "4c/5 thème GNOME Shell GhostCat"
 # le thème importe le thème sombre officiel : on vérifie son nom exact pour cette version de GNOME
 BASE_CSS=gnome-shell-dark.css
 GS_RES=/usr/share/gnome-shell/gnome-shell-theme.gresource
-if [[ -f $GS_RES ]] && command -v gresource >/dev/null; then
-  RES_LIST="$(gresource list "$GS_RES")"
+if [[ -f $GS_RES ]]; then
+  if command -v gresource >/dev/null; then RES_LIST="$(gresource list "$GS_RES")"
+  else RES_LIST="$(grep -aoE '/org/gnome/shell/theme/gnome-shell[a-z-]*\.css' "$GS_RES" | sort -u)"; fi
   if grep -q '/gnome-shell-dark\.css$' <<<"$RES_LIST"; then BASE_CSS=gnome-shell-dark.css
   elif grep -q '/gnome-shell\.css$' <<<"$RES_LIST"; then BASE_CSS=gnome-shell.css
   fi
