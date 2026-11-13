@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Lynis
+Name[fr]=Lynis
+Comment=Full system hardening audit, with advice.
+Comment[fr]=Audit complet de durcissement du système, avec conseils.
+Exec=/usr/local/bin/ghostcat-hub --run=lynis
+Icon=ghostcat-tool-lynis
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Protection du système;blue;cyber;security;

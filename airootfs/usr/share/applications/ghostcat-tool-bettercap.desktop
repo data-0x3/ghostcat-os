@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Bettercap
+Name[fr]=Bettercap
+Comment=Network Swiss army knife: MITM, Wi-Fi, BLE, with a web UI.
+Comment[fr]=Couteau suisse réseau : MITM, Wi-Fi, BLE, avec interface web.
+Exec=/usr/local/bin/ghostcat-hub --run=bettercap
+Icon=ghostcat-tool-bettercap
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Réseau / MITM;red;cyber;security;

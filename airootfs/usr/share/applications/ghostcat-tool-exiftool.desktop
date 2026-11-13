@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=ExifTool
+Name[fr]=ExifTool
+Comment=Reads and strips file metadata.
+Comment[fr]=Lit et nettoie les métadonnées des fichiers.
+Exec=/usr/local/bin/ghostcat-hub --run=exiftool
+Icon=ghostcat-tool-exiftool
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Forensique;blue;cyber;security;

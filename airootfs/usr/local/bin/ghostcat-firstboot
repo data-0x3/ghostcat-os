@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# GhostCat OS — session de premier démarrage (developed by 0x3)
+# GDM ouvre cette session avant GNOME : GhostCat Setup s'affiche seul, en plein écran.
+# Filet de sécurité : on remet tout de suite la session GNOME par défaut, pour que
+# même si quelque chose plante ici, la reconnexion automatique mène au bureau
+# (où l'assistant se relance tout seul tant qu'il n'a pas été terminé).
+set -u
+UID_NUM="$(id -u)"
+ACC="/org/freedesktop/Accounts/User${UID_NUM}"
+busctl call org.freedesktop.Accounts "$ACC" org.freedesktop.Accounts.User SetSession s gnome >/dev/null 2>&1 || true
+busctl call org.freedesktop.Accounts "$ACC" org.freedesktop.Accounts.User SetSessionType s wayland >/dev/null 2>&1 || true
+export GHOSTCAT_KIOSK=1 GTK_THEME=Adwaita:dark
+if command -v cage >/dev/null; then
+  exec cage -s -d -- /usr/local/bin/ghostcat-setup --kiosk
+fi
+exit 1

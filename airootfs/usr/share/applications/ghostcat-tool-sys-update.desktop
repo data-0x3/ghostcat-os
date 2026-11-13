@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Update the system
+Name[fr]=Mettre à jour le système
+Comment=Updates GhostCat OS and every tool.
+Comment[fr]=Met à jour GhostCat OS et tous les outils.
+Exec=/usr/local/bin/ghostcat-hub --run=sys-update
+Icon=ghostcat-tool-sys-update
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-System;
+Keywords=Système;system;cyber;security;

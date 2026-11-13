@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Suricata
+Name[fr]=Suricata
+Comment=Network IDS/IPS: detects attacks with rules.
+Comment[fr]=IDS/IPS réseau : détecte les attaques grâce à des règles.
+Exec=/usr/local/bin/ghostcat-hub --run=suricata
+Icon=ghostcat-tool-suricata
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Détection d'intrusion;blue;cyber;security;

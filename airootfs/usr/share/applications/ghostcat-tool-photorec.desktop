@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=PhotoRec / TestDisk
+Name[fr]=PhotoRec / TestDisk
+Comment=Recovers deleted files and partitions.
+Comment[fr]=Récupération de fichiers supprimés et de partitions.
+Exec=/usr/local/bin/ghostcat-hub --run=photorec
+Icon=ghostcat-tool-photorec
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Forensique;blue;cyber;security;

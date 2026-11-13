@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Gobuster
+Name[fr]=Gobuster
+Comment=Brute-forces directories, DNS and vhosts.
+Comment[fr]=Brute-force de répertoires, DNS et vhosts.
+Exec=/usr/local/bin/ghostcat-hub --run=gobuster
+Icon=ghostcat-tool-gobuster
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Web;red;cyber;security;

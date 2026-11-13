@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=mitmproxy
+Name[fr]=mitmproxy
+Comment=Interactive HTTPS proxy, in the console or the browser.
+Comment[fr]=Proxy HTTPS interactif, en console ou dans le navigateur.
+Exec=/usr/local/bin/ghostcat-hub --run=mitmproxy
+Icon=ghostcat-tool-mitmproxy
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Réseau / MITM;red;cyber;security;

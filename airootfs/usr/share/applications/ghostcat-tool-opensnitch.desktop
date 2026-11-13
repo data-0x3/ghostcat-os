@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=OpenSnitch
+Name[fr]=OpenSnitch
+Comment=Application firewall: asks which app may reach the Internet.
+Comment[fr]=Pare-feu applicatif : te demande quelle app a le droit d'aller sur Internet.
+Exec=/usr/local/bin/ghostcat-hub --run=opensnitch
+Icon=ghostcat-tool-opensnitch
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Protection du système;blue;cyber;security;

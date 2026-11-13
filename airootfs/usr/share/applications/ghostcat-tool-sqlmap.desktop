@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=sqlmap
+Name[fr]=sqlmap
+Comment=Automated detection and exploitation of SQL injections.
+Comment[fr]=Détection et exploitation automatisée des injections SQL.
+Exec=/usr/local/bin/ghostcat-hub --run=sqlmap
+Icon=ghostcat-tool-sqlmap
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Web;red;cyber;security;

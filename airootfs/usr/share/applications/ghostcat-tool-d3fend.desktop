@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=MITRE D3FEND
+Name[fr]=MITRE D3FEND
+Comment=ATT&CK's defensive counterpart: which countermeasure for which technique.
+Comment[fr]=Le pendant défensif d'ATT&CK : quelles contre-mesures pour quelle technique.
+Exec=/usr/local/bin/ghostcat-hub --run=d3fend
+Icon=ghostcat-tool-d3fend
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Purple;
+Keywords=Référentiels;purple;cyber;security;

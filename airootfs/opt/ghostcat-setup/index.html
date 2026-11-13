@@ -279,7 +279,7 @@ const bridge = window.webkit && window.webkit.messageHandlers && window.webkit.m
 function send(m){ if (bridge) bridge.postMessage(JSON.stringify(m)); }
 window.ghostcatReply = m => {
   if (m.type === "init") {
-    zones = m.zones || zones;
+    zones = m.zones || zones; KIOSK = !!m.kiosk;
     if (m.current) Object.assign(S, Object.fromEntries(Object.entries(m.current).filter(([k,v]) => v != null && k in S)));
     renderAll();
   }
@@ -366,6 +366,40 @@ document.addEventListener("click", e => {
 });
 $("#q-lang").addEventListener("input", e => opts($("#g-lang"), LANGS, S.lang, "lang", e.target.value));
 $("#q-tz").addEventListener("input", e => opts($("#g-tz"), zoneList(), S.timezone, "tz", e.target.value));
+
+
+/* ---------- aperçu clavier en session de premier démarrage ----------
+   Dans la session kiosque, la disposition réelle reste US : on traduit les touches
+   physiques (event.code) selon la disposition choisie pour que l'essai soit juste. */
+let KIOSK = false;
+const LET = c => c.length === 1 ? [c, c.toUpperCase()] : c;
+const FR = {Backquote:["²","~"],Digit1:["&","1"],Digit2:["é","2"],Digit3:['"',"3"],Digit4:["'","4"],Digit5:["(","5"],Digit6:["-","6"],
+  Digit7:["è","7"],Digit8:["_","8"],Digit9:["ç","9"],Digit0:["à","0"],Minus:[")","°"],Equal:["=","+"],KeyQ:LET("a"),KeyW:LET("z"),
+  KeyA:LET("q"),KeyZ:LET("w"),Semicolon:LET("m"),KeyM:[",","?"],Comma:[";","."],Period:[":","/"],Slash:["!","§"],Quote:["ù","%"],
+  BracketLeft:["^","¨"],BracketRight:["$","£"],Backslash:["*","µ"]};
+const DE = {KeyY:LET("z"),KeyZ:LET("y"),Semicolon:["ö","Ö"],Quote:["ä","Ä"],BracketLeft:["ü","Ü"],BracketRight:["+","*"],Minus:["ß","?"],
+  Equal:["´","`"],Digit2:["2",'"'],Digit3:["3","§"],Digit6:["6","&"],Digit7:["7","/"],Digit8:["8","("],Digit9:["9",")"],Digit0:["0","="],
+  Slash:["-","_"],Comma:[",",";"],Period:[".",":"],Backslash:["#","'"],Backquote:["^","°"]};
+const CHFR = Object.assign({}, DE, {Semicolon:["é","ö"],Quote:["à","ä"],BracketLeft:["è","ü"],Minus:["'","?"],Equal:["^","`"],Backslash:["$","£"]});
+const ES = {Semicolon:["ñ","Ñ"],Quote:["´","¨"],BracketLeft:["`","^"],BracketRight:["+","*"],Minus:["'","?"],Equal:["¡","¿"],
+  Slash:["-","_"],Digit2:["2",'"'],Digit3:["3","·"],Digit6:["6","&"],Digit7:["7","/"],Digit8:["8","("],Digit9:["9",")"],Digit0:["0","="],Backslash:["ç","Ç"]};
+const IT = {Semicolon:["ò","ç"],Quote:["à","°"],BracketLeft:["è","é"],BracketRight:["+","*"],Backslash:["ù","§"],Minus:["'","?"],Equal:["ì","^"],
+  Slash:["-","_"],Digit2:["2",'"'],Digit3:["3","£"],Digit6:["6","&"],Digit7:["7","/"],Digit8:["8","("],Digit9:["9",")"],Digit0:["0","="]};
+const GB = {Quote:["'","@"],Digit2:["2",'"'],Digit3:["3","£"],Backslash:["#","~"]};
+const PT = {Semicolon:["ç","Ç"],Quote:["º","ª"]};
+const RU_L = {KeyQ:"й",KeyW:"ц",KeyE:"у",KeyR:"к",KeyT:"е",KeyY:"н",KeyU:"г",KeyI:"ш",KeyO:"щ",KeyP:"з",BracketLeft:"х",BracketRight:"ъ",
+  KeyA:"ф",KeyS:"ы",KeyD:"в",KeyF:"а",KeyG:"п",KeyH:"р",KeyJ:"о",KeyK:"л",KeyL:"д",Semicolon:"ж",Quote:"э",KeyZ:"я",KeyX:"ч",
+  KeyC:"с",KeyV:"м",KeyB:"и",KeyN:"т",KeyM:"ь",Comma:"б",Period:"ю"};
+const RU = Object.fromEntries(Object.entries(RU_L).map(([k,v]) => [k, LET(v)]));
+const UA = Object.assign({}, RU, {KeyS:LET("і"),BracketRight:LET("ї"),Quote:LET("є")});
+const KBMAP = {fr:FR, be:FR, "ch-fr":CHFR, "ch-de":DE, de:DE, es:ES, it:IT, gb:GB, pt:PT, br:PT, ru:RU, ua:UA};
+$("#try").addEventListener("keydown", e => {
+  if (!KIOSK || e.ctrlKey || e.altKey || e.metaKey) return;
+  const m = (KBMAP[S.keymap] || {})[e.code]; if (!m) return;
+  e.preventDefault();
+  const ch = e.shiftKey ? m[1] : m[0], el = e.target, a = el.selectionStart, b = el.selectionEnd;
+  el.value = el.value.slice(0, a) + ch + el.value.slice(b); el.selectionStart = el.selectionEnd = a + ch.length;
+});
 
 /* ---------- application ---------- */
 const TASKS = ["t_lang","t_kbd","t_tz","t_priv","t_session"];

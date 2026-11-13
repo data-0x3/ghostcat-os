@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Sigma CLI
+Name[fr]=Sigma CLI
+Comment=Converts Sigma rules to Splunk, Elastic and more.
+Comment[fr]=Convertit des règles Sigma vers Splunk, Elastic, etc.
+Exec=/usr/local/bin/ghostcat-hub --run=sigma
+Icon=ghostcat-tool-sigma
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Purple;
+Keywords=Ingénierie de détection;purple;cyber;security;

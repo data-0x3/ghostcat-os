@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=ATT&CK Navigator
+Name[fr]=ATT&CK Navigator
+Comment=Interactive ATT&CK technique map to plan and track coverage.
+Comment[fr]=Carte interactive des techniques ATT&CK pour planifier et suivre la couverture.
+Exec=/usr/local/bin/ghostcat-hub --run=attack-nav
+Icon=ghostcat-tool-attack-nav
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Purple;
+Keywords=Référentiels;purple;cyber;security;

@@ -1,0 +1,4 @@
+[User]
+Session=ghostcat-setup
+SessionType=wayland
+SystemAccount=false

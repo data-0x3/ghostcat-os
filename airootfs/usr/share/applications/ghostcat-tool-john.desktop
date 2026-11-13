@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=John the Ripper
+Name[fr]=John the Ripper
+Comment=Versatile password hash cracker.
+Comment[fr]=Cassage de hachages de mots de passe, très polyvalent.
+Exec=/usr/local/bin/ghostcat-hub --run=john
+Icon=ghostcat-tool-john
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Mots de passe;red;cyber;security;

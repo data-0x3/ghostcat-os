@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=The Sleuth Kit
+Name[fr]=The Sleuth Kit
+Comment=Command-line tools to explore file systems.
+Comment[fr]=Outils en ligne de commande pour explorer des systèmes de fichiers.
+Exec=/usr/local/bin/ghostcat-hub --run=sleuthkit
+Icon=ghostcat-tool-sleuthkit
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Forensique;blue;cyber;security;

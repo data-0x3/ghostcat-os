@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=GhostCat Setup
+Comment=Premier démarrage : langue, clavier, fuseau horaire et vie privée
+Exec=/usr/local/bin/ghostcat-firstboot
+Type=Application
+DesktopNames=GhostCat

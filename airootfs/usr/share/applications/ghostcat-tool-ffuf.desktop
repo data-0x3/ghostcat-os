@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=ffuf
+Name[fr]=ffuf
+Comment=Fast web fuzzing: hidden folders, parameters, vhosts.
+Comment[fr]=Fuzzing web rapide : dossiers cachés, paramètres, vhosts.
+Exec=/usr/local/bin/ghostcat-hub --run=ffuf
+Icon=ghostcat-tool-ffuf
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Web;red;cyber;security;

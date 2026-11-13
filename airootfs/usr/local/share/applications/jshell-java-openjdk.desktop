@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=jshell-java-openjdk
+Exec=true
+NoDisplay=true
+# masqué de la grille par GhostCat OS (l'appli reste lançable par son nom)

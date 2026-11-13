@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Nmap
+Name[fr]=Nmap
+Comment=Port and service scanner, the foundation of any network recon.
+Comment[fr]=Scanner de ports et de services, la base de toute reconnaissance réseau.
+Exec=/usr/local/bin/ghostcat-hub --run=nmap
+Icon=ghostcat-tool-nmap
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Reconnaissance;red;cyber;security;

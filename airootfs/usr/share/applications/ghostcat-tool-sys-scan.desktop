@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Antivirus scan
+Name[fr]=Scan antivirus
+Comment=Updates signatures, then scans your home folder.
+Comment[fr]=Met à jour les signatures puis analyse ton dossier personnel.
+Exec=/usr/local/bin/ghostcat-hub --run=sys-scan
+Icon=ghostcat-tool-sys-scan
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-System;
+Keywords=Système;system;cyber;security;

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Metasploit
+Name[fr]=Metasploit
+Comment=The reference exploitation framework: modules, payloads, sessions.
+Comment[fr]=Framework d'exploitation de référence : modules, payloads, sessions.
+Exec=/usr/local/bin/ghostcat-hub --run=metasploit
+Icon=ghostcat-tool-metasploit
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Exploitation;red;cyber;security;

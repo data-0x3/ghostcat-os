@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Security check
+Name[fr]=Bilan de sécurité
+Comment=Quick security check of your machine with Lynis and a hardening score.
+Comment[fr]=Audit rapide de ta machine avec Lynis et un score de durcissement.
+Exec=/usr/local/bin/ghostcat-hub --run=sys-audit
+Icon=ghostcat-tool-sys-audit
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-System;
+Keywords=Système;system;cyber;security;

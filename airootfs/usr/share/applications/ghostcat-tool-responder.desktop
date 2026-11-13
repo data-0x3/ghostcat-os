@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Responder
+Name[fr]=Responder
+Comment=LLMNR/NBT-NS poisoning to test Windows networks.
+Comment[fr]=Empoisonnement LLMNR/NBT-NS pour tester les réseaux Windows.
+Exec=/usr/local/bin/ghostcat-hub --run=responder
+Icon=ghostcat-tool-responder
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Réseau / MITM;red;cyber;security;

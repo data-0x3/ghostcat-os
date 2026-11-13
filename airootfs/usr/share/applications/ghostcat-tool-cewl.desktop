@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=CeWL
+Name[fr]=CeWL
+Comment=Builds a wordlist from a website's content.
+Comment[fr]=Génère une liste de mots à partir du contenu d'un site.
+Exec=/usr/local/bin/ghostcat-hub --run=cewl
+Icon=ghostcat-tool-cewl
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Mots de passe;red;cyber;security;

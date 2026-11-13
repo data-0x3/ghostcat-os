@@ -1,12 +1,14 @@
 [Desktop Entry]
 Type=Application
 Name=GhostCat Hub
-GenericName=Centre cybersécurité
-Comment=Tous les outils Red, Blue et Purple Team en un clic
+GenericName=Cybersecurity center
+GenericName[fr]=Centre cybersécurité
+Comment=Every Red, Blue and Purple Team tool in one click
+Comment[fr]=Tous les outils Red, Blue et Purple Team en un clic
 Exec=ghostcat-hub
 Icon=ghostcat-hub
 Terminal=false
-Categories=System;Security;
+Categories=X-GhostCat-Hub;
 Keywords=security;pentest;red;blue;purple;cyber;hack;
 StartupWMClass=os.ghostcat.Hub
 Actions=red;blue;purple;

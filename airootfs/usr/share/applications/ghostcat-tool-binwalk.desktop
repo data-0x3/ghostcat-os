@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Binwalk
+Name[fr]=Binwalk
+Comment=Firmware analysis and extraction.
+Comment[fr]=Analyse et extraction de firmwares.
+Exec=/usr/local/bin/ghostcat-hub --run=binwalk
+Icon=ghostcat-tool-binwalk
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Reverse;red;cyber;security;

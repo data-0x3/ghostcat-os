@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Atomic Red Team
+Name[fr]=Atomic Red Team
+Comment=Library of small ATT&CK-mapped tests to validate your detections.
+Comment[fr]=Bibliothèque de petits tests mappés ATT&CK pour valider tes détections.
+Exec=/usr/local/bin/ghostcat-hub --run=atomic
+Icon=ghostcat-tool-atomic
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Purple;
+Keywords=Émulation d'adversaire;purple;cyber;security;

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Firewall (Gufw)
+Name[fr]=Pare-feu (Gufw)
+Comment=Simple interface to enable and tune the UFW firewall.
+Comment[fr]=Interface simple pour activer et régler le pare-feu UFW.
+Exec=/usr/local/bin/ghostcat-hub --run=gufw
+Icon=ghostcat-tool-gufw
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Protection du système;blue;cyber;security;

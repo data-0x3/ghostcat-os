@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Masscan
+Name[fr]=Masscan
+Comment=Ultra-fast port scanning across large address ranges.
+Comment[fr]=Scan de ports ultra-rapide sur de grandes plages d'adresses.
+Exec=/usr/local/bin/ghostcat-hub --run=masscan
+Icon=ghostcat-tool-masscan
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Reconnaissance;red;cyber;security;

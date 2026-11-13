@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=hashID
+Name[fr]=hashID
+Comment=Identifies the type of a hash.
+Comment[fr]=Identifie le type d'un hachage.
+Exec=/usr/local/bin/ghostcat-hub --run=hashid
+Icon=ghostcat-tool-hashid
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Mots de passe;red;cyber;security;

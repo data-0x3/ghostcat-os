@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=WPScan
+Name[fr]=WPScan
+Comment=Security scanner dedicated to WordPress.
+Comment[fr]=Scanner de sécurité dédié à WordPress.
+Exec=/usr/local/bin/ghostcat-hub --run=wpscan
+Icon=ghostcat-tool-wpscan
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Web;red;cyber;security;

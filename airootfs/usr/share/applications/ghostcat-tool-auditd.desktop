@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=auditd
+Name[fr]=auditd
+Comment=Logs sensitive kernel-level actions (files, commands).
+Comment[fr]=Journalise les actions sensibles du noyau (fichiers, commandes).
+Exec=/usr/local/bin/ghostcat-hub --run=auditd
+Icon=ghostcat-tool-auditd
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Protection du système;blue;cyber;security;

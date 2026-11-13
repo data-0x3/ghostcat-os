@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=SearchSploit
+Name[fr]=SearchSploit
+Comment=Offline search through the Exploit-DB database.
+Comment[fr]=Recherche hors ligne dans la base Exploit-DB.
+Exec=/usr/local/bin/ghostcat-hub --run=searchsploit
+Icon=ghostcat-tool-searchsploit
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Exploitation;red;cyber;security;

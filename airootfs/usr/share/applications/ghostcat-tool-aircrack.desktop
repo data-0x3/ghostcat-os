@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Aircrack-ng
+Name[fr]=Aircrack-ng
+Comment=Wi-Fi audit suite: capture, analysis and key testing.
+Comment[fr]=Suite d'audit Wi-Fi : capture, analyse et test des clés.
+Exec=/usr/local/bin/ghostcat-hub --run=aircrack
+Icon=ghostcat-tool-aircrack
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Sans-fil;red;cyber;security;

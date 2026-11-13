@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Nikto
+Name[fr]=Nikto
+Comment=Quick web server audit: sensitive files, misconfigurations.
+Comment[fr]=Audit rapide d'un serveur web : fichiers sensibles, mauvaises configs.
+Exec=/usr/local/bin/ghostcat-hub --run=nikto
+Icon=ghostcat-tool-nikto
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Web;red;cyber;security;

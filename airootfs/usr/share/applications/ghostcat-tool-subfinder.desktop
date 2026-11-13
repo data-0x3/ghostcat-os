@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Subfinder
+Name[fr]=Subfinder
+Comment=Passive subdomain discovery from public sources.
+Comment[fr]=Découverte passive de sous-domaines via des sources publiques.
+Exec=/usr/local/bin/ghostcat-hub --run=subfinder
+Icon=ghostcat-tool-subfinder
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Reconnaissance;red;cyber;security;

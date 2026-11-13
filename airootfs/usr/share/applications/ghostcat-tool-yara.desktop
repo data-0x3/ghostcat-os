@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=YARA
+Name[fr]=YARA
+Comment=Write rules to recognize malware families.
+Comment[fr]=Écris des règles pour reconnaître des familles de malwares.
+Exec=/usr/local/bin/ghostcat-hub --run=yara
+Icon=ghostcat-tool-yara
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Malware;blue;cyber;security;

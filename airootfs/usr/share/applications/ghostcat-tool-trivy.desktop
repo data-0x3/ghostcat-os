@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Trivy
+Name[fr]=Trivy
+Comment=Finds flaws in containers, dependencies and configs.
+Comment[fr]=Trouve les failles dans conteneurs, dépendances et configs.
+Exec=/usr/local/bin/ghostcat-hub --run=trivy
+Icon=ghostcat-tool-trivy
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Vulnérabilités;blue;cyber;security;

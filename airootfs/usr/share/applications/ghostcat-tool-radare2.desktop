@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=radare2
+Name[fr]=radare2
+Comment=Command-line reverse engineering framework.
+Comment[fr]=Framework de reverse engineering en ligne de commande.
+Exec=/usr/local/bin/ghostcat-hub --run=radare2
+Icon=ghostcat-tool-radare2
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Reverse;red;cyber;security;

@@ -135,7 +135,17 @@ def apply(settings, mode, progress):
     return ok
 
 
+KIOSK = "--kiosk" in sys.argv or os.environ.get("GHOSTCAT_KIOSK") == "1"
+
+
 def next_step(lang_changed):
+    if KIOSK:
+        # session de premier démarrage : en quittant, GDM ouvre GNOME (déjà réglé)
+        uid = os.getuid()
+        for meth, val in (("SetSession", "gnome"), ("SetSessionType", "wayland")):
+            sh("busctl", "call", "org.freedesktop.Accounts", f"/org/freedesktop/Accounts/User{uid}",
+               "org.freedesktop.Accounts.User", meth, "s", val)
+        return
     if lang_changed and shutil.which("gnome-session-quit"):
         # la langue de GNOME change à la reconnexion (automatique dans le live)
         subprocess.Popen(["gnome-session-quit", "--logout", "--no-prompt"], start_new_session=True)
@@ -157,6 +167,8 @@ def main():
         win.set_icon_name("ghostcat-hub")
         if "--windowed" not in sys.argv:
             win.fullscreen()
+        if KIOSK:
+            win.set_decorated(False)
 
         ucm = WebKit.UserContentManager()
         view = WebKit.WebView(user_content_manager=ucm)
@@ -172,8 +184,13 @@ def main():
             ok = apply(settings, mode, lambda t, s: reply({"type": "progress", "task": t, "state": s}))
             reply({"type": "done", "ok": ok})
             time.sleep(1.4 if ok else 4)
-            GLib.idle_add(win.close)
-            next_step(bool(settings.get("lang")) and settings.get("lang") != start_lang)
+            lang_changed = bool(settings.get("lang")) and settings.get("lang") != start_lang
+            if KIOSK:
+                next_step(lang_changed)     # GNOME sera la session suivante
+                GLib.idle_add(app.quit)     # quitter l'appli ferme la session kiosque
+            else:
+                GLib.idle_add(win.close)
+                next_step(lang_changed)
 
         def on_message(_ucm, value):
             try:
@@ -184,7 +201,7 @@ def main():
                 return
             act = msg.get("action")
             if act == "init":
-                reply({"type": "init", "zones": zones(), "current": current()})
+                reply({"type": "init", "zones": zones(), "current": current(), "kiosk": KIOSK})
             elif act == "kbd_preview":
                 set_keyboard(msg.get("keymap"))
             elif act == "apply" and isinstance(msg.get("settings"), dict):

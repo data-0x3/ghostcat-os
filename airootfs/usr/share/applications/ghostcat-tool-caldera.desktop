@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=MITRE CALDERA
+Name[fr]=MITRE CALDERA
+Comment=Automated adversary emulation platform based on MITRE ATT&CK (web UI).
+Comment[fr]=Plateforme d'émulation automatisée basée sur MITRE ATT&CK (interface web).
+Exec=/usr/local/bin/ghostcat-hub --run=caldera
+Icon=ghostcat-tool-caldera
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Purple;
+Keywords=Émulation d'adversaire;purple;cyber;security;

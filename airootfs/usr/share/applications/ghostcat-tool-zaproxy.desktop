@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=OWASP ZAP
+Name[fr]=OWASP ZAP
+Comment=Open-source web vulnerability scanner with a GUI.
+Comment[fr]=Scanner de vulnérabilités web open source, avec interface graphique.
+Exec=/usr/local/bin/ghostcat-hub --run=zaproxy
+Icon=ghostcat-tool-zaproxy
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Web;red;cyber;security;

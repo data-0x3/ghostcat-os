@@ -85,7 +85,11 @@ cp -a /opt/ghostcat-setup "$T/opt/"
 mkdir -p "$T/usr/local/lib" "$T/usr/share/ghostcat" "$T/etc/xdg/autostart"
 cp -a /usr/local/lib/ghostcat "$T/usr/local/lib/"
 cp -a /usr/share/ghostcat/privacy /usr/share/ghostcat/start "$T/usr/share/ghostcat/"
-cp /usr/share/applications/ghostcat-hub.desktop /usr/share/applications/ghostcat-setup.desktop "$T/usr/share/applications/"
+cp /usr/share/applications/ghostcat-hub.desktop /usr/share/applications/ghostcat-setup.desktop \
+   /usr/share/applications/ghostcat-tool-*.desktop "$T/usr/share/applications/"
+mkdir -p "$T/usr/local/share/applications"
+cp -a /usr/local/share/applications/. "$T/usr/local/share/applications/"     # applis masquées de la grille
+cp -a /usr/share/icons/GhostCat "$T/usr/share/icons/"
 cp /etc/xdg/autostart/ghostcat-session-start.desktop "$T/etc/xdg/autostart/"
 mkdir -p "$T/etc/plymouth" "$T/etc/dconf"
 cp /etc/plymouth/plymouthd.conf "$T/etc/plymouth/"
@@ -123,6 +127,24 @@ fi
 if python3 -c "import json,sys; sys.exit(0 if json.load(open('$T/etc/ghostcat/setup.json')).get('tor') else 1)"; then
   arch-chroot "$T" systemctl enable tor
 fi
+
+# réglages faits une seule fois, au premier démarrage du live : on ne redemande rien après l'installation
+LANG_SET="$(python3 -c "import json; print(json.load(open('$T/etc/ghostcat/setup.json')).get('lang',''))" 2>/dev/null || true)"
+mkdir -p "$T/etc/skel/.config/ghostcat" && touch "$T/etc/skel/.config/ghostcat/setup-done"
+mkdir -p "$T/var/lib/AccountsService/users" && chmod 700 "$T/var/lib/AccountsService/users"
+for h in "$T"/home/*/; do
+  u=$(basename "$h"); line=$(grep "^$u:" "$T/etc/passwd") || continue
+  uid=$(cut -d: -f3 <<<"$line"); gid=$(cut -d: -f4 <<<"$line")
+  mkdir -p "$h/.config/ghostcat" && touch "$h/.config/ghostcat/setup-done" && chown -R "$uid:$gid" "$h/.config"
+  if [[ $LANG_SET =~ ^[a-z]{2}_[A-Z]{2}$ ]]; then
+    printf '[User]\nLanguage=%s.UTF-8\nSession=gnome\nSessionType=wayland\nSystemAccount=false\n' "$LANG_SET" \
+      > "$T/var/lib/AccountsService/users/$u"
+    chmod 600 "$T/var/lib/AccountsService/users/$u"
+  fi
+done
+arch-chroot "$T" dconf update
+arch-chroot "$T" gtk-update-icon-cache -q -f /usr/share/icons/hicolor || true
+arch-chroot "$T" gtk-update-icon-cache -q -f /usr/share/icons/GhostCat || true
 
 # --- Plymouth + services ---------------------------------------------------
 say "écran de démarrage Plymouth"

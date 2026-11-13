@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=tcpdump
+Name[fr]=tcpdump
+Comment=Command-line packet capture.
+Comment[fr]=Capture de paquets en ligne de commande.
+Exec=/usr/local/bin/ghostcat-hub --run=tcpdump
+Icon=ghostcat-tool-tcpdump
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Surveillance réseau;blue;cyber;security;

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Hydra
+Name[fr]=Hydra
+Comment=Password strength testing on network services (SSH, FTP, HTTP…).
+Comment[fr]=Test de robustesse des mots de passe sur services réseau (SSH, FTP, HTTP…).
+Exec=/usr/local/bin/ghostcat-hub --run=hydra
+Icon=ghostcat-tool-hydra
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Mots de passe;red;cyber;security;

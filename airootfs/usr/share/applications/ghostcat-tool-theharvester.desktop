@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=theHarvester
+Name[fr]=theHarvester
+Comment=OSINT: emails, names, subdomains and IPs tied to a domain.
+Comment[fr]=OSINT : e-mails, noms, sous-domaines et IP liés à un domaine.
+Exec=/usr/local/bin/ghostcat-hub --run=theharvester
+Icon=ghostcat-tool-theharvester
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Reconnaissance;red;cyber;security;

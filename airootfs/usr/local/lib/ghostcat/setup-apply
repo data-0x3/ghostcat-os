@@ -61,6 +61,26 @@ def write(path, text):
         f.write(text)
 
 
+def set_account_keys(user, keys):
+    """Modifie /var/lib/AccountsService/users/<user> en gardant les autres clés (Session…)."""
+    path = f"/var/lib/AccountsService/users/{user}"
+    lines = []
+    try:
+        with open(p(path), encoding="utf-8") as f:
+            lines = [l.rstrip("\n") for l in f]
+    except FileNotFoundError:
+        pass
+    if "[User]" not in lines:
+        lines = ["[User]"] + lines
+    todo = dict(keys)
+    for i, l in enumerate(lines):
+        k = l.split("=", 1)[0]
+        if k in todo:
+            lines[i] = f"{k}={todo.pop(k)}"
+    lines += [f"{k}={v}" for k, v in todo.items()]
+    write(path, "\n".join(lines) + "\n")
+
+
 def target_user():
     """L'utilisateur qui a lancé Setup (via sudo ou pkexec), jamais une valeur de la page."""
     if os.environ.get("SUDO_USER"):
@@ -80,8 +100,7 @@ def apply(cfg):
         run("localectl", "set-locale", f"LANG={loc}")
         user = target_user()
         if user and re.fullmatch(r"[a-z_][a-z0-9_-]{0,31}", user):
-            write(f"/var/lib/AccountsService/users/{user}",
-                  f"[User]\nLanguage={loc}\nSystemAccount=false\n")
+            set_account_keys(user, {"Language": loc})
         done["lang"] = lang
 
     km = cfg.get("keymap")
@@ -92,6 +111,13 @@ def apply(cfg):
               'Section "InputClass"\n  Identifier "system-keyboard"\n  MatchIsKeyboard "on"\n'
               f'  Option "XkbLayout" "{layout}"\n'
               + (f'  Option "XkbVariant" "{variant}"\n' if variant else "") + "EndSection\n")
+        src = f"{layout}+{variant}" if variant else layout
+        write("/etc/dconf/db/local.d/10-ghostcat-input",
+              "# écrit par GhostCat Setup\n[org/gnome/desktop/input-sources]\n"
+              f"sources=[('xkb', '{src}')]\n")
+        write("/etc/dconf/db/gdm.d/10-ghostcat-input",
+              f"[org/gnome/desktop/input-sources]\nsources=[('xkb', '{src}')]\n")
+        run("dconf", "update")
         run("localectl", "set-keymap", "--no-convert", console)
         run("localectl", "set-x11-keymap", "--no-convert", layout, "", variant)
         done["keymap"] = km

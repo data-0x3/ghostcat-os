@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=GhostCat Wallpapers
+Name[fr]=Fonds d'écran GhostCat
+Comment=7 GhostCat wallpapers (Glitch, Grid, Rain, Liquid, ASCII…) and a rotating slideshow.
+Comment[fr]=7 fonds GhostCat (Glitch, Grid, Rain, Liquid, ASCII…) et un diaporama qui les fait tourner.
+Exec=/usr/local/bin/ghostcat-hub --run=sys-wallpaper
+Icon=ghostcat-tool-sys-wallpaper
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-System;
+Keywords=Système;system;cyber;security;

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=BloodHound
+Name[fr]=BloodHound
+Comment=Visualizes attack paths in Active Directory.
+Comment[fr]=Visualise les chemins d'attaque dans un Active Directory.
+Exec=/usr/local/bin/ghostcat-hub --run=bloodhound
+Icon=ghostcat-tool-bloodhound
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Active Directory;red;cyber;security;

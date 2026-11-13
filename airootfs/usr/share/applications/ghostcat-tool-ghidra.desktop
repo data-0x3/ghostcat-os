@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Ghidra
+Name[fr]=Ghidra
+Comment=The NSA's full-featured disassembler and decompiler.
+Comment[fr]=Désassembleur et décompilateur de la NSA, très complet.
+Exec=/usr/local/bin/ghostcat-hub --run=ghidra
+Icon=ghostcat-tool-ghidra
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Reverse;red;cyber;security;

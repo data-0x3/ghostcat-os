@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=chkrootkit
+Name[fr]=chkrootkit
+Comment=A quick second opinion on rootkits.
+Comment[fr]=Deuxième avis rapide sur la présence de rootkits.
+Exec=/usr/local/bin/ghostcat-hub --run=chkrootkit
+Icon=ghostcat-tool-chkrootkit
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Malware;blue;cyber;security;

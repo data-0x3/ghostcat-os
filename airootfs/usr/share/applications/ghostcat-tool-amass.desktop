@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Amass
+Name[fr]=Amass
+Comment=Maps an organization's subdomains and attack surface.
+Comment[fr]=Cartographie des sous-domaines et de la surface d'attaque d'une organisation.
+Exec=/usr/local/bin/ghostcat-hub --run=amass
+Icon=ghostcat-tool-amass
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Reconnaissance;red;cyber;security;

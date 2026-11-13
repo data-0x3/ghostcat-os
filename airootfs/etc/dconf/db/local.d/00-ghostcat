@@ -2,7 +2,7 @@
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
 gtk-theme='adw-gtk3-dark'
-icon-theme='Papirus-Dark'
+icon-theme='GhostCat'
 accent-color='slate'
 cursor-size=24
 monospace-font-name='JetBrainsMono Nerd Font 11'
@@ -136,3 +136,49 @@ default-size-rows=30
 theme-variant='dark'
 default-show-menubar=false
 headerbar=@mb true
+
+# --- grille d'applis : dossiers GhostCat (les lanceurs d'outils portent ces catégories)
+[org/gnome/desktop/app-folders]
+folder-children=['GhostCat-Red', 'GhostCat-Blue', 'GhostCat-Purple', 'GhostCat-System', 'Utilities', 'Office', 'Media', 'System']
+
+[org/gnome/desktop/app-folders/folders/GhostCat-Red]
+name='Red Team'
+categories=['X-GhostCat-Red']
+translate=false
+
+[org/gnome/desktop/app-folders/folders/GhostCat-Blue]
+name='Blue Team'
+categories=['X-GhostCat-Blue']
+translate=false
+
+[org/gnome/desktop/app-folders/folders/GhostCat-Purple]
+name='Purple Team'
+categories=['X-GhostCat-Purple']
+translate=false
+
+[org/gnome/desktop/app-folders/folders/GhostCat-System]
+name='GhostCat'
+categories=['X-GhostCat-System']
+translate=false
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+name='Utilities'
+categories=['Utility', 'X-GNOME-Utilities']
+excluded-apps=['ghostcat-hub.desktop', 'ghostcat-setup.desktop']
+translate=false
+
+[org/gnome/desktop/app-folders/folders/Office]
+name='Office'
+categories=['Office']
+translate=false
+
+[org/gnome/desktop/app-folders/folders/Media]
+name='Media'
+categories=['AudioVideo', 'Audio', 'Video', 'Graphics']
+translate=false
+
+[org/gnome/desktop/app-folders/folders/System]
+name='System'
+categories=['System', 'Settings', 'Monitor']
+excluded-apps=['ghostcat-hub.desktop', 'ghostcat-setup.desktop', 'org.gnome.Settings.desktop']
+translate=false

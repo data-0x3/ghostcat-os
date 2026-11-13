@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Change MAC address
+Name[fr]=Changer l'adresse MAC
+Comment=Random MAC address for more discretion on public networks.
+Comment[fr]=Adresse MAC aléatoire pour plus de discrétion sur les réseaux publics.
+Exec=/usr/local/bin/ghostcat-hub --run=sys-mac
+Icon=ghostcat-tool-sys-mac
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-System;
+Keywords=Système;system;cyber;security;

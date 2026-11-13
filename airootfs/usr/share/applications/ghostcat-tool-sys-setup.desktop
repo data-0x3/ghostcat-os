@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=GhostCat Settings
+Name[fr]=Réglages GhostCat
+Comment=Language, keyboard, time zone and privacy: reopens GhostCat Setup.
+Comment[fr]=Langue, clavier, fuseau horaire et vie privée : relance l'assistant GhostCat Setup.
+Exec=/usr/local/bin/ghostcat-hub --run=sys-setup
+Icon=ghostcat-tool-sys-setup
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-System;
+Keywords=Système;system;cyber;security;

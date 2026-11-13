@@ -155,8 +155,33 @@ def run_webkit(start_view=None):
     return app.run([sys.argv[0]])
 
 
+def run_from_launcher(tool_id):
+    """Lanceur de la grille d'applis : lance l'outil, ou propose de l'installer s'il manque."""
+    tool = CATALOG.get(tool_id)
+    if not tool:
+        return 1
+    if tool.get("url"):
+        open_url(tool["url"])
+    elif is_ready(tool) and tool.get("run"):
+        if tool.get("gui"):
+            subprocess.Popen(["bash", "-lc", tool["run"]], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        else:
+            terminal(tool["run"], tool["name"])
+    else:
+        cmd = install_cmd(tool)
+        if cmd:
+            follow = f" && {tool['run']}" if tool.get("run") and not tool.get("gui") else ""
+            terminal(f'echo "{tool["name"]} n\'est pas encore installé : installation…"; {cmd}{follow}',
+                     f"Installation · {tool['name']}")
+    return 0
+
+
 def main():
     args = sys.argv[1:]
+    run_id = next((a.split("=", 1)[1] for a in args if a.startswith("--run=")), None)
+    if run_id:
+        return run_from_launcher(run_id)
     if "--welcome" in args:              # lancé au premier login uniquement
         if WELCOME_FLAG.exists():
             return 0

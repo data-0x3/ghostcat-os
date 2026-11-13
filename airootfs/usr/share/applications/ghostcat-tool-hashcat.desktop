@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Hashcat
+Name[fr]=Hashcat
+Comment=GPU-accelerated hash cracking.
+Comment[fr]=Cassage de hachages accéléré par carte graphique.
+Exec=/usr/local/bin/ghostcat-hub --run=hashcat
+Icon=ghostcat-tool-hashcat
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Mots de passe;red;cyber;security;

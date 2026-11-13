@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=NetExec
+Name[fr]=NetExec
+Comment=Windows/AD network auditing: SMB, WinRM, LDAP, MSSQL.
+Comment[fr]=Audit des réseaux Windows/AD : SMB, WinRM, LDAP, MSSQL.
+Exec=/usr/local/bin/ghostcat-hub --run=netexec
+Icon=ghostcat-tool-netexec
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Active Directory;red;cyber;security;

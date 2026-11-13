@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Fail2ban
+Name[fr]=Fail2ban
+Comment=Automatically bans IPs that try to brute-force your services.
+Comment[fr]=Bannit automatiquement les IP qui tentent de forcer tes services.
+Exec=/usr/local/bin/ghostcat-hub --run=fail2ban
+Icon=ghostcat-tool-fail2ban
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Blue;
+Keywords=Protection du système;blue;cyber;security;

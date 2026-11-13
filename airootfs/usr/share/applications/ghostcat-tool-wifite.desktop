@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Wifite
+Name[fr]=Wifite
+Comment=Automated, guided Wi-Fi auditing.
+Comment[fr]=Audit Wi-Fi automatisé, guidé pas à pas.
+Exec=/usr/local/bin/ghostcat-hub --run=wifite
+Icon=ghostcat-tool-wifite
+Terminal=false
+StartupNotify=false
+Categories=X-GhostCat-Red;
+Keywords=Sans-fil;red;cyber;security;
