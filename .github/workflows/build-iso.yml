@@ -47,7 +47,7 @@ jobs:
             -e EDITION="$EDITION" \
             archlinux:latest bash -euo pipefail -c '
               pacman-key --init && pacman-key --populate archlinux
-              pacman -Syu --noconfirm --needed archiso curl git libarchive glib2 gnome-shell
+              pacman -Syu --noconfirm --needed archiso curl git libarchive glib2 glib2-devel gnome-shell
               curl -fsSLO https://blackarch.org/strap.sh
               chmod +x strap.sh && ./strap.sh
               rm -f strap.sh

@@ -121,12 +121,13 @@ say "4c/5 thème GNOME Shell GhostCat"
 BASE_CSS=gnome-shell-dark.css
 GS_RES=/usr/share/gnome-shell/gnome-shell-theme.gresource
 if [[ -f $GS_RES ]]; then
-  if command -v gresource >/dev/null; then RES_LIST="$(gresource list "$GS_RES")"
-  else RES_LIST="$(grep -aoE '/org/gnome/shell/theme/gnome-shell[a-z-]*\.css' "$GS_RES" | sort -u)"; fi
+  if command -v gresource >/dev/null; then RES_LIST="$(gresource list "$GS_RES" 2>/dev/null || true)"
+  else RES_LIST="$(grep -aoE '/org/gnome/shell/theme/gnome-shell[a-z-]*\.css' "$GS_RES" 2>/dev/null | sort -u || true)"; fi
   if grep -q '/gnome-shell-dark\.css$' <<<"$RES_LIST"; then BASE_CSS=gnome-shell-dark.css
   elif grep -q '/gnome-shell\.css$' <<<"$RES_LIST"; then BASE_CSS=gnome-shell.css
   fi
-  say "     base : $BASE_CSS (détectée)"
+  if [[ -n $RES_LIST ]]; then say "     base : $BASE_CSS (détectée)"
+  else say "     base : $BASE_CSS (par défaut, noms illisibles dans $GS_RES)"; fi
 else
   say "     base : $BASE_CSS (par défaut, gnome-shell absent de la machine de build)"
 fi
