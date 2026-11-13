@@ -69,10 +69,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .welcome{align-items:center;justify-content:center;text-align:center}
 .welcome img{width:190px;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(255,255,255,.28))}
 @keyframes float{50%{transform:translateY(-10px)}}
-.hello{height:62px;margin-top:10px;position:relative;width:100%}
-.hello span{position:absolute;left:0;right:0;font-size:50px;font-weight:750;letter-spacing:-1px;opacity:0;transform:translateY(16px);filter:blur(8px);
-  transition:opacity .7s var(--smooth),transform .9s var(--spring),filter .7s}
-.hello span.on{opacity:1;transform:none;filter:none}
+.hero-t{margin-top:14px;font-size:54px;font-weight:780;letter-spacing:-1.2px;line-height:1.05}
+.hero-t .w{display:inline-block;opacity:0;transform:translateY(22px);filter:blur(10px)}
+.welcome.on .hero-t .w{animation:word .9s var(--spring) forwards;animation-delay:calc(.25s + var(--i)*.12s)}
+@keyframes word{to{opacity:1;transform:none;filter:none}}
+.hero-p{margin-top:10px;height:44px;font-size:34px;font-weight:300;letter-spacing:.5px;color:rgba(255,255,255,.82);font-style:italic}
+.hero-p .caret{display:inline-block;width:3px;height:30px;margin-left:4px;vertical-align:-4px;background:#fff;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-p.glow{text-shadow:0 0 22px rgba(255,255,255,.45)}
 .welcome .sub{margin:14px auto 0}
 
 /* listes de choix */
@@ -151,7 +155,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
       <section class="step welcome" data-k="welcome">
         <img src="ghost.webp" alt="">
-        <div class="hello" id="hello"></div>
+        <h1 class="hero-t" id="heroT"></h1>
+        <div class="hero-p" id="heroP"><span id="heroPt"></span><span class="caret"></span></div>
         <p class="sub" data-t="welcome_sub"></p>
       </section>
 
@@ -243,7 +248,6 @@ const T = {
          traces:["No traces","No location, no recent-files history; trash emptied after 7 days."],
          tor:["Tor at startup","Starts the Tor network (for proxychains). Slower: off by default."]}},
 };
-const HELLO = ["Bienvenue","Welcome","Bienvenido","Willkommen","Benvenuto","Bem-vindo","Welkom","Witaj","Hoş geldin","Добро пожаловать","Ласкаво просимо"];
 const LANGS = [
   ["fr_FR","Français","France"],["fr_BE","Français","Belgique"],["fr_CH","Français","Suisse"],["fr_CA","Français","Canada"],
   ["en_US","English","United States"],["en_GB","English","United Kingdom"],["es_ES","Español","España"],["de_DE","Deutsch","Deutschland"],
@@ -379,10 +383,15 @@ function setTask(k, state){
 function finished(ok){ if (!ok) $("#err").textContent = tx().fail; }
 
 /* ---------- animations ---------- */
-let h = 0;
-$("#hello").innerHTML = HELLO.map(w => `<span>${esc(w)}</span>`).join("");
-function hello(){ const s = $("#hello").children; [...s].forEach((e,i) => e.classList.toggle("on", i===h)); h = (h+1) % s.length; }
-hello(); setInterval(hello, 1900);
+/* « Welcome to GhostCat OS, the true privacy. » : mots qui montent, puis 2e ligne tapée */
+$("#heroT").innerHTML = "Welcome to GhostCat OS,".split(" ").map((w,i) => `<span class="w" style="--i:${i}">${esc(w)}</span>`).join(" ");
+(function type(){
+  const line = "the true privacy.", out = $("#heroPt"); let i = 0;
+  setTimeout(function step(){
+    out.textContent = line.slice(0, ++i);
+    if (i < line.length) setTimeout(step, 70 + Math.random()*60); else $("#heroP").classList.add("glow");
+  }, 1300);
+})();
 setInterval(tzClock, 15000);
 document.addEventListener("pointermove", e => {
   const g = $("#card"), r = g.getBoundingClientRect();

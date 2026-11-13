@@ -26,11 +26,18 @@ fg.raw = Image("bar.png");
 fg.sprite = Sprite();
 fg.sprite.SetPosition(W / 2 - bar_w / 2, bar_y, 2);
 
-tick = 0; fade = 0;
+# phrase sous le fantôme, qui apparaît en fondu
+tagline.image  = Image.Text("Your new life is about to be born", 0.86, 0.86, 0.9, 1, "Sans 15");
+tagline.sprite = Sprite(tagline.image);
+tagline.sprite.SetPosition(W / 2 - tagline.image.GetWidth() / 2, bar_y + 28, 3);
+tagline.sprite.SetOpacity(0);
+
+tick = 0; fade = 0; tfade = 0;
 fun refresh_cb() {
   tick++;
   ghost.SetImage(frames[Math.Int(tick / 2) % NFRAMES]);   # ~25 i/s
   if (fade < 1) { fade += 0.04; ghost.SetOpacity(fade); }  # apparition douce
+  if (tick > 40 && tfade < 1) { tfade += 0.02; tagline.sprite.SetOpacity(tfade); }  # la phrase arrive après ~0,8 s
 }
 Plymouth.SetRefreshFunction(refresh_cb);
 
@@ -45,7 +52,7 @@ fun password_cb(prompt, bullets) {
   s = ""; for (i = 0; i < bullets; i++) s += "•";
   pw.image  = Image.Text(prompt + "  " + s, 1, 1, 1);
   pw.sprite = Sprite(pw.image);
-  pw.sprite.SetPosition(W / 2 - pw.image.GetWidth() / 2, bar_y + 30, 3);
+  pw.sprite.SetPosition(W / 2 - pw.image.GetWidth() / 2, bar_y + 70, 3);
 }
 Plymouth.SetDisplayPasswordFunction(password_cb);
 fun normal_cb() { pw.sprite = NULL; }
