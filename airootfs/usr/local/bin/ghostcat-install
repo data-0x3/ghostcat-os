@@ -84,6 +84,7 @@ cp /usr/local/bin/ghostcat-hub /usr/local/bin/ghostcat-setup /usr/local/bin/ghos
 cp -a /opt/ghostcat-setup "$T/opt/"
 mkdir -p "$T/usr/local/lib" "$T/usr/share/ghostcat" "$T/etc/xdg/autostart"
 cp -a /usr/local/lib/ghostcat "$T/usr/local/lib/"
+mkdir -p "$T/etc/udev/rules.d" && cp /etc/udev/rules.d/90-ghostcat-vpn-dns.rules "$T/etc/udev/rules.d/"
 cp -a /usr/share/ghostcat/privacy /usr/share/ghostcat/start "$T/usr/share/ghostcat/"
 cp /usr/share/applications/ghostcat-hub.desktop /usr/share/applications/ghostcat-setup.desktop \
    /usr/share/applications/ghostcat-tool-*.desktop "$T/usr/share/applications/"

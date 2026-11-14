@@ -1,0 +1,23 @@
+#!/bin/sh
+# GhostCat OS — DNS chiffré et VPN (developed by 0x3)
+# Quand un VPN se connecte (Mullvad, WireGuard, OpenVPN…), il fournit son propre DNS
+# dans le tunnel et bloque tout autre DNS. On met donc le DNS chiffré GhostCat de côté
+# le temps de la connexion, puis on le rétablit quand le VPN se coupe.
+#   usage : vpn-dns up|down <interface>
+VPN_RE='^(wg|tun|tap|mullvad|proton|nordlynx|tailscale|ppp)'
+OVR=/run/systemd/resolved.conf.d/99-ghostcat-vpn.conf
+case "$1" in
+  up)
+    mkdir -p /run/systemd/resolved.conf.d
+    printf '# VPN actif (%s) : le DNS du VPN remplace le DNS chiffré GhostCat\n[Resolve]\nDNS=\nDNSOverTLS=no\n' "$2" > "$OVR"
+    ;;
+  down)
+    # un autre VPN est encore connecté : on ne touche à rien
+    ls /sys/class/net | grep -vx "$2" | grep -Eq "$VPN_RE" && exit 0
+    rm -f "$OVR"
+    ;;
+  *) echo "usage : $0 up|down <interface>" >&2; exit 2 ;;
+esac
+# recharge la config sans redémarrer (un redémarrage effacerait le DNS donné par le VPN)
+systemctl reload systemd-resolved 2>/dev/null || resolvectl flush-caches 2>/dev/null
+exit 0

@@ -21,6 +21,7 @@ file_permissions+=(
   ["/var/lib/AccountsService/users"]="0:0:700"
   ["/var/lib/AccountsService/users/ghost"]="0:0:600"
   ["/usr/local/lib/ghostcat/setup-apply"]="0:0:755"
+  ["/usr/local/lib/ghostcat/vpn-dns"]="0:0:755"
   ["/opt/ghostcat-setup/ghostcat_setup.py"]="0:0:755"
   ["/etc/sudoers.d/10-ghostcat-live"]="0:0:440"
   ["/home/ghost"]="1000:1000:750"
