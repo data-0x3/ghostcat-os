@@ -1,0 +1,321 @@
+/* GhostCat Shell — feuille de style — developed by 0x3 · https://t.me/data0x3
+ *
+ * Le langage GhostCat, le même partout (site, menu de démarrage, bureau) :
+ *   - le vide : surfaces noires, presque opaques, bordure d'un pixel ;
+ *   - la sélection inversée : ce qui est choisi passe en blanc sur noir ;
+ *   - deux polices : GhostCat Sans pour lire, GhostCat Pixel (police des consoles)
+ *     pour l'heure, les titres et les statuts ;
+ *   - la couleur ne sert qu'à dire quelque chose : vert = protégé,
+ *     rouge / bleu / violet = les trois équipes, ambre = à vérifier.
+ *
+ * Chargée par GNOME Shell par-dessus son thème : si un sélecteur change
+ * d'une version de GNOME à l'autre, le thème d'origine reste dessous.
+ */
+
+stage { font-family: "GhostCat Sans", "Adwaita Sans", sans-serif; color: #eef0f2; }
+
+/* ============================================================ barre du haut */
+#panel.ghostcat-panel {
+  background-color: rgba(0, 0, 0, 0.86);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  height: 32px;
+  font-weight: 400;
+  transition-duration: 300ms;
+}
+#panel.ghostcat-panel:overview,
+#panel.ghostcat-panel.unlock-screen,
+#panel.ghostcat-panel.login-screen { background-color: transparent; border-bottom-color: transparent; }
+
+#panel.ghostcat-panel .panel-button {
+  color: #eef0f2;
+  border-radius: 4px;
+  margin: 4px 1px;
+  padding: 0 10px;
+  font-weight: 400;
+  transition-duration: 150ms;
+}
+#panel.ghostcat-panel .panel-button:hover { background-color: rgba(255, 255, 255, 0.10); }
+#panel.ghostcat-panel .panel-button:active,
+#panel.ghostcat-panel .panel-button:checked,
+#panel.ghostcat-panel .panel-button:focus { background-color: #eef0f2; color: #000000; }
+#panel.ghostcat-panel .panel-button:checked .system-status-icon,
+#panel.ghostcat-panel .panel-button:active .system-status-icon { color: #000000; }
+
+/* l'heure, en police pixel, au centre */
+#panel.ghostcat-panel .clock-display .clock {
+  font-family: "GhostCat Pixel", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* points des espaces de travail : petits carrés */
+#panel.ghostcat-panel .workspace-dot { background-color: rgba(255, 255, 255, 0.35); border-radius: 1px; }
+#panel.ghostcat-panel .workspace-dot.active,
+#panel.ghostcat-panel .workspace-dot:active { background-color: #eef0f2; }
+#panel.ghostcat-panel .panel-button:checked .workspace-dot { background-color: rgba(0, 0, 0, 0.45); }
+#panel.ghostcat-panel .panel-button:checked .workspace-dot.active { background-color: #000000; }
+
+/* bouton fantôme */
+.ghostcat-ghost-button { padding: 0 9px; }
+.ghostcat-ghost-icon { icon-size: 18px; color: #eef0f2; }
+.ghostcat-ghost-button:checked .ghostcat-ghost-icon { color: #000000; }
+
+/* bouclier */
+.ghostcat-shield .system-status-icon { color: #5fd38d; }
+.ghostcat-shield.ghostcat-shield-vpn .system-status-icon { color: #b26bff; }
+.ghostcat-shield.ghostcat-shield-warn .system-status-icon { color: #ffb44d; }
+
+/* ============================================================ menus */
+.popup-menu-boxpointer, .candidate-popup-boxpointer { -arrow-rise: 4px; -arrow-base: 0; -arrow-border-radius: 0; }
+.popup-menu-content, .candidate-popup-content {
+  background-color: rgba(0, 0, 0, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  padding: 6px;
+}
+.popup-menu-item {
+  border-radius: 3px;
+  padding: 8px 12px;
+  spacing: 10px;
+  transition-duration: 100ms;
+}
+.popup-menu-item:hover, .popup-menu-item:focus, .popup-menu-item.selected,
+.popup-menu-item:active, .popup-menu-item:checked {
+  background-color: #eef0f2;
+  color: #000000;
+}
+.popup-menu-item:insensitive { color: rgba(255, 255, 255, 0.4); }
+.popup-sub-menu { background-color: rgba(255, 255, 255, 0.04); border-radius: 3px; }
+.popup-separator-menu-item { padding: 4px 0; }
+.popup-separator-menu-item .popup-separator-menu-item-separator { background-color: rgba(255, 255, 255, 0.10); height: 1px; }
+
+/* menu fantôme : en-tête */
+.ghostcat-head { spacing: 14px; padding: 12px 12px 14px; }
+.ghostcat-head-title { font-family: "GhostCat Pixel", monospace; font-size: 32px; color: #eef0f2; }
+.ghostcat-head-sub { font-size: 13px; color: #8e9196; margin-top: 4px; }
+.ghostcat-menu-title { font-family: "GhostCat Pixel", monospace; font-size: 16px; color: #8e9196; }
+
+/* lignes de statut, façon journal de démarrage */
+.ghostcat-status-line { padding: 3px 12px; spacing: 12px; }
+.ghostcat-tag { font-family: "GhostCat Pixel", monospace; font-size: 16px; min-width: 80px; }
+.ghostcat-tag-ok { color: #5fd38d; }
+.ghostcat-tag-warn { color: #ffb44d; }
+.ghostcat-tag-info { color: #8e9196; }
+.ghostcat-status-text { font-size: 14px; color: #eef0f2; }
+
+/* équipes : un trait de couleur, rien de plus */
+.ghostcat-team-red { border-left: 3px solid #ff4d6d; }
+.ghostcat-team-blue { border-left: 3px solid #4d8dff; }
+.ghostcat-team-purple { border-left: 3px solid #b26bff; }
+
+/* ============================================================ réglages rapides */
+.quick-settings {
+  background-color: rgba(0, 0, 0, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 14px;
+}
+.quick-toggle, .quick-menu-toggle .quick-toggle {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition-duration: 150ms;
+}
+.quick-menu-toggle .quick-toggle { border-radius: 4px 0 0 4px; }
+.quick-menu-toggle .quick-toggle-arrow { border-radius: 0 4px 4px 0; }
+.quick-toggle:hover { background-color: rgba(255, 255, 255, 0.13); }
+.quick-toggle:checked, .quick-menu-toggle .quick-toggle:checked,
+.quick-menu-toggle .quick-toggle-arrow:checked {
+  background-color: #eef0f2;
+  border-color: #eef0f2;
+  color: #000000;
+}
+.quick-toggle:checked:hover { background-color: #ffffff; }
+.quick-toggle-menu {
+  background-color: rgba(20, 21, 24, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 6px;
+}
+.quick-settings-system-item .icon-button, .quick-settings .icon-button {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.quick-settings-system-item .icon-button:hover, .quick-settings .icon-button:hover { background-color: rgba(255, 255, 255, 0.16); }
+
+.slider {
+  -barlevel-height: 4px;
+  -barlevel-active-background-color: #eef0f2;
+  -barlevel-background-color: rgba(255, 255, 255, 0.14);
+  -slider-handle-radius: 7px;
+  -slider-handle-border-color: #000000;
+}
+.toggle-switch:checked { background-color: #eef0f2; }
+.check-box:checked StBin { background-color: #eef0f2; color: #000000; border-radius: 3px; }
+
+/* ============================================================ calendrier et notifications */
+.datemenu-today-button, .events-button, .world-clocks-button, .weather-button, .message {
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+.datemenu-today-button:hover, .events-button:hover, .world-clocks-button:hover,
+.weather-button:hover, .message:hover { background-color: rgba(255, 255, 255, 0.10); }
+.datemenu-today-button .date-label { font-family: "GhostCat Pixel", monospace; font-size: 32px; font-weight: 400; }
+.calendar-day { border-radius: 3px; }
+.calendar-day:selected, .calendar-today:selected { background-color: #eef0f2; color: #000000; }
+.calendar-today { font-weight: 700; border: 1px solid rgba(255, 255, 255, 0.45); }
+
+.notification-banner, .notification-banner:hover, .notification-banner:focus {
+  background-color: rgba(0, 0, 0, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6);
+}
+.message .message-title { font-weight: 700; }
+.message .message-source-title, .message .event-time { font-family: "GhostCat Pixel", monospace; font-size: 16px; color: #8e9196; }
+
+/* ============================================================ vue d'ensemble et grille */
+.search-entry {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 9px 14px;
+  color: #eef0f2;
+  caret-color: #eef0f2;
+  transition-duration: 150ms;
+}
+.search-entry:hover { border-color: rgba(255, 255, 255, 0.3); }
+.search-entry:focus { border-color: #eef0f2; background-color: rgba(0, 0, 0, 0.8); }
+.search-entry .search-entry-icon { color: rgba(255, 255, 255, 0.6); }
+
+.overview-tile, .app-well-app, .grid-search-result, .app-folder {
+  border-radius: 8px;
+  transition-duration: 150ms;
+}
+.overview-tile:hover, .app-well-app:hover, .grid-search-result:hover, .app-folder:hover,
+.overview-tile:focus, .app-well-app:focus, .grid-search-result:focus, .app-folder:focus {
+  background-color: rgba(255, 255, 255, 0.10);
+}
+.overview-tile:active, .app-well-app:active, .overview-tile:checked, .app-well-app:checked {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+.overview-tile .overview-icon-label, .app-well-app .overview-icon-label { font-weight: 400; }
+.app-folder { background-color: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.08); }
+.app-folder-dialog {
+  background-color: rgba(0, 0, 0, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+.app-folder-dialog .folder-name-label, .app-folder-dialog .folder-name-entry {
+  font-family: "GhostCat Pixel", monospace;
+  font-size: 32px;
+  font-weight: 400;
+}
+.app-folder-dialog .folder-name-entry { border-radius: 4px; }
+.page-indicator .page-indicator-icon { background-color: rgba(255, 255, 255, 0.28); border-radius: 1px; }
+.page-indicator:checked .page-indicator-icon { background-color: #eef0f2; }
+.app-grid-running-dot, .app-well-app-running-dot { background-color: #eef0f2; border-radius: 1px; height: 3px; width: 10px; }
+
+.list-search-result, .search-provider-icon { border-radius: 6px; }
+.list-search-result:hover, .list-search-result:focus,
+.search-provider-icon:hover, .search-provider-icon:focus { background-color: rgba(255, 255, 255, 0.10); }
+.search-section-content {
+  background-color: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+.search-statustext, .no-results { font-family: "GhostCat Pixel", monospace; font-size: 32px; }
+
+.workspace-thumbnail { border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.10); }
+.workspace-thumbnail-indicator { border: 2px solid #eef0f2; border-radius: 6px; }
+.window-caption {
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  color: #eef0f2;
+}
+.window-close { background-color: #eef0f2; color: #000000; }
+
+/* ============================================================ dock */
+#dash .dash-background, #dashtodockContainer .dash-background {
+  background-color: rgba(0, 0, 0, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+#dashtodockContainer .dash-item-container .app-well-app,
+#dashtodockContainer .dash-item-container .overview-tile,
+#dash .dash-item-container .overview-tile,
+#dash .dash-item-container .app-well-app { border-radius: 8px; }
+#dashtodockContainer .show-apps .overview-icon, #dash .show-apps .overview-icon { border-radius: 8px; }
+.dash-separator { background-color: rgba(255, 255, 255, 0.16); }
+.dash-label {
+  background-color: #eef0f2;
+  border: 0;
+  border-radius: 3px;
+  color: #000000;
+  font-weight: 700;
+  padding: 5px 10px;
+}
+
+/* ============================================================ alt+tab, volume, dialogues */
+.switcher-list, .osd-window, .resize-popup, .workspace-switcher, .pad-osd-window {
+  background-color: rgba(0, 0, 0, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+}
+.switcher-list .item-box { border-radius: 6px; }
+.switcher-list .item-box:hover { background-color: rgba(255, 255, 255, 0.08); }
+.switcher-list .item-box:selected { background-color: #eef0f2; color: #000000; }
+.osd-window .level { -barlevel-active-background-color: #eef0f2; -barlevel-height: 4px; }
+.osd-window .osd-monitor-label, .osd-window .number-label { font-family: "GhostCat Pixel", monospace; font-size: 32px; }
+
+.modal-dialog {
+  background-color: rgba(0, 0, 0, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+.modal-dialog .modal-dialog-content-box .headline,
+.modal-dialog .message-dialog-title { font-family: "GhostCat Pixel", monospace; font-size: 32px; font-weight: 400; }
+.modal-dialog .modal-dialog-button-box { background-color: transparent; border-top: 1px solid rgba(255, 255, 255, 0.10); }
+.modal-dialog .modal-dialog-button {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin: 6px;
+  padding: 10px 18px;
+}
+.modal-dialog .modal-dialog-button:hover { background-color: rgba(255, 255, 255, 0.16); }
+.modal-dialog .modal-dialog-button:default,
+.modal-dialog .modal-dialog-button:focus { background-color: #eef0f2; color: #000000; }
+.prompt-dialog-password-entry, .modal-dialog StEntry { border-radius: 4px; }
+
+/* ============================================================ écran de verrouillage */
+.unlock-dialog-clock-time {
+  font-family: "GhostCat Pixel", monospace;
+  font-size: 128px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.unlock-dialog-clock-date { font-size: 20px; font-weight: 400; color: #8e9196; }
+.unlock-dialog-clock-hint { font-family: "GhostCat Pixel", monospace; font-size: 16px; color: #5a5d63; }
+.unlock-dialog .login-dialog-prompt-entry, .login-dialog .login-dialog-prompt-entry {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.unlock-dialog .login-dialog-prompt-entry:focus { border-color: #eef0f2; }
+
+/* ============================================================ apparition du bureau */
+.ghostcat-intro { background-color: #000000; }
+.ghostcat-intro-box { spacing: 28px; }
+.ghostcat-intro-text {
+  font-family: "GhostCat Pixel", monospace;
+  font-size: 32px;
+  color: #eef0f2;
+  min-height: 40px;
+}

@@ -1,10 +1,13 @@
-# GhostCat OS — publie le site (dossier site/) sur GitHub Pages
-name: Site GhostCat OS
+# GhostCat OS — publie le site et le dépôt de paquets [ghostcat] sur GitHub Pages
+#   https://data-0x3.github.io/ghostcat-os/            le site
+#   https://data-0x3.github.io/ghostcat-os/repo/x86_64 le dépôt pacman
+# developed by 0x3 · https://t.me/data0x3
+name: Site et dépôt GhostCat
 
 on:
   push:
     branches: [main]
-    paths: ["site/**", ".github/workflows/site.yml"]
+    paths: ["site/**", "pkgs/**", "tools/build-packages.sh", ".github/workflows/site.yml"]
   workflow_dispatch:
 
 permissions:
@@ -19,11 +22,30 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      GHOSTCAT_SIGNING_KEY: ${{ secrets.GHOSTCAT_SIGNING_KEY }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Construire les paquets et le dépôt
+        run: |
+          VERSION="$(date -u +%Y.%m.%d).$(git rev-list --count HEAD)"
+          sudo docker run --rm -v "$PWD:/build" -w /build \
+            -e VERSION="$VERSION" -e GHOSTCAT_SIGNING_KEY \
+            archlinux:latest bash -euo pipefail -c '
+              pacman-key --init >/dev/null && pacman-key --populate archlinux >/dev/null
+              pacman -Syu --noconfirm --needed gnome-shell >/dev/null
+              tools/build-packages.sh /build/site/repo/x86_64
+              chown -R '"$(id -u):$(id -g)"' /build/site/repo
+            '
+          ls -lh site/repo/x86_64
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

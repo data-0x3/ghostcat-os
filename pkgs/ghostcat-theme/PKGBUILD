@@ -1,0 +1,24 @@
+# GhostCat OS — developed by 0x3 · https://t.me/data0x3
+source ../_common.sh
+pkgname=ghostcat-theme
+pkgver=0
+pkgrel=1
+pkgdesc="GhostCat OS : polices, icônes, fonds d'écran, démarrage (GRUB, Plymouth) et réglages GNOME"
+arch=(any)
+url="https://data-0x3.github.io/ghostcat-os/"
+license=(GPL-3.0-or-later OFL-1.1 LicenseRef-GUST)
+depends=(dconf plymouth adw-gtk-theme)
+optdepends=('grub: menu de démarrage GhostCat' 'papirus-icon-theme: icônes de repli')
+makedepends=(grub)
+install=ghostcat-theme.install
+backup=(etc/dconf/db/local.d/00-ghostcat etc/dconf/db/gdm.d/00-ghostcat)
+
+build() {
+  grub-mkfont -s 16 -o "$srcdir/ghostcat-pixel-16.pf2" \
+    "$startdir/root/usr/share/fonts/ghostcat/GhostCatPixel-Regular.otf"
+}
+
+package() {
+  _ghostcat_install
+  install -m644 "$srcdir/ghostcat-pixel-16.pf2" "$pkgdir/usr/share/grub/themes/ghostcat/"
+}

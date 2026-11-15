@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GhostCat Hub</title>
+<script src="tools.js"></script>
+<link rel="stylesheet" href="hub.css">
+</head>
+<body>
+
+<div class="app">
+  <aside class="glass">
+    <div class="brand"><img src="ghostcat-anim.webp" alt=""><b>GHOSTCAT<br>HUB</b></div>
+    <nav id="nav">
+      <div class="pill" id="pill"></div>
+      <button class="nav-i" data-v="home"><span class="dot" style="color:#fff;background:#fff"></span><span data-i18n="home">Accueil</span></button>
+      <button class="nav-i" data-v="red"><span class="dot" style="color:var(--red);background:var(--red)"></span><span>Red Team</span><em class="n" id="n-red"></em></button>
+      <button class="nav-i" data-v="blue"><span class="dot" style="color:var(--blue);background:var(--blue)"></span><span>Blue Team</span><em class="n" id="n-blue"></em></button>
+      <button class="nav-i" data-v="purple"><span class="dot" style="color:var(--purple);background:var(--purple)"></span><span>Purple Team</span><em class="n" id="n-purple"></em></button>
+      <div class="nav-sep"></div>
+      <button class="nav-i" data-v="favs"><span class="dot" style="color:#ffd76b;background:#ffd76b"></span><span data-i18n="favs">Favoris</span><em class="n" id="n-favs"></em></button>
+      <button class="nav-i" data-v="system"><span class="dot" style="color:var(--system);background:var(--system)"></span><span data-i18n="system">Système</span></button>
+    </nav>
+    <div class="side-foot">GhostCat OS<br>developed by 0x3<br><a id="tg">t.me/data0x3</a></div>
+  </aside>
+
+  <main class="glass">
+    <div class="top">
+      <h1 id="title">Accueil</h1>
+      <label class="search glass"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" opacity=".6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" data-i18n-ph="search" placeholder="Rechercher un outil…" autocomplete="off"><span class="kbd">Ctrl K</span></label>
+    </div>
+    <div class="scroll" id="scroll"><div id="view"></div></div>
+  </main>
+</div>
+
+<div class="veil" id="veil"></div>
+<div class="sheet glass" id="sheet" role="dialog" aria-modal="true"></div>
+<div class="toasts" id="toasts"></div>
+
+<script>
+"use strict";
+const LANG = (navigator.language || "fr").slice(0, 2).toLowerCase() === "fr" ? "fr" : "en";
+const I18N = {
+  fr:{home:"Accueil",favs:"Favoris",system:"Système",search:"Rechercher un outil…",hello:"Bonjour,",results:"Résultats",
+      heroP:"Tout ton arsenal de cybersécurité au même endroit. Choisis une équipe, trouve l'outil, lance-le en un clic. S'il manque, on l'installe pour toi.",
+      ready:"outils prêts",protection:"Protection",ok_dns:"DNS chiffré",vpn_dns:"DNS du VPN",off_dns:"DNS non chiffré",vpn:"VPN connecté",novpn:"Pas de VPN",fw:"Pare-feu actif",nofw:"Pare-feu coupé",mac:"Adresse MAC aléatoire",nomac:"Adresse MAC réelle",ghost:"Mode fantôme actif",catalog:"au catalogue",favsN:"favoris",teams:"Équipes",quick:"Actions rapides",purpleTools:"Outils Purple",readyN:"prêts",
+      notice:"Utilise les outils offensifs uniquement sur des systèmes que tu possèdes ou que tu as l'autorisation écrite de tester.",
+      online:"en ligne",installed:"installé",missing:"non installé",open:"Ouvrir",launch:"Lancer",install:"Installer",all:"Tout",
+      empty:"Aucun outil ici pour l'instant.",copy:"Copier",copied:"Commande copiée",fav:"Ajouter aux favoris",unfav:"Retirer des favoris",docs:"Documentation",
+      launching:"se lance…",installing:"Installation de {n} dans le terminal…",prevLaunch:"Aperçu : {n} se lancerait",prevInstall:"Aperçu : installation de {n}",
+      purpleIntro:"Suis la boucle : chaque étape propose les bons outils, qu'ils viennent du Red ou du Blue.",step:"Étape",
+      red:"Attaquer pour tester : reconnaissance, web, exploitation, mots de passe, Wi-Fi, reverse.",
+      blue:"Défendre et surveiller : réseau, pare-feu, malwares, forensique, journaux.",
+      purple:"Faire travailler attaque et défense ensemble pour prouver que tes détections marchent.",
+      sys:"Les réglages essentiels de ta machine en un clic.",
+      f1t:"Planifier",f1p:"Choisis une technique MITRE ATT&CK à tester.",f2t:"Émuler",f2p:"Rejoue l'attaque de façon contrôlée sur ton labo.",
+      f3t:"Détecter",f3p:"Vérifie que tes défenses l'ont bien vue.",f4t:"Améliorer",f4p:"Écris ou ajuste la règle, puis recommence."},
+  en:{home:"Home",favs:"Favorites",system:"System",search:"Search for a tool…",hello:"Hello,",results:"Results",
+      heroP:"Your whole cybersecurity arsenal in one place. Pick a team, find the tool, launch it in one click. If it's missing, we install it for you.",
+      ready:"tools ready",protection:"Protection",ok_dns:"Encrypted DNS",vpn_dns:"VPN DNS",off_dns:"Unencrypted DNS",vpn:"VPN connected",novpn:"No VPN",fw:"Firewall on",nofw:"Firewall off",mac:"Random MAC address",nomac:"Real MAC address",ghost:"Ghost mode on",catalog:"in the catalog",favsN:"favorites",teams:"Teams",quick:"Quick actions",purpleTools:"Purple tools",readyN:"ready",
+      notice:"Only use offensive tools on systems you own or have written permission to test.",
+      online:"online",installed:"installed",missing:"not installed",open:"Open",launch:"Launch",install:"Install",all:"All",
+      empty:"No tools here yet.",copy:"Copy",copied:"Command copied",fav:"Add to favorites",unfav:"Remove from favorites",docs:"Documentation",
+      launching:"is starting…",installing:"Installing {n} in the terminal…",prevLaunch:"Preview: {n} would launch",prevInstall:"Preview: installing {n}",
+      purpleIntro:"Follow the loop: each step suggests the right tools, from Red or Blue.",step:"Step",
+      red:"Attack to test: recon, web, exploitation, passwords, Wi-Fi, reverse engineering.",
+      blue:"Defend and monitor: network, firewall, malware, forensics, logs.",
+      purple:"Make attack and defense work together to prove your detections work.",
+      sys:"Your machine's essential settings in one click.",
+      f1t:"Plan",f1p:"Pick a MITRE ATT&CK technique to test.",f2t:"Emulate",f2p:"Replay the attack in a controlled way in your lab.",
+      f3t:"Detect",f3p:"Check that your defenses actually saw it.",f4t:"Improve",f4p:"Write or tune the rule, then go again."}};
+const tr = (k, n) => (I18N[LANG][k] ?? I18N.fr[k] ?? k).replace("{n}", n ?? "");
+const CAT_EN = {"Reconnaissance":"Recon","Web":"Web","Exploitation":"Exploitation","Active Directory":"Active Directory","Mots de passe":"Passwords",
+  "Sans-fil":"Wireless","Réseau / MITM":"Network / MITM","Reverse":"Reverse","Surveillance réseau":"Network monitoring",
+  "Détection d'intrusion":"Intrusion detection","Protection du système":"System protection","Malware":"Malware","Forensique":"Forensics",
+  "Journaux":"Logs","Vulnérabilités":"Vulnerabilities","Émulation d'adversaire":"Adversary emulation","Ingénierie de détection":"Detection engineering",
+  "Référentiels":"Frameworks","Système":"System"};
+const catName = c => LANG === "fr" ? c : (CAT_EN[c] || c);
+const tName = x => LANG === "fr" ? x.name : (x.name_en || x.name);
+const tDesc = x => LANG === "fr" ? x.desc : (x.desc_en || x.desc);
+document.documentElement.lang = LANG;
+document.querySelectorAll("[data-i18n]").forEach(e => e.textContent = tr(e.dataset.i18n));
+document.querySelectorAll("[data-i18n-ph]").forEach(e => e.placeholder = tr(e.dataset.i18nPh));
+const TOOLS = window.GHOSTCAT_TOOLS || [];
+const BY_ID = Object.fromEntries(TOOLS.map(t => [t.id, t]));
+const TEAM = {
+  red:    {label:"Red Team",    c:"var(--red)",    hex:"#ff4d6d", blurb:tr("red")},
+  blue:   {label:"Blue Team",   c:"var(--blue)",   hex:"#4d8dff", blurb:tr("blue")},
+  purple: {label:"Purple Team", c:"var(--purple)", hex:"#b26bff", blurb:tr("purple")},
+  system: {label:tr("system"),   c:"var(--system)", hex:"#e8e8f0", blurb:tr("sys")},
+  favs:   {label:tr("favs"),     c:"#ffd76b",       hex:"#ffd76b"},
+  home:   {label:tr("home"),     c:"#e8e8f0",       hex:"#9a9aa8"},
+};
+const FLOW = [
+  {k:"01", t:tr("f1t"), p:tr("f1p"), ids:["attack-nav","d3fend"]},
+  {k:"02", t:tr("f2t"), p:tr("f2p"), ids:["atomic","caldera","metasploit"]},
+  {k:"03", t:tr("f3t"), p:tr("f3p"), ids:["suricata","zeek","auditd","chainsaw","lnav"]},
+  {k:"04", t:tr("f4t"), p:tr("f4p"), ids:["sigma","yara","lynis"]},
+];
+
+/* ---------- pont vers l'app (GTK/WebKit) ---------- */
+const bridge = window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.ghostcat;
+const PREVIEW = !bridge;
+let installed = {}, privacy = null, userName = "";
+function send(msg){ if (bridge) bridge.postMessage(JSON.stringify(msg)); }
+window.ghostcatReply = (m) => {
+  if (m.type === "status") { installed = m.installed; privacy = m.privacy || null; userName = m.user || userName; refreshCounts(); render(false); }
+  if (m.type === "toast")  toast(m.text);
+};
+function requestStatus(){
+  if (PREVIEW) { TOOLS.forEach((t,i) => installed[t.id] = t.url || (i % 5 !== 3)); refreshCounts(); render(false); }
+  else send({action:"status"});
+}
+
+/* ---------- favoris (stockage local, facultatif) ---------- */
+let favs = new Set();
+try { favs = new Set(JSON.parse(localStorage.getItem("ghostcat-favs") || "[]")); } catch (e) {}
+function saveFavs(){ try { localStorage.setItem("ghostcat-favs", JSON.stringify([...favs])); } catch (e) {} }
+
+/* ---------- état ---------- */
+let view = "home", cat = "Tout", query = "";
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const initials = n => n.replace(/[^A-Za-z0-9 ]/g," ").trim().split(/\s+/).slice(0,2).map(w=>w[0]).join("").toUpperCase() || "•";
+const teamOf = t => TEAM[t.team] || TEAM.system;
+
+function refreshCounts(){
+  ["red","blue","purple"].forEach(k => {
+    const list = TOOLS.filter(t => t.team === k);
+    $("#n-"+k).textContent = list.filter(t => installed[t.id]).length + "/" + list.length;
+  });
+  $("#n-favs").textContent = favs.size || "";
+}
+
+/* ---------- rendu ---------- */
+function card(t, i){
+  const tm = teamOf(t), ok = !!installed[t.id], isUrl = !!t.url;
+  const action = isUrl ? `<button class="btn pri" data-act="open" data-id="${t.id}">${tr("open")}</button>`
+    : ok ? `<button class="btn pri" data-act="launch" data-id="${t.id}">${tr("launch")}</button>`
+         : `<button class="btn" data-act="install" data-id="${t.id}">${tr("install")}</button>`;
+  return `<article class="card glass" style="--i:${i};--c:${tm.c}" data-id="${t.id}" tabindex="0">
+    <div class="h"><div class="ico">${esc(initials(tName(t)))}<img src="file:///usr/share/icons/hicolor/128x128/apps/ghostcat-tool-${t.id}.png" alt="" onerror="this.remove()"></div>
+      <div><div class="t">${esc(tName(t))}</div><div class="c">${esc(catName(t.cat))}</div></div>
+      <button class="star ${favs.has(t.id)?"on":""}" data-act="fav" data-id="${t.id}" aria-label="Favori">★</button></div>
+    <div class="d">${esc(tDesc(t))}</div>
+    <div class="f"><span class="state ${ok?"ok":""}"><i></i>${isUrl?tr("online"):ok?tr("installed"):tr("missing")}</span>
+      <span style="margin-left:auto"></span>${action}</div>
+  </article>`;
+}
+function protection(){
+  if (!privacy) return "";
+  const p = privacy, rows = [
+    p.dns === "dot" ? ["ok", tr("ok_dns")] : p.dns === "vpn" ? ["info", tr("vpn_dns")] : ["warn", tr("off_dns")],
+    p.vpn ? ["ok", `${tr("vpn")} (${p.vpn})`] : ["info", tr("novpn")],
+    p.firewall ? ["ok", tr("fw")] : ["warn", tr("nofw")],
+    p.mac ? ["ok", tr("mac")] : ["warn", tr("nomac")],
+  ];
+  if (p.ghost) rows.push(["ok", tr("ghost")]);
+  const tag = {ok: "[  OK  ]", warn: "[ WARN ]", info: "[ INFO ]"};
+  return `<div class="section-t">${tr("protection")}</div><ul class="status-log">${rows.map(([k, t]) =>
+    `<li class="${k}"><span class="tag">${tag[k]}</span>${esc(t)}</li>`).join("")}</ul>`;
+}
+function grid(list){
+  return list.length ? `<div class="grid">${list.map(card).join("")}</div>`
+                     : `<div class="empty">${tr("empty")}</div>`;
+}
+function segmented(list){
+  const cats = ["Tout", ...new Set(list.map(t => t.cat))];
+  if (!cats.includes(cat)) cat = "Tout";
+  const lbl = c => c === "Tout" ? tr("all") : catName(c);
+  return `<div class="seg glass" id="seg"><div class="sp" id="sp"></div>${cats.map(c =>
+    `<button class="${c===cat?"on":""}" data-cat="${esc(c)}">${esc(lbl(c))}</button>`).join("")}</div>`;
+}
+
+function render(animate = true){
+  const v = $("#view");
+  const tm = TEAM[view];
+  $("#title").innerHTML = view === "home" ? `${tr("hello")} <span>${esc(userName || "ghost")}</span>` : `<span>${tm.label}</span>`;
+  document.documentElement.style.setProperty("--accent", tm.hex);
+  let html = "";
+
+  if (query) {
+    const q = query.toLowerCase();
+    const res = TOOLS.filter(t => (t.name+" "+(t.name_en||"")+" "+t.desc+" "+(t.desc_en||"")+" "+t.cat+" "+catName(t.cat)+" "+t.team).toLowerCase().includes(q));
+    $("#title").innerHTML = `${tr("results")} <span>« ${esc(query)} »</span>`;
+    html = grid(res);
+  } else if (view === "home") {
+    const tot = TOOLS.filter(t => !t.url && t.team !== "system");
+    const inst = tot.filter(t => installed[t.id]).length;
+    html = `<section class="hero glass"><img src="ghostcat-anim.webp" alt="">
+      <div><h2>GhostCat OS</h2><p>${tr("heroP")}</p>
+      <div class="meter"><div><b>${inst}</b>${tr("ready")}</div><div><b>${tot.length}</b>${tr("catalog")}</div><div><b>${favs.size}</b>${tr("favsN")}</div></div></div></section>
+      ${protection()}
+      <div class="section-t">${tr("teams")}</div>
+      <div class="teams">${["red","blue","purple"].map(k => {
+        const l = TOOLS.filter(t => t.team === k), n = l.filter(t => installed[t.id]).length, p = l.length ? Math.round(n*100/l.length) : 0;
+        return `<button class="team glass" data-go="${k}" style="--c:${TEAM[k].c}"><span class="glow"></span>
+          <h3><span class="dot" style="color:${TEAM[k].c};background:${TEAM[k].c}"></span>${TEAM[k].label}</h3>
+          <p>${TEAM[k].blurb}</p><div class="row"><div class="ring" style="--p:${p}"></div>${n}/${l.length} ${tr("readyN")}</div></button>`;
+      }).join("")}</div>
+      <div class="section-t">${tr("quick")}</div>
+      ${grid(TOOLS.filter(t => t.team === "system"))}
+      <div class="notice"><span class="tag">[ INFO ]</span>${tr("notice")}</div>`;
+  } else if (view === "favs") {
+    html = grid(TOOLS.filter(t => favs.has(t.id)));
+  } else if (view === "purple") {
+    html = `<p style="color:var(--muted);margin:0 2px 16px;max-width:720px">${TEAM.purple.blurb} ${tr("purpleIntro")}</p>
+      <div class="flow">${FLOW.map((s,i) => `<div class="step glass" style="--i:${i}"><div class="k">${tr("step")} ${s.k}</div><h4>${s.t}</h4><p>${s.p}</p>
+        <div class="chips">${s.ids.filter(id => BY_ID[id]).map(id => { const t = BY_ID[id];
+          return `<button class="chip" data-open="${id}"><span class="dot" style="color:${teamOf(t).c};background:${teamOf(t).c}"></span>${esc(tName(t))}</button>`; }).join("")}</div></div>`).join("")}</div>
+      <div class="section-t">${tr("purpleTools")}</div>${grid(TOOLS.filter(t => t.team === "purple"))}`;
+  } else {
+    const list = TOOLS.filter(t => t.team === view);
+    const shown = cat === "Tout" ? list : list.filter(t => t.cat === cat);
+    html = (view === "system" ? `<p style="color:var(--muted);margin:0 2px 16px">${TEAM.system.blurb}</p>` : segmented(list)) + grid(shown);
+  }
+  v.innerHTML = html;
+  if (animate) { v.classList.remove("view"); void v.offsetWidth; v.classList.add("view"); }
+  else v.querySelectorAll(".card,.step").forEach(e => e.style.animation = "none");
+  movePill(); moveSeg();
+}
+
+/* ---------- indicateurs coulissants ---------- */
+function movePill(){
+  const on = document.querySelector(`.nav-i[data-v="${query ? "" : view}"]`);
+  document.querySelectorAll(".nav-i").forEach(b => b.classList.toggle("on", b === on));
+  const pill = $("#pill");
+  if (!on) { pill.style.opacity = 0; return; }
+  pill.style.opacity = 1; pill.style.transform = `translateY(${on.offsetTop}px)`;
+}
+function moveSeg(){
+  const on = document.querySelector("#seg button.on"), sp = $("#sp");
+  if (!on || !sp) return;
+  sp.style.width = on.offsetWidth + "px"; sp.style.transform = `translateX(${on.offsetLeft - 4}px)`;
+}
+
+/* ---------- fiche ---------- */
+function openSheet(id){
+  const t = BY_ID[id]; if (!t) return;
+  const tm = teamOf(t), ok = !!installed[t.id];
+  const ex = t.example || (t.run && !t.gui ? t.run : "");
+  $("#sheet").style.setProperty("--c", tm.c);
+  $("#sheet").innerHTML = `<button class="x" data-act="close" aria-label="Fermer">×</button>
+    <div class="h"><div class="ico" style="--c:${tm.c}">${esc(initials(tName(t)))}<img src="file:///usr/share/icons/hicolor/128x128/apps/ghostcat-tool-${t.id}.png" alt="" onerror="this.remove()"></div>
+      <div><h3>${esc(tName(t))}</h3><div class="c" style="font:12px var(--mono);color:var(--faint)">${esc(tm.label)} · ${esc(catName(t.cat))}</div></div></div>
+    <p class="d">${esc(tDesc(t))}</p>
+    ${ex ? `<div class="code"><span>$ ${esc(ex)}</span><button data-act="copy" data-text="${esc(ex)}">${tr("copy")}</button></div>` : ""}
+    <div class="acts">
+      ${t.url ? `<button class="btn pri" style="--c:${tm.c}" data-act="open" data-id="${t.id}">${tr("open")}</button>`
+        : ok ? `<button class="btn pri" style="--c:${tm.c}" data-act="launch" data-id="${t.id}">${tr("launch")}</button>`
+             : `<button class="btn pri" style="--c:${tm.c}" data-act="install" data-id="${t.id}">${tr("install")}</button>`}
+      <button class="btn" data-act="fav" data-id="${t.id}">${favs.has(t.id) ? tr("unfav") : tr("fav")}</button>
+      ${t.docs ? `<a data-act="docs" data-id="${t.id}">${tr("docs")}</a>` : ""}
+    </div>`;
+  $("#veil").classList.add("on"); $("#sheet").classList.add("on");
+}
+function closeSheet(){ $("#veil").classList.remove("on"); $("#sheet").classList.remove("on"); }
+
+/* ---------- toasts ---------- */
+function toast(text){
+  const el = document.createElement("div"); el.className = "toast glass"; el.textContent = text;
+  $("#toasts").appendChild(el);
+  setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 400); }, 2600);
+}
+
+/* ---------- actions ---------- */
+function act(a, id, el){
+  const t = BY_ID[id];
+  if (a === "fav") { favs.has(id) ? favs.delete(id) : favs.add(id); saveFavs(); refreshCounts();
+    if ($("#sheet").classList.contains("on")) openSheet(id); render(false); return; }
+  if (a === "close") return closeSheet();
+  if (a === "copy") { const txt = el.dataset.text;
+    (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).catch(() => send({action:"copy", text:txt}));
+    return toast(tr("copied")); }
+  if (a === "launch")  { send({action:"launch", id}); toast(PREVIEW ? tr("prevLaunch", tName(t)) : `${tName(t)} ${tr("launching")}`); }
+  if (a === "install") { send({action:"install", id}); toast(PREVIEW ? tr("prevInstall", tName(t)) : tr("installing", tName(t))); }
+  if (a === "open")    { send({action:"open", id}); if (PREVIEW) window.open(t.url); }
+  if (a === "docs")    { send({action:"docs", id}); if (PREVIEW) window.open(t.docs); }
+}
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-act],[data-v],[data-go],[data-cat],[data-open],.card");
+  if (!b) return;
+  if (b.dataset.act) { e.stopPropagation(); return act(b.dataset.act, b.dataset.id, b); }
+  if (b.dataset.v || b.dataset.go) { view = b.dataset.v || b.dataset.go; cat = "Tout"; query = ""; $("#q").value = ""; render(); $("#scroll").scrollTop = 0; return; }
+  if (b.dataset.cat) { cat = b.dataset.cat; render(false);
+    document.querySelectorAll(".card").forEach((c,i) => { c.style.animation = ""; c.style.setProperty("--i", i); }); return; }
+  if (b.dataset.open) return openSheet(b.dataset.open);
+  if (b.classList.contains("card")) return openSheet(b.dataset.id);
+});
+$("#veil").addEventListener("click", closeSheet);
+$("#tg").addEventListener("click", () => { send({action:"url", url:"https://t.me/data0x3"}); if (PREVIEW) window.open("https://t.me/data0x3"); });
+$("#q").addEventListener("input", e => { query = e.target.value.trim(); render(); });
+document.addEventListener("keydown", e => {
+  if ((e.ctrlKey && e.key.toLowerCase() === "k") || (e.key === "/" && document.activeElement !== $("#q"))) { e.preventDefault(); $("#q").focus(); $("#q").select(); }
+  if (e.key === "Escape") { if ($("#sheet").classList.contains("on")) closeSheet(); else if (query) { query = ""; $("#q").value = ""; render(); } }
+  if (e.key === "Enter" && document.activeElement.classList.contains("card")) openSheet(document.activeElement.dataset.id);
+});
+/* reflet qui suit la souris sur toutes les surfaces en verre */
+document.addEventListener("pointermove", e => {
+  const g = e.target.closest(".glass"); if (!g) return;
+  const r = g.getBoundingClientRect();
+  g.style.setProperty("--mx", (e.clientX - r.left) + "px"); g.style.setProperty("--my", (e.clientY - r.top) + "px");
+}, {passive:true});
+window.addEventListener("resize", () => { movePill(); moveSeg(); });
+window.addEventListener("focus", () => send({action:"status"}));
+
+const start = new URLSearchParams(location.search).get("view");
+if (start && TEAM[start]) view = start;
+refreshCounts(); render(); requestStatus();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = filesystem
+Target = lsb-release
+Target = ghostcat-release
+
+[Action]
+Description = GhostCat OS : identité du système…
+When = PostTransaction
+Exec = /usr/lib/ghostcat/apply-release

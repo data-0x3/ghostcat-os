@@ -1,0 +1,21 @@
+#!/bin/sh
+# GhostCat OS — mode fantôme (root, via pkexec) — developed by 0x3
+#   on  : démarre Tor et reconnecte le Wi-Fi pour tirer une nouvelle adresse MAC
+#   off : arrête Tor
+# Le proxy du bureau (vers Tor) est réglé côté utilisateur par l'extension GhostCat.
+set -e
+case "$1" in
+  on)
+    mkdir -p /run/ghostcat
+    systemctl start tor.service
+    touch /run/ghostcat/ghost-mode
+    if command -v nmcli >/dev/null && [ "$(nmcli -t radio wifi)" = enabled ]; then
+      nmcli radio wifi off; sleep 1; nmcli radio wifi on
+    fi
+    ;;
+  off)
+    rm -f /run/ghostcat/ghost-mode
+    systemctl stop tor.service || true
+    ;;
+  *) echo "usage : $0 on|off" >&2; exit 2 ;;
+esac

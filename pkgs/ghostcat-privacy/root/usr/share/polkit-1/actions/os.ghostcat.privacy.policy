@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>GhostCat OS</vendor>
+  <vendor_url>https://data-0x3.github.io/ghostcat-os/</vendor_url>
+  <action id="os.ghostcat.ghost-mode">
+    <description>Turn ghost mode on or off</description>
+    <description xml:lang="fr">Activer ou couper le mode fantôme</description>
+    <message>Ghost mode starts Tor and gives your Wi-Fi a new MAC address.</message>
+    <message xml:lang="fr">Le mode fantôme démarre Tor et donne une nouvelle adresse MAC à ton Wi-Fi.</message>
+    <icon_name>ghostcat-hub</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/ghostcat/ghost-mode</annotate>
+  </action>
+</policyconfig>

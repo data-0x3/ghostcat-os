@@ -1,0 +1,41 @@
+# GhostCat OS — GhostCat Setup au premier démarrage, seul à l'écran, avant le bureau.
+# developed by 0x3 · https://t.me/data0x3
+#
+# Setup s'ouvre dans « cage » (un compositeur Wayland qui n'affiche qu'une appli)
+# sur tty1. GDM attend la fin de ce service : quand Setup se ferme, la langue,
+# le clavier et le fuseau sont déjà réglés pour tout le système, et le bureau
+# s'ouvre directement dans la bonne langue.
+[Unit]
+Description=GhostCat Setup (premier démarrage)
+ConditionPathExists=!/var/lib/ghostcat/setup-done
+After=systemd-user-sessions.service plymouth-start.service systemd-logind.service dbus.socket ghostcat-live-setup.service
+Wants=dbus.socket systemd-logind.service
+Before=display-manager.service
+Conflicts=getty@tty1.service
+After=getty@tty1.service
+
+[Service]
+Type=oneshot
+User=ghost
+PAMName=ghostcat-firstrun
+WorkingDirectory=~
+TTYPath=/dev/tty1
+TTYReset=yes
+TTYVHangup=yes
+TTYVTDisallocate=yes
+StandardInput=tty-fail
+StandardOutput=journal
+StandardError=journal
+UtmpIdentifier=tty1
+UtmpMode=user
+Environment=XDG_SESSION_TYPE=wayland XDG_SESSION_CLASS=user
+Environment=GHOSTCAT_KIOSK=1 GTK_THEME=Adwaita:dark
+Environment=WLR_RENDERER_ALLOW_SOFTWARE=1 WLR_NO_HARDWARE_CURSORS=1 WEBKIT_DISABLE_DMABUF_RENDERER=1
+ExecStartPre=+-/usr/bin/plymouth quit --retain-splash
+ExecStart=/usr/bin/cage -s -d -- /usr/bin/ghostcat-setup --kiosk
+# filet de sécurité : si Setup plante, on n'empêche pas le bureau de s'ouvrir
+SuccessExitStatus=0 1 2 SIGTERM
+TimeoutStartSec=infinity
+
+[Install]
+WantedBy=graphical.target

@@ -1,0 +1,18 @@
+# GhostCat OS — developed by 0x3 · https://t.me/data0x3
+source ../_common.sh
+pkgname=ghostcat-release
+pkgver=0
+pkgrel=1
+pkgdesc="GhostCat OS : identité du système (os-release, issue, logo, fastfetch)"
+arch=(any)
+url="https://data-0x3.github.io/ghostcat-os/"
+license=(GPL-3.0-or-later)
+depends=(filesystem)
+optdepends=('fastfetch: résumé du système au lancement du terminal')
+backup=(etc/skel/.bashrc)
+
+package() {
+  _ghostcat_install
+  local v="${pkgver%.*}"; v="${v%.*}"            # 2026.11.15.42 -> 2026.11
+  sed -i "s/__VERSION_ID__/$v/g" "$pkgdir"/usr/lib/ghostcat/{os-release,lsb-release}
+}

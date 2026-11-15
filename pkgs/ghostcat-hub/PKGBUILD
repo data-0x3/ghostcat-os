@@ -1,0 +1,11 @@
+# GhostCat OS — developed by 0x3 · https://t.me/data0x3
+source ../_common.sh
+pkgname=ghostcat-hub
+pkgver=0
+pkgrel=1
+pkgdesc="GhostCat OS : GhostCat Hub, les outils Red, Blue et Purple Team en un clic"
+arch=(any)
+url="https://data-0x3.github.io/ghostcat-os/"
+license=(GPL-3.0-or-later)
+depends=(python python-gobject gtk4 webkitgtk-6.0 ghostcat-theme ghostcat-privacy)
+package() { _ghostcat_install; }

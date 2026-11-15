@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- GhostCat Installer — developed by 0x3 · https://t.me/data0x3 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>GhostCat Installer</title>
+<link rel="stylesheet" href="installer.css">
+</head>
+<body>
+
+<main class="setup" id="setup">
+  <aside class="log">
+    <div class="log-head">
+      <img src="ghost.webp" alt="">
+      <span>GHOSTCAT<br>INSTALLER</span>
+    </div>
+    <ol class="log-steps" id="logSteps"></ol>
+    <p class="log-foot">developed by 0x3</p>
+  </aside>
+
+  <div class="stage">
+    <section class="pane" data-k="disk">
+      <h1 data-t="disk_t"></h1>
+      <p class="sub" data-t="disk_sub"></p>
+      <ul class="disks" id="disks" role="listbox"></ul>
+    </section>
+
+    <section class="pane" data-k="crypt">
+      <h1 data-t="crypt_t"></h1>
+      <p class="sub" data-t="crypt_sub"></p>
+      <div class="form">
+        <label class="check"><input type="checkbox" id="encrypt"><span><span data-t="crypt_on"></span><small data-t="crypt_on_d"></small></span></label>
+        <div id="cryptFields" hidden>
+          <div class="row">
+            <label><span data-t="pass"></span><input type="password" id="pp1" autocomplete="new-password"></label>
+            <label><span data-t="pass2"></span><input type="password" id="pp2" autocomplete="new-password"></label>
+          </div>
+          <p class="msg" id="ppMsg"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pane" data-k="user">
+      <h1 data-t="user_t"></h1>
+      <p class="sub" data-t="user_sub"></p>
+      <div class="form">
+        <label><span data-t="fullname"></span><input type="text" id="fullname" autocomplete="off"></label>
+        <div class="row">
+          <label><span data-t="username"></span><input type="text" id="username" autocomplete="off" spellcheck="false"></label>
+          <label><span data-t="hostname"></span><input type="text" id="hostname" autocomplete="off" spellcheck="false" value="ghostcat"></label>
+        </div>
+        <div class="row">
+          <label><span data-t="pass"></span><input type="password" id="pw1" autocomplete="new-password"></label>
+          <label><span data-t="pass2"></span><input type="password" id="pw2" autocomplete="new-password"></label>
+        </div>
+        <label class="check"><input type="checkbox" id="autologin"><span><span data-t="autologin"></span><small data-t="autologin_d"></small></span></label>
+        <label class="check" id="heavyRow" hidden><input type="checkbox" id="heavy" checked><span><span data-t="heavy"></span><small data-t="heavy_d"></small></span></label>
+        <p class="msg" id="userMsg"></p>
+      </div>
+    </section>
+
+    <section class="pane" data-k="sum">
+      <h1 data-t="sum_t"></h1>
+      <dl class="summary" id="summary"></dl>
+      <div class="warn"><b data-t="warn_t"></b><span id="warnText"></span></div>
+      <div class="form"><label class="check"><input type="checkbox" id="agree"><span data-t="agree"></span></label></div>
+    </section>
+
+    <nav class="bar">
+      <button class="btn" id="back" data-t="back"></button>
+      <span class="bar-hint" id="hint"></span>
+      <button class="btn btn-main" id="next" data-t="next"></button>
+    </nav>
+  </div>
+</main>
+
+<section class="apply" id="apply" hidden>
+  <img class="apply-ghost" src="ghost.webp" alt="">
+  <div class="progress"><i id="bar"></i></div>
+  <p class="progress-txt" id="pct">0 %</p>
+  <ol class="boot-log" id="tasks"></ol>
+  <p class="apply-err" id="err"></p>
+  <p class="tip" id="tip"></p>
+  <div class="done-actions" id="doneActions" hidden>
+    <button class="btn btn-main" id="reboot" data-t="reboot"></button>
+    <button class="btn" id="stay" data-t="stay"></button>
+  </div>
+</section>
+
+<script src="installer.js"></script>
+</body>
+</html>

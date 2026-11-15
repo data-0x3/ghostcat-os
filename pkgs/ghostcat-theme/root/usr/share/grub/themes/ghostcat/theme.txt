@@ -1,0 +1,43 @@
+# GhostCat OS — thème GRUB — developed by 0x3 · https://t.me/data0x3
+title-text: ""
+desktop-image: "background.png"
+desktop-image-scale-method: "crop"
+desktop-image-h-align: "center"
+desktop-image-v-align: "center"
+desktop-color: "#000000"
+terminal-font: "GhostCat Pixel Regular 16"
+terminal-left: "10%"
+terminal-top: "10%"
+terminal-width: "80%"
+terminal-height: "80%"
+
++ boot_menu {
+  left = 50%-320
+  top = 64%
+  width = 640
+  height = 26%
+  item_font = "GhostCat Pixel Regular 16"
+  item_color = "#8e9196"
+  selected_item_font = "GhostCat Pixel Regular 16"
+  selected_item_color = "#000000"
+  item_pixmap_style = "item_*.png"
+  selected_item_pixmap_style = "select_*.png"
+  item_height = 32
+  item_padding = 14
+  item_spacing = 6
+  icon_width = 0
+  icon_height = 0
+  item_icon_space = 0
+  scrollbar = false
+}
+
++ label {
+  id = "__timeout__"
+  left = 0
+  top = 92%
+  width = 100%
+  align = "center"
+  font = "GhostCat Pixel Regular 16"
+  color = "#5a5d63"
+  text = "Démarrage dans %d s"
+}

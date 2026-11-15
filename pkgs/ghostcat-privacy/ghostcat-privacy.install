@@ -1,0 +1,6 @@
+post_install() {
+  ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf 2>/dev/null || true
+  systemctl enable systemd-resolved.service >/dev/null 2>&1 || true
+  udevadm control --reload >/dev/null 2>&1 || true
+}
+post_upgrade() { udevadm control --reload >/dev/null 2>&1 || true; }

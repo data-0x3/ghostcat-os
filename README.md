@@ -1,117 +1,72 @@
-# GhostCat OS 👻🐱
+# GhostCat OS
 
-Distribution complète basée sur Arch Linux, orientée cybersécurité.
-Bureau GNOME, thème noir & blanc, tout inclus.
+Distribution Linux de cybersécurité, dérivée d'Arch Linux, avec son propre dépôt
+de paquets, son installeur, son bureau et ses mises à jour.
 **developed by 0x3** · https://t.me/data0x3
 
-## 🌐 Site officiel
+Site officiel : **https://data-0x3.github.io/ghostcat-os** (téléchargement en une commande, guide, FAQ).
 
-**https://data-0x3.github.io/ghostcat-os** — téléchargement en une commande, guide d'installation, FAQ.
+## Ce qui fait de GhostCat une distribution
 
-## ⬇ Télécharger
-
-Va dans **[Releases](../../releases)** et prends le dernier `ghostcat-lite-….iso`
-(+ le `.sha256`). Si l'ISO est en plusieurs `.part`, les notes de version expliquent comment les recoller.
-
-Ensuite, comme n'importe quelle distro : **Rufus** (GPT, mode *Image DD*) → redémarrage sur la clé → `ghostcat-install`.
-
-### Construire une nouvelle ISO (sans Linux)
-
-L'ISO est construite automatiquement par GitHub Actions :
-**Actions → Build GhostCat ISO → Run workflow** (≈ 40 min), ou pousse un tag `v…`.
-
-- **lite** (par défaut) : ISO < 2 Go ; les outils lourds (Ghidra, Metasploit, Burp, LibreOffice…) sont installés sur le disque par `ghostcat-install`.
-- **full** : tout dans l'ISO (peut dépasser 2 Go → publiée en morceaux).
-
-## Ce que tu obtiens
-
-- **GhostCat Setup** : au démarrage, avant le bureau, un assistant Liquid Glass règle langue, clavier (avec zone de test), fuseau horaire et vie privée. Relançable depuis « Réglages GhostCat ».
-- **Vie privée par défaut** : MAC aléatoire, DNS chiffré (DoT Quad9/Mullvad), pare-feu, appareil anonyme (pas de hostname DHCP, IPv6 temporaires, pas de test de connectivité), Firefox durci (anti-pistage strict, HTTPS forcé, uBlock Origin, DuckDuckGo, zéro télémétrie), GNOME sans localisation ni historique, SSH coupé.
-- **GhostCat Hub** : l'app centrale en Liquid Glass. Red / Blue / Purple Team, recherche (Ctrl K), favoris, statut de chaque outil, installation et lancement en un clic. S'ouvre toute seule au premier login.
-- **Bureau en verre** : panneau, vue d'ensemble et dock flous et translucides (Blur my Shell + Dash to Dock, récupérés au build)
-- **Boot animé** : ton fantôme-chat qui flotte et glitche (120 images) pendant le démarrage
-- **Live** : tu bootes la clé → splash fantôme-chat → GNOME direct (utilisateur `ghost`, connexion auto)
-- **Installé** : `ghostcat-install` pose GhostCat sur le disque **avec** tous les outils et le look
-- **Outils** : nmap, wireshark, metasploit, sqlmap, hashcat, hydra, aircrack-ng, bettercap, radare2… (+ dépôt BlackArch pour le reste)
-- **Quotidien** : Firefox, VS Code, LibreOffice, VLC, GIMP, zsh, btop, Docker, Python, Go, Rust
-- **Look** : Plymouth animé, fond d'écran, logo GDM, thème sombre, icônes Papirus, JetBrains Mono, fastfetch avec le fantôme
-
-## Structure
-
-| Élément | Rôle |
+| | |
 |---|---|
-| `build.sh` | assemble releng (base officielle) + surcouche GhostCat, puis lance `mkarchiso` |
-| `ghostcat.profiledef.sh` | nom, label, permissions de l'ISO |
-| `packages.x86_64` | tous les paquets |
-| `pacman.conf` | dépôts officiels + BlackArch |
-| `airootfs/usr/share/plymouth/themes/ghostcat/` | écran de boot (logo qui « respire » + barre) |
-| `airootfs/etc/dconf/` | réglages GNOME forcés (thème, fond, favoris) |
-| `airootfs/usr/local/bin/ghostcat-install` | installeur sur disque |
-| `airootfs/opt/ghostcat-setup/` + `usr/local/lib/ghostcat/setup-apply` | assistant de démarrage (interface) + application root des réglages (liste blanche) |
-| `airootfs/usr/share/ghostcat/privacy/` | modèles des réglages de confidentialité activables |
-| `airootfs/opt/ghostcat-hub/` | le Hub : `index.html` (interface), `tools.js` (catalogue), `ghostcat_hub.py` (fenêtre GTK4/WebKit) |
+| **Dépôt `[ghostcat]`** | Tous les composants sont des paquets signés, mis à jour par `pacman` : `https://data-0x3.github.io/ghostcat-os/repo/x86_64`. Le dépôt passe avant ceux d'Arch. |
+| **Identité** | `os-release` (`ID=ghostcat`, `ID_LIKE=arch`), menu de démarrage, écran de chargement, police et thème propres. Un hook pacman repose l'identité après chaque mise à jour d'Arch. |
+| **Installeur maison** | GhostCat Installer : disque, chiffrement LUKS2, compte, en quelques écrans. Copie le système live (pas de téléchargement), btrfs avec sous-volumes, GRUB GhostCat, démarre aussi un disque externe sur un autre PC. |
+| **Retour en arrière** | snapper + snap-pac : un instantané avant et après chaque mise à jour, choisissable dans le menu de démarrage (grub-btrfs). |
+| **Mises à jour** | `ghostcat-update` : lit les annonces d'Arch, met d'abord à jour les trousseaux, puis tout le reste. |
+| **Bureau** | GNOME Shell redessiné par l'extension GhostCat Shell : menu fantôme, bouclier de protection, mode fantôme (Tor + nouvelle MAC), apparition animée du bureau, thème noir à sélection inversée. |
+
+## Les paquets (`pkgs/`)
+
+Chaque dossier contient un `PKGBUILD` et un dossier `root/` rangé comme le système final.
+
+| Paquet | Contenu |
+|---|---|
+| `ghostcat-desktop` | paquet méta : installe tout GhostCat OS |
+| `ghostcat-release` | identité du système, fastfetch, hook pacman |
+| `ghostcat-keyring` | clé de signature du dépôt (générée au build depuis le secret `GHOSTCAT_SIGNING_KEY`) |
+| `ghostcat-mirrorlist` | adresse du dépôt `[ghostcat]` |
+| `ghostcat-privacy` | MAC aléatoire, DNS chiffré, Firefox durci, VPN, `ghostcat-status`, mode fantôme |
+| `ghostcat-theme` | polices GhostCat Pixel / GhostCat Sans, icônes, fonds, Plymouth, GRUB, réglages GNOME |
+| `ghostcat-shell` | l'extension GNOME Shell GhostCat (interface et animations) |
+| `ghostcat-shell-extras` | Dash to Dock, Blur my Shell, Burn My Windows, figés pour la version de GNOME |
+| `ghostcat-hub` | GhostCat Hub : 69 outils Red, Blue et Purple Team |
+| `ghostcat-setup` | GhostCat Setup : langue, clavier, fuseau, vie privée |
+| `ghostcat-installer` | GhostCat Installer |
+| `ghostcat-update` | mises à jour sûres |
+
+`airootfs/` ne contient plus que ce qui est propre au live (utilisateur `ghost`, connexion
+automatique, service qui ouvre Setup avant le bureau).
+
+## Construire
+
+Tout se fait sur GitHub Actions :
+
+- **Site et dépôt GhostCat** (`site.yml`) : à chaque changement de `pkgs/` ou `site/`,
+  construit les paquets, le dépôt, et publie le tout sur GitHub Pages.
+- **Build GhostCat ISO** (`build-iso.yml`) : construit l'ISO (édition `lite` < 2 Go ou `full`)
+  et la publie en Release.
+- **Test GhostCat en VM** (`vm-test.yml`) : après chaque ISO, la démarre dans QEMU,
+  l'installe toute seule sur un disque virtuel, redémarre dessus et pousse les captures
+  d'écran sur la branche `vm-shots`.
+
+En local, sur une machine Arch : `sudo ./build.sh` (dépôt dans `repo-out/`, ISO dans `out/`).
+
+### Signature des paquets
+
+Le dépôt est signé si le secret `GHOSTCAT_SIGNING_KEY` existe (clé OpenPGP privée en armure ASCII).
+Pour la créer : `tools/new-signing-key.sh`, puis colle le bloc affiché dans
+*Settings → Secrets and variables → Actions → New repository secret*.
 
 ## Ajouter un outil au Hub
 
-Ajoute une ligne dans `airootfs/opt/ghostcat-hub/tools.js` :
+Ajoute une ligne dans `pkgs/ghostcat-hub/root/usr/lib/ghostcat/hub/tools.js`, puis
+`python3 tools/make-assets.py` pour générer son lanceur et son icône :
 
 ```js
 {"id":"monoutil","name":"Mon Outil","team":"red","cat":"Web","desc":"Ce qu'il fait.",
  "check":["monoutil"],"pkg":"monoutil","run":"monoutil -h","docs":"https://..."}
 ```
 
-`team` = `red`, `blue`, `purple` ou `system`. `gui:true` pour une app graphique, `url` pour un site.
-Le Hub n'exécute **que** les commandes de ce fichier : la page envoie un identifiant, jamais une commande.
-
-Tester l'interface sans GhostCat : ouvre `index.html` dans un navigateur (mode aperçu).
-
-## 1. Construire l'ISO (sur ton PC Arch)
-
-```bash
-sudo pacman -S archiso
-
-# clé BlackArch (une seule fois) — vérifie le sha1 sur blackarch.org/downloads.html
-curl -O https://blackarch.org/strap.sh
-sha1sum strap.sh
-chmod +x strap.sh && sudo ./strap.sh
-
-cd ghostcat-os
-sudo ./build.sh                  # → out/ghostcat-full-AAAA.MM.JJ-x86_64.iso
-sudo EDITION=lite ./build.sh     # version allégée
-```
-
-Le build vérifie chaque nom de paquet : ceux introuvables sont listés dans `packages.missing`
-et retirés (ils restent installables depuis le Hub). Compte 20–40 min et ~15 Go libres dans `/tmp` (ou `sudo WORK=/autre/dossier ./build.sh`).
-
-## 2. Tester sans graver
-
-```bash
-sudo pacman -S qemu-full edk2-ovmf
-qemu-system-x86_64 -enable-kvm -m 6G -smp 4 -cdrom out/ghostcat-*.iso
-```
-
-## 3. Clé USB
-
-```bash
-sudo dd if=out/ghostcat-*.iso of=/dev/sdX bs=4M status=progress oflag=sync
-```
-(Sous Windows : Rufus en mode « DD ».)
-
-## 4. Installer sur un disque
-
-Depuis le live, ouvre un terminal :
-
-```bash
-ghostcat-install
-```
-
-1. archinstall se lance : choisis **Desktop → GNOME**, crée ton utilisateur, réponds **non** au chroot final.
-2. Le script reprend la main : BlackArch, tous les paquets, branding, Plymouth, GNOME.
-3. Redémarre → GhostCat OS. Rien d'autre à installer.
-
-## Prochaines étapes
-
-- [ ] Installeur graphique (Calamares) via un dépôt GhostCat perso
-- [ ] Dépôt GhostCat pour packager **0xFLUX**, **GHOST WEB AUDITOR**, **0xData**, burpsuite
-- [ ] Thème GRUB du live (menu de boot noir + fantôme)
-- [ ] Icônes dédiées par outil dans le Hub
+Le Hub n'exécute que les commandes de ce fichier : la page envoie un identifiant, jamais une commande.

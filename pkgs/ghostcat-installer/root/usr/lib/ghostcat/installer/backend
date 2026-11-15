@@ -1,0 +1,531 @@
+#!/usr/bin/env python3
+"""GhostCat Installer — moteur d'installation (root).
+developed by 0x3 · https://t.me/data0x3
+
+Reçoit la configuration en JSON sur l'entrée standard (jamais en argument :
+les mots de passe n'apparaissent pas dans la liste des processus) et écrit
+son avancement ligne par ligne, en JSON, sur la sortie standard :
+
+    {"step": "copy", "state": "run"}        une étape commence
+    {"progress": 0.42, "detail": "…"}       avancement global, de 0 à 1
+    {"step": "copy", "state": "ok"}         une étape est finie
+    {"error": "…", "step": "…"}             échec : l'installation s'arrête
+    {"done": true}
+
+Disposition du disque (GPT), toujours la même :
+    1  BIOS boot   1 Mio    pour démarrer aussi sur les PC sans UEFI
+    2  EFI         1 Gio    FAT32, monté sur /efi
+    3  GhostCat    le reste btrfs (éventuellement dans LUKS2), sous-volumes :
+                            @ /   @home /home   @log /var/log   @cache /var/cache
+                            @snapshots /.snapshots
+/boot reste dans @ : chaque instantané contient le noyau qui va avec, et le menu
+de démarrage peut relancer n'importe quel instantané (grub-btrfs).
+
+Variables de test : GHOSTCAT_INSTALL_DRYRUN=1 affiche les commandes sans rien faire.
+"""
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import time
+
+DRY = os.environ.get("GHOSTCAT_INSTALL_DRYRUN") == "1"
+T = "/mnt/ghostcat-target"
+MAPPER = "ghostroot"
+LOG = "/var/log/ghostcat-install.log"
+USER_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
+HOST_RE = re.compile(r"^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$")
+BTRFS_OPTS = "noatime,compress=zstd:1,space_cache=v2"
+RESERVED = {"root", "ghost", "bin", "daemon", "nobody", "admin", "sys", "sync", "mail", "http", "ftp", "git", "dbus", "polkitd"}
+
+# poids de chaque étape dans la barre de progression
+STEPS = [("check", .01), ("partition", .03), ("format", .03), ("copy", .55), ("system", .10),
+         ("users", .03), ("boot", .12), ("snapshots", .03), ("extras", .08), ("finish", .02)]
+_done_weight = 0.0
+
+
+# ------------------------------------------------------------------ sortie
+def emit(**kw):
+    sys.stdout.write(json.dumps(kw, ensure_ascii=False) + "\n")
+    sys.stdout.flush()
+
+
+def log(msg):
+    with open(LOG, "a", encoding="utf-8") as f:
+        f.write(time.strftime("%H:%M:%S ") + msg + "\n")
+
+
+class Fail(Exception):
+    pass
+
+
+def run(*cmd, input=None, check=True, quiet=False, env=None):
+    """Lance une commande, la journalise, lève Fail si elle échoue."""
+    shown = " ".join(cmd)
+    log("$ " + shown)
+    if DRY:
+        print("DRY", shown, file=sys.stderr)
+        return ""
+    r = subprocess.run(cmd, input=input, capture_output=True, text=True, env=env)
+    if r.stdout and not quiet:
+        log(r.stdout.rstrip())
+    if r.stderr:
+        log(r.stderr.rstrip())
+    if check and r.returncode != 0:
+        raise Fail(f"{cmd[0]} : {(r.stderr or r.stdout).strip().splitlines()[-1] if (r.stderr or r.stdout).strip() else r.returncode}")
+    return r.stdout
+
+
+def chroot(*cmd, **kw):
+    return run("arch-chroot", T, *cmd, **kw)
+
+
+def write(path, text, mode=0o644):
+    full = T + path
+    log(f"écrit {path}")
+    if DRY:
+        return
+    os.makedirs(os.path.dirname(full), exist_ok=True)
+    with open(full, "w", encoding="utf-8") as f:
+        f.write(text)
+    os.chmod(full, mode)
+
+
+def rm(*paths):
+    for p in paths:
+        full = T + p
+        if DRY:
+            continue
+        if os.path.islink(full) or os.path.isfile(full):
+            os.remove(full)
+        elif os.path.isdir(full):
+            shutil.rmtree(full)
+
+
+def part(disk, n):
+    return f"{disk}p{n}" if disk[-1].isdigit() else f"{disk}{n}"
+
+
+def uuid_of(dev):
+    return run("blkid", "-s", "UUID", "-o", "value", dev, quiet=True).strip()
+
+
+# ------------------------------------------------------------------ vérifications
+def live_disk():
+    """Le disque qui porte le live (on ne doit jamais l'effacer)."""
+    try:
+        src = subprocess.run(["findmnt", "-no", "SOURCE", "/run/archiso/bootmnt"],
+                             capture_output=True, text=True).stdout.strip()
+        if src:
+            pk = subprocess.run(["lsblk", "-no", "PKNAME", src], capture_output=True, text=True).stdout.strip()
+            return "/dev/" + (pk or os.path.basename(src))
+    except OSError:
+        pass
+    return None
+
+
+def validate(cfg):
+    disk = cfg.get("disk", "")
+    if not re.fullmatch(r"/dev/(sd[a-z]+|nvme\d+n\d+|vd[a-z]+|mmcblk\d+|xvd[a-z]+)", disk):
+        raise Fail("disque invalide")
+    if not DRY and not os.path.exists(disk):
+        raise Fail(f"{disk} introuvable")
+    if disk == live_disk():
+        raise Fail("ce disque contient GhostCat live : choisis-en un autre")
+    user = cfg.get("username", "")
+    if not USER_RE.match(user) or user in RESERVED:
+        raise Fail("nom d'utilisateur invalide")
+    if not cfg.get("password") or len(cfg["password"]) < 1:
+        raise Fail("mot de passe vide")
+    if not HOST_RE.match(cfg.get("hostname", "")):
+        raise Fail("nom de l'ordinateur invalide")
+    if cfg.get("encrypt") and len(cfg.get("passphrase", "")) < 8:
+        raise Fail("la phrase de chiffrement doit faire au moins 8 caractères")
+    for k in ("fullname", "password", "passphrase"):
+        if any(c in str(cfg.get(k, "")) for c in "\n\r:\0"):
+            raise Fail("caractère interdit (retour à la ligne, deux-points)")
+
+
+# ------------------------------------------------------------------ étapes
+def step_partition(cfg):
+    disk = cfg["disk"]
+    run("swapoff", "-a", check=False)
+    for mp in subprocess.run(["lsblk", "-nrpo", "MOUNTPOINTS", disk], capture_output=True, text=True).stdout.split():
+        if mp not in ("/", "[SWAP]") and not mp.startswith("/run/archiso"):
+            run("umount", "-R", mp, check=False)
+    run("wipefs", "-af", disk)
+    run("sgdisk", "--zap-all", disk)
+    run("sgdisk",
+        "-n1:0:+1M", "-t1:EF02", "-c1:BIOS",
+        "-n2:0:+1G", "-t2:EF00", "-c2:EFI",
+        "-n3:0:0", f"-t3:{'8309' if cfg.get('encrypt') else '8304'}", "-c3:GhostCat",
+        disk)
+    run("partprobe", disk, check=False)
+    run("udevadm", "settle")
+    time.sleep(1)
+
+
+def step_format(cfg):
+    disk = cfg["disk"]
+    esp, root = part(disk, 2), part(disk, 3)
+    run("mkfs.fat", "-F", "32", "-n", "GHOSTEFI", esp)
+    if cfg.get("encrypt"):
+        pw = cfg["passphrase"]
+        # PBKDF2 : GRUB sait ouvrir ce volume pour lire le noyau
+        run("cryptsetup", "luksFormat", "--batch-mode", "--type", "luks2", "--pbkdf", "pbkdf2",
+            "--iter-time", "1500", "--label", "GhostCat", root, "-", input=pw)
+        run("cryptsetup", "open", "--key-file", "-", root, MAPPER, input=pw)
+        dev = f"/dev/mapper/{MAPPER}"
+    else:
+        dev = root
+    run("mkfs.btrfs", "-f", "-L", "GhostCat", dev)
+    os.makedirs(T, exist_ok=True)
+    run("mount", dev, T)
+    for sv in ("@", "@home", "@log", "@cache", "@snapshots"):
+        run("btrfs", "subvolume", "create", f"{T}/{sv}")
+    run("umount", T)
+    opts = BTRFS_OPTS
+    run("mount", "-o", f"{opts},subvol=@", dev, T)
+    for sv, mp in (("@home", "/home"), ("@log", "/var/log"), ("@cache", "/var/cache"), ("@snapshots", "/.snapshots")):
+        os.makedirs(T + mp, exist_ok=True)
+        run("mount", "-o", f"{opts},subvol={sv}", dev, T + mp)
+    os.makedirs(T + "/efi", exist_ok=True)
+    run("mount", "-o", "umask=0077", esp, T + "/efi")
+    return dev
+
+
+def squashfs_image():
+    for base in ("/run/archiso/bootmnt", "/run/archiso/copytoram"):
+        for p in (f"{base}/ghostcat/x86_64/airootfs.sfs", f"{base}/arch/x86_64/airootfs.sfs", f"{base}/airootfs.sfs"):
+            if os.path.isfile(p):
+                return p
+    return None
+
+
+def step_copy(cfg, w0, w):
+    """Copie le système live tel qu'il est sur la clé (sans les changements de la session)."""
+    img = squashfs_image()
+    if not img and not DRY:
+        raise Fail("image du système introuvable sur le support live")
+    if DRY:
+        return
+    proc = subprocess.Popen(["unsquashfs", "-f", "-d", T, img], stdout=subprocess.PIPE,
+                            stderr=subprocess.STDOUT, text=True, bufsize=1)
+    pct_re = re.compile(r"(\d+)%")
+    last = -1
+    buf = ""
+    while True:
+        ch = proc.stdout.read(1)
+        if not ch:
+            break
+        if ch in "\r\n":
+            m = pct_re.findall(buf)
+            if m:
+                pct = int(m[-1])
+                if pct != last:
+                    last = pct
+                    emit(progress=round(w0 + w * pct / 100, 4), detail=f"{pct} %")
+            elif buf.strip():
+                log(buf.strip())
+            buf = ""
+        else:
+            buf += ch
+    if proc.wait() != 0:
+        raise Fail("la copie du système a échoué (voir /var/log/ghostcat-install.log)")
+    # le noyau et le microcode sont rangés à part sur le support live
+    boot = os.path.dirname(os.path.dirname(img)) + "/boot"
+    os.makedirs(T + "/boot", exist_ok=True)
+    for f in ("x86_64/vmlinuz-linux", "amd-ucode.img", "intel-ucode.img"):
+        if os.path.isfile(f"{boot}/{f}"):
+            shutil.copy2(f"{boot}/{f}", f"{T}/boot/{os.path.basename(f)}")
+    if not os.path.isfile(f"{T}/boot/vmlinuz-linux"):
+        raise Fail("noyau introuvable sur le support live")
+
+
+LIVE_ONLY = [
+    # GhostCat live
+    "/etc/sudoers.d/10-ghostcat-live", "/etc/gdm/custom.conf", "/var/lib/AccountsService/users/ghost",
+    "/etc/systemd/system/ghostcat-live-setup.service", "/etc/systemd/system/multi-user.target.wants/ghostcat-live-setup.service",
+    "/etc/systemd/system/ghostcat-firstrun.service", "/etc/systemd/system/graphical.target.wants/ghostcat-firstrun.service",
+    "/etc/systemd/system/gdm.service.d/10-ghostcat-firstrun.conf", "/etc/pam.d/ghostcat-firstrun",
+    "/usr/lib/ghostcat/live-setup", "/etc/systemd/system/systemd-time-wait-sync.service",
+    # base releng d'archiso
+    "/etc/systemd/journald.conf.d/volatile-storage.conf", "/etc/systemd/logind.conf.d/do-not-suspend.conf",
+    "/etc/systemd/system/getty@tty1.service.d", "/etc/systemd/system/pacman-init.service",
+    "/etc/systemd/system/choose-mirror.service", "/etc/systemd/system/etc-pacman.d-gnupg.mount",
+    "/etc/systemd/system/livecd-alsa-unmuter.service", "/etc/systemd/system/livecd-talk.service",
+    "/etc/mkinitcpio.conf.d/archiso.conf", "/etc/ssh/sshd_config.d/10-archiso.conf",
+    "/root/.automated_script.sh", "/root/.zlogin", "/usr/local/bin/choose-mirror", "/usr/local/bin/livecd-sound",
+    "/usr/local/bin/Installation_guide", "/etc/systemd/network/20-ethernet.network", "/etc/systemd/network/20-wlan.network",
+    "/etc/systemd/network/20-wwan.network", "/etc/systemd/system/systemd-networkd-wait-online.service.d",
+]
+
+
+def step_system(cfg, dev):
+    # nettoyage du live
+    rm(*LIVE_ONLY)
+    if not DRY:
+        for d in ("/etc/systemd/system", "/etc/systemd/user"):
+            for root, _dirs, files in os.walk(T + d):
+                for f in files:
+                    full = os.path.join(root, f)
+                    if os.path.islink(full) and not os.path.exists(full):
+                        os.remove(full)        # liens vers des services supprimés
+    chroot("userdel", "-r", "ghost", check=False)
+    rm("/home/ghost")
+    chroot("pacman", "-Rdd", "--noconfirm", "mkinitcpio-archiso", "archinstall", check=False)
+    chroot("passwd", "-l", "root")                           # pas de connexion root sans mot de passe
+
+    write("/etc/hostname", cfg["hostname"] + "\n")
+    write("/etc/hosts", "127.0.0.1 localhost\n::1 localhost\n"
+                        f"127.0.1.1 {cfg['hostname']}.localdomain {cfg['hostname']}\n")
+    write("/etc/gdm/custom.conf", "# GhostCat OS\n[daemon]\nWaylandEnable=true\n"
+          + (f"AutomaticLoginEnable=True\nAutomaticLogin={cfg['username']}\n" if cfg.get("autologin") else ""))
+
+    # réglages choisis dans GhostCat Setup (langue, clavier, fuseau, vie privée)
+    saved = "/etc/ghostcat/setup.json"
+    if os.path.isfile(saved):
+        with open(saved, encoding="utf-8") as f:
+            s = json.load(f)
+    else:
+        s = {}
+    payload = {k: s[k] for k in ("lang", "keymap", "timezone") if k in s}
+    payload["privacy"] = {k: bool(s.get(k, k != "tor")) for k in ("mac", "anon", "dns", "browser", "firewall", "tor", "traces")}
+    env = dict(os.environ, GHOSTCAT_ROOT=T, GHOSTCAT_DRYRUN="1")
+    run("/usr/lib/ghostcat/setup-apply", input=json.dumps(payload), env=env)
+    write("/var/lib/ghostcat/setup-done", "")
+
+    # fstab, chiffrement, initramfs
+    fstab = run("genfstab", "-U", T, quiet=True)
+    # sans « subvolid » : le menu de démarrage doit pouvoir lancer un instantané à la place de @
+    fstab = re.sub(r"subvolid=\d+,?", "", fstab).replace(",\t", "\t")
+    write("/etc/fstab", "# GhostCat OS — généré à l'installation\n" + fstab)
+    hooks = "base systemd plymouth autodetect microcode modconf kms keyboard sd-vconsole block "
+    hooks += ("sd-encrypt " if cfg.get("encrypt") else "") + "filesystems"
+    files = ""
+    if cfg.get("encrypt"):
+        # une clé dans l'initramfs (lui-même sur le disque chiffré) : la phrase n'est demandée qu'une fois, par GRUB
+        if not DRY:
+            with open(T + "/crypto_keyfile.bin", "wb") as f:
+                f.write(os.urandom(64))
+            os.chmod(T + "/crypto_keyfile.bin", 0o000)
+        run("cryptsetup", "luksAddKey", "--batch-mode", "--pbkdf", "pbkdf2", "--iter-time", "1000",
+            part(cfg["disk"], 3), T + "/crypto_keyfile.bin", "--key-file", "-", input=cfg["passphrase"])
+        files = "/crypto_keyfile.bin"
+    write("/etc/mkinitcpio.conf", "# GhostCat OS\nMODULES=(btrfs)\nBINARIES=()\n"
+          f"FILES=({files})\nHOOKS=({hooks})\n")
+    write("/etc/mkinitcpio.d/linux.preset", 'ALL_kver="/boot/vmlinuz-linux"\nPRESETS=(\'default\')\n'
+          'default_image="/boot/initramfs-linux.img"\n')
+    if cfg.get("encrypt") and not DRY:
+        os.chmod(T + "/boot", 0o700)
+
+    # services du système installé
+    for unit in ("systemd-networkd.service", "systemd-networkd.socket", "systemd-networkd-wait-online.service",
+                 "iwd.service", "sshd.service", "choose-mirror.service", "reflector.service"):
+        chroot("systemctl", "disable", unit, check=False)
+    for unit in ("gdm.service", "NetworkManager.service", "systemd-resolved.service", "systemd-timesyncd.service",
+                 "fstrim.timer", "bluetooth.service"):
+        chroot("systemctl", "enable", unit, check=False)
+    if payload["privacy"].get("firewall"):
+        if not DRY and os.path.isfile(T + "/etc/ufw/ufw.conf"):
+            with open(T + "/etc/ufw/ufw.conf") as f:
+                txt = f.read()
+            write("/etc/ufw/ufw.conf", re.sub(r"^ENABLED=.*$", "ENABLED=yes", txt, flags=re.M))
+        chroot("systemctl", "enable", "ufw.service", check=False)
+    if payload["privacy"].get("tor"):
+        chroot("systemctl", "enable", "tor.service", check=False)
+    if not DRY:
+        target = T + "/etc/resolv.conf"
+        if os.path.lexists(target):
+            os.remove(target)
+        os.symlink("/run/systemd/resolve/stub-resolv.conf", target)
+    chroot("systemctl", "set-default", "graphical.target")
+
+    # trousseau pacman (le live le garde en mémoire, pas sur la clé)
+    chroot("pacman-key", "--init")
+    chroot("pacman-key", "--populate", check=False)
+    chroot("dconf", "update", check=False)
+
+
+def step_users(cfg):
+    user = cfg["username"]
+    groups = ["wheel"] + [g for g in ("wireshark", "docker", "kvm", "libvirt") if group_exists(g)]
+    chroot("useradd", "-m", "-G", ",".join(groups), "-s", "/bin/bash", "-c", cfg.get("fullname") or user, user)
+    chroot("chpasswd", input=f"{user}:{cfg['password']}\n")
+    write("/etc/sudoers.d/10-ghostcat-wheel", "# GhostCat OS : les administrateurs\n%wheel ALL=(ALL:ALL) ALL\n", 0o440)
+    lang = None
+    try:
+        with open("/etc/ghostcat/setup.json", encoding="utf-8") as f:
+            lang = json.load(f).get("lang")
+    except (OSError, ValueError):
+        pass
+    acc = "[User]\nSession=gnome\nSessionType=wayland\nSystemAccount=false\n"
+    if lang and re.fullmatch(r"[a-z]{2}_[A-Z]{2}", lang):
+        acc = acc.replace("[User]\n", f"[User]\nLanguage={lang}.UTF-8\n")
+    write(f"/var/lib/AccountsService/users/{user}", acc, 0o600)
+
+
+def group_exists(g):
+    try:
+        with open(T + "/etc/group") as f:
+            return any(line.startswith(g + ":") for line in f)
+    except OSError:
+        return False
+
+
+def step_boot(cfg, dev):
+    disk = cfg["disk"]
+    cmdline = "loglevel=3 quiet splash"
+    linux = ""
+    if cfg.get("encrypt"):
+        u = uuid_of(part(disk, 3))
+        linux = f"rd.luks.name={u}={MAPPER} rd.luks.key={u}=/crypto_keyfile.bin rd.luks.options={u}=discard"
+    grub = T + "/etc/default/grub"
+    txt = ""
+    if not DRY and os.path.isfile(grub):
+        with open(grub, encoding="utf-8") as f:
+            txt = f.read()
+
+    def setkey(k, v):
+        nonlocal txt
+        line = f'{k}="{v}"' if not v.startswith("@") else f"{k}={v[1:]}"
+        if re.search(rf"^#?\s*{k}=", txt, flags=re.M):
+            txt = re.sub(rf"^#?\s*{k}=.*$", line, txt, flags=re.M)
+        else:
+            txt += "\n" + line + "\n"
+    setkey("GRUB_DISTRIBUTOR", "GhostCat OS")
+    setkey("GRUB_TIMEOUT", "@3")
+    setkey("GRUB_TIMEOUT_STYLE", "menu")
+    setkey("GRUB_CMDLINE_LINUX_DEFAULT", cmdline)
+    setkey("GRUB_CMDLINE_LINUX", linux)
+    setkey("GRUB_THEME", "/usr/share/grub/themes/ghostcat/theme.txt")
+    setkey("GRUB_GFXMODE", "auto")
+    setkey("GRUB_GFXPAYLOAD_LINUX", "keep")
+    setkey("GRUB_DISABLE_OS_PROBER", "@false")
+    setkey("GRUB_DISABLE_SUBMENU", "@y")
+    if cfg.get("encrypt"):
+        setkey("GRUB_ENABLE_CRYPTODISK", "@y")
+    write("/etc/default/grub", txt)
+
+    chroot("mkinitcpio", "-P")
+    efi = os.path.isdir("/sys/firmware/efi") or DRY
+    if efi:
+        chroot("grub-install", "--target=x86_64-efi", "--efi-directory=/efi", "--bootloader-id=GhostCat", "--recheck")
+        # copie de secours dans le chemin standard : indispensable pour démarrer un disque externe sur un autre PC
+        chroot("grub-install", "--target=x86_64-efi", "--efi-directory=/efi", "--removable", "--recheck", check=False)
+        chroot("grub-install", "--target=i386-pc", "--recheck", disk, check=False)
+    else:
+        chroot("grub-install", "--target=i386-pc", "--recheck", disk)
+    chroot("grub-mkconfig", "-o", "/boot/grub/grub.cfg")
+
+
+def step_snapshots(cfg, dev):
+    # snapper veut créer /.snapshots lui-même : on lui laisse faire, puis on remet notre sous-volume
+    run("umount", T + "/.snapshots")
+    rm("/.snapshots")
+    chroot("snapper", "--no-dbus", "-c", "root", "create-config", "/")
+    run("btrfs", "subvolume", "delete", T + "/.snapshots", check=False)
+    os.makedirs(T + "/.snapshots", exist_ok=True)
+    run("mount", "-o", f"{BTRFS_OPTS},subvol=@snapshots", dev, T + "/.snapshots")
+    if not DRY:
+        os.chmod(T + "/.snapshots", 0o750)
+    conf = T + "/etc/snapper/configs/root"
+    if not DRY and os.path.isfile(conf):
+        with open(conf) as f:
+            txt = f.read()
+        for k, v in (("TIMELINE_CREATE", "no"), ("NUMBER_LIMIT", "12"), ("NUMBER_LIMIT_IMPORTANT", "6"),
+                     ("ALLOW_GROUPS", "wheel"), ("SYNC_ACL", "yes")):
+            txt = re.sub(rf"^{k}=.*$", f'{k}="{v}"', txt, flags=re.M)
+        write("/etc/snapper/configs/root", txt)
+    for unit in ("snapper-cleanup.timer", "grub-btrfsd.service"):
+        chroot("systemctl", "enable", unit, check=False)
+    chroot("snapper", "--no-dbus", "-c", "root", "create", "-d", "GhostCat OS installé", "-u", "important=yes", check=False)
+
+
+def step_extras(cfg, w0, w):
+    """Édition lite : installe les outils lourds par Internet, si demandé."""
+    if not cfg.get("heavy"):
+        return
+    lst = "/usr/share/ghostcat/packages.heavy"
+    if not os.path.isfile(lst):
+        return
+    with open(lst) as f:
+        pkgs = [l.strip() for l in f if l.strip() and not l.startswith("#")]
+    if not pkgs:
+        return
+    emit(progress=w0, detail="Téléchargement des outils lourds")
+    r = chroot("pacman", "-Sy", "--needed", "--noconfirm", *pkgs, check=False)
+    if r is None:
+        log("outils lourds : échec, installables plus tard depuis le Hub")
+
+
+def step_finish(cfg):
+    if not DRY:
+        shutil.copy2(LOG, T + "/var/log/ghostcat-install.log")
+    run("sync")
+    run("umount", "-R", T, check=False)
+    if cfg.get("encrypt"):
+        run("cryptsetup", "close", MAPPER, check=False)
+
+
+# ------------------------------------------------------------------ déroulé
+def main():
+    if os.geteuid() != 0 and not DRY:
+        sys.exit("ghostcat installer : doit être lancé en root")
+    try:
+        cfg = json.loads(sys.stdin.read())
+        assert isinstance(cfg, dict)
+    except (ValueError, AssertionError):
+        emit(error="configuration illisible", step="check")
+        return 1
+    os.makedirs(os.path.dirname(LOG), exist_ok=True)
+    log("=== GhostCat Installer : disque " + str(cfg.get("disk")) + (", chiffré" if cfg.get("encrypt") else ""))
+
+    pos = 0.0
+    dev = None
+    current = "check"
+    try:
+        for name, weight in STEPS:
+            current = name
+            emit(step=name, state="run")
+            if name == "check":
+                validate(cfg)
+            elif name == "partition":
+                step_partition(cfg)
+            elif name == "format":
+                dev = step_format(cfg)
+            elif name == "copy":
+                step_copy(cfg, pos, weight)
+            elif name == "system":
+                step_system(cfg, dev)
+            elif name == "users":
+                step_users(cfg)
+            elif name == "boot":
+                step_boot(cfg, dev)
+            elif name == "snapshots":
+                step_snapshots(cfg, dev)
+            elif name == "extras":
+                step_extras(cfg, pos, weight)
+            elif name == "finish":
+                step_finish(cfg)
+            pos += weight
+            emit(step=name, state="ok", progress=round(pos, 4))
+    except Fail as e:
+        log(f"ÉCHEC ({current}) : {e}")
+        emit(error=str(e), step=current)
+        run("umount", "-R", T, check=False)
+        if cfg.get("encrypt"):
+            run("cryptsetup", "close", MAPPER, check=False)
+        return 1
+    except Exception as e:      # erreur imprévue : on la rapporte telle quelle
+        log(f"ERREUR ({current}) : {e!r}")
+        emit(error=f"erreur inattendue : {e}", step=current)
+        return 1
+    emit(done=True, progress=1)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

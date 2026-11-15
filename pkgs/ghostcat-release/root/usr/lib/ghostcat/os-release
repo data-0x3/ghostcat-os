@@ -1,0 +1,16 @@
+NAME="GhostCat OS"
+PRETTY_NAME="GhostCat OS __VERSION_ID__ (Phantom)"
+ID=ghostcat
+ID_LIKE=arch
+VERSION="__VERSION_ID__ (Phantom)"
+VERSION_ID=__VERSION_ID__
+VERSION_CODENAME=phantom
+BUILD_ID=rolling
+VARIANT="Cybersecurity Edition"
+VARIANT_ID=cyber
+ANSI_COLOR="1;37"
+LOGO=ghostcat
+HOME_URL="https://data-0x3.github.io/ghostcat-os/"
+DOCUMENTATION_URL="https://data-0x3.github.io/ghostcat-os/#install"
+SUPPORT_URL="https://t.me/data0x3"
+BUG_REPORT_URL="https://github.com/data-0x3/ghostcat-os/issues"

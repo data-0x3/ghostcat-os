@@ -1,0 +1,3 @@
+# GhostCat OS — met le DNS chiffré de côté pendant qu'un VPN est connecté
+SUBSYSTEM=="net", ACTION=="add", KERNEL=="wg*|tun*|tap*|mullvad*|proton*|nordlynx*|tailscale*|ppp*", RUN+="/usr/bin/systemd-run --no-block --collect /usr/lib/ghostcat/vpn-dns up %k"
+SUBSYSTEM=="net", ACTION=="remove", KERNEL=="wg*|tun*|tap*|mullvad*|proton*|nordlynx*|tailscale*|ppp*", RUN+="/usr/bin/systemd-run --no-block --collect /usr/lib/ghostcat/vpn-dns down %k"

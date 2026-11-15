@@ -3,11 +3,11 @@
 developed by 0x3 · https://t.me/data0x3
 
 Usage :  python3 tools/make-assets.py     (depuis la racine du dépôt)
-Sorties (dans airootfs/) :
+Sorties (dans pkgs/ghostcat-theme et pkgs/ghostcat-hub) :
   usr/share/applications/ghostcat-tool-<id>.desktop   un lanceur par outil du Hub
   usr/share/icons/hicolor/<n>x<n>/apps/ghostcat-tool-<id>.png
   usr/share/icons/GhostCat/…                          thème d'icônes (applis système + bouton Applications)
-  usr/local/share/applications/<app>.desktop          applis masquées de la grille (NoDisplay)
+  usr/share/ghostcat/xdg/applications/<app>.desktop        applis masquées de la grille (NoDisplay)
 """
 import json
 import math
@@ -16,8 +16,10 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-ROOT = Path(__file__).resolve().parent.parent / "airootfs"
-CATALOG = ROOT / "opt/ghostcat-hub/tools.js"
+PKGS = Path(__file__).resolve().parent.parent / "pkgs"
+ROOT = PKGS / "ghostcat-theme/root"   # icônes, applis masquées
+HUB = PKGS / "ghostcat-hub/root"      # lanceurs
+CATALOG = HUB / "usr/lib/ghostcat/hub/tools.js"
 SIZES = (256, 128, 64, 48, 32)
 FONT_B = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 TEAM = {"red": ((255, 77, 109), "X-GhostCat-Red"), "blue": ((77, 141, 255), "X-GhostCat-Blue"),
@@ -274,7 +276,7 @@ L68 200 L54 186 Z M67 100 a11 15 0 1 0 22 0 a11 15 0 1 0 -22 0 Z M111 100 a11 15
 def main():
     tools = json.loads(CATALOG.read_text()[CATALOG.read_text().index("["):CATALOG.read_text().rindex("]") + 1])
 
-    apps = ROOT / "usr/share/applications"
+    apps = HUB / "usr/share/applications"
     for old in apps.glob("ghostcat-tool-*.desktop"):
         old.unlink()
     for s in SIZES:
@@ -288,7 +290,7 @@ def main():
             "[Desktop Entry]\nType=Application\n"
             f"Name={t.get('name_en', t['name'])}\nName[fr]={t['name']}\n"
             f"Comment={t.get('desc_en', desc)}\nComment[fr]={desc}\n"
-            f"Exec=/usr/local/bin/ghostcat-hub --run={t['id']}\n"
+            f"Exec=/usr/bin/ghostcat-hub --run={t['id']}\n"
             f"Icon=ghostcat-tool-{t['id']}\nTerminal=false\nStartupNotify=false\n"
             f"Categories={cat};\nKeywords={t['cat']};{t['team']};cyber;security;\n", encoding="utf-8")
         img = tool_icon(t)
@@ -310,7 +312,7 @@ def main():
         "[Icon Theme]\nName=GhostCat\nComment=GhostCat OS — developed by 0x3\n"
         "Inherits=Papirus-Dark,Adwaita,hicolor\n" f"Directories={','.join(dirs)}\n" + sections)
 
-    hide = ROOT / "usr/local/share/applications"
+    hide = ROOT / "usr/share/ghostcat/xdg/applications"
     shutil.rmtree(hide, ignore_errors=True)
     hide.mkdir(parents=True)
     for app in HIDE:

@@ -1,3 +1,6 @@
 .profile-build/
 out/
 packages.missing
+repo-out/
+site/repo/
+__pycache__/

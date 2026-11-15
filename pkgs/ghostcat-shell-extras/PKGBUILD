@@ -1,0 +1,30 @@
+# GhostCat OS — extensions GNOME tierces utilisées par le bureau GhostCat
+# (Dash to Dock, Blur my Shell, Burn My Windows), figées pour une version de GNOME Shell.
+# developed by 0x3 · https://t.me/data0x3
+pkgname=ghostcat-shell-extras
+pkgver=0
+pkgrel=1
+pkgdesc="GhostCat OS : dock, effet de flou et animations de fenêtres (extensions GNOME tierces)"
+arch=(any)
+url="https://extensions.gnome.org/"
+license=(GPL-2.0-or-later GPL-3.0-or-later)
+depends=(gnome-shell)
+makedepends=(libarchive glib2)
+_gs="${GS_VER:-49}"
+_uuids=(dash-to-dock@micxgx.gmail.com blur-my-shell@aunetx burn-my-windows@schneegans.github.com)
+source=("dash-to-dock.zip::https://extensions.gnome.org/download-extension/dash-to-dock@micxgx.gmail.com.shell-extension.zip?shell_version=${_gs}"
+        "blur-my-shell.zip::https://extensions.gnome.org/download-extension/blur-my-shell@aunetx.shell-extension.zip?shell_version=${_gs}"
+        "burn-my-windows.zip::https://extensions.gnome.org/download-extension/burn-my-windows@schneegans.github.com.shell-extension.zip?shell_version=${_gs}")
+noextract=(dash-to-dock.zip blur-my-shell.zip burn-my-windows.zip)
+sha256sums=(SKIP SKIP SKIP)
+
+package() {
+  local names=(dash-to-dock blur-my-shell burn-my-windows) i d
+  for i in 0 1 2; do
+    d="$pkgdir/usr/share/gnome-shell/extensions/${_uuids[$i]}"
+    install -d "$d"
+    bsdtar -xf "$srcdir/${names[$i]}.zip" -C "$d"
+    [[ -d $d/schemas ]] && glib-compile-schemas "$d/schemas"
+    chmod -R u=rwX,go=rX "$d"
+  done
+}

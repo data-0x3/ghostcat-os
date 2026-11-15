@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+"""GhostCat OS — état de la protection, en JSON, sans droits root.
+Utilisé par la barre du haut (extension GhostCat) et par le Hub.
+developed by 0x3 · https://t.me/data0x3"""
+import json, os, re, subprocess
+
+VPN_RE = re.compile(r"^(wg|tun|tap|mullvad|proton|nordlynx|tailscale|ppp)")
+
+
+def active(unit):
+    try:
+        return subprocess.run(["systemctl", "is-active", "--quiet", unit],
+                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=3).returncode == 0
+    except (OSError, subprocess.TimeoutExpired):
+        return False
+
+
+def vpn():
+    try:
+        for name in sorted(os.listdir("/sys/class/net")):
+            if VPN_RE.match(name):
+                with open(f"/sys/class/net/{name}/operstate") as f:
+                    if f.read().strip() in ("up", "unknown"):
+                        return name
+    except OSError:
+        pass
+    return None
+
+
+def firewall():
+    try:
+        with open("/etc/ufw/ufw.conf") as f:
+            enabled = re.search(r"^ENABLED=yes", f.read(), re.M) is not None
+    except OSError:
+        enabled = False
+    return enabled and active("ufw")
+
+
+v = vpn()
+dot = os.path.exists("/etc/systemd/resolved.conf.d/90-ghostcat-dns.conf")
+print(json.dumps({
+    "dns": "vpn" if v and os.path.exists("/run/systemd/resolved.conf.d/99-ghostcat-vpn.conf") else ("dot" if dot else "off"),
+    "vpn": v,
+    "mac": os.path.exists("/etc/NetworkManager/conf.d/90-ghostcat-mac.conf"),
+    "anon": os.path.exists("/etc/NetworkManager/conf.d/91-ghostcat-anon.conf"),
+    "firewall": firewall(),
+    "tor": active("tor"),
+    "ghost": os.path.exists("/run/ghostcat/ghost-mode"),
+}))

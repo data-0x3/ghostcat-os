@@ -1,0 +1,12 @@
+#!/bin/sh
+# GhostCat OS — pose l'identité du système (appelé par un hook pacman).
+# Le paquet « filesystem » d'Arch réécrit ces fichiers à chaque mise à jour :
+# ce hook repasse derrière lui. developed by 0x3
+set -e
+S=/usr/lib/ghostcat
+install -m644 "$S/os-release" /usr/lib/os-release
+[ -L /etc/os-release ] || ln -sf ../usr/lib/os-release /etc/os-release
+install -m644 "$S/issue" /etc/issue
+install -m644 "$S/motd" /etc/motd
+if [ -e /etc/lsb-release ] || [ -e /usr/bin/lsb_release ]; then install -m644 "$S/lsb-release" /etc/lsb-release; fi
+exit 0

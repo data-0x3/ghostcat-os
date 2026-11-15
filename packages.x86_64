@@ -1,6 +1,9 @@
 # GhostCat OS — package list
 # developed by 0x3
 
+### GhostCat OS (dépôt [ghostcat])
+ghostcat-desktop
+
 ### Base système
 base
 base-devel
@@ -22,7 +25,6 @@ reflector
 arch-install-scripts
 
 ### Installeur sur disque (rend l'OS autonome et installable)
-archinstall
 gparted
 parted
 btrfs-progs

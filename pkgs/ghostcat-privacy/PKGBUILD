@@ -1,0 +1,18 @@
+# GhostCat OS — developed by 0x3 · https://t.me/data0x3
+source ../_common.sh
+pkgname=ghostcat-privacy
+pkgver=0
+pkgrel=1
+pkgdesc="GhostCat OS : réglages vie privée (MAC aléatoire, DNS chiffré, Firefox durci, VPN)"
+arch=(any)
+url="https://data-0x3.github.io/ghostcat-os/"
+license=(GPL-3.0-or-later)
+depends=(networkmanager systemd ufw python polkit)
+optdepends=("tor: mode fantôme")
+backup=(etc/NetworkManager/conf.d/80-ghostcat-dns.conf
+        etc/NetworkManager/conf.d/90-ghostcat-mac.conf
+        etc/NetworkManager/conf.d/91-ghostcat-anon.conf
+        etc/systemd/resolved.conf.d/90-ghostcat-dns.conf
+        etc/firefox/policies/policies.json)
+install=ghostcat-privacy.install
+package() { _ghostcat_install; }

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# GhostCat OS — à l'ouverture de session (developed by 0x3)
+#   « Installer » choisi dans GhostCat Setup -> l'installeur s'ouvre
+#   première session                         -> GhostCat Hub, page d'accueil
+if grep -qw ghostcat.autoinstall=1 /proc/cmdline 2>/dev/null; then
+  exec ghostcat-installer
+fi
+if [[ -f /run/ghostcat/launch-installer && ! -f ${XDG_RUNTIME_DIR:-/tmp}/ghostcat-installer-opened ]]; then
+  touch "${XDG_RUNTIME_DIR:-/tmp}/ghostcat-installer-opened"
+  exec ghostcat-installer
+fi
+C="${XDG_CONFIG_HOME:-$HOME/.config}/ghostcat"
+if [[ ! -f $C/hub-welcomed ]]; then
+  mkdir -p "$C" && touch "$C/hub-welcomed"
+  sleep 4      # laisse l'apparition du bureau se terminer
+  exec ghostcat-hub --welcome
+fi

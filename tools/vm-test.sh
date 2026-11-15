@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# GhostCat OS — démarre une ISO dans QEMU et prend des captures d'écran.
+# GhostCat OS — démarre une ISO dans QEMU, l'installe, redémarre dessus, et photographie tout.
 # developed by 0x3 · https://t.me/data0x3
 #
 # Usage : tools/vm-test.sh <iso> <dossier-captures>
 #
-# Deux passages :
-#   1. UEFI (OVMF) : menu de démarrage, puis démarrage normal jusqu'au premier écran.
-#   2. Noyau direct avec « ghostcat.demo=1 » : les applis GhostCat déroulent
-#      leurs écrans toutes seules, ce qui permet de tout photographier sans souris.
+#   1. live (UEFI) : menu de démarrage, écran de chargement, GhostCat Setup en mode démo,
+#      bureau, puis l'installeur se lance tout seul (ghostcat.autoinstall=1) et installe
+#      sur le disque virtuel, avant d'éteindre la machine ;
+#   2. disque installé : menu GRUB GhostCat, démarrage, écran de connexion, connexion,
+#      apparition du bureau et GhostCat Hub.
 set -euo pipefail
-set -x
 ISO="$1"; SHOTS="$2"
 mkdir -p "$SHOTS"
 RUN="$(mktemp -d)"
@@ -18,52 +18,74 @@ OVMF_CODE="$(first /usr/share/OVMF/OVMF_CODE_4M.fd /usr/share/OVMF/OVMF_CODE.fd)
 OVMF_VARS_SRC="$(first /usr/share/OVMF/OVMF_VARS_4M.fd /usr/share/OVMF/OVMF_VARS.fd)"
 ACCEL=(-accel tcg)
 [[ -w /dev/kvm ]] && ACCEL=(-enable-kvm -cpu host)
+PID=""
 
 mon() { printf '%s\n' "$*" | socat - "UNIX-CONNECT:$RUN/mon" >/dev/null 2>&1 || true; }
-shot() {  # shot <nom>
-  mon "screendump $RUN/s.ppm"
-  sleep 1
-  [[ -s $RUN/s.ppm ]] && convert "$RUN/s.ppm" "$SHOTS/$1.png" && rm -f "$RUN/s.ppm" && echo "  capture : $1"
+shot() {
+  mon "screendump $RUN/s.ppm"; sleep 1
+  if [[ -s $RUN/s.ppm ]]; then convert "$RUN/s.ppm" "$SHOTS/$1.png" && rm -f "$RUN/s.ppm" && echo "  capture : $1"; fi
+  return 0
 }
-key() { mon "sendkey $1"; sleep "${2:-1}"; }
-stop() { mon quit; sleep 2; pkill -f "qemu-system-x86_64.*$RUN" 2>/dev/null || true; }
+key() { mon "sendkey $1"; sleep "${2:-0.3}"; }
+type_text() {
+  local c i
+  for ((i = 0; i < ${#1}; i++)); do
+    c="${1:i:1}"
+    case $c in
+      " ") c=spc ;; "=") c=equal ;; ".") c=dot ;; "-") c=minus ;;
+    esac
+    key "$c" 0.12
+  done
+}
+alive() { [[ -n $PID ]] && kill -0 "$PID" 2>/dev/null; }
+stop() { mon quit; sleep 2; if alive; then kill "$PID" 2>/dev/null || true; fi; PID=""; }
 
-common() {  # common <passage>
-  args=(-m 6144 -smp 2 -vga none -device virtio-vga,xres=1600,yres=900
+qemu_args() {  # qemu_args <nom-du-journal>
+  args=("${ACCEL[@]}" -m 6144 -smp 2 -vga none -device virtio-vga,xres=1600,yres=900
     -device qemu-xhci -device usb-tablet -device usb-kbd
     -netdev user,id=n0 -device virtio-net-pci,netdev=n0
+    -drive "if=pflash,format=raw,readonly=on,file=$OVMF_CODE"
+    -drive "if=pflash,format=raw,file=$RUN/vars.fd"
     -drive "file=$RUN/disk.qcow2,if=virtio,format=qcow2"
-    -monitor "unix:$RUN/mon,server,nowait" -display none
+    -monitor "unix:$RUN/mon,server,nowait" -display none -no-reboot
     -serial "file:$SHOTS/serial-$1.log")
 }
 
-qemu-img create -f qcow2 "$RUN/disk.qcow2" 40G >/dev/null
-
-# ---------- passage 1 : UEFI ----------
+qemu-img create -f qcow2 "$RUN/disk.qcow2" 60G >/dev/null
 cp "$OVMF_VARS_SRC" "$RUN/vars.fd"
-common uefi
-qemu-system-x86_64 "${ACCEL[@]}" "${args[@]}" \
-  -drive "if=pflash,format=raw,readonly=on,file=$OVMF_CODE" \
-  -drive "if=pflash,format=raw,file=$RUN/vars.fd" \
-  -cdrom "$ISO" -boot d &
-sleep 8;  shot 01-menu
-for t in 20 35 50 70 100 140; do sleep $((t - ${prev:-8})); prev=$t; shot "02-boot-${t}s"; done
-stop
 
-# ---------- passage 2 : noyau direct + mode démo ----------
-mkdir -p "$RUN/k"
-bsdtar -xf "$ISO" -C "$RUN/k" arch/boot/x86_64/vmlinuz-linux arch/boot/x86_64/initramfs-linux.img
-LABEL="$(isoinfo -d -i "$ISO" | awk -F': ' '/Volume id/{print $2}')"
-common demo
-qemu-system-x86_64 "${ACCEL[@]}" "${args[@]}" \
-  -kernel "$RUN/k/arch/boot/x86_64/vmlinuz-linux" \
-  -initrd "$RUN/k/arch/boot/x86_64/initramfs-linux.img" \
-  -append "archisobasedir=arch archisolabel=$LABEL quiet splash ghostcat.demo=1 console=ttyS0" \
-  -cdrom "$ISO" &
-prev=0
-for t in 15 30 45 60 75 90 105 120 135 150 165 180 200 220 240 260 280 300 330 360; do
-  sleep $((t - prev)); prev=$t; shot "03-demo-$(printf %03d "$t")s"
+# ---------- 1. live : démo de Setup puis installation automatique ----------
+# On édite l'entrée du menu de démarrage (touche e) pour ajouter les options de test.
+qemu_args live
+qemu-system-x86_64 "${args[@]}" -cdrom "$ISO" -boot d &
+PID=$!
+sleep 6; shot 01-menu
+key e 1; key end; type_text " ghostcat.demo=1 ghostcat.autoinstall=1"; key ret
+t=0
+for at in 10 20 35 50 65 80 95 110 125 140 160 180 200 225 250 280 310; do
+  sleep $((at - t)); t=$at; alive || break; shot "02-live-$(printf %03d "$at")s"
 done
+# l'installation tourne : une capture par minute jusqu'à l'extinction (40 min au plus)
+for m in $(seq 1 40); do
+  alive || break
+  sleep 60; alive || break; shot "03-install-$(printf %02d "$m")min"
+done
+if alive; then echo "l'installation ne s'est pas terminée à temps"; stop; fi
+PID=""
+
+# ---------- 2. disque installé ----------
+qemu_args disk
+qemu-system-x86_64 "${args[@]}" &
+PID=$!
+sleep 7; shot 04-grub
+t=7
+for at in 12 18 25 35 45 60; do sleep $((at - t)); t=$at; alive || break; shot "05-boot-$(printf %03d "$at")s"; done
+# connexion : on choisit le premier compte puis on tape le mot de passe de test
+key ret 2; type_text ghostcat; key ret
+t=0
+for at in 3 6 10 15 25 40 60 90; do sleep $((at - t)); t=$at; alive || break; shot "06-desktop-$(printf %03d "$at")s"; done
+key meta_l 3; shot 07-overview
+key meta_l 2
 stop
 rm -rf "$RUN"
 ls -1 "$SHOTS"

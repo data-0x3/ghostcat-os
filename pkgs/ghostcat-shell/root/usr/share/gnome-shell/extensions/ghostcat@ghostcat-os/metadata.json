@@ -1,0 +1,8 @@
+{
+  "uuid": "ghostcat@ghostcat-os",
+  "name": "GhostCat Shell",
+  "description": "L'interface de GhostCat OS : menu fantôme, état de la protection, mode fantôme, animations et thème. developed by 0x3",
+  "shell-version": ["46", "47", "48", "49", "50", "51", "52"],
+  "url": "https://data-0x3.github.io/ghostcat-os/",
+  "version": 1
+}

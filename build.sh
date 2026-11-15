@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # GhostCat OS — script de build — developed by 0x3 · https://t.me/data0x3
 #
-# Assemble le profil final : base officielle "releng" d'archiso
-# + surcouche GhostCat (paquets, branding, live user, installeur),
-# puis lance mkarchiso.
+# 1. construit les paquets GhostCat et le dépôt [ghostcat] (tools/build-packages.sh) ;
+# 2. assemble le profil : base officielle "releng" d'archiso + fichiers propres au live ;
+# 3. lance mkarchiso.
 #
-# Usage :  sudo ./build.sh            -> ISO dans ./out/
+# Usage :  sudo VERSION=2026.11.15.1 ./build.sh     -> ISO dans ./out/, dépôt dans ./repo-out/
+#          REPO_DIR=… pour réutiliser un dépôt déjà construit
 set -euo pipefail
 export LC_ALL=C
 
@@ -15,6 +16,8 @@ PROFILE="$HERE/.profile-build"
 WORK="${WORK:-/tmp/ghostcat-work}"
 OUT="${OUT:-$HERE/out}"
 export EDITION="${EDITION:-full}"         # full = tout dans l'ISO ; lite = ISO allégée (< 2 Go)
+export VERSION="${VERSION:-$(date -u +%Y.%m.%d).0}"
+REPO_DIR="${REPO_DIR:-$HERE/repo-out}"
 
 say() { printf '\e[1;37m[ghostcat]\e[0m %s\n' "$*"; }
 die() { printf '\e[1;31m[ghostcat] %s\e[0m\n' "$*" >&2; exit 1; }
@@ -24,18 +27,33 @@ die() { printf '\e[1;31m[ghostcat] %s\e[0m\n' "$*" >&2; exit 1; }
 pacman-key --list-keys 2>/dev/null | grep -qi blackarch \
   || die "clé BlackArch absente : installe-la avec strap.sh (voir README)"
 
-say "édition : $EDITION"
+say "édition : $EDITION, version $VERSION"
+if [[ ! -f $REPO_DIR/ghostcat.db ]]; then
+  say "0/5  paquets GhostCat et dépôt [ghostcat]"
+  "$HERE/tools/build-packages.sh" "$REPO_DIR"
+fi
+SIGNED=no
+[[ -f $REPO_DIR/signing && $(cat "$REPO_DIR/signing") != unsigned ]] && SIGNED=yes
+say "     dépôt : $REPO_DIR (signé : $SIGNED)"
+
 say "1/5  copie de la base releng"
 rm -rf "$PROFILE"
 cp -a "$RELENG" "$PROFILE"
 
 say "2/5  surcouche GhostCat (airootfs, pacman.conf)"
 cp -a "$HERE/airootfs/." "$PROFILE/airootfs/"
-cp "$HERE/pacman.conf" "$PROFILE/pacman.conf"
-# le live doit aussi connaître BlackArch (utilisé par ghostcat-install)
+# pacman.conf du système (live et installé) : [ghostcat] vérifié par signature si le dépôt est signé
 cp "$HERE/pacman.conf" "$PROFILE/airootfs/etc/pacman.conf"
+if [[ $SIGNED == no ]]; then
+  sed -i '/^\[ghostcat\]/,/^\[/ s/^SigLevel.*/SigLevel = Optional TrustAll/' "$PROFILE/airootfs/etc/pacman.conf"
+fi
+# pacman.conf du build : le dépôt [ghostcat] est lu directement sur le disque
+sed -e '/^\[ghostcat\]/,/^\[/ { s#^Include.*#Server = file://'"$REPO_DIR"'#; s/^SigLevel.*/SigLevel = Optional TrustAll/ }' \
+  "$HERE/pacman.conf" > "$PROFILE/pacman.conf"
 # la liste des paquets est embarquée pour l'installeur
 mkdir -p "$PROFILE/airootfs/usr/share/ghostcat"
+echo "$EDITION" > "$PROFILE/airootfs/usr/share/ghostcat/edition"
+grep -vE '^\s*(#|$)' "$HERE/packages.heavy" > "$PROFILE/airootfs/usr/share/ghostcat/packages.heavy"
 grep -vE '^\s*(#|$)' "$HERE/packages.x86_64" | sort -u \
   > "$PROFILE/airootfs/usr/share/ghostcat/packages.txt"   # filtré à l'étape 3
 
@@ -44,10 +62,10 @@ cat "$RELENG/packages.x86_64" "$HERE/packages.x86_64" \
   | grep -vE '^\s*(#|$)' | sort -u > "$PROFILE/packages.wanted"
 # base de données temporaire : on vérifie chaque nom sans toucher au système
 DB="$(mktemp -d)"; mkdir -p "$DB/local"
-pacman --config "$HERE/pacman.conf" --dbpath "$DB" -Sy >/dev/null
-{ pacman --config "$HERE/pacman.conf" --dbpath "$DB" -Slq
-  pacman --config "$HERE/pacman.conf" --dbpath "$DB" -Sgq | sort -u
-  pacman --config "$HERE/pacman.conf" --dbpath "$DB" -Sg | awk '{print $1}'
+pacman --config "$PROFILE/pacman.conf" --dbpath "$DB" -Sy >/dev/null
+{ pacman --config "$PROFILE/pacman.conf" --dbpath "$DB" -Slq
+  pacman --config "$PROFILE/pacman.conf" --dbpath "$DB" -Sgq | sort -u
+  pacman --config "$PROFILE/pacman.conf" --dbpath "$DB" -Sg | awk '{print $1}'
 } | sort -u > "$DB/available"
 comm -23 "$PROFILE/packages.wanted" "$DB/available" > "$HERE/packages.missing" || true
 comm -12 "$PROFILE/packages.wanted" "$DB/available" > "$PROFILE/packages.x86_64"
@@ -73,7 +91,8 @@ find "$PROFILE/grub" "$PROFILE/efiboot" "$PROFILE/syslinux" -type f \
   \( -name '*.cfg' -o -name '*.conf' \) -print0 2>/dev/null \
   | xargs -0 -r sed -i -E \
       -e '/archisobasedir=/ { /splash/! s/$/ quiet splash/ }' \
-      -e 's/Arch Linux install medium/GhostCat OS live/g'
+      -e 's/Arch Linux install medium/GhostCat OS live/g' \
+      -e 's/Arch Linux/GhostCat OS/g'
 # Plymouth dans l'initramfs du live (juste après udev)
 sed -i -E '/^HOOKS=/ { /plymouth/! s/\budev\b/udev plymouth/ }' \
   "$PROFILE/airootfs/etc/mkinitcpio.conf.d/archiso.conf"
@@ -86,7 +105,8 @@ grep -q '^ghost:' "$A/passwd" || {
   echo 'ghost:!*::'                                             >> "$A/gshadow"
 }
 # services de la base releng inutiles ou bloquants pour un live graphique privé
-for unit in sshd.service systemd-time-wait-sync.service choose-mirror.service; do
+for unit in sshd.service systemd-time-wait-sync.service choose-mirror.service iwd.service \
+            systemd-networkd.service systemd-networkd.socket systemd-networkd-wait-online.service reflector.service; do
   find "$PROFILE/airootfs/etc/systemd/system" -name "$unit" -path '*.wants/*' -delete 2>/dev/null || true
 done
 # DNS : systemd-resolved (DNS chiffré, voir resolved.conf.d)
@@ -96,43 +116,6 @@ ln -sf /usr/lib/systemd/system/systemd-resolved.service \
 ln -sf /run/systemd/resolve/stub-resolv.conf "$PROFILE/airootfs/etc/resolv.conf"
 mkdir -p "$PROFILE/airootfs/home/ghost"
 cp -a "$HERE/airootfs/etc/skel/." "$PROFILE/airootfs/home/ghost/"
-
-say "4b/5 extensions GNOME (effet verre + dock)"
-GS_VER="$(pacman -Si gnome-shell 2>/dev/null | awk -F': ' '/^Version/{print $2}' | sed -E 's/^[0-9]+://; s/\..*//')"
-[[ -n $GS_VER ]] || GS_VER=49
-EXT_DIR="$PROFILE/airootfs/usr/share/gnome-shell/extensions"
-mkdir -p "$EXT_DIR"
-for uuid in blur-my-shell@aunetx dash-to-dock@micxgx.gmail.com burn-my-windows@schneegans.github.com; do
-  tmp="$(mktemp --suffix=.zip)"
-  if curl -fsSL -o "$tmp" \
-      "https://extensions.gnome.org/download-extension/${uuid}.shell-extension.zip?shell_version=${GS_VER}"; then
-    mkdir -p "$EXT_DIR/$uuid" && bsdtar -xf "$tmp" -C "$EXT_DIR/$uuid"
-    [[ -d $EXT_DIR/$uuid/schemas ]] && glib-compile-schemas "$EXT_DIR/$uuid/schemas"
-    chmod -R a+rX "$EXT_DIR/$uuid"
-    say "     ✓ $uuid (GNOME $GS_VER)"
-  else
-    say "     ✗ $uuid introuvable pour GNOME $GS_VER — le bureau marchera, sans cet effet"
-  fi
-  rm -f "$tmp"
-done
-
-say "4c/5 thème GNOME Shell GhostCat"
-# le thème importe le thème sombre officiel : on vérifie son nom exact pour cette version de GNOME
-BASE_CSS=gnome-shell-dark.css
-GS_RES=/usr/share/gnome-shell/gnome-shell-theme.gresource
-if [[ -f $GS_RES ]]; then
-  if command -v gresource >/dev/null; then RES_LIST="$(gresource list "$GS_RES" 2>/dev/null || true)"
-  else RES_LIST="$(grep -aoE '/org/gnome/shell/theme/gnome-shell[a-z-]*\.css' "$GS_RES" 2>/dev/null | sort -u || true)"; fi
-  if grep -q '/gnome-shell-dark\.css$' <<<"$RES_LIST"; then BASE_CSS=gnome-shell-dark.css
-  elif grep -q '/gnome-shell\.css$' <<<"$RES_LIST"; then BASE_CSS=gnome-shell.css
-  fi
-  if [[ -n $RES_LIST ]]; then say "     base : $BASE_CSS (détectée)"
-  else say "     base : $BASE_CSS (par défaut, noms illisibles dans $GS_RES)"; fi
-else
-  say "     base : $BASE_CSS (par défaut, gnome-shell absent de la machine de build)"
-fi
-sed -i "s/__GHOSTCAT_BASE_CSS__/$BASE_CSS/" \
-  "$PROFILE/airootfs/usr/share/themes/GhostCat/gnome-shell/gnome-shell.css"
 
 say "5/5  mkarchiso (ça prend un moment ☕)"
 rm -rf "$WORK"

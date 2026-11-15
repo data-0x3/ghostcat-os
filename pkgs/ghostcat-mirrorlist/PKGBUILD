@@ -1,0 +1,11 @@
+# GhostCat OS — developed by 0x3 · https://t.me/data0x3
+source ../_common.sh
+pkgname=ghostcat-mirrorlist
+pkgver=0
+pkgrel=1
+pkgdesc="GhostCat OS : adresses du dépôt [ghostcat]"
+arch=(any)
+url="https://data-0x3.github.io/ghostcat-os/"
+license=(GPL-3.0-or-later)
+backup=(etc/pacman.d/ghostcat-mirrorlist)
+package() { _ghostcat_install; }

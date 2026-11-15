@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- GhostCat Setup — assistant du premier démarrage — developed by 0x3 · https://t.me/data0x3 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>GhostCat Setup</title>
+<link rel="stylesheet" href="setup.css">
+</head>
+<body>
+
+<!-- 1. bienvenue -->
+<section class="welcome" id="welcome">
+  <img class="welcome-ghost" src="ghost.webp" alt="">
+  <p class="welcome-line" id="welcomeLine" aria-live="polite"></p>
+  <p class="welcome-sub" data-t="welcome_sub"></p>
+  <button class="btn btn-main welcome-go" id="start" data-t="start"></button>
+</section>
+
+<!-- 2. les étapes -->
+<main class="setup" id="setup" hidden>
+  <aside class="log">
+    <div class="log-head">
+      <img src="ghost.webp" alt="">
+      <span>GHOSTCAT<br>SETUP</span>
+    </div>
+    <ol class="log-steps" id="logSteps"></ol>
+    <p class="log-foot">developed by 0x3</p>
+  </aside>
+
+  <div class="stage">
+    <section class="pane" data-k="lang">
+      <h1 data-t="lang_t"></h1>
+      <p class="sub" data-t="lang_sub"></p>
+      <input class="filter" id="q-lang" data-ph="search" autocomplete="off">
+      <ul class="list" id="g-lang" role="listbox"></ul>
+    </section>
+
+    <section class="pane" data-k="kbd">
+      <h1 data-t="kbd_t"></h1>
+      <p class="sub" data-t="kbd_sub"></p>
+      <ul class="list" id="g-kbd" role="listbox"></ul>
+      <input class="filter try" id="try" data-ph="kbd_try" autocomplete="off">
+    </section>
+
+    <section class="pane" data-k="tz">
+      <h1 data-t="tz_t"></h1>
+      <p class="sub" data-t="tz_sub"></p>
+      <div class="tz-now"><b id="tz-time">--:--</b><span id="tz-name"></span></div>
+      <input class="filter" id="q-tz" data-ph="tz_search" autocomplete="off">
+      <ul class="list" id="g-tz" role="listbox"></ul>
+    </section>
+
+    <section class="pane" data-k="privacy">
+      <h1 data-t="priv_t"></h1>
+      <p class="sub" data-t="priv_sub"></p>
+      <ul class="switches" id="g-priv"></ul>
+    </section>
+
+    <section class="pane" data-k="ready">
+      <h1 data-t="ready_t"></h1>
+      <p class="sub" data-t="ready_sub"></p>
+      <div class="choices">
+        <button class="choice" data-mode="try"><b data-t="try_t"></b><span data-t="try_d"></span></button>
+        <button class="choice" data-mode="install"><b data-t="inst_t"></b><span data-t="inst_d"></span></button>
+      </div>
+    </section>
+
+    <nav class="bar">
+      <button class="btn" id="back" data-t="back"></button>
+      <span class="bar-hint" id="hint"></span>
+      <button class="btn btn-main" id="next" data-t="next"></button>
+    </nav>
+  </div>
+</main>
+
+<!-- 3. application -->
+<section class="apply" id="apply" hidden>
+  <img class="apply-ghost" src="ghost.webp" alt="">
+  <ol class="boot-log" id="tasks"></ol>
+  <p class="apply-err" id="err"></p>
+</section>
+
+<script src="setup.js"></script>
+</body>
+</html>

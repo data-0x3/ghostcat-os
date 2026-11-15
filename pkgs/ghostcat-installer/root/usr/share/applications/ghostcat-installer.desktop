@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Install GhostCat OS
+Name[fr]=Installer GhostCat OS
+Comment=Install GhostCat OS on a drive
+Comment[fr]=Installer GhostCat OS sur un disque
+Exec=ghostcat-installer
+Icon=ghostcat-hub
+Terminal=false
+Categories=X-GhostCat-System;System;
+Keywords=install;installer;disk;installation;disque;

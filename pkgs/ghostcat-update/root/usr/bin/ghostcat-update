@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+# GhostCat OS — mise à jour du système — developed by 0x3 · https://t.me/data0x3
+#
+#   ghostcat-update          met à jour, dans le terminal
+#   ghostcat-update --gui    ouvre un terminal et y lance la mise à jour
+#   ghostcat-update --check  dit seulement s'il y a des mises à jour (code 0 = oui)
+#
+# Avant de toucher au système :
+#   - lit les annonces d'Arch Linux et montre celles qui demandent une action manuelle ;
+#   - met d'abord à jour les trousseaux de clés (évite les erreurs de signature) ;
+#   - snapper prend un instantané avant et après (snap-pac) : en cas de souci,
+#     l'instantané d'avant se choisit dans le menu de démarrage.
+set -uo pipefail
+W='\e[1;37m'; G='\e[90m'; OK='\e[32m'; Y='\e[33m'; R='\e[31m'; N='\e[0m'
+say()  { printf "${W}[ghostcat]${N} %s\n" "$*"; }
+tag()  { printf "%b %s\n" "$1" "$2"; }
+STATE="${XDG_STATE_HOME:-$HOME/.local/state}/ghostcat"
+
+if [[ ${1:-} == --gui ]]; then
+  for term in kgx gnome-terminal xterm; do
+    command -v "$term" >/dev/null || continue
+    case $term in
+      kgx)            exec kgx --title "Mise à jour GhostCat" -- bash -c 'ghostcat-update; echo; read -rp "Entrée pour fermer"' ;;
+      gnome-terminal) exec gnome-terminal --title "Mise à jour GhostCat" -- bash -c 'ghostcat-update; echo; read -rp "Entrée pour fermer"' ;;
+      xterm)          exec xterm -e bash -c 'ghostcat-update; echo; read -rp "Entrée pour fermer"' ;;
+    esac
+  done
+  exit 1
+fi
+
+if [[ ${1:-} == --check ]]; then
+  command -v checkupdates >/dev/null || exit 2
+  n=$(checkupdates 2>/dev/null | wc -l)
+  echo "$n"; (( n > 0 ))
+  exit
+fi
+
+cat <<'ART'
+
+      /\_/\      GHOSTCAT OS — mise à jour
+     ( o.o )
+      \~~~/
+
+ART
+
+# 1. annonces Arch Linux depuis la dernière mise à jour
+mkdir -p "$STATE"
+last=$(cat "$STATE/last-update" 2>/dev/null || echo 0)
+if news=$(curl -fsS --max-time 8 https://archlinux.org/feeds/news/ 2>/dev/null); then
+  found=$(NEWS="$news" python3 -c '
+import os, sys, email.utils, re, xml.etree.ElementTree as ET
+last = float(sys.argv[1])
+try:
+    root = ET.fromstring(os.environ["NEWS"])
+except ET.ParseError:
+    sys.exit()
+for it in root.iter("item"):
+    t = it.findtext("title") or ""
+    try:
+        d = email.utils.parsedate_to_datetime(it.findtext("pubDate") or "").timestamp()
+    except (TypeError, ValueError):
+        continue
+    if d > last and re.search(r"intervention|manual|requires|action", t, re.I):
+        print("  - " + t + "\n    " + (it.findtext("link") or ""))
+' "$last")
+  if [[ -n $found ]]; then
+    tag "${Y}[ WARN ]${N}" "Arch Linux annonce une action manuelle :"
+    printf '%s\n\n' "$found"
+    read -rp "Lis l'annonce avant de continuer. Continuer quand même ? [o/N] " a
+    [[ $a =~ ^[oOyY]$ ]] || exit 1
+  else
+    tag "${OK}[  OK  ]${N}" "aucune annonce bloquante d'Arch Linux"
+  fi
+else
+  tag "${G}[ INFO ]${N}" "annonces d'Arch Linux injoignables, on continue"
+fi
+
+# 2. trousseaux de clés, puis tout le reste
+say "trousseaux de clés"
+sudo pacman -Sy --needed --noconfirm archlinux-keyring ghostcat-keyring blackarch-keyring 2>/dev/null \
+  || sudo pacman -Sy --needed --noconfirm archlinux-keyring
+say "système, outils et GhostCat (un instantané est pris avant)"
+if sudo pacman -Su; then
+  tag "${OK}[  OK  ]${N}" "système à jour"
+else
+  tag "${R}[FAILED]${N}" "la mise à jour a échoué : rien n'est perdu, l'instantané d'avant est dans le menu de démarrage"
+  exit 1
+fi
+command -v flatpak >/dev/null && flatpak update -y --noninteractive >/dev/null 2>&1 && tag "${OK}[  OK  ]${N}" "applications Flatpak"
+date +%s > "$STATE/last-update"
+
+# 3. redémarrage nécessaire ?
+if [[ -d /usr/lib/modules ]] && [[ ! -d /usr/lib/modules/$(uname -r) ]]; then
+  tag "${Y}[ INFO ]${N}" "nouveau noyau installé : redémarre quand tu peux"
+fi

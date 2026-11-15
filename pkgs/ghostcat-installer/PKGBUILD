@@ -1,0 +1,13 @@
+# GhostCat OS — developed by 0x3 · https://t.me/data0x3
+source ../_common.sh
+pkgname=ghostcat-installer
+pkgver=0
+pkgrel=1
+pkgdesc="GhostCat OS : l'installeur graphique (btrfs, chiffrement, instantanés, GRUB GhostCat)"
+arch=(any)
+url="https://data-0x3.github.io/ghostcat-os/"
+license=(GPL-3.0-or-later)
+depends=(python python-gobject gtk4 webkitgtk-6.0 arch-install-scripts btrfs-progs snapper snap-pac
+         grub grub-btrfs inotify-tools efibootmgr dosfstools cryptsetup squashfs-tools gptfdisk parted
+         os-prober util-linux ghostcat-setup ghostcat-theme)
+package() { _ghostcat_install; }

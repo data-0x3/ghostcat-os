@@ -1,0 +1,11 @@
+# GhostCat OS — developed by 0x3 · https://t.me/data0x3
+source ../_common.sh
+pkgname=ghostcat-shell
+pkgver=0
+pkgrel=1
+pkgdesc="GhostCat OS : l'interface du bureau (menu fantôme, bouclier, mode fantôme, animations, thème)"
+arch=(any)
+url="https://data-0x3.github.io/ghostcat-os/"
+license=(GPL-3.0-or-later)
+depends=(gnome-shell ghostcat-theme ghostcat-privacy ghostcat-shell-extras)
+package() { _ghostcat_install; }

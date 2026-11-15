@@ -1,0 +1,13 @@
+# GhostCat OS — paquet « méta » : installer celui-ci, c'est installer GhostCat OS.
+# developed by 0x3 · https://t.me/data0x3
+pkgname=ghostcat-desktop
+pkgver=0
+pkgrel=1
+pkgdesc="GhostCat OS : le système complet (bureau, Hub, Setup, installeur, thème, vie privée, mises à jour)"
+arch=(any)
+url="https://data-0x3.github.io/ghostcat-os/"
+license=(GPL-3.0-or-later)
+depends=(ghostcat-release ghostcat-mirrorlist ghostcat-privacy ghostcat-theme ghostcat-shell
+         ghostcat-shell-extras ghostcat-hub ghostcat-setup ghostcat-installer ghostcat-update
+         gnome-shell gdm plymouth networkmanager ufw fastfetch ttf-jetbrains-mono-nerd)
+# ajouté automatiquement au build quand la clé de signature existe : ghostcat-keyring

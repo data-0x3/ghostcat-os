@@ -1,0 +1,12 @@
+# GhostCat OS — developed by 0x3 · https://t.me/data0x3
+source ../_common.sh
+pkgname=ghostcat-update
+pkgver=0
+pkgrel=1
+pkgdesc="GhostCat OS : mise à jour sûre (annonces Arch, trousseaux, instantanés)"
+arch=(any)
+url="https://data-0x3.github.io/ghostcat-os/"
+license=(GPL-3.0-or-later)
+depends=(bash curl python sudo pacman-contrib)
+optdepends=('snap-pac: instantané automatique avant chaque mise à jour')
+package() { _ghostcat_install; }

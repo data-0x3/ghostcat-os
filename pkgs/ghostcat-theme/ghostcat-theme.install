@@ -1,0 +1,9 @@
+_apply() {
+  dconf update 2>/dev/null || true
+  if command -v plymouth-set-default-theme >/dev/null; then
+    [ -f /etc/plymouth/plymouthd.conf ] || printf '[Daemon]\nTheme=ghostcat\nShowDelay=0\n' > /etc/plymouth/plymouthd.conf
+    plymouth-set-default-theme ghostcat 2>/dev/null || true
+  fi
+}
+post_install() { _apply; }
+post_upgrade() { _apply; }
