@@ -1,9 +1,6 @@
 /* ==== GhostCat OS : écran de connexion (ajouté au thème de GDM par /usr/lib/ghostcat/gdm-theme) ==== */
-#lockDialogGroup {
-  background: #000000 url("file:///usr/share/backgrounds/ghostcat/ghostcat-dark.png");
-  background-size: cover;
-  background-position: center;
-}
+/* noir, comme le menu de démarrage et l'écran de chargement : le fantôme est celui du compte */
+#lockDialogGroup { background: #000000; }
 .login-dialog, .unlock-dialog { font-family: "GhostCat Sans", sans-serif; }
 .login-dialog .user-widget-label, .login-dialog .login-dialog-username {
   font-family: "GhostCat Pixel", monospace;

@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = grub
+Target = ghostcat-theme
+
+[Action]
+Description = GhostCat OS : noms du menu de démarrage…
+When = PostTransaction
+Exec = /usr/lib/ghostcat/grub-names

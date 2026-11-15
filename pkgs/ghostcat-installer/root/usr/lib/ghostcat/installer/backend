@@ -398,7 +398,7 @@ def step_boot(cfg, dev):
         else:
             txt += "\n" + line + "\n"
     setkey("GRUB_DISTRIBUTOR", "GhostCat OS")
-    setkey("GRUB_TIMEOUT", "@3")
+    setkey("GRUB_TIMEOUT", "@4")
     setkey("GRUB_TIMEOUT_STYLE", "menu")
     setkey("GRUB_CMDLINE_LINUX_DEFAULT", cmdline)
     setkey("GRUB_CMDLINE_LINUX", linux)
@@ -406,11 +406,11 @@ def step_boot(cfg, dev):
     setkey("GRUB_GFXMODE", "auto")
     setkey("GRUB_GFXPAYLOAD_LINUX", "keep")
     setkey("GRUB_DISABLE_OS_PROBER", "@false")
-    setkey("GRUB_DISABLE_SUBMENU", "@y")
     if cfg.get("encrypt"):
         setkey("GRUB_ENABLE_CRYPTODISK", "@y")
     write("/etc/default/grub", txt)
 
+    chroot("/usr/lib/ghostcat/grub-names", check=False)
     chroot("mkinitcpio", "-P")
     efi = os.path.isdir("/sys/firmware/efi") or DRY
     if efi:

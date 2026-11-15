@@ -1,5 +1,9 @@
+# GhostCat OS — écran de connexion
 [org/gnome/login-screen]
-logo='/usr/share/pixmaps/ghostcat.png'
+logo=''
+disable-restart-buttons=false
 
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
+font-name='GhostCat Sans 11'
+clock-format='24h'

@@ -1,0 +1,9 @@
+#!/bin/sh
+# GhostCat OS — le menu de démarrage dit « GhostCat OS », pas « GhostCat OS Linux, with Linux linux ».
+# Le script 10_linux appartient au paquet grub : ce hook repasse après chaque mise à jour.
+f=/etc/grub.d/10_linux
+[ -f "$f" ] || exit 0
+sed -i -e 's/OS="${GRUB_DISTRIBUTOR} Linux"/OS="${GRUB_DISTRIBUTOR}"/' \
+       -e "s/gettext_printf \"%s, with Linux %s\"/gettext_printf \"%s (noyau %s)\"/" "$f"
+[ -f /boot/grub/grub.cfg ] && grub-mkconfig -o /boot/grub/grub.cfg >/dev/null 2>&1
+exit 0
