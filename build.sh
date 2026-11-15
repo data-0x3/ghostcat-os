@@ -114,8 +114,7 @@ mkdir -p "$PROFILE/airootfs/etc/systemd/system/multi-user.target.wants"
 ln -sf /usr/lib/systemd/system/systemd-resolved.service \
   "$PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/systemd-resolved.service"
 ln -sf /run/systemd/resolve/stub-resolv.conf "$PROFILE/airootfs/etc/resolv.conf"
-mkdir -p "$PROFILE/airootfs/home/ghost"
-cp -a "$HERE/airootfs/etc/skel/." "$PROFILE/airootfs/home/ghost/"
+mkdir -p "$PROFILE/airootfs/home/ghost"     # rempli depuis /etc/skel au démarrage (live-setup)
 
 say "5/5  mkarchiso (ça prend un moment ☕)"
 rm -rf "$WORK"

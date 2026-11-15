@@ -1,0 +1,6 @@
+# /etc/skel/.bashrc appartient au paquet bash : on y pose la version GhostCat à
+# l'installation (pacman garde ensuite notre fichier et crée un .pacnew si bash change le sien).
+post_install() {
+  install -m644 /usr/share/ghostcat/skel/bashrc /etc/skel/.bashrc
+  /usr/lib/ghostcat/apply-release
+}

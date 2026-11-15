@@ -184,15 +184,15 @@
       </li>
       <li>
         <h3 data-i18n="s4.t">Installe sur un disque</h3>
-        <p data-i18n="s4.d">Connecte le Wi-Fi, puis dans archinstall : le bon disque (il sera effacé), la disposition automatique en ext4, ton utilisateur avec les droits administrateur, le profil Desktop puis GNOME et le réseau NetworkManager. À la fin, réponds non au chroot.</p>
+        <p data-i18n="s4.d">GhostCat Installer s'ouvre : choisis le disque (il sera effacé), chiffre-le si tu veux, puis crée ton compte. Le système est copié depuis la clé, sans rien télécharger.</p>
       </li>
       <li>
         <h3 data-i18n="s5.t">Laisse GhostCat finir</h3>
-        <p data-i18n="s5.d">Donne la partition racine quand elle est demandée, par exemple <code>sda2</code>. GhostCat installe les outils, le Hub et le thème. Compte vingt à quarante minutes.</p>
+        <p data-i18n="s5.d">Compte cinq à quinze minutes. Avec l'édition lite et une connexion Internet, tu peux ajouter les outils lourds : ils se téléchargent pendant l'installation.</p>
       </li>
       <li>
         <h3 data-i18n="s6.t">Redémarre sur ton disque</h3>
-        <p data-i18n="s6.d">Retire la clé, choisis ton disque dans le menu de boot et connecte-toi. Tes réglages sont déjà là.</p>
+        <p data-i18n="s6.d">Retire la clé et choisis ton disque dans le menu de boot. Le menu GhostCat propose aussi les instantanés de secours, si une mise à jour se passe mal un jour.</p>
       </li>
     </ol>
   </section>
@@ -203,12 +203,12 @@
       <p data-i18n="a1">Non. Seul le disque que tu choisis dans l'installeur est effacé, et en mode live rien n'est écrit. Tu peux aussi installer GhostCat sur un disque externe et laisser ton PC tel quel.</p></details>
     <details><summary data-i18n="q2">Pourquoi désactiver le Secure Boot ?</summary>
       <p data-i18n="a2">GhostCat n'est pas signé par Microsoft. Avec le Secure Boot actif, le PC refuse de démarrer sur la clé.</p></details>
-    <details><summary data-i18n="q3">Mullvad coupe Internet sur une ancienne installation</summary>
-      <p data-i18n="a3">Les versions récentes gèrent les VPN toutes seules. Sur une installation plus ancienne, lance cette commande une fois :</p>
-      <div class="command"><code id="cmdFix">curl -fsSL https://raw.githubusercontent.com/data-0x3/ghostcat-os/main/tools/fix-vpn-dns.sh | sudo bash</code>
+    <details><summary data-i18n="q3">J'ai déjà installé GhostCat, comment passer à la nouvelle version ?</summary>
+      <p data-i18n="a3">Une seule commande ajoute le dépôt GhostCat et installe la nouvelle interface. Tes fichiers ne bougent pas :</p>
+      <div class="command"><code id="cmdFix">curl -fsSL https://data-0x3.github.io/ghostcat-os/upgrade.sh | sudo bash</code>
         <button type="button" class="copy" data-copy="#cmdFix" data-i18n="copy">Copier</button></div></details>
     <details><summary data-i18n="q4">Comment mettre à jour ?</summary>
-      <p data-i18n="a4">Dans le Hub, ouvre Système puis Mettre à jour le système, ou tape <code>sudo pacman -Syu</code>. GhostCat suit Arch en continu : pas besoin de réinstaller.</p></details>
+      <p data-i18n="a4">Dans le menu fantôme ou dans le Hub, choisis Mettre à jour le système, ou tape <code>ghostcat-update</code>. Un instantané est pris avant chaque mise à jour : en cas de souci, choisis-le dans le menu de démarrage.</p></details>
     <details><summary data-i18n="q5">Pourquoi l'ISO est en plusieurs morceaux ?</summary>
       <p data-i18n="a5">GitHub limite chaque fichier à 2 Go. Les commandes de téléchargement recollent et vérifient tout pour toi.</p></details>
     <details><summary data-i18n="q6">C'est légal ?</summary>

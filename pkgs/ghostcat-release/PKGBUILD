@@ -9,7 +9,7 @@ url="https://data-0x3.github.io/ghostcat-os/"
 license=(GPL-3.0-or-later)
 depends=(filesystem)
 optdepends=('fastfetch: résumé du système au lancement du terminal')
-backup=(etc/skel/.bashrc)
+install=ghostcat-release.install
 
 package() {
   _ghostcat_install

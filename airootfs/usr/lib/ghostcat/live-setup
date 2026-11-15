@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # GhostCat OS — préparation de la session live (au boot, rapide, sans réseau)
-dconf update
+cp -an /etc/skel/. /home/ghost/ 2>/dev/null
 chown -R ghost:ghost /home/ghost
+dconf update
