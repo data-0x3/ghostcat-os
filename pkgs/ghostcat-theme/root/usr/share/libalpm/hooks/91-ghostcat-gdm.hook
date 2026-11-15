@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = gnome-shell
+Target = ghostcat-theme
+
+[Action]
+Description = GhostCat OS : écran de connexion…
+When = PostTransaction
+Exec = /usr/lib/ghostcat/gdm-theme

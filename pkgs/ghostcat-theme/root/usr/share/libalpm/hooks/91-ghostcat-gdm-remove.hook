@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Remove
+Type = Package
+Target = ghostcat-theme
+
+[Action]
+Description = GhostCat OS : écran de connexion d'origine…
+When = PreTransaction
+Exec = /usr/lib/ghostcat/gdm-theme --remove

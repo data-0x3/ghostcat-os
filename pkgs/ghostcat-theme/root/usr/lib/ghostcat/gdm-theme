@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+"""GhostCat OS — ajoute le style GhostCat à l'écran de connexion (GDM).
+developed by 0x3 · https://t.me/data0x3
+
+GDM lit son thème dans /usr/share/gnome-shell/gnome-shell-theme.gresource (fichier
+du paquet gnome-shell). On garde une copie de l'original, on y ajoute
+/usr/share/ghostcat/gdm/ghostcat-gdm.css et on recompile. Lancé par un hook pacman
+après chaque mise à jour de gnome-shell ou de ghostcat-theme.
+En cas de problème, l'original est remis : l'écran de connexion reste utilisable.
+"""
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+
+import gi
+gi.require_version("Gio", "2.0")
+from gi.repository import Gio, GLib
+
+RES = "/usr/share/gnome-shell/gnome-shell-theme.gresource"
+ORIG = "/usr/share/ghostcat/gdm/gnome-shell-theme.gresource.orig"
+CSS = "/usr/share/ghostcat/gdm/ghostcat-gdm.css"
+PREFIX = "/org/gnome/shell/theme"
+MARK = b"GhostCat OS : \xc3\xa9cran de connexion"
+
+
+def files(res, path):
+    for name in res.enumerate_children(path, Gio.ResourceLookupFlags.NONE):
+        full = path + name
+        if name.endswith("/"):
+            yield from files(res, full)
+        else:
+            yield full
+
+
+def main():
+    if not os.path.isfile(RES) or not shutil.which("glib-compile-resources"):
+        return 0
+    with open(RES, "rb") as f:
+        current = f.read()
+    if MARK not in current:                 # thème d'origine (nouvelle version de gnome-shell)
+        shutil.copy2(RES, ORIG)
+    if "--remove" in sys.argv:
+        if os.path.isfile(ORIG):
+            shutil.copy2(ORIG, RES)
+        return 0
+    res = Gio.Resource.load(ORIG)
+    extra = open(CSS, encoding="utf-8").read()
+    with tempfile.TemporaryDirectory() as tmp:
+        names = []
+        for path in files(res, PREFIX + "/"):
+            rel = path[len(PREFIX) + 1:]
+            data = res.lookup_data(path, Gio.ResourceLookupFlags.NONE).get_data()
+            if rel.endswith(".css"):
+                data = data + b"\n" + extra.encode()
+            os.makedirs(os.path.join(tmp, os.path.dirname(rel)), exist_ok=True)
+            with open(os.path.join(tmp, rel), "wb") as out:
+                out.write(data)
+            names.append(rel)
+        xml = os.path.join(tmp, "theme.gresource.xml")
+        with open(xml, "w", encoding="utf-8") as x:
+            x.write(f'<?xml version="1.0" encoding="UTF-8"?>\n<gresources><gresource prefix="{PREFIX}">\n')
+            for n in names:
+                x.write(f"<file>{GLib.markup_escape_text(n)}</file>\n")
+            x.write("</gresource></gresources>\n")
+        built = os.path.join(tmp, "out.gresource")
+        r = subprocess.run(["glib-compile-resources", f"--sourcedir={tmp}", f"--target={built}", xml],
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            print("GhostCat : thème de connexion non appliqué :", r.stderr.strip(), file=sys.stderr)
+            return 0
+        Gio.Resource.load(built)            # vérifie que le fichier se relit
+        tmp_target = RES + ".ghostcat-new"
+        shutil.copy2(built, tmp_target)
+        os.replace(tmp_target, RES)
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except Exception as e:                  # jamais bloquer une mise à jour pour un thème
+        print(f"GhostCat : thème de connexion non appliqué : {e}", file=sys.stderr)
+        sys.exit(0)

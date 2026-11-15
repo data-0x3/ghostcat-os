@@ -1,0 +1,36 @@
+/* ==== GhostCat OS : écran de connexion (ajouté au thème de GDM par /usr/lib/ghostcat/gdm-theme) ==== */
+#lockDialogGroup {
+  background: #000000 url("file:///usr/share/backgrounds/ghostcat/ghostcat-dark.png");
+  background-size: cover;
+  background-position: center;
+}
+.login-dialog, .unlock-dialog { font-family: "GhostCat Sans", sans-serif; }
+.login-dialog .user-widget-label, .login-dialog .login-dialog-username {
+  font-family: "GhostCat Pixel", monospace;
+  font-size: 32px;
+  font-weight: 400;
+}
+.login-dialog-user-list-item {
+  border-radius: 4px;
+  padding: 14px 18px;
+  border: 1px solid transparent;
+}
+.login-dialog-user-list-item:hover { background-color: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.14); }
+.login-dialog-user-list-item:focus, .login-dialog-user-list-item:selected { background-color: #eef0f2; color: #000000; }
+.login-dialog-user-list-item:focus .user-widget-label { color: #000000; }
+.login-dialog-prompt-entry, .unlock-dialog .login-dialog-prompt-entry {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 10px 14px;
+}
+.login-dialog-prompt-entry:focus { border-color: #eef0f2; }
+.login-dialog .modal-dialog-button, .login-dialog-button {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.login-dialog .modal-dialog-button:default, .login-dialog-button.default { background-color: #eef0f2; color: #000000; }
+.login-dialog-not-listed-label, .login-dialog-message-hint { color: #8e9196; }
+.login-dialog-logo-bin { padding: 24px 0 48px; }
+#panel.login-screen, #panel.unlock-screen { background-color: transparent; }
+#panel.login-screen .clock-display .clock { font-family: "GhostCat Pixel", monospace; font-size: 16px; font-weight: 400; }
