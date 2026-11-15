@@ -1,0 +1,69 @@
+# GhostCat OS — démarre la dernière ISO publiée dans une VM et prend des captures.
+# Les captures sont poussées sur la branche « vm-shots », dossier = numéro de build.
+# developed by 0x3 · https://t.me/data0x3
+name: Test GhostCat en VM
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag de la release à tester (vide = la dernière)"
+        required: false
+  workflow_run:
+    workflows: ["Build GhostCat ISO"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vm-test
+  cancel-in-progress: true
+
+jobs:
+  vm:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Outils (QEMU, OVMF) et accès KVM
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq qemu-system-x86 qemu-utils ovmf socat imagemagick libarchive-tools genisoimage >/dev/null
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm || true
+          ls -l /dev/kvm || echo "pas de KVM : émulation lente"
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache
+
+      - name: Télécharger l'ISO
+        id: iso
+        run: |
+          TAG="${{ github.event.inputs.tag }}"
+          [ -n "$TAG" ] || TAG="$(gh release view -R "$GITHUB_REPOSITORY" --json tagName -q .tagName)"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          mkdir -p iso && cd iso
+          gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p '*.iso*'
+          ls -lh
+          if ls *.part* >/dev/null 2>&1; then
+            BASE="$(ls *.part00 | sed 's/\.part00$//')"
+            cat "$BASE".part* > "$BASE" && rm -f "$BASE".part*
+          fi
+          ls -lh
+
+      - name: Démarrer et photographier
+        run: tools/vm-test.sh "$(ls -1 iso/*.iso | head -1)" "shots/${{ steps.iso.outputs.tag }}"
+
+      - name: Publier les captures sur la branche vm-shots
+        if: always()
+        run: |
+          [ -d shots ] || exit 0
+          git config user.name "ghostcat-ci"
+          git config user.email "ghostcat-ci@users.noreply.github.com"
+          git fetch origin vm-shots && git worktree add wt origin/vm-shots || { git worktree add --detach wt && (cd wt && git checkout --orphan vm-shots && git rm -rfq .); }
+          rm -rf "wt/${{ steps.iso.outputs.tag }}"
+          cp -r shots/. wt/
+          cd wt && git add -A && git commit -qm "captures ${{ steps.iso.outputs.tag }}" && git push origin HEAD:vm-shots
