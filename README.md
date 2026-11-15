@@ -4,6 +4,10 @@ Distribution complète basée sur Arch Linux, orientée cybersécurité.
 Bureau GNOME, thème noir & blanc, tout inclus.
 **developed by 0x3** · https://t.me/data0x3
 
+## 🌐 Site officiel
+
+**https://data-0x3.github.io/ghostcat-os** — téléchargement en une commande, guide d'installation, FAQ.
+
 ## ⬇ Télécharger
 
 Va dans **[Releases](../../releases)** et prends le dernier `ghostcat-lite-….iso`

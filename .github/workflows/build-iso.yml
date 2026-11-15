@@ -83,6 +83,8 @@ jobs:
             echo
             echo "Taille de l'ISO : **${{ steps.iso.outputs.size }}**"
             echo
+            echo "SHA256 : \`$(cut -d' ' -f1 "out/$ISO.sha256")\`"
+            echo
             if [ "${{ steps.iso.outputs.split }}" = yes ]; then
               echo "### ⚠ L'ISO est en plusieurs morceaux (limite GitHub de 2 Go)"
               echo "Télécharge **tous** les fichiers \`.part\`, puis recolle-les :"

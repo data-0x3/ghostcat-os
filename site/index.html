@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GhostCat OS — the true privacy</title>
+<meta name="description" content="GhostCat OS : distribution Linux cybersécurité basée sur Arch. Red, Blue et Purple Team, vie privée par défaut, design Liquid Glass. Developed by 0x3.">
+<meta property="og:title" content="GhostCat OS — the true privacy">
+<meta property="og:description" content="Distribution cybersécurité basée sur Arch Linux. Red · Blue · Purple Team. Vie privée par défaut.">
+<meta property="og:image" content="assets/og-icon.png">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="assets/favicon.png">
+<style>
+:root{
+  --text:#f2f2f6;--muted:rgba(255,255,255,.6);--faint:rgba(255,255,255,.36);--line:rgba(255,255,255,.12);
+  --red:#ff4d6d;--blue:#4d8dff;--purple:#b26bff;--ok:#3ddc97;
+  --spring:cubic-bezier(.34,1.56,.64,1);--smooth:cubic-bezier(.22,1,.36,1);
+  --sans:"Inter","Adwaita Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono","Cascadia Code","SFMono-Regular",Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;background:#000}
+body{color:var(--text);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:10px}
+::selection{background:#fff;color:#000}
+
+/* fond liquide */
+.liquid{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:42% 58% 63% 37%/45% 41% 59% 55%;filter:blur(90px);opacity:.45;
+  animation:drift 30s var(--smooth) infinite alternate,morph 16s ease-in-out infinite alternate}
+.b1{width:60vw;height:60vw;left:-18vw;top:-22vw;background:radial-gradient(circle at 30% 30%,#5d5d6a,#111116 70%)}
+.b2{width:48vw;height:48vw;right:-16vw;top:40vh;background:radial-gradient(circle,#3c3c4a,#0a0a0d 70%);animation-duration:36s,20s}
+.b3{width:36vw;height:36vw;left:30vw;top:120vh;background:radial-gradient(circle,#8a8a99,transparent 68%);opacity:.16;animation-duration:24s,13s}
+@keyframes drift{50%{transform:translate(6vw,5vh) scale(1.08)}100%{transform:translate(-4vw,10vh) scale(.94)}}
+@keyframes morph{to{border-radius:61% 39% 36% 64%/58% 62% 38% 42%}}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.glass{position:relative;isolation:isolate;
+  background:linear-gradient(140deg,rgba(255,255,255,.11),rgba(255,255,255,.03) 45%,rgba(255,255,255,.06));
+  backdrop-filter:blur(26px) saturate(170%);-webkit-backdrop-filter:blur(26px) saturate(170%);
+  border:1px solid var(--line);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 0 24px rgba(255,255,255,.03),0 24px 70px rgba(0,0,0,.5)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;
+  background:radial-gradient(480px circle at var(--mx,50%) var(--my,-30%),rgba(255,255,255,.11),transparent 45%);opacity:0;transition:opacity .35s}
+.glass:hover::before{opacity:1}
+
+.wrap{width:min(1180px,92vw);margin:0 auto}
+section{padding:110px 0 40px}
+.kicker{font:600 12px var(--mono);letter-spacing:2.5px;text-transform:uppercase;color:var(--faint)}
+h2{font-size:clamp(32px,4.4vw,52px);letter-spacing:-1.2px;line-height:1.08;margin:10px 0 14px}
+.lead{color:var(--muted);font-size:18px;max-width:680px}
+
+/* apparition au défilement */
+.rv{opacity:0;transform:translateY(28px);filter:blur(8px);transition:opacity .9s var(--smooth),transform 1s var(--spring),filter .9s}
+.rv.in{opacity:1;transform:none;filter:none}
+
+/* nav */
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:20;width:min(1180px,94vw);
+  display:flex;align-items:center;gap:6px;padding:8px 10px 8px 14px;border-radius:22px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;margin-right:auto}
+.brand img{width:32px;height:32px;filter:drop-shadow(0 0 10px rgba(255,255,255,.35))}
+nav .lk{padding:8px 13px;border-radius:12px;color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s,background .2s}
+nav .lk:hover{color:var(--text);background:rgba(255,255,255,.08)}
+.lang{display:flex;padding:3px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid var(--line)}
+.lang button{padding:5px 10px;border-radius:9px;font:600 12px var(--mono);color:var(--muted)}
+.lang button.on{background:#fff;color:#000}
+.btn{display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 22px;border-radius:16px;font-weight:700;text-decoration:none;
+  background:linear-gradient(140deg,rgba(255,255,255,.18),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.2);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3);transition:transform .45s var(--spring),background .2s}
+.btn:hover{transform:translateY(-2px)} .btn:active{transform:scale(.96)}
+.btn.pri{background:linear-gradient(140deg,#fff,#d6d6e0);color:#08080b;border-color:#fff;box-shadow:0 12px 40px rgba(255,255,255,.18)}
+.btn.sm{height:38px;padding:0 16px;border-radius:13px;font-size:14px}
+@media (max-width:860px){nav .lk{display:none}}
+
+/* hero */
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:120px 0 60px}
+.hero .ghost{width:min(300px,60vw);margin:0 auto;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 0 50px rgba(255,255,255,.28))}
+@keyframes float{50%{transform:translateY(-12px)}}
+.hero h1{font-size:clamp(46px,8vw,104px);letter-spacing:clamp(4px,1.2vw,16px);font-weight:800;line-height:1;margin:18px 0 0;padding-left:clamp(4px,1.2vw,16px)}
+.tagline{font-size:clamp(20px,2.6vw,30px);font-weight:300;font-style:italic;color:rgba(255,255,255,.85);margin-top:18px;min-height:1.5em}
+.tagline .caret{display:inline-block;width:2px;height:1em;margin-left:4px;vertical-align:-3px;background:#fff;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero .sub{color:var(--muted);font-size:18px;max-width:640px;margin:14px auto 0}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.badge{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:7px 14px;border-radius:999px;font:12px var(--mono);color:var(--muted);
+  background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
+.scroll{margin-top:46px;color:var(--faint);font:12px var(--mono);letter-spacing:2px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:10px}
+.stat{padding:22px;border-radius:22px;text-align:center}
+.stat b{display:block;font-size:40px;letter-spacing:-1px}
+.stat span{color:var(--muted);font-size:14px}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+
+/* features */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.card{padding:26px;border-radius:26px;transition:transform .5s var(--spring),border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.22)}
+.card .ic{font-size:26px}
+.card h3{font-size:20px;margin:12px 0 6px;letter-spacing:-.3px}
+.card p{color:var(--muted);font-size:15px}
+.card ul{margin:10px 0 0;padding:0;list-style:none;color:var(--muted);font-size:14px}
+.card li{padding:3px 0 3px 18px;position:relative}
+.card li::before{content:"";position:absolute;left:2px;top:12px;width:6px;height:6px;border-radius:50%;background:var(--ok)}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}}
+
+/* équipes */
+.team{--c:#fff}
+.team .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 14px var(--c);margin-right:8px}
+.team .tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.team .tools span{font:12px var(--mono);padding:4px 9px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--muted)}
+.team .glow{position:absolute;inset:auto -30% -60% auto;width:240px;height:240px;border-radius:50%;background:var(--c);filter:blur(70px);opacity:.22;z-index:-1}
+
+/* galerie */
+.shots{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:34px}
+.shot{border-radius:24px;overflow:hidden;padding:0}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--smooth)}
+.shot:hover img{transform:scale(1.03)}
+.shot figcaption{position:absolute;left:14px;bottom:14px;padding:6px 12px;border-radius:12px;font-size:13px;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);border:1px solid var(--line)}
+.shots .tall{grid-row:span 2}
+.wps{display:flex;gap:12px;overflow-x:auto;padding:6px 2px 14px;margin-top:14px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.2) transparent}
+.wps figure{flex:0 0 min(360px,78vw);border-radius:18px;overflow:hidden;scroll-snap-align:start;position:relative}
+.wps figcaption{position:absolute;left:10px;bottom:10px;font:12px var(--mono);padding:4px 9px;border-radius:9px;background:rgba(0,0,0,.6)}
+@media (max-width:860px){.shots{grid-template-columns:1fr}.shots .tall{grid-row:auto}}
+
+/* téléchargement */
+.dl{margin-top:30px;border-radius:32px;padding:30px}
+.rel{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.rel img{width:64px;height:64px}
+.rel h3{font-size:24px;letter-spacing:-.4px}
+.rel .meta{color:var(--muted);font:13px var(--mono)}
+.rel .ml{margin-left:auto}
+.tabs{display:inline-flex;gap:3px;padding:4px;border-radius:15px;background:rgba(255,255,255,.06);border:1px solid var(--line);margin:24px 0 14px}
+.tabs button{padding:8px 16px;border-radius:11px;color:var(--muted);font-weight:600;font-size:14px;transition:background .25s,color .25s}
+.tabs button.on{background:#fff;color:#000}
+.pane{display:none;animation:fade .5s var(--smooth)} .pane.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+.pane p{color:var(--muted);margin:6px 0 12px}
+.code{display:flex;align-items:center;gap:12px;padding:12px 12px 12px 16px;border-radius:16px;background:rgba(0,0,0,.55);border:1px solid var(--line);
+  font:14px var(--mono);color:#e8e8f0;white-space:nowrap;margin:8px 0;min-width:0}
+.code .cmd{flex:1;min-width:0;overflow-x:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.2) transparent;padding:2px 0}
+.code .pr{color:var(--faint);user-select:none}
+.code button{flex:none;padding:6px 12px;border-radius:10px;background:rgba(255,255,255,.1);font:600 12px var(--sans);color:var(--text)}
+.code button.done{background:var(--ok);color:#000}
+.files{display:grid;gap:8px;margin:10px 0}
+.file{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);text-decoration:none;transition:background .2s}
+.file:hover{background:rgba(255,255,255,.1)}
+.file b{font:14px var(--mono)} .file span{margin-left:auto;color:var(--faint);font:13px var(--mono)}
+.sha{font:12px var(--mono);color:var(--faint);word-break:break-all;margin-top:10px}
+.note{margin-top:14px;padding:12px 16px;border-radius:14px;background:rgba(255,215,107,.07);border:1px solid rgba(255,215,107,.25);color:#f3e2b0;font-size:14px}
+
+/* étapes d'installation */
+.steps{counter-reset:s;display:grid;gap:12px;margin-top:30px}
+.step{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:22px;border-radius:24px}
+.step::after{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:22px;top:22px;font:700 20px var(--mono);color:#fff;
+  width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.1);border:1px solid var(--line)}
+.step > div{grid-column:2}
+.step h3{font-size:19px;letter-spacing:-.2px}
+.step p,.step li{color:var(--muted);font-size:15px}
+.step ul{margin:8px 0 0 18px}
+.step b{color:var(--text)}
+kbd{font:12px var(--mono);padding:2px 7px;border-radius:7px;background:rgba(255,255,255,.12);border:1px solid var(--line);color:#fff}
+
+/* prérequis + faq */
+.reqs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.req{padding:20px;border-radius:20px}
+.req b{display:block;font-size:22px} .req span{color:var(--muted);font-size:14px}
+@media (max-width:860px){.reqs{grid-template-columns:1fr 1fr}}
+details{border-radius:20px;margin-top:10px;padding:0 22px}
+summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:650;display:flex;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;font:400 22px var(--mono);transition:transform .4s var(--spring)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 0 18px;font-size:15px}
+
+footer{padding:80px 0 50px;text-align:center;color:var(--faint);font:13px var(--mono)}
+footer img{width:54px;margin:0 auto 12px;filter:drop-shadow(0 0 16px rgba(255,255,255,.25))}
+footer a{color:var(--muted);text-decoration:none} footer a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+<body>
+<div class="liquid"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="grain"></div>
+
+<nav class="glass">
+  <a class="brand" href="#top"><img src="assets/ghost.webp" alt="">GhostCat OS</a>
+  <a class="lk" href="#features" data-i18n="nav_features">Fonctionnalités</a>
+  <a class="lk" href="#gallery" data-i18n="nav_gallery">Aperçu</a>
+  <a class="lk" href="#install" data-i18n="nav_install">Installer</a>
+  <a class="lk" href="#faq">FAQ</a>
+  <div class="lang"><button data-lang="fr">FR</button><button data-lang="en">EN</button></div>
+  <a class="btn pri sm" href="#download" data-i18n="nav_dl">Télécharger</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <img class="ghost" src="assets/ghost.webp" alt="GhostCat">
+    <h1>GHOSTCAT OS</h1>
+    <div class="tagline"><span id="tag"></span><span class="caret"></span></div>
+    <p class="sub" data-i18n="hero_sub">La distribution cybersécurité basée sur Arch Linux. Red, Blue et Purple Team réunies, ta vie privée protégée par défaut, et un design Liquid Glass de bout en bout.</p>
+    <div class="cta">
+      <a class="btn pri" href="#download">⬇ <span data-i18n="cta_dl">Télécharger gratuitement</span></a>
+      <a class="btn" href="#install" data-i18n="cta_guide">Guide d'installation</a>
+    </div>
+    <div class="badge" id="relBadge"><i></i><span data-i18n="loading">Chargement de la dernière version…</span></div>
+    <div class="scroll">↓ SCROLL</div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="stats rv">
+    <div class="stat glass"><b>69</b><span data-i18n="st_tools">outils en un clic</span></div>
+    <div class="stat glass"><b>0</b><span data-i18n="st_tele">télémétrie</span></div>
+    <div class="stat glass"><b>3</b><span data-i18n="st_teams">équipes : Red, Blue, Purple</span></div>
+    <div class="stat glass"><b>100%</b><span data-i18n="st_free">libre et gratuit</span></div>
+  </div>
+</div>
+
+<section id="features"><div class="wrap">
+  <div class="rv"><div class="kicker" data-i18n="f_k">Fonctionnalités</div>
+  <h2 data-i18n="f_t">Pensé pour la sécurité. Dessiné pour être beau.</h2>
+  <p class="lead" data-i18n="f_l">Tout est déjà réglé au premier démarrage : tu choisis ta langue et ton clavier, et GhostCat s'occupe du reste.</p></div>
+  <div class="grid3">
+    <div class="card glass rv"><div class="ic">🔐</div><h3 data-i18n="f1_t">Vie privée par défaut</h3>
+      <ul><li data-i18n="f1_1">Adresse MAC aléatoire sur chaque Wi-Fi</li><li data-i18n="f1_2">DNS chiffré (Quad9 / Mullvad), compatible VPN</li>
+      <li data-i18n="f1_3">Pare-feu actif, SSH coupé</li><li data-i18n="f1_4">Firefox durci : anti-pistage strict, HTTPS forcé, uBlock Origin</li>
+      <li data-i18n="f1_5">Ni localisation, ni historique, ni télémétrie</li></ul></div>
+    <div class="card glass rv"><div class="ic">👻</div><h3>GhostCat Hub</h3>
+      <p data-i18n="f2_p">Le centre de commande : tous les outils Red, Blue et Purple Team, triés, décrits, lancés ou installés en un clic. Recherche instantanée, favoris, en français et en anglais.</p></div>
+    <div class="card glass rv"><div class="ic">⚙️</div><h3>GhostCat Setup</h3>
+      <p data-i18n="f3_p">Au premier démarrage, avant même le bureau : langue, clavier (avec zone de test), fuseau horaire et niveau de confidentialité. Tout est repris à l'installation.</p></div>
+    <div class="card glass rv"><div class="ic">💧</div><h3 data-i18n="f4_t">Design Liquid Glass</h3>
+      <p data-i18n="f4_p">Barre du haut, dock, menus et grille d'applis en verre, icônes GhostCat, animations de fenêtres et 7 fonds d'écran exclusifs. Noir profond, du boot jusqu'au bureau.</p></div>
+    <div class="card glass rv"><div class="ic">⚡</div><h3 data-i18n="f5_t">Arch Linux + BlackArch</h3>
+      <p data-i18n="f5_p">La base rolling release d'Arch, toujours à jour, avec le dépôt BlackArch pour des milliers d'outils de sécurité supplémentaires.</p></div>
+    <div class="card glass rv"><div class="ic">💾</div><h3 data-i18n="f6_t">Live ou installé</h3>
+      <p data-i18n="f6_p">Essaie GhostCat depuis la clé USB sans rien toucher, puis installe-le sur un disque interne ou externe avec l'installeur guidé.</p></div>
+  </div>
+</div></section>
+
+<section id="teams"><div class="wrap">
+  <div class="rv"><div class="kicker" data-i18n="t_k">Trois équipes</div>
+  <h2 data-i18n="t_t">Attaquer, défendre, prouver.</h2></div>
+  <div class="grid3">
+    <div class="card glass team rv" style="--c:var(--red)"><span class="glow"></span><h3><span class="dot"></span>Red Team</h3>
+      <p data-i18n="t_r">Reconnaissance, web, exploitation, Active Directory, mots de passe, Wi-Fi, reverse engineering.</p>
+      <div class="tools"><span>Nmap</span><span>Burp Suite</span><span>Metasploit</span><span>sqlmap</span><span>Hashcat</span><span>Ghidra</span><span>Bettercap</span></div></div>
+    <div class="card glass team rv" style="--c:var(--blue)"><span class="glow"></span><h3><span class="dot"></span>Blue Team</h3>
+      <p data-i18n="t_b">Surveillance réseau, détection d'intrusion, pare-feu, antivirus, forensique et analyse de journaux.</p>
+      <div class="tools"><span>Wireshark</span><span>Suricata</span><span>Zeek</span><span>OpenSnitch</span><span>YARA</span><span>Volatility</span><span>Lynis</span></div></div>
+    <div class="card glass team rv" style="--c:var(--purple)"><span class="glow"></span><h3><span class="dot"></span>Purple Team</h3>
+      <p data-i18n="t_p">Une boucle guidée : planifier avec MITRE ATT&amp;CK, émuler l'attaque, vérifier la détection, améliorer la règle.</p>
+      <div class="tools"><span>CALDERA</span><span>Atomic Red Team</span><span>Sigma</span><span>ATT&amp;CK Navigator</span><span>Chainsaw</span></div></div>
+  </div>
+  <p class="note rv" data-i18n="legal">⚖️ Les outils offensifs sont réservés aux systèmes que tu possèdes ou que tu as l'autorisation écrite de tester.</p>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+  <div class="rv"><div class="kicker" data-i18n="g_k">Aperçu</div>
+  <h2 data-i18n="g_t">À quoi ça ressemble.</h2></div>
+  <div class="shots">
+    <figure class="shot glass tall rv"><img src="assets/hub-home.jpg" alt="GhostCat Hub" loading="lazy"><figcaption>GhostCat Hub</figcaption></figure>
+    <figure class="shot glass rv"><img src="assets/setup-welcome.jpg" alt="GhostCat Setup" loading="lazy"><figcaption data-i18n="g_setup">GhostCat Setup — premier démarrage</figcaption></figure>
+    <figure class="shot glass rv"><img src="assets/setup-privacy.jpg" alt="Privacy" loading="lazy"><figcaption data-i18n="g_priv">Réglages de vie privée</figcaption></figure>
+    <figure class="shot glass rv"><img src="assets/hub-red.jpg" alt="Red Team" loading="lazy"><figcaption>Red Team</figcaption></figure>
+    <figure class="shot glass rv"><img src="assets/hub-purple.jpg" alt="Purple Team" loading="lazy"><figcaption data-i18n="g_purple">Purple Team — la boucle guidée</figcaption></figure>
+  </div>
+  <div class="wps rv">
+    <figure><img src="assets/wp-classic.jpg" alt="" loading="lazy"><figcaption>Classic</figcaption></figure>
+    <figure><img src="assets/wp-glitch.jpg" alt="" loading="lazy"><figcaption>Glitch</figcaption></figure>
+    <figure><img src="assets/wp-grid.jpg" alt="" loading="lazy"><figcaption>Grid</figcaption></figure>
+    <figure><img src="assets/wp-rain.jpg" alt="" loading="lazy"><figcaption>Rain</figcaption></figure>
+    <figure><img src="assets/wp-liquid.jpg" alt="" loading="lazy"><figcaption>Liquid Glass</figcaption></figure>
+    <figure><img src="assets/wp-ascii.jpg" alt="" loading="lazy"><figcaption>ASCII</figcaption></figure>
+    <figure><img src="assets/wp-minimal.jpg" alt="" loading="lazy"><figcaption>Minimal</figcaption></figure>
+  </div>
+  <figure class="shot glass rv" style="margin-top:14px"><img src="assets/icons.jpg" alt="Icons" loading="lazy"><figcaption data-i18n="g_icons">Icônes GhostCat</figcaption></figure>
+</div></section>
+
+<section id="download"><div class="wrap">
+  <div class="rv"><div class="kicker" data-i18n="d_k">Télécharger</div>
+  <h2 data-i18n="d_t">Une commande, et c'est prêt.</h2>
+  <p class="lead" data-i18n="d_l">Le script télécharge la dernière version, recolle les morceaux et vérifie l'empreinte SHA256 tout seul. Pas besoin de passer par GitHub.</p></div>
+
+  <div class="dl glass rv">
+    <div class="rel"><img src="assets/ghost.webp" alt="">
+      <div><h3 id="relName">GhostCat OS</h3><div class="meta" id="relMeta">—</div></div>
+      <a class="btn sm ml" id="relNotes" href="https://github.com/data-0x3/ghostcat-os/releases/latest" target="_blank" rel="noopener" data-i18n="d_notes">Notes de version ↗</a>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="on" data-tab="win">Windows</button><button data-tab="nix">Linux / macOS</button><button data-tab="man" data-i18n="d_manual">Manuel</button>
+    </div>
+
+    <div class="pane on" id="pane-win">
+      <p data-i18n="d_win">Ouvre <b>PowerShell</b> (clic droit sur Démarrer → Terminal) et colle :</p>
+      <div class="code"><span class="pr">PS&gt;</span><span class="cmd">irm https://data-0x3.github.io/ghostcat-os/win.txt | iex</span><button data-copy data-i18n="copy">Copier</button></div>
+      <p data-i18n="d_win2">L'ISO vérifiée arrive dans <b>Téléchargements\ghostcat-….iso</b>. Ensuite, grave-la avec <a href="https://rufus.ie" target="_blank" rel="noopener">Rufus</a> (voir l'installation ci-dessous).</p>
+    </div>
+    <div class="pane" id="pane-nix">
+      <p data-i18n="d_nix">Dans un terminal :</p>
+      <div class="code"><span class="pr">$</span><span class="cmd">curl -fsSL https://data-0x3.github.io/ghostcat-os/get.sh | bash</span><button data-copy data-i18n="copy">Copier</button></div>
+      <p data-i18n="d_nix2">L'ISO vérifiée arrive dans ton dossier Téléchargements.</p>
+    </div>
+    <div class="pane" id="pane-man">
+      <p data-i18n="d_man">Télécharge tous les fichiers ci-dessous, puis recolle-les :</p>
+      <div class="files" id="files"></div>
+      <div class="code"><span class="pr">Windows</span><span class="cmd" id="joinWin">copy /b …part00 + …part01 ghostcat.iso</span><button data-copy data-i18n="copy">Copier</button></div>
+      <div class="code"><span class="pr">Linux</span><span class="cmd" id="joinNix">cat *.iso.part* &gt; ghostcat.iso</span><button data-copy data-i18n="copy">Copier</button></div>
+    </div>
+    <div class="sha" id="relSha"></div>
+  </div>
+
+  <div class="reqs">
+    <div class="req glass rv"><b>64 bits</b><span data-i18n="r1">PC UEFI (Secure Boot désactivé)</span></div>
+    <div class="req glass rv"><b>8 Go</b><span data-i18n="r2">de RAM conseillés (4 Go minimum)</span></div>
+    <div class="req glass rv"><b>8 Go</b><span data-i18n="r3">clé USB (elle sera effacée)</span></div>
+    <div class="req glass rv"><b>50 Go</b><span data-i18n="r4">sur un disque interne ou externe</span></div>
+  </div>
+</div></section>
+
+<section id="install"><div class="wrap">
+  <div class="rv"><div class="kicker" data-i18n="i_k">Installation</div>
+  <h2 data-i18n="i_t">De zéro à GhostCat en 6 étapes.</h2></div>
+  <div class="steps">
+    <div class="step glass rv"><div><h3 data-i18n="s1_t">Télécharge l'ISO</h3>
+      <p data-i18n="s1_p">Avec la commande de la section Télécharger. Elle vérifie l'empreinte SHA256 pour toi.</p></div></div>
+    <div class="step glass rv"><div><h3 data-i18n="s2_t">Grave la clé USB avec Rufus</h3>
+      <ul><li data-i18n="s2_1">Choisis ta clé et l'ISO, schéma de partition <b>GPT</b>.</li>
+      <li data-i18n="s2_2">Clique <b>Démarrer</b>, puis choisis <b>« Écrire en mode Image DD »</b>.</li>
+      <li data-i18n="s2_3">Sous Linux : <code>sudo dd if=ghostcat.iso of=/dev/sdX bs=4M status=progress</code></li></ul></div></div>
+    <div class="step glass rv"><div><h3 data-i18n="s3_t">Démarre sur la clé</h3>
+      <ul><li data-i18n="s3_1">Désactive le <b>Secure Boot</b> dans le BIOS (souvent <kbd>F2</kbd> ou <kbd>Suppr</kbd>).</li>
+      <li data-i18n="s3_2">Au démarrage, ouvre le menu de boot (<kbd>F12</kbd>, <kbd>F8</kbd>, <kbd>F11</kbd> ou <kbd>Échap</kbd>) et choisis la clé.</li></ul></div></div>
+    <div class="step glass rv"><div><h3 data-i18n="s4_t">Configure avec GhostCat Setup</h3>
+      <p data-i18n="s4_p">« Your new life is about to be born… » puis l'assistant : langue, clavier, fuseau, vie privée. Choisis <b>Essayer</b> pour découvrir, ou <b>Installer</b>.</p></div></div>
+    <div class="step glass rv"><div><h3 data-i18n="s5_t">Installe sur ton disque</h3>
+      <ul><li data-i18n="s5_1">Connecte le Wi-Fi : l'installation télécharge les outils.</li>
+      <li data-i18n="s5_2">Dans archinstall : choisis <b>le bon disque</b> (il sera effacé), disposition automatique, <b>ext4</b>.</li>
+      <li data-i18n="s5_3">Crée ton utilisateur (superuser : oui), profil <b>Desktop → GNOME</b>, réseau <b>NetworkManager</b>.</li>
+      <li data-i18n="s5_4">À la fin, réponds <b>non</b> au chroot : GhostCat installe le reste tout seul.</li></ul></div></div>
+    <div class="step glass rv"><div><h3 data-i18n="s6_t">Redémarre sur GhostCat</h3>
+      <p data-i18n="s6_p">Retire la clé, démarre sur ton disque et connecte-toi. Tes réglages sont déjà là, et le Hub t'attend.</p></div></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="rv"><div class="kicker">FAQ</div><h2 data-i18n="q_t">Questions fréquentes</h2></div>
+  <details class="glass rv"><summary data-i18n="q1">Est-ce que ça efface Windows ?</summary><p data-i18n="a1">Non, sauf si tu choisis le disque de Windows dans l'installeur. En mode live, rien n'est écrit sur tes disques. Tu peux aussi installer GhostCat sur un disque externe et garder ton PC intact.</p></details>
+  <details class="glass rv"><summary data-i18n="q2">Pourquoi désactiver le Secure Boot ?</summary><p data-i18n="a2">GhostCat n'est pas signé par Microsoft : avec le Secure Boot actif, le PC refuse de démarrer sur la clé. Tu pourras le réactiver si tu reviens à Windows seul.</p></details>
+  <details class="glass rv"><summary data-i18n="q3">Ça marche avec Mullvad ou un autre VPN ?</summary><p data-i18n="a3">Oui. Le DNS chiffré de GhostCat se met en pause tout seul quand un VPN est connecté, et revient quand tu le coupes. Sur une installation plus ancienne : <code>curl -fsSL https://raw.githubusercontent.com/data-0x3/ghostcat-os/main/tools/fix-vpn-dns.sh | sudo bash</code></p></details>
+  <details class="glass rv"><summary data-i18n="q4">Comment mettre à jour ?</summary><p data-i18n="a4">Ouvre le Hub → Système → « Mettre à jour le système », ou tape <code>sudo pacman -Syu</code>. GhostCat est une rolling release : pas besoin de réinstaller.</p></details>
+  <details class="glass rv"><summary data-i18n="q5">Pourquoi l'ISO est en plusieurs morceaux ?</summary><p data-i18n="a5">GitHub limite chaque fichier à 2 Go. Le script de téléchargement recolle et vérifie tout automatiquement.</p></details>
+  <details class="glass rv"><summary data-i18n="q6">C'est légal ?</summary><p data-i18n="a6">GhostCat est libre et gratuit. Les outils offensifs sont légaux à posséder, mais leur usage n'est autorisé que sur tes propres systèmes ou avec une autorisation écrite.</p></details>
+</div></section>
+</main>
+
+<footer>
+  <img src="assets/ghost.webp" alt="">
+  <div>GhostCat OS · <span data-i18n="foot">the true privacy</span></div>
+  <div style="margin-top:6px">developed by 0x3 · <a href="https://t.me/data0x3" target="_blank" rel="noopener">t.me/data0x3</a> · <a href="https://github.com/data-0x3/ghostcat-os" target="_blank" rel="noopener" data-i18n="src">code source</a></div>
+</footer>
+
+<script>
+"use strict";
+const EN = {
+  nav_features:"Features",nav_gallery:"Preview",nav_install:"Install",nav_dl:"Download",
+  hero_sub:"The cybersecurity distro built on Arch Linux. Red, Blue and Purple Team together, your privacy protected by default, and Liquid Glass design from end to end.",
+  cta_dl:"Download for free",cta_guide:"Install guide",loading:"Loading the latest version…",
+  st_tools:"one-click tools",st_tele:"telemetry",st_teams:"teams: Red, Blue, Purple",st_free:"free and open",
+  f_k:"Features",f_t:"Built for security. Designed to be beautiful.",f_l:"Everything is set on first boot: pick your language and keyboard, GhostCat handles the rest.",
+  f1_t:"Privacy by default",f1_1:"Random MAC address on every Wi-Fi",f1_2:"Encrypted DNS (Quad9 / Mullvad), VPN-friendly",f1_3:"Firewall on, SSH off",
+  f1_4:"Hardened Firefox: strict anti-tracking, HTTPS-only, uBlock Origin",f1_5:"No location, no history, no telemetry",
+  f2_p:"Your command center: every Red, Blue and Purple Team tool, sorted, explained, launched or installed in one click. Instant search, favorites, in English and French.",
+  f3_p:"On first boot, before the desktop even appears: language, keyboard (with a test field), time zone and privacy level. Everything carries over to the install.",
+  f4_t:"Liquid Glass design",f4_p:"Glass top bar, dock, menus and app grid, GhostCat icons, window animations and 7 exclusive wallpapers. Deep black from boot to desktop.",
+  f5_t:"Arch Linux + BlackArch",f5_p:"Arch's always-fresh rolling release, plus the BlackArch repository for thousands of extra security tools.",
+  f6_t:"Live or installed",f6_p:"Try GhostCat from the USB key without touching anything, then install it on an internal or external disk with the guided installer.",
+  t_k:"Three teams",t_t:"Attack, defend, prove.",t_r:"Recon, web, exploitation, Active Directory, passwords, Wi-Fi, reverse engineering.",
+  t_b:"Network monitoring, intrusion detection, firewall, antivirus, forensics and log analysis.",
+  t_p:"A guided loop: plan with MITRE ATT&CK, emulate the attack, check the detection, improve the rule.",
+  legal:"⚖️ Offensive tools are for systems you own or have written permission to test.",
+  g_k:"Preview",g_t:"What it looks like.",g_setup:"GhostCat Setup — first boot",g_priv:"Privacy settings",g_purple:"Purple Team — the guided loop",g_icons:"GhostCat icons",
+  d_k:"Download",d_t:"One command, and you're ready.",d_l:"The script downloads the latest version, joins the parts and checks the SHA256 fingerprint for you. No need to go through GitHub.",
+  d_notes:"Release notes ↗",d_manual:"Manual",d_win:"Open <b>PowerShell</b> (right-click Start → Terminal) and paste:",
+  d_win2:"The verified ISO lands in <b>Downloads\\ghostcat-….iso</b>. Then write it with <a href=\"https://rufus.ie\" target=\"_blank\" rel=\"noopener\">Rufus</a> (see install below).",
+  d_nix:"In a terminal:",d_nix2:"The verified ISO lands in your Downloads folder.",d_man:"Download every file below, then join them:",
+  copy:"Copy",copied:"Copied ✓",r1:"UEFI PC (Secure Boot off)",r2:"of RAM recommended (4 GB minimum)",r3:"USB key (it will be erased)",r4:"on an internal or external disk",
+  i_k:"Install",i_t:"From zero to GhostCat in 6 steps.",
+  s1_t:"Download the ISO",s1_p:"With the command from the Download section. It checks the SHA256 fingerprint for you.",
+  s2_t:"Write the USB key with Rufus",s2_1:"Pick your key and the ISO, partition scheme <b>GPT</b>.",s2_2:"Click <b>Start</b>, then choose <b>“Write in DD Image mode”</b>.",
+  s2_3:"On Linux: <code>sudo dd if=ghostcat.iso of=/dev/sdX bs=4M status=progress</code>",
+  s3_t:"Boot from the key",s3_1:"Turn off <b>Secure Boot</b> in the BIOS (often <kbd>F2</kbd> or <kbd>Del</kbd>).",s3_2:"At power-on, open the boot menu (<kbd>F12</kbd>, <kbd>F8</kbd>, <kbd>F11</kbd> or <kbd>Esc</kbd>) and pick the key.",
+  s4_t:"Set up with GhostCat Setup",s4_p:"“Your new life is about to be born…” then the assistant: language, keyboard, time zone, privacy. Choose <b>Try</b> to explore, or <b>Install</b>.",
+  s5_t:"Install on your disk",s5_1:"Connect to Wi-Fi: the install downloads the tools.",s5_2:"In archinstall: pick <b>the right disk</b> (it will be erased), automatic layout, <b>ext4</b>.",
+  s5_3:"Create your user (superuser: yes), profile <b>Desktop → GNOME</b>, network <b>NetworkManager</b>.",s5_4:"At the end, answer <b>no</b> to chroot: GhostCat installs the rest on its own.",
+  s6_t:"Reboot into GhostCat",s6_p:"Remove the key, boot from your disk and log in. Your settings are already there, and the Hub is waiting.",
+  q_t:"Frequently asked questions",q1:"Will it erase Windows?",a1:"No, unless you pick the Windows disk in the installer. In live mode nothing is written to your disks. You can also install GhostCat on an external disk and keep your PC untouched.",
+  q2:"Why turn off Secure Boot?",a2:"GhostCat isn't signed by Microsoft: with Secure Boot on, the PC refuses to boot the key. You can turn it back on if you go back to Windows only.",
+  q3:"Does it work with Mullvad or another VPN?",a3:"Yes. GhostCat's encrypted DNS pauses itself while a VPN is connected and comes back when you disconnect. On an older install: <code>curl -fsSL https://raw.githubusercontent.com/data-0x3/ghostcat-os/main/tools/fix-vpn-dns.sh | sudo bash</code>",
+  q4:"How do I update?",a4:"Open the Hub → System → “Update the system”, or run <code>sudo pacman -Syu</code>. GhostCat is a rolling release: no reinstall needed.",
+  q5:"Why is the ISO split into parts?",a5:"GitHub limits each file to 2 GB. The download script joins and verifies everything automatically.",
+  q6:"Is it legal?",a6:"GhostCat is free and open. Offensive tools are legal to own, but only allowed on your own systems or with written permission.",
+  foot:"the true privacy",src:"source code",built:"built",size:"size",parts:"parts",relErr:"Couldn't load the version — see GitHub releases."
+};
+const FR = {};
+document.querySelectorAll("[data-i18n]").forEach(e => FR[e.dataset.i18n] = e.innerHTML);
+Object.assign(FR, {copy:"Copier",copied:"Copié ✓",built:"publiée le",size:"taille",parts:"morceaux",loading:"Chargement de la dernière version…",
+  relErr:"Impossible de charger la version — voir les releases GitHub."});
+
+let lang = "fr";
+try { lang = localStorage.getItem("gc-lang") || ((navigator.language || "fr").slice(0,2) === "fr" ? "fr" : "en"); } catch(e) {}
+const T = k => (lang === "en" ? EN : FR)[k] ?? FR[k] ?? k;
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(e => e.innerHTML = T(e.dataset.i18n));
+  document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
+  renderRelease();
+}
+document.querySelectorAll(".lang button").forEach(b => b.onclick = () => { lang = b.dataset.lang; try { localStorage.setItem("gc-lang", lang); } catch(e) {} applyLang(); });
+
+/* phrase d'accueil tapée */
+(function(){ const s = "Welcome to GhostCat OS, the true privacy.", el = document.getElementById("tag"); let i = 0;
+  setTimeout(function step(){ el.textContent = s.slice(0, ++i); if (i < s.length) setTimeout(step, 55 + Math.random()*50); }, 700); })();
+
+/* dernière version, en direct depuis GitHub */
+let REL = null;
+const fmt = n => (n/1e9).toFixed(2).replace(".", lang === "fr" ? "," : ".") + (lang === "fr" ? " Go" : " GB");
+function renderRelease(){
+  const badge = document.querySelector("#relBadge span");
+  if (!REL) return;
+  if (REL.error) { badge.textContent = T("relErr"); return; }
+  const parts = REL.assets.filter(a => /\.iso(\.part\d+)?$/.test(a.name)).sort((a,b) => a.name.localeCompare(b.name));
+  const total = parts.reduce((s,a) => s + a.size, 0);
+  const date = new Date(REL.published_at || REL.created_at).toLocaleDateString(lang === "fr" ? "fr-FR" : "en-GB", {day:"numeric",month:"long",year:"numeric"});
+  badge.textContent = `${REL.name} · ${date} · ${fmt(total)}`;
+  document.getElementById("relName").textContent = REL.name;
+  document.getElementById("relMeta").textContent = `${T("built")} ${date} · ${T("size")} ${fmt(total)} · ${parts.length} ${T("parts")}`;
+  document.getElementById("relNotes").href = REL.html_url;
+  const files = document.getElementById("files"); files.innerHTML = "";
+  REL.assets.forEach(a => { const l = document.createElement("a"); l.className = "file"; l.href = a.browser_download_url;
+    l.innerHTML = `<b></b><span></span>`; l.querySelector("b").textContent = a.name; l.querySelector("span").textContent = a.size > 1e6 ? fmt(a.size) : "SHA256";
+    files.appendChild(l); });
+  if (parts.length > 1) {
+    const iso = parts[0].name.replace(/\.part\d+$/, "");
+    document.getElementById("joinWin").textContent = `copy /b ${parts.map(p => p.name).join(" + ")} ${iso}`;
+    document.getElementById("joinNix").textContent = `cat ${iso}.part* > ${iso}`;
+  }
+  const sha = REL.assets.find(a => a.name.endsWith(".sha256"));
+  if (sha && REL.shaText) document.getElementById("relSha").textContent = "SHA256 · " + REL.shaText;
+}
+fetch("https://api.github.com/repos/data-0x3/ghostcat-os/releases/latest")
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(r => { REL = r; const m = (r.body || "").match(/\b[0-9a-f]{64}\b/); if (m) REL.shaText = m[0]; renderRelease(); })
+  .catch(() => { REL = {error:true}; renderRelease(); });
+
+/* onglets */
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
+  document.querySelectorAll(".pane").forEach(p => p.classList.toggle("on", p.id === "pane-" + b.dataset.tab));
+});
+if (/Linux|Mac/.test(navigator.platform) && !/Android|iPhone|iPad/.test(navigator.userAgent)) document.querySelector('[data-tab="nix"]').click();
+
+/* copier */
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-copy]"); if (!b) return;
+  const txt = b.parentElement.querySelector(".cmd").textContent;
+  const done = () => { b.textContent = T("copied"); b.classList.add("done"); setTimeout(() => { b.textContent = T("copy"); b.classList.remove("done"); }, 1800); };
+  (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(done).catch(() => {
+    const r = document.createRange(); r.selectNodeContents(b.parentElement.querySelector(".cmd")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); });
+});
+
+/* apparitions + reflet */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll(".rv").forEach((el,i) => { el.style.transitionDelay = (i % 3) * 80 + "ms"; io.observe(el); });
+document.addEventListener("pointermove", e => { const g = e.target.closest(".glass"); if (!g) return; const r = g.getBoundingClientRect();
+  g.style.setProperty("--mx", (e.clientX-r.left)+"px"); g.style.setProperty("--my", (e.clientY-r.top)+"px"); }, {passive:true});
+
+applyLang();
+</script>
+</body>
+</html>
