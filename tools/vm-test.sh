@@ -32,6 +32,7 @@ type_text() {
   for ((i = 0; i < ${#1}; i++)); do
     c="${1:i:1}"
     case $c in
+      [A-Z]) c="shift-${c,,}" ;;
       " ") c=spc ;; "=") c=equal ;; ".") c=dot ;; "-") c=minus ;; "_") c=shift-minus ;; ",") c=comma ;;
     esac
     key "$c" 0.12
