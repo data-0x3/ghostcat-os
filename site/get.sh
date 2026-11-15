@@ -39,7 +39,10 @@ i=0
 for u in "${PARTS[@]}"; do
   i=$((i+1)); f="$(basename "$u")"
   say "[$i/${#PARTS[@]}] $f"
-  curl -fL --retry 5 --retry-delay 3 -C - -o "$f" "$u"
+  for try in $(seq 1 30); do
+    curl -fL --retry 5 --retry-delay 3 -C - -o "$f" "$u" && break
+    say "connexion coupée, reprise ($try/30)…"; sleep 3
+  done
 done
 
 if [[ ${#PARTS[@]} -gt 1 ]]; then

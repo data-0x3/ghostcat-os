@@ -46,8 +46,15 @@ foreach ($p in $parts) {
   }
   Say "[$i/$($parts.Count)] Downloading $($p.name)..."
   if ($curl) {
-    & curl.exe -L --fail --retry 5 --retry-delay 3 -C - -o $dest $p.browser_download_url
-    if ($LASTEXITCODE -ne 0) { throw "Download failed: $($p.name)" }
+    # a cut connection resumes where it stopped, up to 30 times
+    for ($try = 1; $try -le 30; $try++) {
+      & curl.exe -L --fail --retry 5 --retry-delay 3 -C - -o $dest $p.browser_download_url
+      if ($LASTEXITCODE -eq 0) { break }
+      if ((Test-Path $dest) -and ((Get-Item $dest).Length -eq $p.size)) { break }
+      Say "Connection lost, resuming ($try/30)..." 'Yellow'
+      Start-Sleep -Seconds 3
+    }
+    if ((Get-Item $dest -ErrorAction SilentlyContinue).Length -ne $p.size) { throw "Download failed: $($p.name). Run the command again to resume." }
   } else {
     Invoke-WebRequest -Uri $p.browser_download_url -OutFile $dest -UseBasicParsing
   }
