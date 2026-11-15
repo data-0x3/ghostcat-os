@@ -9,3 +9,4 @@ Icon=ghostcat-hub
 Terminal=false
 Categories=X-GhostCat-Hub;
 Keywords=privacy;language;keyboard;timezone;vie privée;langue;clavier;
+StartupWMClass=os.ghostcat.Setup

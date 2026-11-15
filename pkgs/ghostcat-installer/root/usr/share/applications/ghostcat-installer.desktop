@@ -9,3 +9,4 @@ Icon=ghostcat-hub
 Terminal=false
 Categories=X-GhostCat-System;System;
 Keywords=install;installer;disk;installation;disque;
+StartupWMClass=os.ghostcat.Installer
