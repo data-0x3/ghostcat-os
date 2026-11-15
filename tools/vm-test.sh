@@ -82,7 +82,8 @@ sleep 3; shot 04-grub
 t=3
 for at in 12 18 25 35 45 60; do sleep $((at - t)); t=$at; alive || break; shot "05-boot-$(printf %03d "$at")s"; done
 # connexion : on choisit le premier compte puis on tape le mot de passe de test
-key ret 6; type_text ghostcat; key ret
+# (le système installé est en AZERTY, réglé par Setup : la touche Q du QWERTY donne « a »)
+key ret 6; type_text ghostcqt; key ret
 t=0
 for at in 3 6 10 15 25 40 60 90; do sleep $((at - t)); t=$at; alive || break; shot "06-desktop-$(printf %03d "$at")s"; done
 key meta_l 3; shot 07-overview
