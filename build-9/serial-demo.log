@@ -1,0 +1,218 @@
+P+q6E616D65\[18t7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J]3008;start=2d4be5d9e1844dcab78827aa51e4f7be;user=root;hostname=GhostCat;machineid=81792bc76beb42f6831d47b3d995f311;bootid=8898572d28fc4479a5e79a5d48425c7a;pid=1;pidfdid=1;comm=systemd;type=boot\[[0;32m  OK  [0m] Finished [0;1;39mLoad JSON user/group Records from Credentials[0m.
+[[0;32m  OK  [0m] Started [0;1;39mForward Password Requests to Plymouth Directory Watch[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Encrypted Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPath Units[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mLoad/Save RF Kill Switch Status /dev/rfkill Watch[0m.
+[[0;32m  OK  [0m] Stopped [0;1;39mVirtual Console Setup[0m.
+         Stopping [0;1;39mVirtual Console Setup[0m...
+         Starting [0;1;39mVirtual Console Setup[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mVirtual Console Setup[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Management[0m.
+         Starting [0;1;39mEnable Persistent Storage in systemd-networkd[0m...
+[[0;32m  OK  [0m] Started [0;1;39mListen Kernel Core Dump Socket[0m.
+         Starting [0;1;39mKernel Core Pattern Register[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mEnable Persistent Storage in systemd-networkd[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mKernel Core Pattern Register[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate System Files and Directories[0m.
+         Starting [0;1;39mRebuild Dynamic Linker Cache[0m...
+         Starting [0;1;39mInitial Setup[0m...
+         Starting [0;1;39mRebuild Journal Catalog[0m...
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8         Starting [0;1;39mRecord System Boot/Shutdown in UTMP[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mRecord System Boot/Shutdown in UTMP[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mRebuild Journal Catalog[0m.
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=6afab8aba6a7410ab2c73d09f4b5debd;user=root;hostname=GhostCat;machineid=81792bc76beb42f6831d47b3d995f311;bootid=8898572d28fc4479a5e79a5d48425c7a;pid=612;pidfdid=288;comm=(temd-firstboot);servicename=systemd-firstboot.service;invocationid=7ad3eba026854abc9219a1bb809ee1fc;type=service\[[0;32m  OK  [0m] Finished [0;1;39mInitial Setup[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mFirst Boot Complete[0m.
+         Starting [0;1;39mSave Transient machine-id to Disk[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mSave Transient machine-id to Disk[0m.
+[[0m[0;31m*     [0m] A start job is running for Rebuild …amic Linker Cache (11s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (11s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] A start job is running for Rebuild …amic Linker Cache (12s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] A start job is running for Rebuild …amic Linker Cache (12s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] A start job is running for Rebuild …amic Linker Cache (13s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (14s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] A start job is running for Rebuild …amic Linker Cache (14s / no limit)
+M[K[     [0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (15s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] A start job is running for Rebuild …amic Linker Cache (15s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (16s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] A start job is running for Rebuild …amic Linker Cache (17s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] A start job is running for Rebuild …amic Linker Cache (17s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] A start job is running for Rebuild …amic Linker Cache (18s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (18s / no limit)
+M[K[[0m[0;31m*     [0m] A start job is running for Rebuild …amic Linker Cache (19s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (19s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] A start job is running for Rebuild …amic Linker Cache (20s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] A start job is running for Rebuild …amic Linker Cache (21s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] A start job is running for Rebuild …amic Linker Cache (21s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (22s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] A start job is running for Rebuild …amic Linker Cache (22s / no limit)
+M[K[     [0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (23s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] A start job is running for Rebuild …amic Linker Cache (24s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (24s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] A start job is running for Rebuild …amic Linker Cache (25s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] A start job is running for Rebuild …amic Linker Cache (25s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] A start job is running for Rebuild …amic Linker Cache (26s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (26s / no limit)
+M[K[[0m[0;31m*     [0m] A start job is running for Rebuild …amic Linker Cache (27s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (28s / no limit)
+M[K[[0;32m  OK  [0m] Finished [0;1;39mRebuild Dynamic Linker Cache[0m.
+[K         Starting [0;1;39mUpdate is Completed[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mUpdate is Completed[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSystem Initialization[0m.
+[[0;32m  OK  [0m] Started [0;1;39mRefresh existing PGP keys of archlinux-keyring regularly[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily man-db regeneration[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily verification of password and group files[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily Cleanup of Temporary Directories[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mTimer Units[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mD-Bus System Message Bus Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG network certifi…ent daemon for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a… browsers) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…estricted) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…emulation) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…rase cache for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG public key mana…nt service for /etc/pacman.d/gnupg[0m.
+         Starting [0;1;39mPC/SC Smart Card Daemon Activation Socket[0m...
+[[0;32m  OK  [0m] Listening on [0;1;39mAuthorization Manager Agent Helper[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mOpenSSH Server Socket…temd-ssh-generator, AF_UNIX Local)[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mUser Login Management Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mVirtual Machine and C…tainer Registration Service Socket[0m.
+         Starting [0;1;39mD-Bus System Message Bus[0m...
+[[0;32m  OK  [0m] Listening on [0;1;39mPC/SC Smart Card Daemon Activation Socket[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSocket Units[0m.
+[[0;32m  OK  [0m] Started [0;1;39mD-Bus System Message Bus[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mBasic System[0m.
+         Starting [0;1;39mNetwork Manager[0m...
+         Starting [0;1;39mGhostCat OS live session setup[0m...
+         Starting [0;1;39mWireless service[0m...
+         Starting [0;1;39mInitializes Pacman keyring[0m...
+         Starting [0;1;39mAuthorization Manager[0m...
+         Starting [0;1;39mHome Area Manager[0m...
+         Starting [0;1;39mUser Login Management[0m...
+[[0;32m  OK  [0m] Started [0;1;39mUser Login Management[0m.
+[[0;32m  OK  [0m] Started [0;1;39mHome Area Manager[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mHome Area Activation[0m.
+         Starting [0;1;39mHostname Service[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mGhostCat OS live session setup[0m.
+[[0;32m  OK  [0m] Started [0;1;39mHostname Service[0m.
+[[0;32m  OK  [0m] Started [0;1;39mWireless service[0m.
+[[0;32m  OK  [0m] Started [0;1;39mAuthorization Manager[0m.
+         Starting [0;1;39mModem Manager[0m...
+[[0;32m  OK  [0m] Started [0;1;39mGnuPG cryptographic agent …rase cache for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Manager[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mNetwork[0m.
+         Starting [0;1;39mPermit User Sessions[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mPermit User Sessions[0m.
+         Starting [0;1;39mGNOME Display Manager[0m...
+         Starting [0;1;39mHold until boot process finishes up[0m...
+[[0;32m  OK  [0m] Started [0;1;39mGNOME Display Manager[0m.
+[[0;32m  OK  [0m] Started [0;1;39mModem Manager[0m.
+P+q6E616D65\[18t7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J]3008;start=2d4be5d9e1844dcab78827aa51e4f7be;user=root;hostname=GhostCat;machineid=81792bc76beb42f6831d47b3d995f311;bootid=8898572d28fc4479a5e79a5d48425c7a;pid=1;pidfdid=1;comm=systemd;type=boot\[[0;32m  OK  [0m] Finished [0;1;39mLoad JSON user/group Records from Credentials[0m.
+[[0;32m  OK  [0m] Started [0;1;39mForward Password Requests to Plymouth Directory Watch[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Encrypted Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPath Units[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mLoad/Save RF Kill Switch Status /dev/rfkill Watch[0m.
+[[0;32m  OK  [0m] Stopped [0;1;39mVirtual Console Setup[0m.
+         Stopping [0;1;39mVirtual Console Setup[0m...
+         Starting [0;1;39mVirtual Console Setup[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mVirtual Console Setup[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Management[0m.
+         Starting [0;1;39mEnable Persistent Storage in systemd-networkd[0m...
+[[0;32m  OK  [0m] Started [0;1;39mListen Kernel Core Dump Socket[0m.
+         Starting [0;1;39mKernel Core Pattern Register[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mEnable Persistent Storage in systemd-networkd[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mKernel Core Pattern Register[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate System Files and Directories[0m.
+         Starting [0;1;39mRebuild Dynamic Linker Cache[0m...
+         Starting [0;1;39mInitial Setup[0m...
+         Starting [0;1;39mRebuild Journal Catalog[0m...
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8         Starting [0;1;39mRecord System Boot/Shutdown in UTMP[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mRecord System Boot/Shutdown in UTMP[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mRebuild Journal Catalog[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mInitial Setup[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mFirst Boot Complete[0m.
+         Starting [0;1;39mSave Transient machine-id to Disk[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mSave Transient machine-id to Disk[0m.
+[[0m[0;31m*     [0m] A start job is running for Rebuild …amic Linker Cache (11s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (11s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] A start job is running for Rebuild …amic Linker Cache (12s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] A start job is running for Rebuild …amic Linker Cache (12s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] A start job is running for Rebuild …amic Linker Cache (13s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (14s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] A start job is running for Rebuild …amic Linker Cache (14s / no limit)
+M[K[     [0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (15s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] A start job is running for Rebuild …amic Linker Cache (15s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (16s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] A start job is running for Rebuild …amic Linker Cache (17s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] A start job is running for Rebuild …amic Linker Cache (17s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] A start job is running for Rebuild …amic Linker Cache (18s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (18s / no limit)
+M[K[[0m[0;31m*     [0m] A start job is running for Rebuild …amic Linker Cache (19s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (19s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] A start job is running for Rebuild …amic Linker Cache (20s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] A start job is running for Rebuild …amic Linker Cache (21s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] A start job is running for Rebuild …amic Linker Cache (21s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (22s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] A start job is running for Rebuild …amic Linker Cache (22s / no limit)
+M[K[     [0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (23s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] A start job is running for Rebuild …amic Linker Cache (24s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] A start job is running for Rebuild …amic Linker Cache (24s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] A start job is running for Rebuild …amic Linker Cache (25s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] A start job is running for Rebuild …amic Linker Cache (25s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] A start job is running for Rebuild …amic Linker Cache (26s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (26s / no limit)
+M[K[[0m[0;31m*     [0m] A start job is running for Rebuild …amic Linker Cache (27s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (28s / no limit)
+M[K[[0;32m  OK  [0m] Finished [0;1;39mRebuild Dynamic Linker Cache[0m.
+[K         Starting [0;1;39mUpdate is Completed[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mUpdate is Completed[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSystem Initialization[0m.
+[[0;32m  OK  [0m] Started [0;1;39mRefresh existing PGP keys of archlinux-keyring regularly[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily man-db regeneration[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily verification of password and group files[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily Cleanup of Temporary Directories[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mTimer Units[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mD-Bus System Message Bus Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG network certifi…ent daemon for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a… browsers) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…estricted) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…emulation) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…rase cache for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG public key mana…nt service for /etc/pacman.d/gnupg[0m.
+         Starting [0;1;39mPC/SC Smart Card Daemon Activation Socket[0m...
+[[0;32m  OK  [0m] Listening on [0;1;39mAuthorization Manager Agent Helper[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mOpenSSH Server Socket…temd-ssh-generator, AF_UNIX Local)[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mUser Login Management Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mVirtual Machine and C…tainer Registration Service Socket[0m.
+         Starting [0;1;39mD-Bus System Message Bus[0m...
+[[0;32m  OK  [0m] Listening on [0;1;39mPC/SC Smart Card Daemon Activation Socket[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSocket Units[0m.
+[[0;32m  OK  [0m] Started [0;1;39mD-Bus System Message Bus[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mBasic System[0m.
+         Starting [0;1;39mNetwork Manager[0m...
+         Starting [0;1;39mGhostCat OS live session setup[0m...
+         Starting [0;1;39mWireless service[0m...
+         Starting [0;1;39mInitializes Pacman keyring[0m...
+         Starting [0;1;39mAuthorization Manager[0m...
+         Starting [0;1;39mHome Area Manager[0m...
+         Starting [0;1;39mUser Login Management[0m...
+[[0;32m  OK  [0m] Started [0;1;39mUser Login Management[0m.
+[[0;32m  OK  [0m] Started [0;1;39mHome Area Manager[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mHome Area Activation[0m.
+         Starting [0;1;39mHostname Service[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mGhostCat OS live session setup[0m.
+[[0;32m  OK  [0m] Started [0;1;39mHostname Service[0m.
+[[0;32m  OK  [0m] Started [0;1;39mWireless service[0m.
+[[0;32m  OK  [0m] Started [0;1;39mAuthorization Manager[0m.
+         Starting [0;1;39mModem Manager[0m...
+[[0;32m  OK  [0m] Started [0;1;39mGnuPG cryptographic agent …rase cache for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Manager[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mNetwork[0m.
+         Starting [0;1;39mPermit User Sessions[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mPermit User Sessions[0m.
+         Starting [0;1;39mGNOME Display Manager[0m...
+         Starting [0;1;39mHold until boot process finishes up[0m...
+[[0;32m  OK  [0m] Started [0;1;39mGNOME Display Manager[0m.
+[[0;32m  OK  [0m] Started [0;1;39mModem Manager[0m.
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=c0f8938e9251463d931457c32f12c235;user=root;hostname=GhostCat;machineid=81792bc76beb42f6831d47b3d995f311;bootid=8898572d28fc4479a5e79a5d48425c7a;pid=1132;pidfdid=4754;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=5cb2328f44804518833060d56bc6e23f;type=service\P+q6E616D65\
+GhostCat OS 7.3.4-arch1-1 (ttyS0)
+
+GhostCat login: 
