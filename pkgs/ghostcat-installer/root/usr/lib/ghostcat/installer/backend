@@ -302,7 +302,8 @@ def step_system(cfg, dev):
     # sans « subvolid » : le menu de démarrage doit pouvoir lancer un instantané à la place de @
     fstab = re.sub(r"subvolid=\d+,?", "", fstab).replace(",\t", "\t")
     write("/etc/fstab", "# GhostCat OS — généré à l'installation\n" + fstab)
-    hooks = "base systemd plymouth autodetect microcode modconf kms keyboard sd-vconsole block "
+    # sans « autodetect » : le disque démarre aussi sur un autre PC (disque externe)
+    hooks = "base systemd plymouth microcode modconf kms keyboard sd-vconsole block "
     hooks += ("sd-encrypt " if cfg.get("encrypt") else "") + "filesystems"
     files = ""
     if cfg.get("encrypt"):
