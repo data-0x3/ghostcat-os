@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GhostCat OS, the true privacy</title>
-  <meta name="description" content="GhostCat OS est une distribution Linux de cybersécurité basée sur Arch : outils Red, Blue et Purple Team, vie privée réglée par défaut. Developed by 0x3.">
+  <meta name="description" content="GhostCat OS est une distribution Linux de cybersécurité : outils Red, Blue et Purple Team, vie privée réglée par défaut. Developed by 0x3.">
   <meta property="og:title" content="GhostCat OS">
-  <meta property="og:description" content="Distribution Linux de cybersécurité basée sur Arch. Vie privée réglée par défaut.">
+  <meta property="og:description" content="Distribution Linux de cybersécurité. Vie privée réglée par défaut.">
   <meta property="og:image" content="assets/og-icon.png">
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="assets/favicon.png">
@@ -27,7 +27,7 @@
     <a href="#tools" data-i18n="nav.tools">Outils</a>
     <a href="#download" data-i18n="nav.download">Télécharger</a>
     <a href="#install" data-i18n="nav.install">Installer</a>
-    <a href="#source" data-i18n="nav.source">Code source</a>
+    <a href="source/" data-i18n="nav.source">Code source</a>
   </nav>
   <div class="lang" role="group" aria-label="Langue">
     <button type="button" data-lang="fr" aria-pressed="true">FR</button>
@@ -46,7 +46,7 @@
     <div class="boot-after">
       <h1 id="title" class="wordmark">GHOSTCAT OS</h1>
       <p class="motto">Welcome to GhostCat OS, the true privacy.</p>
-      <p class="pitch" data-i18n="hero.pitch">Une distribution Linux de cybersécurité basée sur Arch. Tes outils Red, Blue et Purple Team au même endroit, et ta vie privée réglée avant ton premier clic.</p>
+      <p class="pitch" data-i18n="hero.pitch">Une distribution Linux de cybersécurité. Tes outils Red, Blue et Purple Team au même endroit, et ta vie privée réglée avant ton premier clic.</p>
 
       <div class="command">
         <code id="heroCmd">irm https://data-0x3.github.io/ghostcat-os/win.txt | iex</code>
@@ -75,11 +75,11 @@
 
   <section class="distro" id="distro" aria-labelledby="distro-title">
     <h2 id="distro-title" data-i18n="distro.title">Une vraie distribution</h2>
-    <p class="distro-lead" data-i18n="distro.lead">GhostCat part d'Arch Linux, mais tout ce que tu vois vient de GhostCat : son dépôt de paquets, son installeur, son bureau et ses mises à jour.</p>
+    <p class="distro-lead" data-i18n="distro.lead">Son propre dépôt de paquets, son installeur, son bureau et ses mises à jour : tout ce que tu vois est fait pour GhostCat.</p>
     <dl class="features">
       <div><dt data-i18n="f1.t">Installeur GhostCat</dt><dd data-i18n="f1.d">Choisis le disque, coche le chiffrement si tu veux, crée ton compte. Le système est copié depuis la clé, sans rien télécharger, et un disque externe démarre aussi sur un autre PC.</dd></div>
       <div><dt data-i18n="f2.t">Instantanés de secours</dt><dd data-i18n="f2.d">Avant chaque mise à jour, GhostCat garde une copie du système. Si quelque chose casse, choisis l'état d'avant dans le menu de démarrage.</dd></div>
-      <div><dt data-i18n="f3.t">Mises à jour sûres</dt><dd data-i18n="f3.d"><code>ghostcat-update</code> lit d'abord les annonces d'Arch Linux, met à jour les clés de signature, puis tout le reste.</dd></div>
+      <div><dt data-i18n="f3.t">Mises à jour sûres</dt><dd data-i18n="f3.d"><code>ghostcat-update</code> vérifie d'abord les annonces importantes, met à jour les clés de signature, puis tout le reste.</dd></div>
       <div><dt data-i18n="f4.t">Bureau GhostCat</dt><dd data-i18n="f4.d">Un menu fantôme, un bouclier qui montre ta protection, le bureau qui apparaît en fondu et le message de bienvenue au premier lancement.</dd></div>
       <div><dt data-i18n="f5.t">Mode fantôme</dt><dd data-i18n="f5.d">Un bouton dans les réglages rapides : le bureau passe par Tor et ton Wi-Fi prend une nouvelle adresse MAC.</dd></div>
       <div><dt data-i18n="f6.t">Dépôt GhostCat</dt><dd data-i18n="f6.d">Chaque morceau de GhostCat est un paquet publié sur ce site. Ils se mettent à jour avec le reste du système.</dd></div>
@@ -215,24 +215,6 @@
     </ol>
   </section>
 
-  <section class="source" id="source" aria-labelledby="source-title">
-    <h2 id="source-title" data-i18n="src.title">Code source</h2>
-    <p class="source-lead" data-i18n="src.lead">GhostCat est libre, sous licence GPL-3.0. Tout le code est ici, sans compte à créer.</p>
-    <div class="src-files">
-      <a class="src-file" href="download/ghostcat-os-source.tar.gz" download><b>ghostcat-os-source.tar.gz</b><span id="srcTar"></span></a>
-      <a class="src-file" href="download/ghostcat-os-source.zip" download><b>ghostcat-os-source.zip</b><span id="srcZip"></span></a>
-    </div>
-    <p class="src-meta" id="srcMeta"></p>
-
-    <h3 data-i18n="src.pkgs">Paquets GhostCat</h3>
-    <p class="source-lead" data-i18n="src.pkgs.lead">Ce sont les paquets installés par l'ISO. Sur un GhostCat déjà installé, ils arrivent avec les mises à jour.</p>
-    <ul class="pkgs" id="pkgs"></ul>
-
-    <h3 data-i18n="src.upgrade">Passer une ancienne installation sur le dépôt GhostCat</h3>
-    <div class="command"><code id="cmdUpgrade">curl -fsSL https://data-0x3.github.io/ghostcat-os/upgrade.sh | sudo bash</code>
-      <button type="button" class="copy" data-copy="#cmdUpgrade" data-i18n="copy">Copier</button></div>
-  </section>
-
   <section class="faq" id="faq" aria-labelledby="faq-title">
     <h2 id="faq-title" data-i18n="faq.title">Questions</h2>
     <details><summary data-i18n="q1">Est-ce que ça efface Windows ?</summary>
@@ -256,7 +238,7 @@
 <footer class="foot">
   <img src="assets/ghost.webp" alt="" width="48" height="48">
   <p>GhostCat OS, developed by 0x3</p>
-  <p class="foot-links"><a href="https://t.me/data0x3" rel="noopener">Telegram</a><a href="#source" data-i18n="foot.src">Code source</a></p>
+  <p class="foot-links"><a href="https://t.me/data0x3" rel="noopener">Telegram</a><a href="source/" data-i18n="foot.src">Code source</a></p>
   <p class="foot-note" data-i18n="foot.note">Ce site ne charge ni police externe ni traceur. Seul le numéro de version est lu sur GitHub.</p>
 </footer>
 

@@ -4,7 +4,10 @@ developed by 0x3 · https://t.me/data0x3
 
   site/download/ghostcat-os-source.tar.gz et .zip   tout le code (git archive)
   site/download/source.json                         version, date, tailles
-  site/repo/x86_64/packages.json                    les paquets du dépôt, pour la page Code source
+  site/repo/x86_64/packages.json                    les paquets du dépôt
+  site/source/tree.json + site/source/f/<n>         tout le code, lisible dans l'onglet Code source
+                                                    (fichiers renommés f/0001… : GitHub Pages ne sert ni
+                                                    les fichiers cachés ni le dossier .github)
 Usage : python3 tools/site-meta.py   (depuis la racine du dépôt, après tools/build-packages.sh)
 """
 import json
@@ -75,7 +78,37 @@ def main():
                          "desc": desc, "desc_en": en})
         pkgs.sort(key=lambda p: ORDER.index(p["name"]) if p["name"] in ORDER else 99)
         (REPO / "packages.json").write_text(json.dumps(pkgs, ensure_ascii=False, indent=1))
-    print(f"source : {tar.stat().st_size} o, paquets : {len(pkgs)}")
+    # ---- explorateur du code source ----
+    out = SITE / "source" / "f"
+    if out.exists():
+        import shutil
+        shutil.rmtree(out)
+    out.mkdir(parents=True)
+    files = [f for f in git("ls-files", "-z").split("\0") if f]
+    tree = []
+    for i, rel in enumerate(sorted(files)):
+        src = ROOT / rel
+        if src.is_symlink() or not src.is_file():
+            continue
+        data = src.read_bytes()
+        kind = "bin"
+        if b"\0" not in data[:8192]:
+            try:
+                data.decode("utf-8")
+                kind = "text"
+            except UnicodeDecodeError:
+                pass
+        ext = rel.rsplit(".", 1)[-1].lower() if "." in rel.rsplit("/", 1)[-1] else ""
+        if ext in ("png", "jpg", "jpeg", "webp", "gif", "svg"):
+            kind = "image"
+        key = f"{i:04d}"
+        (out / key).write_bytes(data)
+        tree.append({"p": rel, "s": len(data), "k": kind, "f": key, "x": ext})
+    (SITE / "source" / "tree.json").write_text(json.dumps({
+        "commit": git("rev-parse", "--short", "HEAD"), "date": git("log", "-1", "--format=%cI"),
+        "tar_size": tar.stat().st_size, "zip_size": zipf.stat().st_size, "files": tree,
+    }, ensure_ascii=False, separators=(",", ":")))
+    print(f"source : {tar.stat().st_size} o, paquets : {len(pkgs)}, fichiers : {len(tree)}")
 
 
 if __name__ == "__main__":

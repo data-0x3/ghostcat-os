@@ -30,13 +30,13 @@
     "nav.distro": "Distribution",
     "nav.source": "Source code",
     "distro.title": "A real distribution",
-    "distro.lead": "GhostCat starts from Arch Linux, but everything you see is GhostCat's own: its package repository, its installer, its desktop and its updates.",
+    "distro.lead": "Its own package repository, installer, desktop and updates: everything you see is made for GhostCat.",
     "f1.t": "GhostCat Installer",
     "f1.d": "Pick the drive, tick encryption if you like, create your account. The system is copied from the stick, nothing is downloaded, and an external drive also boots on another PC.",
     "f2.t": "Recovery snapshots",
     "f2.d": "Before every update, GhostCat keeps a copy of the system. If something breaks, pick the previous state in the boot menu.",
     "f3.t": "Safe updates",
-    "f3.d": "<code>ghostcat-update</code> reads the Arch Linux news first, updates the signing keys, then everything else.",
+    "f3.d": "<code>ghostcat-update</code> checks important announcements first, updates the signing keys, then everything else.",
     "f4.t": "GhostCat desktop",
     "f4.d": "A ghost menu, a shield that shows your protection, a desktop that fades in, and the welcome message on first launch.",
     "f5.t": "Ghost mode",
@@ -54,7 +54,7 @@
     "nav.tools": "Tools",
     "nav.download": "Download",
     "nav.install": "Install",
-    "hero.pitch": "A cybersecurity Linux distribution built on Arch. Your Red, Blue and Purple Team tools in one place, and your privacy set before your first click.",
+    "hero.pitch": "A cybersecurity Linux distribution. Your Red, Blue and Purple Team tools in one place, and your privacy set before your first click.",
     "copy": "Copy",
     "copied": "Copied",
     "hero.hint.win": "Paste it into PowerShell. It downloads the ISO, checks it and saves it to Downloads.",
@@ -165,7 +165,6 @@
       b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
     });
     renderRelease();
-    if (typeof renderSource === "function") renderSource();
   }
 
   $$("[data-lang]").forEach(function (b) {
@@ -296,29 +295,6 @@
 
     var hash = (release.body || "").match(/\b[0-9a-f]{64}\b/i);
     if (sha) sha.textContent = hash ? "SHA256 " + hash[0].toLowerCase() : "";
-  }
-
-  /* ---------- code source et paquets, servis par ce site ---------- */
-  var source = null, packages = null;
-  function renderSource() {
-    if (source) {
-      $("#srcTar").textContent = size(source.tar_size);
-      $("#srcZip").textContent = size(source.zip_size);
-      $("#srcMeta").textContent = (lang === "en" ? "Version " : "Version ") + source.commit + (lang === "en" ? ", " : ", ") + date(source.date);
-    }
-    var list = $("#pkgs");
-    if (list && packages) {
-      list.innerHTML = packages.map(function (p) {
-        return '<li><a href="repo/x86_64/' + esc(p.file) + '" download><b>' + esc(p.name) + "</b><span>" +
-          esc(lang === "en" ? (p.desc_en || p.desc) : p.desc) + "</span><em>" + size(p.size) + "</em></a></li>";
-      }).join("");
-    }
-  }
-  if (window.fetch) {
-    fetch("download/source.json").then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) { source = d; renderSource(); }).catch(function () {});
-    fetch("repo/x86_64/packages.json").then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) { packages = d; renderSource(); }).catch(function () {});
   }
 
   if (window.fetch) {

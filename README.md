@@ -1,7 +1,7 @@
 # GhostCat OS
 
-Distribution Linux de cybersécurité, dérivée d'Arch Linux, avec son propre dépôt
-de paquets, son installeur, son bureau et ses mises à jour.
+Distribution Linux de cybersécurité, avec son propre dépôt de paquets,
+son installeur, son bureau et ses mises à jour.
 **developed by 0x3** · https://t.me/data0x3
 
 Site officiel : **https://data-0x3.github.io/ghostcat-os** (téléchargement en une commande, guide, FAQ).
@@ -10,11 +10,11 @@ Site officiel : **https://data-0x3.github.io/ghostcat-os** (téléchargement en 
 
 | | |
 |---|---|
-| **Dépôt `[ghostcat]`** | Tous les composants sont des paquets signés, mis à jour par `pacman` : `https://data-0x3.github.io/ghostcat-os/repo/x86_64`. Le dépôt passe avant ceux d'Arch. |
-| **Identité** | `os-release` (`ID=ghostcat`, `ID_LIKE=arch`), menu de démarrage, écran de chargement, police et thème propres. Un hook pacman repose l'identité après chaque mise à jour d'Arch. |
+| **Dépôt `[ghostcat]`** | Tous les composants sont des paquets signés, mis à jour par `pacman` : `https://data-0x3.github.io/ghostcat-os/repo/x86_64`. Le dépôt passe en priorité. |
+| **Identité** | `os-release` (`ID=ghostcat`, `ID_LIKE=arch`), menu de démarrage, écran de chargement, police et thème propres. Un hook pacman repose l'identité après chaque mise à jour du système de base. |
 | **Installeur maison** | GhostCat Installer : disque, chiffrement LUKS2, compte, en quelques écrans. Copie le système live (pas de téléchargement), btrfs avec sous-volumes, GRUB GhostCat, démarre aussi un disque externe sur un autre PC. |
 | **Retour en arrière** | snapper + snap-pac : un instantané avant et après chaque mise à jour, choisissable dans le menu de démarrage (grub-btrfs). |
-| **Mises à jour** | `ghostcat-update` : lit les annonces d'Arch, met d'abord à jour les trousseaux, puis tout le reste. |
+| **Mises à jour** | `ghostcat-update` : vérifie les annonces importantes, met d'abord à jour les trousseaux, puis tout le reste. |
 | **Bureau** | GNOME Shell redessiné par l'extension GhostCat Shell : menu fantôme, bouclier de protection, mode fantôme (Tor + nouvelle MAC), apparition animée du bureau, thème noir à sélection inversée. |
 
 ## Les paquets (`pkgs/`)
@@ -51,7 +51,7 @@ Tout se fait sur GitHub Actions :
   l'installe toute seule sur un disque virtuel, redémarre dessus et pousse les captures
   d'écran sur la branche `vm-shots`.
 
-En local, sur une machine Arch : `sudo ./build.sh` (dépôt dans `repo-out/`, ISO dans `out/`).
+En local, avec archiso : `sudo ./build.sh` (dépôt dans `repo-out/`, ISO dans `out/`).
 
 ### Signature des paquets
 

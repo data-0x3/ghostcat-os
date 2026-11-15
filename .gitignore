@@ -5,3 +5,5 @@ repo-out/
 site/repo/
 __pycache__/
 site/download/
+site/source/f/
+site/source/tree.json

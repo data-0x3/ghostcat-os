@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- GhostCat OS — code source — developed by 0x3 · https://t.me/data0x3 -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code source · GhostCat OS</title>
+  <meta name="description" content="Tout le code de GhostCat OS, fichier par fichier, et en archive à télécharger. Licence GPL-3.0.">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/source.css">
+</head>
+<body>
+<a class="skip" href="#explorer" data-i18n="skip">Aller au code</a>
+
+<header class="top">
+  <a class="mark" href="../"><img src="../assets/ghost.webp" alt="" width="28" height="28">GhostCat OS</a>
+  <nav aria-label="Sections">
+    <a href="../" data-i18n="nav.home">Accueil</a>
+    <a href="../#distro" data-i18n="nav.distro">Distribution</a>
+    <a href="../#download" data-i18n="nav.download">Télécharger</a>
+    <a href="./" aria-current="page" data-i18n="nav.source">Code source</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Langue">
+    <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+<main class="src-page">
+  <section class="src-head">
+    <h1 data-i18n="title">Code source</h1>
+    <p data-i18n="lead">GhostCat est libre, sous licence GPL-3.0. Voici tout son code, fichier par fichier : le système, les applis, l'installeur, le thème et ce site.</p>
+    <div class="src-files">
+      <a class="src-file" href="../download/ghostcat-os-source.tar.gz" download><b>ghostcat-os-source.tar.gz</b><span id="tarSize"></span></a>
+      <a class="src-file" href="../download/ghostcat-os-source.zip" download><b>ghostcat-os-source.zip</b><span id="zipSize"></span></a>
+    </div>
+    <p class="src-meta" id="meta"></p>
+  </section>
+
+  <section class="explorer" id="explorer" aria-label="Explorateur de fichiers">
+    <div class="side">
+      <input class="find" id="find" type="search" autocomplete="off" spellcheck="false" data-i18n-ph="find" placeholder="Chercher un fichier">
+      <ul class="tree" id="tree" role="tree"></ul>
+    </div>
+    <div class="view">
+      <div class="view-bar">
+        <span class="path" id="path"></span>
+        <span class="view-acts">
+          <button type="button" class="act" id="copyBtn" data-i18n="copy" hidden>Copier</button>
+          <a class="act" id="rawBtn" href="#" download hidden data-i18n="download">Télécharger</a>
+        </span>
+      </div>
+      <div class="body" id="body"><p class="note" data-i18n="loading">Chargement du code…</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <img src="../assets/ghost.webp" alt="" width="48" height="48">
+  <p>GhostCat OS, developed by 0x3</p>
+  <p class="foot-links"><a href="https://t.me/data0x3" rel="noopener">Telegram</a><a href="../" data-i18n="nav.home">Accueil</a></p>
+</footer>
+
+<script src="../js/source.js" defer></script>
+</body>
+</html>

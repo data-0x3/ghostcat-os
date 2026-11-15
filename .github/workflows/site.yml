@@ -7,7 +7,7 @@ name: Site et dépôt GhostCat
 on:
   push:
     branches: [main]
-    paths: ["site/**", "pkgs/**", "tools/**", "build.sh", "airootfs/**", ".github/workflows/site.yml"]
+    paths: ["site/**", "pkgs/**", "tools/**", "build.sh", "airootfs/**", "README.md", ".github/**", "*.sh", "packages.*", "pacman.conf"]
   workflow_dispatch:
 
 permissions:
