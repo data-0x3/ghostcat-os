@@ -251,6 +251,7 @@ LIVE_ONLY = [
     "/etc/systemd/system/ghostcat-firstrun.service", "/etc/systemd/system/graphical.target.wants/ghostcat-firstrun.service",
     "/etc/systemd/system/gdm.service.d/10-ghostcat-firstrun.conf", "/etc/pam.d/ghostcat-firstrun",
     "/usr/lib/ghostcat/live-setup", "/etc/systemd/system/systemd-time-wait-sync.service",
+    "/etc/dconf/db/local.d/50-ghostcat-live",
     # base releng d'archiso
     "/etc/systemd/journald.conf.d/volatile-storage.conf", "/etc/systemd/logind.conf.d/do-not-suspend.conf",
     "/etc/systemd/system/getty@tty1.service.d", "/etc/systemd/system/pacman-init.service",

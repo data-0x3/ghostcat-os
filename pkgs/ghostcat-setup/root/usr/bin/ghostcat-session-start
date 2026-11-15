@@ -2,6 +2,9 @@
 # GhostCat OS — à l'ouverture de session (developed by 0x3)
 #   « Installer » choisi dans GhostCat Setup -> l'installeur s'ouvre
 #   première session                         -> GhostCat Hub, page d'accueil
+# Tout est journalisé : journalctl --user -t ghostcat-session
+exec > >(systemd-cat -t ghostcat-session) 2>&1
+echo "ouverture de session GhostCat"
 if grep -qw ghostcat.autoinstall=1 /proc/cmdline 2>/dev/null; then
   exec ghostcat-installer
 fi

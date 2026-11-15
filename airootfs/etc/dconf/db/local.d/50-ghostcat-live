@@ -1,0 +1,10 @@
+# GhostCat OS live : l'écran ne s'éteint pas et ne se verrouille pas (installation en cours, démo)
+[org/gnome/desktop/session]
+idle-delay=uint32 0
+
+[org/gnome/desktop/screensaver]
+lock-enabled=false
+
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-type='nothing'
+sleep-inactive-battery-type='nothing'

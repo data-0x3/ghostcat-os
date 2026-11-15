@@ -90,7 +90,7 @@ cat "$HERE/ghostcat.profiledef.sh" >> "$PROFILE/profiledef.sh"
 find "$PROFILE/grub" "$PROFILE/efiboot" "$PROFILE/syslinux" -type f \
   \( -name '*.cfg' -o -name '*.conf' \) -print0 2>/dev/null \
   | xargs -0 -r sed -i -E \
-      -e '/archisobasedir=/ { /splash/! s/$/ quiet splash/ }' \
+      -e '/archisobasedir=/ { /splash/! s/$/ quiet splash cow_spacesize=2G/ }' \
       -e 's/Arch Linux install medium/GhostCat OS live/g' \
       -e 's/Arch Linux/GhostCat OS/g'
 # Plymouth dans l'initramfs du live (juste après udev)

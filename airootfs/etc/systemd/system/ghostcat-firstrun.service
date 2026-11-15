@@ -31,6 +31,9 @@ UtmpMode=user
 Environment=XDG_SESSION_TYPE=wayland XDG_SESSION_CLASS=user
 Environment=GHOSTCAT_KIOSK=1 GTK_THEME=Adwaita:dark
 Environment=WLR_RENDERER_ALLOW_SOFTWARE=1 WLR_NO_HARDWARE_CURSORS=1 WEBKIT_DISABLE_DMABUF_RENDERER=1
+# sous cage, le bac à sable de WebKit (bwrap) refuse de démarrer ; Setup n'affiche que
+# ses propres fichiers locaux et bloque toute navigation, on peut s'en passer ici
+Environment=WEBKIT_DISABLE_SANDBOX_THIS_IS_DANGEROUS=1
 ExecStartPre=+-/usr/bin/plymouth quit --retain-splash
 ExecStart=/usr/bin/cage -s -d -- /usr/bin/ghostcat-setup --kiosk
 # filet de sécurité : si Setup plante, on n'empêche pas le bureau de s'ouvrir
