@@ -9,11 +9,13 @@
 #   2. Noyau direct avec « ghostcat.demo=1 » : les applis GhostCat déroulent
 #      leurs écrans toutes seules, ce qui permet de tout photographier sans souris.
 set -euo pipefail
+set -x
 ISO="$1"; SHOTS="$2"
 mkdir -p "$SHOTS"
 RUN="$(mktemp -d)"
-OVMF_CODE="$(ls /usr/share/OVMF/OVMF_CODE_4M.fd /usr/share/OVMF/OVMF_CODE.fd 2>/dev/null | head -1)"
-OVMF_VARS_SRC="$(ls /usr/share/OVMF/OVMF_VARS_4M.fd /usr/share/OVMF/OVMF_VARS.fd 2>/dev/null | head -1)"
+first() { for f in "$@"; do [[ -e $f ]] && { echo "$f"; return; }; done; }
+OVMF_CODE="$(first /usr/share/OVMF/OVMF_CODE_4M.fd /usr/share/OVMF/OVMF_CODE.fd)"
+OVMF_VARS_SRC="$(first /usr/share/OVMF/OVMF_VARS_4M.fd /usr/share/OVMF/OVMF_VARS.fd)"
 ACCEL=(-accel tcg)
 [[ -w /dev/kvm ]] && ACCEL=(-enable-kvm -cpu host)
 
