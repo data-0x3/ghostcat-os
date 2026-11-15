@@ -1,3 +1,837 @@
 [2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0002 "UEFI QEMU DVD-ROM QM00003 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Secondary,Master,0x0)
 BdsDxe: starting Boot0002 "UEFI QEMU DVD-ROM QM00003 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Secondary,Master,0x0)
- [1m[37m[40m[0m[37m[40m[2J[001;001H[019;056H[1m[30m[47m[0m[30m[47m         GhostCat OS live (x86_64, UEFI)         [020;056H[1m[37m[40m[0m[37m[40m   GhostCat OS live (x86_64, UEFI) with speech   [021;056H[1m[37m[40m[0m[37m[40m                   Memtest86+                    [022;056H[1m[37m[40m[0m[37m[40m                    EFI Shell                    [023;056H[1m[37m[40m[0m[37m[40m         Reboot Into Firmware Interface          [025;001H[1m[37m[40m[0m[37m[40m                                                                          Boot in 15s.                                                                         [024;053H[1m[37m[40m[0m[37m[40m───────────────────────────────────────────────────────[025;001H[1m[37m[40m[0m[37m[40m                                                                          Boot in 14s.                                                                         [024;053H[1m[37m[40m[0m[37m[40m───────────────────────────────────────────────────────[025;001H[1m[37m[40m[0m[37m[40m                                                                          Boot in 13s.                                                                         [024;053H[1m[37m[40m[0m[37m[40m───────────────────────────────────────────────────────[025;002H[1m[30m[47m[0m[30m[47m                                                                                                                                                              [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash[025;002H[1m[37m[40m[0m[37m[40ma[025;002H[1m[30m[47m[0m[30m[47ma[025;002H[1m[30m[47m[0m[30m[47ma[025;002H[1m[30m[47m[0m[30m[47ma[025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash[025;080H[1m[37m[40m[0m[37m[40m [025;080H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash [025;081H[1m[37m[40m[0m[37m[40m [025;081H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash g[025;082H[1m[37m[40m[0m[37m[40m [025;082H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash gh[025;083H[1m[37m[40m[0m[37m[40m [025;083H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash gho[025;084H[1m[37m[40m[0m[37m[40m [025;084H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghos[025;085H[1m[37m[40m[0m[37m[40m [025;085H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghost[025;086H[1m[37m[40m[0m[37m[40m [025;086H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostc[025;087H[1m[37m[40m[0m[37m[40m [025;087H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostca[025;088H[1m[37m[40m[0m[37m[40m [025;088H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat[025;089H[1m[37m[40m[0m[37m[40m [025;089H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.[025;090H[1m[37m[40m[0m[37m[40m [025;090H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.d[025;091H[1m[37m[40m[0m[37m[40m [025;091H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.de[025;092H[1m[37m[40m[0m[37m[40m [025;092H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.dem[025;093H[1m[37m[40m[0m[37m[40m [025;093H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo[025;094H[1m[37m[40m[0m[37m[40m [025;094H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=[025;095H[1m[37m[40m[0m[37m[40m [025;095H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1[025;096H[1m[37m[40m[0m[37m[40m [025;096H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 [025;097H[1m[37m[40m[0m[37m[40m [025;097H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 g[025;098H[1m[37m[40m[0m[37m[40m [025;098H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 gh[025;099H[1m[37m[40m[0m[37m[40m [025;099H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 gho[025;100H[1m[37m[40m[0m[37m[40m [025;100H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghos[025;101H[1m[37m[40m[0m[37m[40m [025;101H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghost[025;102H[1m[37m[40m[0m[37m[40m [025;102H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostc[025;103H[1m[37m[40m[0m[37m[40m [025;103H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostca[025;104H[1m[37m[40m[0m[37m[40m [025;104H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat[025;105H[1m[37m[40m[0m[37m[40m [025;105H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.[025;106H[1m[37m[40m[0m[37m[40m [025;106H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.a[025;107H[1m[37m[40m[0m[37m[40m [025;107H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.au[025;108H[1m[37m[40m[0m[37m[40m [025;108H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.aut[025;109H[1m[37m[40m[0m[37m[40m [025;109H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.auto[025;110H[1m[37m[40m[0m[37m[40m [025;110H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoi[025;111H[1m[37m[40m[0m[37m[40m [025;111H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoin[025;112H[1m[37m[40m[0m[37m[40m [025;112H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoins[025;113H[1m[37m[40m[0m[37m[40m [025;113H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinst[025;114H[1m[37m[40m[0m[37m[40m [025;114H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinsta[025;115H[1m[37m[40m[0m[37m[40m [025;115H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstal[025;116H[1m[37m[40m[0m[37m[40m [025;116H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall[025;117H[1m[37m[40m[0m[37m[40m [025;117H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=[025;118H[1m[37m[40m[0m[37m[40m [025;118H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1[025;119H[1m[37m[40m[0m[37m[40m [025;119H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 [025;120H[1m[37m[40m[0m[37m[40m [025;120H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 c[025;121H[1m[37m[40m[0m[37m[40m [025;121H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 co[025;122H[1m[37m[40m[0m[37m[40m [025;122H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 con[025;123H[1m[37m[40m[0m[37m[40m [025;123H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 cons[025;124H[1m[37m[40m[0m[37m[40m [025;124H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 conso[025;125H[1m[37m[40m[0m[37m[40m [025;125H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 consol[025;126H[1m[37m[40m[0m[37m[40m [025;126H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console[025;127H[1m[37m[40m[0m[37m[40m [025;127H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=[025;128H[1m[37m[40m[0m[37m[40m [025;128H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=t[025;129H[1m[37m[40m[0m[37m[40m [025;129H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tt[025;130H[1m[37m[40m[0m[37m[40m [025;130H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty[025;131H[1m[37m[40m[0m[37m[40m [025;131H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1[025;132H[1m[37m[40m[0m[37m[40m [025;132H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 [025;133H[1m[37m[40m[0m[37m[40m [025;133H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 c[025;134H[1m[37m[40m[0m[37m[40m [025;134H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 co[025;135H[1m[37m[40m[0m[37m[40m [025;135H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 con[025;136H[1m[37m[40m[0m[37m[40m [025;136H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 cons[025;137H[1m[37m[40m[0m[37m[40m [025;137H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 conso[025;138H[1m[37m[40m[0m[37m[40m [025;138H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 consol[025;139H[1m[37m[40m[0m[37m[40m [025;139H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console[025;140H[1m[37m[40m[0m[37m[40m [025;140H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=[025;141H[1m[37m[40m[0m[37m[40m [025;141H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=t[025;142H[1m[37m[40m[0m[37m[40m [025;142H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tt[025;143H[1m[37m[40m[0m[37m[40m [025;143H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty[025;144H[1m[37m[40m[0m[37m[40m [025;144H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0[025;145H[1m[37m[40m[0m[37m[40m [025;145H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 [025;146H[1m[37m[40m[0m[37m[40m [025;146H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 s[025;147H[1m[37m[40m[0m[37m[40m [025;147H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 sy[025;148H[1m[37m[40m[0m[37m[40m [025;148H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 sys[025;149H[1m[37m[40m[0m[37m[40m [025;149H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 syst[025;150H[1m[37m[40m[0m[37m[40m [025;150H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 syste[025;151H[1m[37m[40m[0m[37m[40m [025;151H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 system[025;152H[1m[37m[40m[0m[37m[40m [025;152H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd[025;153H[1m[37m[40m[0m[37m[40m [025;153H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.[025;154H[1m[37m[40m[0m[37m[40m [025;154H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.j[025;155H[1m[37m[40m[0m[37m[40m [025;155H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.jo[025;156H[1m[37m[40m[0m[37m[40m [025;156H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.jou[025;157H[1m[37m[40m[0m[37m[40m [025;157H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.jour[025;158H[1m[37m[40m[0m[37m[40m [025;158H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journ[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mrchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journa[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journal[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mhisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47misobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47msobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.f[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.fo[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mbasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.for[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47masedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forw[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47msedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forwa[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47medir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forwar[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mdir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mr=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_t[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mhostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_c[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_co[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mstcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_con[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mtcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_cons[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_conso[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_consol[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mt archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mrchisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 [025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mchisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 s[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mhisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 sy[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47misosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 sys[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47msosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 syst[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 syste[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47msearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 system[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mrchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.j[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.jo[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mhuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.jou[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47muuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.jour[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47muid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journ[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journa[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47md=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journal[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.m[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m26-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.ma[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m6-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_l[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m1-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_le[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_lev[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_leve[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m5-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_c[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m6-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_co[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_con[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_cons[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m8-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_conso[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_consol[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m8-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=i[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=in[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m0  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=inf[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=info[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[37m[40m[0m[37m[40m                                                                                                                                                              [1m[37m[40m[0m[37m[40m[2J[001;001H
+ [1m[37m[40m[0m[37m[40m[2J[001;001H[019;056H[1m[30m[47m[0m[30m[47m         GhostCat OS live (x86_64, UEFI)         [020;056H[1m[37m[40m[0m[37m[40m   GhostCat OS live (x86_64, UEFI) with speech   [021;056H[1m[37m[40m[0m[37m[40m                   Memtest86+                    [022;056H[1m[37m[40m[0m[37m[40m                    EFI Shell                    [023;056H[1m[37m[40m[0m[37m[40m         Reboot Into Firmware Interface          [025;001H[1m[37m[40m[0m[37m[40m                                                                          Boot in 15s.                                                                         [024;053H[1m[37m[40m[0m[37m[40m───────────────────────────────────────────────────────[025;002H[1m[30m[47m[0m[30m[47m                                                                                                                                                              [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash[025;002H[1m[37m[40m[0m[37m[40ma[025;002H[1m[30m[47m[0m[30m[47ma[025;002H[1m[30m[47m[0m[30m[47ma[025;002H[1m[30m[47m[0m[30m[47ma[025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash[025;080H[1m[37m[40m[0m[37m[40m [025;080H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash [025;081H[1m[37m[40m[0m[37m[40m [025;081H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash g[025;082H[1m[37m[40m[0m[37m[40m [025;082H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash gh[025;083H[1m[37m[40m[0m[37m[40m [025;083H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash gho[025;084H[1m[37m[40m[0m[37m[40m [025;084H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghos[025;085H[1m[37m[40m[0m[37m[40m [025;085H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghost[025;086H[1m[37m[40m[0m[37m[40m [025;086H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostc[025;087H[1m[37m[40m[0m[37m[40m [025;087H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostca[025;088H[1m[37m[40m[0m[37m[40m [025;088H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat[025;089H[1m[37m[40m[0m[37m[40m [025;089H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.[025;090H[1m[37m[40m[0m[37m[40m [025;090H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.d[025;091H[1m[37m[40m[0m[37m[40m [025;091H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.de[025;092H[1m[37m[40m[0m[37m[40m [025;092H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.dem[025;093H[1m[37m[40m[0m[37m[40m [025;093H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo[025;094H[1m[37m[40m[0m[37m[40m [025;094H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=[025;095H[1m[37m[40m[0m[37m[40m [025;095H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1[025;096H[1m[37m[40m[0m[37m[40m [025;096H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 [025;097H[1m[37m[40m[0m[37m[40m [025;097H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 g[025;098H[1m[37m[40m[0m[37m[40m [025;098H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 gh[025;099H[1m[37m[40m[0m[37m[40m [025;099H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 gho[025;100H[1m[37m[40m[0m[37m[40m [025;100H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghos[025;101H[1m[37m[40m[0m[37m[40m [025;101H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghost[025;102H[1m[37m[40m[0m[37m[40m [025;102H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostc[025;103H[1m[37m[40m[0m[37m[40m [025;103H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostca[025;104H[1m[37m[40m[0m[37m[40m [025;104H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat[025;105H[1m[37m[40m[0m[37m[40m [025;105H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.[025;106H[1m[37m[40m[0m[37m[40m [025;106H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.a[025;107H[1m[37m[40m[0m[37m[40m [025;107H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.au[025;108H[1m[37m[40m[0m[37m[40m [025;108H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.aut[025;109H[1m[37m[40m[0m[37m[40m [025;109H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.auto[025;110H[1m[37m[40m[0m[37m[40m [025;110H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoi[025;111H[1m[37m[40m[0m[37m[40m [025;111H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoin[025;112H[1m[37m[40m[0m[37m[40m [025;112H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoins[025;113H[1m[37m[40m[0m[37m[40m [025;113H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinst[025;114H[1m[37m[40m[0m[37m[40m [025;114H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinsta[025;115H[1m[37m[40m[0m[37m[40m [025;115H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstal[025;116H[1m[37m[40m[0m[37m[40m [025;116H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall[025;117H[1m[37m[40m[0m[37m[40m [025;117H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=[025;118H[1m[37m[40m[0m[37m[40m [025;118H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1[025;119H[1m[37m[40m[0m[37m[40m [025;119H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 [025;120H[1m[37m[40m[0m[37m[40m [025;120H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 c[025;121H[1m[37m[40m[0m[37m[40m [025;121H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 co[025;122H[1m[37m[40m[0m[37m[40m [025;122H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 con[025;123H[1m[37m[40m[0m[37m[40m [025;123H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 cons[025;124H[1m[37m[40m[0m[37m[40m [025;124H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 conso[025;125H[1m[37m[40m[0m[37m[40m [025;125H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 consol[025;126H[1m[37m[40m[0m[37m[40m [025;126H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console[025;127H[1m[37m[40m[0m[37m[40m [025;127H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=[025;128H[1m[37m[40m[0m[37m[40m [025;128H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=t[025;129H[1m[37m[40m[0m[37m[40m [025;129H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tt[025;130H[1m[37m[40m[0m[37m[40m [025;130H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty[025;131H[1m[37m[40m[0m[37m[40m [025;131H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1[025;132H[1m[37m[40m[0m[37m[40m [025;132H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 [025;133H[1m[37m[40m[0m[37m[40m [025;133H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 c[025;134H[1m[37m[40m[0m[37m[40m [025;134H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 co[025;135H[1m[37m[40m[0m[37m[40m [025;135H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 con[025;136H[1m[37m[40m[0m[37m[40m [025;136H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 cons[025;137H[1m[37m[40m[0m[37m[40m [025;137H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 conso[025;138H[1m[37m[40m[0m[37m[40m [025;138H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 consol[025;139H[1m[37m[40m[0m[37m[40m [025;139H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console[025;140H[1m[37m[40m[0m[37m[40m [025;140H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=[025;141H[1m[37m[40m[0m[37m[40m [025;141H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=t[025;142H[1m[37m[40m[0m[37m[40m [025;142H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tt[025;143H[1m[37m[40m[0m[37m[40m [025;143H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=tty[025;144H[1m[37m[40m[0m[37m[40m [025;144H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS[025;145H[1m[37m[40m[0m[37m[40m [025;145H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0[025;146H[1m[37m[40m[0m[37m[40m [025;146H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 [025;147H[1m[37m[40m[0m[37m[40m [025;147H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 s[025;148H[1m[37m[40m[0m[37m[40m [025;148H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 sy[025;149H[1m[37m[40m[0m[37m[40m [025;149H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 sys[025;150H[1m[37m[40m[0m[37m[40m [025;150H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 syst[025;151H[1m[37m[40m[0m[37m[40m [025;151H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 syste[025;152H[1m[37m[40m[0m[37m[40m [025;152H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 system[025;153H[1m[37m[40m[0m[37m[40m [025;153H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd[025;154H[1m[37m[40m[0m[37m[40m [025;154H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.[025;155H[1m[37m[40m[0m[37m[40m [025;155H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.j[025;156H[1m[37m[40m[0m[37m[40m [025;156H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.jo[025;157H[1m[37m[40m[0m[37m[40m [025;157H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.jou[025;158H[1m[37m[40m[0m[37m[40m [025;158H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.jour[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mrchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journ[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mchisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journa[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mhisobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journal[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47misobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47msobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mobasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.f[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mbasedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.fo[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47masedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.for[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47msedir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forw[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47medir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forwa[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mdir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forwar[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mir=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mr=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m=ghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_t[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mghostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mhostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mostcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_c[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mstcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_co[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mtcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_con[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mcat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_cons[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mat archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_conso[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mt archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_consol[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m archisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mrchisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mchisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 [025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mhisosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 s[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47misosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 sy[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47msosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 sys[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mosearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 syst[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47msearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 syste[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mearchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 system[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47marchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mrchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mchuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.j[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mhuuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.jo[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47muuid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.jou[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47muid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.jour[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47mid=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journ[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47md=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journa[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m=2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journal[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m2026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m026-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m26-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.m[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m6-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.ma[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m11-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m1-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_l[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_le[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m15-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_lev[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m5-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_leve[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m16-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m6-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_c[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_co[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m28-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_con[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m8-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_cons[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_conso[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m58-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_consol[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m8-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m-00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m00  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=i[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m0  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=in[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m  quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=inf[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[30m[47m[0m[30m[47m quiet splash ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=info[025;159H[1m[37m[40m[0m[37m[40m [025;159H[1m[30m[47m[0m[30m[47m [025;002H[1m[37m[40m[0m[37m[40m                                                                                                                                                              [1m[37m[40m[0m[37m[40m[2J[001;001HP+q6E616D65\[18t7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J]3008;start=59201ba8797d4d3cbe871b058df9a9a6;user=root;hostname=GhostCat;machineid=069ab4a6faa74e2b991f9396a649ffe2;bootid=8e2caf94138645c783158d469425da9b;pid=1;pidfdid=1;comm=systemd;type=boot\[    6.414225] systemd-modules-load[456]: Using 2 probe threads
+[    6.414352] systemd-modules-load[456]: Inserted module 'pkcs8_key_parser'
+[    6.414558] systemd-modules-load[456]: Inserted module 'crypto_user'
+[    6.419759] systemd[1]: Starting Flush Journal to Persistent Storage...
+[    6.444895] systemd-vconsole-setup[462]: [0;1;39mConfiguration of first virtual console was skipped, ignoring remaining ones.[0m
+[    6.458394] systemd[1]: Finished Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling.
+[    6.458512] systemd[1]: Finished Virtual Console Setup.
+[    6.483229] systemd[1]: Finished Apply Kernel Variables.
+[    6.498491] systemd[1]: Finished Flush Journal to Persistent Storage.
+[    6.508318] systemd[1]: Starting User Database Manager...
+[    6.575987] systemd[1]: Started User Database Manager.
+[    6.585689] systemd[1]: Load Kernel Module overlay skipped, unmet condition check ConditionKernelModuleLoaded=!overlay
+[    6.591633] systemd[1]: Starting Load Kernel Module tun...
+[    6.631968] systemd[1]: Finished Coldplug All udev Devices.
+[    6.639756] systemd[1]: modprobe@tun.service: Deactivated successfully.
+[    6.641184] systemd[1]: Finished Load Kernel Module tun.
+[    6.647158] systemd[1]: Starting Namespace Resource Manager...
+[   11.544144] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_path_chown now attached.
+[   11.550274] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_path_mkdir now attached.
+[   11.556732] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_path_mknod now attached.
+[   11.563222] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_path_symlink now attached.
+[   11.569733] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_path_link now attached.
+[   11.581621] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_file_open now attached.
+[   11.588472] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_path_rename now attached.
+[   11.595132] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_file_ioctl now attached.
+[   11.601607] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_file_ioctl_compat now attached.
+[   11.608171] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_sb_kern_mount now attached.
+[   11.614709] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_task_fix_setgroups now attached.
+[   11.621988] systemd-nsresourced[513]: userns-restrict BPF-LSM program userns_restrict_retire_userns_sysctls now attached.
+[   11.626736] systemd[1]: Started Namespace Resource Manager.
+[   11.682194] systemd[1]: Finished Create Static Device Nodes in /dev gracefully.
+[   11.687205] systemd[1]: Starting Create System Users...
+[   11.744490] systemd[1]: Finished Create System Users.
+[   11.752392] systemd[1]: Starting Journal Metrics Report Socket...
+[   11.760775] systemd[1]: Starting Journal Log Access Socket...
+[   11.765173] systemd[1]: Starting Network Name Resolution...
+[   11.767827] systemd[1]: Starting Create Static Device Nodes in /dev...
+[   11.770903] systemd[1]: Listening on Journal Log Access Socket.
+[   11.774529] systemd[1]: Listening on Journal Metrics Report Socket.
+[   11.831232] systemd[1]: Finished Create Static Device Nodes in /dev.
+[   11.831998] systemd[1]: Reached target Preparation for Local File Systems.
+[   11.836100] systemd[1]: Repartition Root Disk skipped, no trigger condition checks were met.
+[   11.838503] systemd[1]: Starting Rule-based Manager for Device Events and Files...
+[   11.844070] systemd-resolved[525]: Positive Trust Anchors:
+[   11.845893] systemd-resolved[525]: . IN DS 20326 8 2 e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d
+[   11.848761] systemd-resolved[525]: . IN DS 38696 8 2 683d2d0acb8c9b712a1948b27f741219298d0a450d612c483af444a4c0fb2b16
+[   11.848817] systemd-resolved[525]: Negative trust anchors: home.arpa 10.in-addr.arpa 16.172.in-addr.arpa 17.172.in-addr.arpa 18.172.in-addr.arpa 19.172.in-addr.arpa 20.172.in-addr.arpa 21.172.in-addr.arpa 22.172.in-addr.arpa 23.172.in-addr.arpa 24.172.in-addr.arpa 25.172.in-addr.arpa 26.172.in-addr.arpa 27.172.in-addr.arpa 28.172.in-addr.arpa 29.172.in-addr.arpa 30.172.in-addr.arpa 31.172.in-addr.arpa 170.0.0.192.in-addr.arpa 171.0.0.192.in-addr.arpa 168.192.in-addr.arpa d.f.ip6.arpa ipv4only.arpa resolver.arpa corp home internal intranet lan local private test
+[   11.866891] systemd-resolved[525]: Using system hostname 'GhostCat'.
+[   11.867099] systemd[1]: Started Network Name Resolution.
+[   11.867149] systemd[1]: Reached target Host and Network Name Lookups.
+[   11.869197] systemd[1]: Starting Network Time Synchronization...
+[   11.898868] systemd-udevd[529]: Using default interface naming scheme 'v261'.
+[   11.935961] systemd[1]: Started Network Time Synchronization.
+[   11.937355] systemd[1]: Reached target System Time Set.
+[   12.035227] systemd[1]: Started Rule-based Manager for Device Events and Files.
+[   12.043535] systemd[1]: Starting Show Plymouth Boot Screen...
+[   12.062149] systemd[1]: Starting Network Management...
+[   12.210541] systemd[1]: systemd-vconsole-setup.service: Deactivated successfully.
+[   12.215087] systemd[1]: Stopped Virtual Console Setup.
+[   12.217795] systemd[1]: Stopping Virtual Console Setup...
+[   12.225651] systemd[1]: Starting Virtual Console Setup...
+[   12.274903] systemd[1]: Started Show Plymouth Boot Screen.
+[   12.275095] systemd[1]: Dispatch Password Requests to Console Directory Watch skipped, unmet condition check ConditionPathExists=!/run/plymouth/pid
+[   12.281949] systemd[1]: Started Forward Password Requests to Plymouth Directory Watch.
+[   12.282141] systemd[1]: Reached target Local Encrypted Volumes.
+[   12.285181] systemd[1]: Reached target Path Units.
+[   12.321325] systemd-vconsole-setup[566]: [0;1;39mConfiguration of first virtual console was skipped, ignoring remaining ones.[0m
+[   12.329787] systemd[1]: Finished Virtual Console Setup.
+[   12.351763] systemd[1]: Found device /dev/ttyS0.
+[   12.543346] systemd-networkd[549]: lo: Link UP
+[   12.543483] systemd-networkd[549]: lo: Gained carrier
+[   12.564352] mtp-probe[577]: checking bus 1, device 3: "/sys/devices/pci0000:00/0000:00:03.0/usb1/1-2"
+[   12.572971] mtp-probe[577]: bus: 1, device: 3 was not an MTP device
+[   12.579136] mtp-probe[578]: checking bus 1, device 2: "/sys/devices/pci0000:00/0000:00:03.0/usb1/1-1"
+[   12.606377] systemd[1]: Started Network Management.
+[   12.616404] mtp-probe[578]: bus: 1, device: 2 was not an MTP device
+[   12.618818] systemd[1]: Starting Enable Persistent Storage in systemd-networkd...
+[   12.708408] systemd[1]: Finished Enable Persistent Storage in systemd-networkd.
+[   12.711880] (udev-worker)[542]: [0;1;33m[0;1;38:5:185msr0: Process '/usr/sbin/pktsetup -i -d 11:0' failed with exit code 1.[0m
+[   12.731941] systemd[1]: Mounting Temporary /etc/pacman.d/gnupg directory...
+[   12.739284] systemd[1]: Virtual Machine and Container Storage (Compatibility) skipped, unmet condition check ConditionPathExists=/var/lib/machines.raw
+[   12.739416] systemd[1]: Reached target Virtual Machines and Containers.
+[   12.739473] systemd[1]: Listening on Disk Image Download Service Socket.
+[   12.861960] systemd[1]: Mounted Temporary /etc/pacman.d/gnupg directory.
+[   12.873277] systemd[1]: Created slice Slice /system/systemd-loop.
+[   12.873405] systemd[1]: Reached target Local File Systems.
+[   12.881908] systemd[1]: Listening on Boot Loader Control Service Socket.
+[   12.886913] systemd[1]: Listening on System Extension Image Management.
+[   12.892379] systemd[1]: Listening on Boot Loader UKI Auto-Link on Completed System Update.
+[   12.893990] systemd[1]: Listening on System Extension and Configuration Refresh on Completed System Update.
+[   12.894111] systemd[1]: Load Kernel Module loop skipped, unmet condition check ConditionKernelModuleLoaded=!loop
+[   12.903676] systemd[1]: Starting Tell Plymouth To Write Out Runtime Data...
+[   12.906777] systemd[1]: Set Up Additional Binary Formats skipped, no trigger condition checks were met.
+[   12.913143] systemd[1]: Starting Update Boot Loader Random Seed...
+[   12.920825] systemd[1]: Starting Automatic Boot Loader Update...
+[   12.926063] systemd[1]: Merge System Configuration Images into /etc/ skipped, no trigger condition checks were met.
+[   12.952264] systemd[1]: Starting Attach File /sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/block/sr0 to Loopback Block Device...
+[   12.975983] nfsrahead[596]: skipping non-NFS device 254:0
+[   12.984121] systemd-networkd[549]: ens4: Configuring with /etc/systemd/network/20-ethernet.network.
+[   12.985793] systemd-networkd[549]: ens4: Link UP
+[   12.986494] systemd-networkd[549]: ens4: Gained carrier
+[   12.998261] systemd[1]: Merge System Extension Images into /usr/ and /opt/ skipped, no trigger condition checks were met.
+[   13.002594] nfsrahead[595]: skipping non-NFS device 11:0
+[   13.005451] nfsrahead[598]: skipping non-NFS device 2:0
+[   13.013312] systemd[1]: Starting Create System Files and Directories...
+[   13.014609] nfsrahead[594]: skipping non-NFS device 7:0
+[   13.020303] systemd[1]: Starting Load JSON user/group Records from Credentials...
+[   13.051167] bootctl[592]: [0;1;39mNo ESP found, not initializing random seed.[0m
+[   13.054517] bootctl[593]: Couldn't find EFI system partition, skipping.
+[   13.091727] (udev-worker)[554]: [0;1;33m[0;1;38:5:185mcfg80211: Process '/usr/bin/set-wireless-regdom' failed with exit code 1.[0m
+[   13.122609] systemd-networkd[549]: ens4: DHCPv4 address 10.0.2.15/24, gateway 10.0.2.2 acquired from 10.0.2.2
+[   13.131508] systemd-timesyncd[530]: Network configuration changed, trying to establish connection.
+[   13.139980] systemd[1]: Starting Listen Kernel Core Dump Socket...
+[   13.147214] systemd[1]: Finished Tell Plymouth To Write Out Runtime Data.
+[   13.148323] systemd[1]: Finished Update Boot Loader Random Seed.
+[   13.151326] systemd[1]: Finished Automatic Boot Loader Update.
+[   13.155610] systemd[1]: Finished Load JSON user/group Records from Credentials.
+[   13.158607] systemd[1]: Received SIGRTMIN+20 from PID 155 (plymouthd).
+[   13.179644] nfsrahead[608]: skipping non-NFS device 7:1
+[   13.190332] systemd-dissect[599]: [0;1;31m/dev/sr0: No suitable partitions found.[0m
+[   13.212796] systemd[1]: [0;1;39msystemd-loop@sys-devices-pci0000:00-0000:00:01.1-ata2-host1-target1:0:0-1:0:0:0-block-sr0.service: Main process exited, code=exited, status=1/FAILURE[0m
+[   13.213077] systemd[1]: [0;1;33m[0;1;38:5:185msystemd-loop@sys-devices-pci0000:00-0000:00:01.1-ata2-host1-target1:0:0-1:0:0:0-block-sr0.service: Failed with result 'exit-code'.[0m
+[[0;1;31mFAILED[0m] Failed to start [0;1;39mAttach File /sys/d…block/sr0 to Loopback Block Device[0m.
+See 'systemctl status systemd-loop@sys-…1:0:0:0-block-sr0.service' for details.
+[   13.217377] systemd[1]: [0;1;31mFailed to start Attach File /sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/block/sr0 to Loopback Block Device.[0m
+[[0;32m  OK  [0m] Listening on [0;1;39mLoad/Save RF Kill Switch Status /dev/rfkill Watch[0m.
+[[0;32m  OK  [0m] Stopped [0;1;39mVirtual Console Setup[0m.
+[   13.233659] systemd[1]: Listening on Load/Save RF Kill Switch Status /dev/rfkill Watch.
+[   13.233853] systemd[1]: systemd-vconsole-setup.service: Deactivated successfully.
+[   13.233890] systemd[1]: Stopped Virtual Console Setup.
+         Stopping [0;1;39mVirtual Console Setup[0m...
+[   13.236129] systemd[1]: Stopping Virtual Console Setup...
+[   13.243135] systemd[1]: Starting Virtual Console Setup...
+         Starting [0;1;39mVirtual Console Setup[0m...
+[   13.325144] systemd-vconsole-setup[618]: [0;1;39mConfiguration of first virtual console was skipped, ignoring remaining ones.[0m
+[[0;32m  OK  [0m] Finished [0;1;39mVirtual Console Setup[0m.
+[   13.332361] systemd[1]: Finished Virtual Console Setup.
+[   13.441150] systemd-timesyncd[530]: Contacted time server 23.186.168.123:123 (1.arch.pool.ntp.org).
+[   13.441738] systemd-resolved[525]: Clock change detected. Flushing caches.
+[   13.442490] systemd-timesyncd[530]: Initial clock synchronization to Sun 2026-11-15 17:51:49.574195 UTC.
+[[0;32m  OK  [0m] Started [0;1;39mListen Kernel Core Dump Socket[0m.
+[   13.501181] systemd[1]: Started Listen Kernel Core Dump Socket.
+         Starting [0;1;39mKernel Core Pattern Register[0m...
+[   13.505337] systemd[1]: Starting Kernel Core Pattern Register...
+[   13.551205] systemd[1]: Finished Create System Files and Directories.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate System Files and Directories[0m.
+         Starting [0;1;39mRebuild Dynamic Linker Cache[0m...
+[   13.558172] systemd[1]: Starting Rebuild Dynamic Linker Cache...
+         Starting [0;1;39mInitial Setup[0m...
+[   13.562827] systemd[1]: Starting Initial Setup...
+         Starting [0;1;39mRebuild Journal Catalog[0m...
+[   13.567376] systemd[1]: Starting Rebuild Journal Catalog...
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8         Starting [0;1;39mRecord System Boot/Shutdown in UTMP[0m...
+[   13.573987] systemd[1]: Starting Record System Boot/Shutdown in UTMP...
+[[0;32m  OK  [0m] Finished [0;1;39mKernel Core Pattern Register[0m.
+[   13.582532] systemd[1]: Finished Kernel Core Pattern Register.
+[[0;32m  OK  [0m] Finished [0;1;39mRecord System Boot/Shutdown in UTMP[0m.
+[   13.608229] systemd[1]: Finished Record System Boot/Shutdown in UTMP.
+[[0;32m  OK  [0m] Finished [0;1;39mRebuild Journal Catalog[0m.
+[   13.647151] systemd[1]: Finished Rebuild Journal Catalog.
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=ff076525b11a4eed869d8582e5848b17;user=root;hostname=GhostCat;machineid=069ab4a6faa74e2b991f9396a649ffe2;bootid=8e2caf94138645c783158d469425da9b;pid=642;pidfdid=331;comm=(temd-firstboot);servicename=systemd-firstboot.service;invocationid=a00fc06273674faf94db0d2ae83d769e;type=service\[[0;32m  OK  [0m] Finished [0;1;39mInitial Setup[0m.
+[   14.269241] systemd[1]: Finished Initial Setup.
+[[0;32m  OK  [0m] Reached target [0;1;39mFirst Boot Complete[0m.
+[   14.271044] systemd[1]: Reached target First Boot Complete.
+[   14.272174] systemd[1]: Starting Save Transient machine-id to Disk...
+         Starting [0;1;39mSave Transient machine-id to Disk[0m...
+[   14.295432] systemd[1]: etc-machine\x2did.mount: Deactivated successfully.
+[[0;32m  OK  [0m] Finished [0;1;39mSave Transient machine-id to Disk[0m.
+[   14.297223] systemd[1]: Finished Save Transient machine-id to Disk.
+[   14.720656] systemd-networkd[549]: ens4: Gained IPv6LL
+[[0m[0;31m*     [0m] A start job is running for Rebuild …amic Linker Cache (10s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Rebuild …amic Linker Cache (11s / no limit)
+M[K[[0;32m  OK  [0m] Finished [0;1;39mRebuild Dynamic Linker Cache[0m.
+[K[   17.382563] systemd[1]: Finished Rebuild Dynamic Linker Cache.
+         Starting [0;1;39mUpdate is Completed[0m...
+[   17.386830] systemd[1]: Starting Update is Completed...
+[[0;32m  OK  [0m] Finished [0;1;39mUpdate is Completed[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSystem Initialization[0m.
+[[0;32m  OK  [0m] Started [0;1;39mRefresh existing PGP keys of archlinux-keyring regularly[0m.
+[   17.404341] systemd[1]: Finished Update is Completed.
+[   17.406176] systemd[1]: Reached target System Initialization.
+[   17.406215] systemd[1]: Started Refresh existing PGP keys of archlinux-keyring regularly.
+[[0;32m  OK  [0m] Started [0;1;39mDaily man-db regeneration[0m.
+[   17.406476] systemd[1]: Started Daily man-db regeneration.
+[[0;32m  OK  [0m] Started [0;1;39mDaily verification of password and group files[0m.
+[   17.406733] systemd[1]: Started Daily verification of password and group files.
+[[0;32m  OK  [0m] Started [0;1;39mDaily Cleanup of Temporary Directories[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mTimer Units[0m.
+[   17.408933] systemd[1]: Started Daily Cleanup of Temporary Directories.
+[[0;32m  OK  [0m] Listening on [0;1;39mD-Bus System Message Bus Socket[0m.
+[   17.408983] systemd[1]: Reached target Timer Units.
+[   17.409054] systemd[1]: Listening on D-Bus System Message Bus Socket.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG network certifi…ent daemon for /etc/pacman.d/gnupg[0m.
+[   17.409199] systemd[1]: Listening on GnuPG network certificate management daemon for /etc/pacman.d/gnupg.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a… browsers) for /etc/pacman.d/gnupg[0m.
+[   17.409437] systemd[1]: Listening on GnuPG cryptographic agent and passphrase cache (access for web browsers) for /etc/pacman.d/gnupg.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…estricted) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…emulation) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…rase cache for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG public key mana…nt service for /etc/pacman.d/gnupg[0m.
+[   17.411750] systemd[1]: Listening on GnuPG cryptographic agent and passphrase cache (restricted) for /etc/pacman.d/gnupg.
+[   17.411813] systemd[1]: Listening on GnuPG cryptographic agent (ssh-agent emulation) for /etc/pacman.d/gnupg.
+[   17.411859] systemd[1]: Listening on GnuPG cryptographic agent and passphrase cache for /etc/pacman.d/gnupg.
+[   17.411899] systemd[1]: Listening on GnuPG public key management service for /etc/pacman.d/gnupg.
+         Starting [0;1;39mPC/SC Smart Card Daemon Activation Socket[0m...
+[   17.413945] systemd[1]: Starting PC/SC Smart Card Daemon Activation Socket...
+[   17.417444] systemd[1]: Listening on Authorization Manager Agent Helper.
+[[0;32m  OK  [0m] Listening on [0;1;39mAuthorization Manager Agent Helper[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mOpenSSH Server Socket…temd-ssh-generator, AF_UNIX Local)[0m.
+[   17.420761] systemd[1]: Listening on OpenSSH Server Socket (systemd-ssh-generator, AF_UNIX Local).
+[[0;32m  OK  [0m] Listening on [0;1;39mUser Login Management Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mVirtual Machine and C…tainer Registration Service Socket[0m.
+[   17.421231] systemd[1]: Listening on User Login Management Varlink Socket.
+[   17.421643] systemd[1]: Listening on Virtual Machine and Container Registration Service Socket.
+         Starting [0;1;39mD-Bus System Message Bus[0m...
+[   17.425282] systemd[1]: Starting D-Bus System Message Bus...
+[   17.426318] systemd[1]: TPM PCR Barrier (Initialization) skipped, unmet condition check ConditionSecurity=measured-os
+[[0;32m  OK  [0m] Listening on [0;1;39mPC/SC Smart Card Daemon Activation Socket[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSocket Units[0m.
+[   17.430389] systemd[1]: Listening on PC/SC Smart Card Daemon Activation Socket.
+[   17.431156] systemd[1]: Reached target Socket Units.
+[[0;32m  OK  [0m] Started [0;1;39mD-Bus System Message Bus[0m.
+[   17.573955] systemd[1]: Started D-Bus System Message Bus.
+[   17.575176] systemd[1]: Reached target Basic System.
+[[0;32m  OK  [0m] Reached target [0;1;39mBasic System[0m.
+         Starting [0;1;39mNetwork Manager[0m...
+[   17.579850] systemd[1]: Starting Network Manager...
+         Starting [0;1;39mGhostCat OS live session setup[0m...
+[   17.588131] systemd[1]: Starting GhostCat OS live session setup...
+[   17.589109] systemd[1]: Hyper-V key-value pair (KVP) skipped, unmet condition check ConditionPathExists=/dev/vmbus/hv_kvp
+[   17.590180] systemd[1]: Hyper-V volume shadow copy service (VSS) skipped, unmet condition check ConditionPathExists=/dev/vmbus/hv_vss
+[   17.590242] systemd[1]: Screen reader service skipped, unmet condition check ConditionKernelCommandLine=accessibility=on
+         Starting [0;1;39mInitializes Pacman keyring[0m...
+[   17.604293] systemd[1]: Starting Initializes Pacman keyring...
+[   17.607763] dbus-broker-launch[654]: Ready
+         Starting [0;1;39mAuthorization Manager[0m...
+[   17.619087] systemd[1]: Starting Authorization Manager...
+         Starting [0;1;39mHome Area Manager[0m...
+[   17.637791] systemd[1]: Starting Home Area Manager...
+         Starting [0;1;39mUser Login Management[0m...
+[   17.659380] systemd[1]: Starting User Login Management...
+[   17.659473] systemd[1]: TPM PCR Barrier (User) skipped, unmet condition check ConditionSecurity=measured-os
+[   17.659548] systemd[1]: VirtualBox Guest Service skipped, unmet condition check ConditionVirtualization=oracle
+[   17.659588] systemd[1]: Open Virtual Machine Tools (vmware-vmblock-fuse) skipped, unmet condition check ConditionVirtualization=vmware
+[   17.779353] systemd-homed[660]: Watching /home.
+[[0;32m  OK  [0m] Started [0;1;39mHome Area Manager[0m.
+[   17.788612] systemd[1]: Started Home Area Manager.
+[[0;32m  OK  [0m] Finished [0;1;39mHome Area Activation[0m.
+[   17.791118] systemd[1]: Finished Home Area Activation.
+[   17.811607] polkitd[659]: Started polkitd version 128
+[   17.825082] systemd-logind[661]: New seat seat0.
+[   17.827298] systemd-logind[661]: Watching system buttons on /dev/input/event3 (QEMU QEMU USB Keyboard)
+[   17.827373] systemd-logind[661]: Watching system buttons on /dev/input/event0 (Power Button)
+[   17.827406] systemd-logind[661]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+[[0;32m  OK  [0m] Started [0;1;39mUser Login Management[0m.
+[   17.831860] systemd[1]: Started User Login Management.
+[   17.851723] NetworkManager[656]: <info>  [1794765113.9843] NetworkManager (version 1.58.1-3) is starting... (boot:8e2caf94-1386-45c7-8315-8d469425da9b)
+[   17.853053] NetworkManager[656]: <info>  [1794765113.9851] Read config: /etc/NetworkManager/NetworkManager.conf, /usr/lib/NetworkManager/conf.d/20-connectivity.conf, /etc/NetworkManager/conf.d/{80-ghostcat-dns.conf,90-ghostcat-mac.conf,91-ghostcat-anon.conf}
+[   17.869896] NetworkManager[656]: <info>  [1794765114.0030] manager[0x55e7833e0750]: monitoring kernel firmware directory '/lib/firmware'.
+[   17.875134] pacman-key[683]: gpg: /etc/pacman.d/gnupg/trustdb.gpg: trustdb created
+[   17.875193] pacman-key[683]: gpg: no ultimately trusted keys found
+         Starting [0;1;39mHostname Service[0m...
+[   17.892673] systemd[1]: Starting Hostname Service...
+[[0;32m  OK  [0m] Finished [0;1;39mGhostCat OS live session setup[0m.
+[   17.907831] systemd[1]: Finished GhostCat OS live session setup.
+[[0;32m  OK  [0m] Started [0;1;39mAuthorization Manager[0m.
+[   17.940754] systemd[1]: Started Authorization Manager.
+         Starting [0;1;39mModem Manager[0m...
+[   17.949691] systemd[1]: Starting Modem Manager...
+[   17.988648] pacman-key[734]: gpg: starting migration from earlier GnuPG versions
+[   17.996037] systemd[1]: Started GnuPG cryptographic agent and passphrase cache for /etc/pacman.d/gnupg.
+[[0;32m  OK  [0m] Started [0;1;39mGnuPG cryptographic agent …rase cache for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Started [0;1;39mHostname Service[0m.
+[   17.999585] systemd[1]: Started Hostname Service.
+[   18.009623] NetworkManager[656]: <info>  [1794765114.1427] hostname: hostname: using hostnamed
+[   18.009783] NetworkManager[656]: <info>  [1794765114.1430] hostname: static hostname changed from (none) to "GhostCat"
+[   18.010129] NetworkManager[656]: <info>  [1794765114.1433] dns-mgr: init: dns=systemd-resolved rc-manager=symlink, plugin=systemd-resolved
+[   18.018854] NetworkManager[656]: <info>  [1794765114.1510] manager[0x55e7833e0750]: rfkill: Wi-Fi hardware radio set enabled
+[   18.022652] NetworkManager[656]: <info>  [1794765114.1510] manager[0x55e7833e0750]: rfkill: WWAN hardware radio set enabled
+[   18.042179] ModemManager[728]: [0;1;39m<msg> ModemManager (version 1.24.2-2) starting in system bus...[0m
+[   18.042315] pacman-key[734]: gpg: porting secret keys from '/etc/pacman.d/gnupg/secring.gpg' to gpg-agent
+[   18.042350] pacman-key[734]: gpg: migration succeeded
+[   18.042640] gpg-agent[736]: gpg-agent[736]: directory '/etc/pacman.d/gnupg/private-keys-v1.d' created
+[   18.042680] gpg-agent[736]: gpg-agent (GnuPG) 2.4.9 starting in supervised mode.
+[   18.042702] gpg-agent[736]: using fd 3 for extra socket (/etc/pacman.d/gnupg/S.gpg-agent.extra)
+[   18.042721] gpg-agent[736]: using fd 4 for ssh socket (/etc/pacman.d/gnupg/S.gpg-agent.ssh)
+[   18.042743] gpg-agent[736]: using fd 5 for browser socket (/etc/pacman.d/gnupg/S.gpg-agent.browser)
+[   18.042762] gpg-agent[736]: using fd 6 for std socket (/etc/pacman.d/gnupg/S.gpg-agent)
+[   18.042781] gpg-agent[736]: listening on: std=6 extra=3 browser=5 ssh=4
+[   18.067592] NetworkManager[656]: <info>  [1794765114.1999] Loaded device plugin: NMAtmManager (/usr/lib/NetworkManager/1.58.1-3/libnm-device-plugin-adsl.so)
+[   18.083085] pacman-key[658]: ==> Generating pacman master key. This may take some time.
+[   18.090195] NetworkManager[656]: <info>  [1794765114.2226] Loaded device plugin: NMBluezManager (/usr/lib/NetworkManager/1.58.1-3/libnm-device-plugin-bluetooth.so)
+[   18.096109] pacman-key[740]: gpg: Generating pacman keyring master key...
+[   18.096195] NetworkManager[656]: <info>  [1794765114.2245] Loaded device plugin: NMOvsFactory (/usr/lib/NetworkManager/1.58.1-3/libnm-device-plugin-ovs.so)
+[   18.111639] NetworkManager[656]: <info>  [1794765114.2448] Loaded device plugin: NMTeamFactory (/usr/lib/NetworkManager/1.58.1-3/libnm-device-plugin-team.so)
+[   18.118427] NetworkManager[656]: <info>  [1794765114.2516] Loaded device plugin: NMWifiFactory (/usr/lib/NetworkManager/1.58.1-3/libnm-device-plugin-wifi.so)
+[   18.124608] NetworkManager[656]: <info>  [1794765114.2576] Loaded device plugin: NMWwanFactory (/usr/lib/NetworkManager/1.58.1-3/libnm-device-plugin-wwan.so)
+[   18.130170] NetworkManager[656]: <info>  [1794765114.2634] manager: rfkill: Wi-Fi enabled by radio killswitch; enabled by state file
+[   18.133432] NetworkManager[656]: <info>  [1794765114.2666] manager: rfkill: WWAN enabled by radio killswitch; enabled by state file
+[   18.133584] NetworkManager[656]: <info>  [1794765114.2668] manager: Networking is enabled by state file
+[   18.139492] NetworkManager[656]: <info>  [1794765114.2709] settings: Loaded settings plugin: keyfile (internal)
+[   18.139579] dbus-broker-launch[654]: [0;1;33m[0;1;38:5:185mActivation request for 'org.freedesktop.nm_dispatcher' failed: The systemd unit 'dbus-org.freedesktop.nm-dispatcher.service' could not be found.[0m
+[   18.149911] NetworkManager[656]: <info>  [1794765114.2831] dhcp: init: Using DHCP client 'internal'
+[   18.155047] NetworkManager[656]: <info>  [1794765114.2874] manager: (lo): new Loopback device (/org/freedesktop/NetworkManager/Devices/1)
+[   18.159905] NetworkManager[656]: <info>  [1794765114.2921] device (lo): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+[   18.159962] NetworkManager[656]: <info>  [1794765114.2924] device (lo): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+[   18.159997] NetworkManager[656]: <info>  [1794765114.2928] device (lo): Activation: starting connection 'lo' (b869e022-b8ba-4c30-a4a6-6a3c4e9f8b4d)
+[   18.175079] NetworkManager[656]: <info>  [1794765114.3064] device (ens4): carrier: link connected
+[   18.175137] NetworkManager[656]: <info>  [1794765114.3068] manager: (ens4): new Ethernet device (/org/freedesktop/NetworkManager/Devices/2)
+[   18.175173] NetworkManager[656]: <info>  [1794765114.3076] settings: (ens4): created default wired connection 'Wired connection 1'
+[   18.175205] NetworkManager[656]: <info>  [1794765114.3077] manager: (ens4): assume: will attempt to assume matching connection 'Wired connection 1' (879c641c-1c79-34d6-ac51-38111a14afb0) (guessed)
+[   18.175235] NetworkManager[656]: <info>  [1794765114.3078] device (ens4): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'assume')
+[   18.175268] NetworkManager[656]: <info>  [1794765114.3081] device (ens4): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'assume')
+[   18.196238] NetworkManager[656]: <info>  [1794765114.3294] device (ens4): Activation: starting connection 'Wired connection 1' (879c641c-1c79-34d6-ac51-38111a14afb0)
+[   18.201049] NetworkManager[656]: <info>  [1794765114.3339] bus-manager: acquired D-Bus service "org.freedesktop.NetworkManager"
+[   18.204902] NetworkManager[656]: <info>  [1794765114.3346] ovsdb: disconnected from ovsdb
+[   18.204958] NetworkManager[656]: <info>  [1794765114.3347] device (lo): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+[   18.205033] NetworkManager[656]: <info>  [1794765114.3348] device (lo): state change: prepare -> config (reason 'none', managed-type: 'external')
+[   18.205072] NetworkManager[656]: <info>  [1794765114.3349] device (lo): state change: config -> ip-config (reason 'none', managed-type: 'external')
+[   18.205103] NetworkManager[656]: <info>  [1794765114.3350] device (ens4): state change: disconnected -> prepare (reason 'none', managed-type: 'assume')
+[   18.205132] NetworkManager[656]: <info>  [1794765114.3351] device (ens4): state change: prepare -> config (reason 'none', managed-type: 'assume')
+[   18.205161] NetworkManager[656]: <info>  [1794765114.3353] device (lo): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Manager[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mNetwork[0m.
+[   18.205316] systemd[1]: Started Network Manager.
+[   18.209181] systemd[1]: Reached target Network.
+         Starting [0;1;39mPermit User Sessions[0m...
+[   18.214242] systemd[1]: Starting Permit User Sessions...
+[   18.237940] NetworkManager[656]: <info>  [1794765114.3711] device (ens4): state change: config -> ip-config (reason 'none', managed-type: 'assume')
+[   18.238232] NetworkManager[656]: <info>  [1794765114.3714] dhcp4 (ens4): activation: beginning transaction (timeout in 45 seconds)
+[   18.254235] NetworkManager[656]: <info>  [1794765114.3855] dhcp4 (ens4): state changed new lease, address=10.0.2.15, acd pending
+[   18.254309] NetworkManager[656]: <info>  [1794765114.3865] dhcp4 (ens4): state changed new lease, address=10.0.2.15
+[   18.254340] NetworkManager[656]: <info>  [1794765114.3871] policy: set 'Wired connection 1' (ens4) as default for IPv4 routing and DNS
+[   18.258463] NetworkManager[656]: [0;1;33m[0;1;38:5:185m<warn>  [1794765114.3914] dns-sd-resolved[69f563c9b2cdd7e8]: send-updates SetLinkDomains@2 failed: GDBus.Error:org.freedesktop.resolve1.LinkBusy: Link ens4 is managed.[0m
+[   18.258594] NetworkManager[656]: <info>  [1794765114.3914] device (ens4): state change: ip-config -> ip-check (reason 'none', managed-type: 'assume')
+[   18.271467] NetworkManager[656]: <info>  [1794765114.4044] device (lo): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+[   18.272113] NetworkManager[656]: <info>  [1794765114.4045] device (ens4): state change: ip-check -> secondaries (reason 'none', managed-type: 'assume')
+[   18.274656] NetworkManager[656]: <info>  [1794765114.4046] device (lo): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+[   18.276936] NetworkManager[656]: <info>  [1794765114.4084] device (lo): Activation: successful, device activated.
+[   18.277180] NetworkManager[656]: <info>  [1794765114.4086] device (ens4): state change: secondaries -> activated (reason 'none', managed-type: 'assume')
+[   18.277451] NetworkManager[656]: <info>  [1794765114.4088] manager: NetworkManager state is now CONNECTED_SITE
+[   18.277818] NetworkManager[656]: <info>  [1794765114.4089] device (ens4): Activation: successful, device activated.
+[   18.284074] NetworkManager[656]: <info>  [1794765114.4169] manager: NetworkManager state is now CONNECTED_GLOBAL
+[   18.284894] NetworkManager[656]: <info>  [1794765114.4170] manager: startup complete
+[   18.321477] systemd[1]: Finished Permit User Sessions.
+[[0;32m  OK  [0m] Finished [0;1;39mPermit User Sessions[0m.
+[   18.326784] systemd[1]: Starting GhostCat Setup (premier démarrage)...
+         Starting [0;1;39mGhostCat Setup (premier démarrage)[0m...
+         Starting [0;1;39mHold until boot process finishes up[0m...
+[   18.331059] systemd[1]: Starting Hold until boot process finishes up...
+[   18.353678] systemd-networkd[549]: ModemManager: service is available
+[   18.354746] systemd[1]: Started Modem Manager.
+[[0;32m  OK  [0m] Started [0;1;39mModem Manager[0m.
+[   18.356236] NetworkManager[656]: <info>  [1794765114.4893] modem-manager: ModemManager not available
+[   18.399672] NetworkManager[656]: <info>  [1794765114.5328] modem-manager: ModemManager now available
+[   18.403431] NetworkManager[656]: <info>  [1794765114.5366] policy: set 'Wired connection 1' (ens4) as default for IPv6 routing and DNS
+[[0;32m  OK  [0m] Finished [0;1;39mHold until boot process finishes up[0m.
+[   18.727726] systemd[1]: Finished Hold until boot process finishes up.
+[   18.737076] systemd[1]: Received SIGRTMIN+21 from PID 155 (n/a).
+[   18.745722] systemd[1]: Started Serial Getty on ttyS0.
+[   18.750940] systemd[1]: Reached target Login Prompts.
+[   18.826532] systemd-logind[661]: New session '1' of user 'ghost' with class 'user' and type 'wayland'.
+[   18.843741] systemd[1]: Created slice User Slice of UID 1000.
+[   18.847362] systemd[1]: Starting User Runtime Directory /run/user/1000...
+[   18.876422] systemd-user-runtime-dir[755]: Successfully configured disk quota for UID 1000 on /tmp to 2.3G
+[   18.880296] systemd-user-runtime-dir[755]: Successfully configured disk quota for UID 1000 on /dev/shm to 2.3G
+[   18.890395] systemd[1]: Finished User Runtime Directory /run/user/1000.
+[   18.892330] systemd[1]: Starting User Manager for UID 1000...
+[   18.914361] (udev-worker)[695]: [0;1;33m[0;1;38:5:185msr0: Process '/usr/sbin/pktsetup -i -d 11:0' failed with exit code 1.[0m
+[   18.922073] systemd[1]: Load Kernel Module loop skipped, unmet condition check ConditionKernelModuleLoaded=!loop
+[   18.930143] systemd[1]: Starting Attach File /sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/block/sr0 to Loopback Block Device...
+[   18.946622] (systemd)[760]: [0;1;39mpam_warn(systemd-user:setcred): function=[pam_sm_setcred] flags=0x8002 service=[systemd-user] terminal=[] user=[ghost] ruser=[<unknown>] rhost=[<unknown>][0m
+[   18.952983] (systemd)[760]: pam_unix(systemd-user:session): session opened for user ghost(uid=1000) by ghost(uid=0)
+[   18.958580] systemd-logind[661]: New session '2' of user 'ghost' with class 'manager' and type 'unspecified'.
+[   18.977485] nfsrahead[766]: skipping non-NFS device 7:1
+[   18.985628] systemd-dissect[763]: [0;1;31m/dev/sr0: No suitable partitions found.[0m
+[   19.001444] systemd-homed[660]: block device /sys/devices/virtual/block/loop1/loop1p2 has been removed.
+[   19.011145] systemd[1]: [0;1;39msystemd-loop@sys-devices-pci0000:00-0000:00:01.1-ata2-host1-target1:0:0-1:0:0:0-block-sr0.service: Main process exited, code=exited, status=1/FAILURE[0m
+[   19.015349] systemd[1]: [0;1;33m[0;1;38:5:185msystemd-loop@sys-devices-pci0000:00-0000:00:01.1-ata2-host1-target1:0:0-1:0:0:0-block-sr0.service: Failed with result 'exit-code'.[0m
+[   19.020884] systemd[1]: [0;1;31mFailed to start Attach File /sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/block/sr0 to Loopback Block Device.[0m
+[   19.024638] systemd-homed[660]: block device /sys/devices/virtual/block/loop1/loop1p1 has been removed.
+[   19.027599] systemd-homed[660]: block device /sys/devices/virtual/block/loop1 has been removed.
+[   19.141823] systemd[760]: Queued start job for default target Main User Target.
+[   19.146931] systemd[760]: Created slice User Application Slice.
+[   19.148632] systemd[760]: Reached target Paths.
+[   19.149897] systemd[760]: Reached target Timers.
+[   19.152941] systemd[760]: Starting D-Bus User Message Bus Socket...
+[   19.154760] systemd[760]: Listening on GnuPG network certificate management daemon.
+[   19.159887] systemd[760]: Listening on GNOME Keyring daemon.
+[   19.161428] systemd[760]: Listening on GnuPG cryptographic agent and passphrase cache (access for web browsers).
+[   19.164338] systemd[760]: Listening on GnuPG cryptographic agent and passphrase cache (restricted).
+[   19.166671] systemd[760]: Listening on GnuPG cryptographic agent (ssh-agent emulation).
+[   19.168688] systemd[760]: Listening on GnuPG cryptographic agent and passphrase cache.
+[   19.171252] systemd[760]: Listening on GnuPG public key management service.
+[   19.173046] systemd[760]: Listening on p11-kit server.
+[   19.175742] systemd[760]: Listening on PipeWire PulseAudio.
+[   19.180191] systemd[760]: Listening on PipeWire Multimedia System Sockets.
+[   19.182134] systemd[760]: Listening on Speech Dispatcher Socket.
+[   19.187963] systemd[760]: Listening on Query the User Interactively for a Password.
+[   19.192170] systemd[760]: Listening on Disk Image Download Service Socket.
+[   19.195681] systemd[760]: Listening on Journal Log Access Socket.
+[   19.197640] systemd[760]: Listening on Virtual Machine and Container Registration Service Socket.
+[   19.201427] systemd[760]: Listening on Simple File System Backed Storage Provider.
+[   19.208807] systemd[760]: Listening on D-Bus User Message Bus Socket.
+[   19.210670] systemd[760]: Reached target Sockets.
+[   19.212124] systemd[760]: Reached target Basic System.
+[   19.214088] systemd[760]: Reached target Main User Target.
+[   19.215558] systemd[1]: Started User Manager for UID 1000.
+[   19.217282] systemd[760]: Startup finished in 241ms.
+[   19.223392] systemd[1]: Started Session 1 of User ghost.
+[   19.245240] cage[751]: 00:00:00.000 [INFO] [libseat] [libseat/backend/seatd.c:64] Could not connect to socket /run/seatd.sock: No such file or directory
+[   19.248835] cage[751]: 00:00:00.000 [INFO] [libseat] [libseat/libseat.c:76] Backend 'seatd' failed to open seat, skipping
+[   19.253342] cage[751]: 00:00:00.008 [INFO] [libseat] [libseat/libseat.c:73] Seat opened with backend 'logind'
+[   19.256718] cage[751]: 00:00:00.008 [INFO] [backend/session/session.c:117] Successfully loaded libseat session
+[   19.261050] cage[751]: 00:00:00.016 [INFO] [backend/backend.c:248] Found 1 GPUs
+[   19.263203] cage[751]: 00:00:00.016 [INFO] [backend/drm/backend.c:225] Initializing DRM backend for /dev/dri/card1 (virtio_gpu)
+[   19.266183] cage[751]: 00:00:00.018 [INFO] [backend/drm/drm.c:117] DRM_CLIENT_CAP_CURSOR_PLANE_HOTSPOT supported
+[   19.270076] cage[751]: 00:00:00.018 [INFO] [backend/drm/drm.c:312] Found 1 DRM CRTCs
+[   19.273377] cage[751]: 00:00:00.021 [INFO] [backend/drm/drm.c:270] Found 2 DRM planes
+[   19.780355] cage[751]: 00:00:00.535 [INFO] [render/egl.c:205] Supported EGL client extensions: EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_EXT_platform_base EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_EXT_platform_device EGL_EXT_explicit_device EGL_EXT_platform_wayland EGL_KHR_platform_wayland EGL_EXT_platform_x11 EGL_KHR_platform_x11 EGL_EXT_platform_xcb EGL_MESA_platform_gbm EGL_KHR_platform_gbm EGL_MESA_platform_surfaceless
+[   19.823951] cage[751]: MESA-EGL: warning: egl: failed to create dri2 screen
+[   19.830298] cage[751]: 00:00:00.578 [ERROR] [EGL] command: eglInitialize, error: EGL_NOT_INITIALIZED (0x3001), message: "DRI2: failed to create screen"
+[   19.834975] cage[751]: MESA-EGL: warning: egl: failed to create dri2 screen
+[   19.837106] cage[751]: 00:00:00.592 [ERROR] [EGL] command: eglInitialize, error: EGL_NOT_INITIALIZED (0x3001), message: "DRI2: failed to create screen"
+[   19.844064] cage[751]: MESA-EGL: warning: NEEDS EXTENSION: falling back to kms_swrast
+[   19.857826] cage[751]: 00:00:00.612 [ERROR] [EGL] command: eglQueryDeviceStringEXT, error: EGL_BAD_DEVICE_EXT (0x322b), message: "eglQueryDeviceStringEXT"
+[   19.863092] cage[751]: 00:00:00.618 [ERROR] [EGL] command: eglQueryDeviceStringEXT, error: EGL_BAD_DEVICE_EXT (0x322b), message: "eglQueryDeviceStringEXT"
+[   19.867706] cage[751]: 00:00:00.618 [INFO] [render/egl.c:369] Using EGL 1.5
+[   19.869882] cage[751]: 00:00:00.618 [INFO] [render/egl.c:370] Supported EGL display extensions: EGL_ANDROID_blob_cache EGL_ANDROID_native_fence_sync EGL_EXT_config_select_group EGL_EXT_create_context_robustness EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_EXT_query_reset_notification_strategy EGL_EXT_surface_compression EGL_KHR_cl_event2 EGL_KHR_config_attribs EGL_KHR_context_flush_control EGL_KHR_create_context EGL_KHR_create_context_no_error EGL_KHR_fence_sync EGL_KHR_get_all_proc_addresses EGL_KHR_gl_colorspace EGL_KHR_gl_renderbuffer_image EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_image_base EGL_KHR_no_config_context EGL_KHR_reusable_sync EGL_KHR_surfaceless_context EGL_EXT_pixel_format_float EGL_KHR_wait_sync EGL_MESA_configless_context EGL_MESA_gl_interop EGL_MESA_image_dma_buf_export EGL_MESA_query_driver EGL_MESA_x11_native_visual_id
+[   19.889342] cage[751]: 00:00:00.621 [INFO] [render/egl.c:372] Supported EGL device extensions: EGL_EXT_device_drm EGL_EXT_device_drm_render_node EGL_EXT_device_query_name EGL_EXT_device_persistent_id
+[   19.893927] cage[751]: 00:00:00.621 [INFO] [render/egl.c:374] EGL vendor: Mesa Project
+[   19.898073] pacman-key[740]: gpg: directory '/etc/pacman.d/gnupg/openpgp-revocs.d' created
+[   19.901218] pacman-key[740]: gpg: revocation certificate stored as '/etc/pacman.d/gnupg/openpgp-revocs.d/BE39DC8AA8EA8C63E606F16E7F85AB9D16863DA0.rev'
+[   19.912328] pacman-key[740]: gpg: Done
+[   19.916309] pacman-key[658]: ==> Updating trust database...
+[   19.919370] pacman-key[781]: gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+[   19.922441] pacman-key[781]: gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+[   19.967807] pacman-key[782]: ==> Appending keys from archlinux.gpg...
+[   20.060594] cage[751]: 00:00:00.815 [INFO] [render/gles2/renderer.c:538] Creating GLES2 renderer
+[   20.063174] cage[751]: 00:00:00.815 [INFO] [render/gles2/renderer.c:539] Using OpenGL ES 3.2 Mesa 26.2.7-arch1.1
+[   20.067104] cage[751]: 00:00:00.816 [INFO] [render/gles2/renderer.c:540] GL vendor: Mesa
+[   20.069251] cage[751]: 00:00:00.816 [INFO] [render/gles2/renderer.c:541] GL renderer: llvmpipe (LLVM 23.1.4, 256 bits)
+[   20.072963] cage[751]: 00:00:00.816 [INFO] [render/gles2/renderer.c:542] Supported GLES2 extensions: GL_EXT_blend_minmax GL_EXT_multi_draw_arrays GL_EXT_texture_filter_anisotropic GL_EXT_texture_compression_s3tc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_format_BGRA8888 GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth24 GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_mapbuffer GL_OES_rgb8_rgba8 GL_OES_standard_derivatives GL_OES_stencil8 GL_OES_texture_3D GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_vertex_half_float GL_EXT_draw_instanced GL_EXT_texture_sRGB_decode GL_OES_EGL_image GL_OES_depth_texture GL_OES_packed_depth_stencil GL_EXT_texture_type_2_10_10_10_REV GL_NV_conditional_render GL_OES_get_program_binary GL_APPLE_texture_max_level GL_EXT_discard_framebuffer GL_EXT_read_format_bgra GL_EXT_texture_storage GL_NV_pack_subimage GL_NV_texture_barrier GL_EXT_frag_depth GL_NV_fbo_color_attachments GL_OES_EGL_image_external GL_OES_EGL_sync GL_OES_vertex_array_object GL_OES_viewport_array GL_ANGLE_pack_reverse_row_order GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_EXT_occlusion_query_boolean GL_EXT_robustness GL_EXT_sRGB GL_EXT_texture_rg GL_EXT_unpack_subimage GL_NV_draw_buffers GL_NV_read_buffer GL_NV_read_depth GL_NV_read_depth_stencil GL_NV_read_stencil GL_APPLE_sync GL_EXT_draw_buffers GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_shadow_samplers GL_KHR_debug GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_NV_generate_mipmap_sRGB GL_NV_pixel_buffer_object GL_OES_depth_texture_cube_map GL_OES_required_internalformat GL_OES_surfaceless_context GL_EXT_color_buffer_float GL_EXT_debug_label GL_EXT_sRGB_write_control GL_EXT_separate_shader_objects GL_EXT_shader_framebuffer_fetch GL_EXT_shader_group_vote GL_EXT_shader_implicit_conversions GL_EXT_shader_integer_mix GL_EXT_tessellation_point_size GL_EXT_tessellation_shader GL_ANDROID_extension_pack_es31a GL_ARM_shader_framebuffer_fetch_depth_stencil GL_EXT_base_instance GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_copy_image GL_EXT_draw_buffers_indexed GL_EXT_draw_elements_base_vertex GL_EXT_gpu_shader5 GL_EXT_multi_draw_indirect GL_EXT_polygon_offset_clamp GL_EXT_primitive_bounding_box GL_EXT_render_snorm GL_EXT_shader_io_blocks GL_EXT_texture_border_clamp GL_EXT_texture_buffer GL_EXT_texture_cube_map_array GL_EXT_texture_norm16 GL_EXT_texture_view GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_robust_buffer_access_behavior GL_NV_image_formats GL_NV_shader_noperspective_interpolation GL_OES_copy_image GL_OES_draw_buffers_indexed GL_OES_draw_elements_base_vertex GL_OES_gpu_shader5 GL_OES_primitive_bounding_box GL_OES_sample_shading GL_OES_sample_variables GL_OES_shader_io_blocks GL_OES_shader_multisample_interpolation GL_OES_tessellation_point_size GL_OES_tessellation_shader GL_OES_texture_border_clamp GL_OES_texture_buffer GL_OES_texture_cube_map_array GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_texture_view GL_EXT_blend_func_extended GL_EXT_buffer_storage GL_EXT_float_blend GL_EXT_geometry_point_size GL_EXT_geometry_shader GL_EXT_texture_filter_minmax GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL_KHR_no_error GL_KHR_texture_compression_astc_sliced_3d GL_NV_sample_locations GL_OES_EGL_image_external_essl3 GL_OES_geometry_point_size GL_OES_geometry_shader GL_OES_shader_image_atomic GL_EXT_clear_texture GL_EXT_clip_cull_distance GL_EXT_conservative_depth GL_EXT_disjoint_timer_query GL_EXT_texture_compression_s3tc_srgb GL_MESA_shader_integer_functions GL_EXT_clip_control GL_EXT_color_buffer_half_float GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_texture_compression_bptc GL_EXT_texture_mirror_clamp_to_edge GL_KHR_parallel_shader_compile GL_NV_alpha_to_coverage_dither_control GL_EXT_EGL_image_storage GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_texture_shadow_lod GL_MESA_framebuffer_flip_y GL_OVR_multiview GL_OVR_multiview2 GL_EXT_depth_clamp GL_EXT_texture_query_lod GL_MESA_sampler_objects GL_EXT_EGL_image_storage_compression GL_EXT_texture_storage_compression GL_MESA_bgra GL_EXT_mesh_shader GL_EXT_shader_clock
+[   20.389081] cage[751]: 00:00:01.143 [INFO] [../cage/seat.c:141] Input device QEMU QEMU USB Tablet cannot be mapped to an output device
+[   20.433114] cage[751]: 00:00:01.187 [INFO] [../cage/seat.c:141] Input device VirtualPS/2 VMware VMMouse cannot be mapped to an output device
+[   20.437174] cage[751]: 00:00:01.187 [INFO] [../cage/seat.c:141] Input device VirtualPS/2 VMware VMMouse cannot be mapped to an output device
+[   20.441452] cage[751]: 00:00:01.187 [INFO] [backend/drm/drm.c:1781] Scanning DRM connectors on /dev/dri/card1
+[   20.446613] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1836] Found connector 'Virtual-1'
+[   20.450715] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1861] 'Virtual-1' connected
+[   20.454219] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1646] Detected modes:
+[   20.456323] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1600x900 @ 74.999 Hz (preferred)
+[   20.458884] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   5120x2160 @ 50.000 Hz
+[   20.466952] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   4096x2160 @ 50.000 Hz
+[   20.469332] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   3840x2160 @ 60.000 Hz
+[   20.472106] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   3840x2160 @ 59.940 Hz
+[   20.474391] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   3840x2160 @ 50.000 Hz
+[   20.476667] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1920x1440 @ 60.000 Hz
+[   20.478945] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   2560x1080 @ 50.000 Hz
+[   20.481586] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1856x1392 @ 59.995 Hz
+[   20.485281] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1792x1344 @ 60.000 Hz
+[   20.493102] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   2048x1152 @ 60.000 Hz
+[   20.499586] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1920x1200 @ 59.885 Hz
+[   20.504290] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1920x1080 @ 60.000 Hz
+[   20.511356] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1920x1080 @ 50.000 Hz
+[   20.513778] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1600x1200 @ 60.000 Hz
+[   20.516128] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1680x1050 @ 59.954 Hz
+[   20.520916] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1400x1050 @ 59.978 Hz
+[   20.524910] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1280x1024 @ 60.020 Hz
+[   20.528035] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1440x900 @ 59.887 Hz
+[   20.534358] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1280x960 @ 60.000 Hz
+[   20.540274] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1360x768 @ 60.015 Hz
+[   20.546433] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1280x768 @ 59.870 Hz
+[   20.548789] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   1024x768 @ 60.004 Hz
+[   20.553592] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   800x600 @ 60.317 Hz
+[   20.556414] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   640x480 @ 60.000 Hz
+[   20.560753] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1670]   640x480 @ 59.940 Hz
+[   20.563331] cage[751]: 00:00:01.188 [INFO] [util/env.c:9] Loading WLR_NO_HARDWARE_CURSORS option: 1
+[   20.567106] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1707] Physical size: 400x220
+[   20.572293] cage[751]: 00:00:01.188 [INFO] [backend/drm/drm.c:1895] connector Virtual-1: Requesting modeset
+[   20.577722] cage[751]: 00:00:01.216 [INFO] [backend/drm/drm.c:980] connector Virtual-1: Modesetting with 1600x900 @ 74.999 Hz
+[   21.357201] systemd[760]: Created slice User Core Session Slice.
+[   21.360133] systemd[760]: Starting D-Bus User Message Bus...
+[   21.427808] dbus-broker-launch[800]: Policy to allow eavesdropping in /usr/share/dbus-1/session.conf +31: Eavesdropping is deprecated and ignored
+[   21.431872] dbus-broker-launch[800]: Policy to allow eavesdropping in /usr/share/dbus-1/session.conf +33: Eavesdropping is deprecated and ignored
+[   21.435192] systemd[760]: Started D-Bus User Message Bus.
+[   21.439428] dbus-broker-launch[800]: Ready
+[   21.473963] systemd[760]: Starting Portal service...
+[   21.627849] systemd[760]: Starting sandboxed app permission store...
+[   21.692829] systemd[760]: Started sandboxed app permission store.
+[   21.720087] systemd[760]: Starting flatpak document portal service...
+[   21.768291] systemd[760]: Started flatpak document portal service.
+[   21.806962] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.Lockdown as a last-resort fallback[0m
+[   21.838594] systemd[760]: Starting Portal service (GTK/GNOME implementation)...
+[   22.002737] systemd[760]: Starting Virtual filesystem service...
+[   22.118180] systemd[760]: Started Virtual filesystem service.
+[   22.233319] systemd[760]: Starting Accessibility services bus...
+[   22.296640] systemd[760]: Started Accessibility services bus.
+[   22.341314] dbus-broker-launch[853]: Ready
+[   22.428943] ModemManager[728]: [0;1;39m<msg> [base-manager] couldn't check support for device '/sys/devices/pci0000:00/0000:00:04.0': not supported by any plugin[0m
+[   22.481454] systemd[760]: Created slice Slice /app/dbus-:1.12-org.a11y.atspi.Registry.
+[   22.491719] systemd[760]: Started dbus-:1.12-org.a11y.atspi.Registry@0.service.
+[   22.566387] at-spi2-registryd[855]: SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=e9c08c11927e4af3a7fa3a79b7e5b255;user=root;hostname=GhostCat;machineid=069ab4a6faa74e2b991f9396a649ffe2;bootid=8e2caf94138645c783158d469425da9b;pid=754;pidfdid=4458;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=2b47f8ad80334376ae247924fa15a9f8;type=service\P+q6E616D65\[   24.680434] pacman-key[782]: ==> Appending keys from blackarch.gpg...
+[   25.557826] pacman-key[782]: ==> Locally signing trusted keys in keyring...
+[   25.722902] systemd[760]: Started Portal service (GTK/GNOME implementation).
+[   25.734867] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.Access as a last-resort fallback[0m
+[   25.762522] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mFailed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable[0m
+[   25.769056] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mFailed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable[0m
+[   25.775835] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mFailed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable[0m
+[   25.783986] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.Settings as a last-resort fallback[0m
+[   25.789719] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.FileChooser as a last-resort fallback[0m
+[   25.795888] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.AppChooser as a last-resort fallback[0m
+[   25.800612] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.Print as a last-resort fallback[0m
+[   25.808458] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.Notification as a last-resort fallback[0m
+[   25.812770] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.Inhibit as a last-resort fallback[0m
+
+[1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
+
+GhostCat login: [   25.866135] systemd[760]: Started PipeWire Multimedia Service.
+[   25.871088] systemd[760]: Started Multimedia Service Session Manager.
+[   25.926829] pipewire[957]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown[0m
+[   25.931092] pipewire[957]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit does not give us MaxRealtimePriority, using 1[0m
+[   25.944225] pipewire[957]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown[0m
+[   25.944349] pipewire[957]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit does not give us MinNiceLevel, using 0[0m
+[   25.949299] pipewire[957]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown[0m
+[   25.949412] pipewire[957]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit does not give us RTTimeUSecMax, using -1[0m
+[   25.960095] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.Account as a last-resort fallback[0m
+[   25.965231] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.Email as a last-resort fallback[0m
+[   25.969869] /usr/lib/xdg-desktop-portal[804]: [0;1;33m[0;1;38:5:185mChoosing gtk.portal for org.freedesktop.impl.portal.DynamicLauncher as a last-resort fallback[0m
+[   25.976591] systemd[760]: Started Portal service.
+[   25.978614] wireplumber[958]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown[0m
+[   25.978756] wireplumber[958]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit does not give us MaxRealtimePriority, using 1[0m
+[   25.981262] wireplumber[958]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown[0m
+[   25.981414] wireplumber[958]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit does not give us MinNiceLevel, using 0[0m
+[   25.981766] wireplumber[958]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown[0m
+[   25.982377] wireplumber[958]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit does not give us RTTimeUSecMax, using -1[0m
+[   26.000238] python3[797]: [0;1;33m[0;1;38:5:185mFailed to read portal settings: GDBus.Error:org.freedesktop.DBus.Error.AccessDenied: Portal operation not allowed: Unable to open /proc/797/root[0m
+[   26.416555] wireplumber[958]: [0;1;33m[0;1;38:5:185mdefault: Failed to get percentage from UPower: org.freedesktop.DBus.Error.NameHasNoOwner[0m
+[   26.425077] wireplumber[958]: [0;1;33m[0;1;38:5:185mspa.bluez5: BlueZ system service is not available[0m
+[   26.476333] wireplumber[958]: [0;1;39mwp-device: SPA handle 'api.libcamera.enum.manager' could not be loaded: No such file or directory[0m
+[   26.476621] wireplumber[958]: [0;1;39ms-monitors-libcamera: PipeWire's libcamera SPA plugin is missing or broken. Some camera types may not be supported.[0m
+[   26.862305] cage[1008]: bwrap: Unexpected capabilities but not setuid, old file caps config?
+[   26.862588] ghostcat_setup.py[797]: [0;1;31mFailed to fully launch dbus-proxy: Child process exited with code 1[0m
+[   26.869271] (coredump-worker)[1009]: Process 797 (python3) of user 1000 terminated abnormally with signal 6/ABRT, processing...
+[   27.122324] pacman-key[782]:   -> Locally signed 9 keys.
+[   27.123518] pacman-key[782]: ==> Importing owner trust values...
+[   27.128079] pacman-key[1017]: gpg: setting ownertrust to 4
+[   27.128161] pacman-key[1017]: gpg: setting ownertrust to 4
+[   27.128533] pacman-key[1017]: gpg: setting ownertrust to 4
+[   27.128833] pacman-key[1017]: gpg: inserting ownertrust of 4
+[   27.131477] pacman-key[1017]: gpg: setting ownertrust to 4
+[   27.134676] pacman-key[1018]: gpg: setting ownertrust to 4
+[   27.134748] pacman-key[1018]: gpg: setting ownertrust to 4
+[   27.135377] pacman-key[1018]: gpg: setting ownertrust to 4
+[   27.135748] pacman-key[1018]: gpg: setting ownertrust to 4
+[   27.140791] pacman-key[782]: ==> Disabling revoked keys in keyring...
+[   27.267921] (coredump-worker)[1009]: [0;1;31mCannot store coredump of 797 (python3): No space left on device[0m
+[   27.313720] (coredump-worker)[1009]: [0;1;31mProcess 797 (python3) of user 1000 terminated abnormally without generating a coredump.[0m
+[   27.343805] xdg-desktop-portal-gtk[824]: [0;1;39mLost connection to Wayland compositor.[0m
+[   27.358237] systemd[760]: [0;1;39mxdg-desktop-portal-gtk.service: Main process exited, code=exited, status=1/FAILURE[0m
+[   27.358449] systemd[760]: [0;1;33m[0;1;38:5:185mxdg-desktop-portal-gtk.service: Failed with result 'exit-code'.[0m
+[   27.368052] systemd[760]: xdg-desktop-portal-gtk.service: Consumed 1.749s CPU time over 5.519s wall clock time, 262.4M memory peak.
+[   27.485566] systemd[1]: [0;1;39mghostcat-firstrun.service: Main process exited, code=exited, status=134/n/a[0m
+[   27.486974] systemd[1]: [0;1;33m[0;1;38:5:185mghostcat-firstrun.service: Failed with result 'exit-code'.[0m
+[   27.490081] systemd[1]: [0;1;31mFailed to start GhostCat Setup (premier démarrage).[0m
+[   27.529104] systemd[1]: session-1.scope: Deactivated successfully.
+[   27.529359] systemd[1]: [0;1;39msession-1.scope: Consumed 3.432s CPU time over 8.305s wall clock time, 708.7M memory peak.[0m
+[   27.536655] systemd-logind[661]: Session 1 logged out. Waiting for processes to exit.
+[   27.536990] systemd[1]: Starting GNOME Display Manager...
+[   27.537638] systemd-logind[661]: Removed session 1.
+[   27.609121] pacman-key[782]:   -> Disabled 39 keys.
+[   27.614203] systemd[1]: Started GNOME Display Manager.
+[   27.614347] systemd[1]: Open Virtual Machine Tools (VMware Tools) skipped, unmet condition check ConditionVirtualization=vmware
+[   27.618305] pacman-key[782]: ==> Updating trust database...
+[   27.627230] pacman-key[1162]: gpg: Note: third-party key signatures using the SHA1 algorithm are rejected
+[   27.627484] pacman-key[1162]: gpg: (use option "--allow-weak-key-signatures" to override)
+[   27.636563] (udev-worker)[980]: [0;1;33m[0;1;38:5:185msr0: Process '/usr/sbin/pktsetup -i -d 11:0' failed with exit code 1.[0m
+[   27.655500] systemd[1]: Starting Accounts Service...
+[   27.655690] systemd[1]: Load Kernel Module loop skipped, unmet condition check ConditionKernelModuleLoaded=!loop
+[   27.660199] systemd[1]: Starting Attach File /sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/block/sr0 to Loopback Block Device...
+[   27.682706] pacman-key[1162]: gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+[   27.693561] nfsrahead[1166]: skipping non-NFS device 7:1
+[   27.720996] systemd-dissect[1164]: [0;1;31m/dev/sr0: No suitable partitions found.[0m
+[   27.744719] pacman-key[1162]: gpg: depth: 0  valid:   1  signed:   9  trust: 0-, 0q, 0n, 0m, 0f, 1u
+[   27.765454] systemd[1]: [0;1;39msystemd-loop@sys-devices-pci0000:00-0000:00:01.1-ata2-host1-target1:0:0-1:0:0:0-block-sr0.service: Main process exited, code=exited, status=1/FAILURE[0m
+[   27.774680] systemd-homed[660]: block device /sys/devices/virtual/block/loop1/loop1p1 has been removed.
+[   27.774809] systemd-homed[660]: block device /sys/devices/virtual/block/loop1/loop1p2 has been removed.
+[   27.780048] systemd[1]: [0;1;33m[0;1;38:5:185msystemd-loop@sys-devices-pci0000:00-0000:00:01.1-ata2-host1-target1:0:0-1:0:0:0-block-sr0.service: Failed with result 'exit-code'.[0m
+[   27.784875] systemd[1]: [0;1;31mFailed to start Attach File /sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/block/sr0 to Loopback Block Device.[0m
+[   27.796578] systemd-homed[660]: block device /sys/devices/virtual/block/loop1 has been removed.
+[   27.801067] pacman-key[1162]: gpg: depth: 1  valid:   9  signed:  88  trust: 0-, 0q, 0n, 9m, 0f, 0u
+[   27.809785] accounts-daemon[1163]: [0;1;33m[0;1;38:5:185mUnable to open /etc/tcb: No such file or directory[0m
+[   27.826969] accounts-daemon[1163]: started daemon version 26.27.3
+[   27.830902] pacman-key[1162]: gpg: depth: 2  valid:  78  signed:  18  trust: 78-, 0q, 0n, 0m, 0f, 0u
+[   27.836517] pacman-key[1162]: gpg: next trustdb check due at 2026-12-31
+[   27.836689] systemd[1]: Started Accounts Service.
+[   27.837089] systemd[1]: Finished Initializes Pacman keyring.
+[   27.837296] systemd[1]: Reached target Multi-User System.
+[   27.837633] systemd[1]: Reached target Graphical Interface.
+[   27.851908] systemd[1]: Startup finished in 3.410s (kernel) + 24.440s (userspace) = 27.851s.
+[   27.944950] gdm-autologin][1174]: pam_unix(gdm-autologin:session): session opened for user ghost(uid=1000) by ghost(uid=0)
+[   27.955965] systemd-logind[661]: New session '3' of user 'ghost' with class 'user' and type 'wayland'.
+[   27.960339] systemd[1]: Started Session 3 of User ghost.
+[   27.965253] systemd[760]: Started GNOME Keyring daemon.
+[   27.998206] gnome-keyring-daemon[1181]: GNOME_KEYRING_CONTROL=/run/user/1000/keyring
+[   28.003901] gdm-autologin][1174]: [0;1;31mgkr-pam: couldn't unlock the login keyring.[0m
+[   28.074199] (udev-worker)[980]: [0;1;33m[0;1;38:5:185msr0: Process '/usr/sbin/pktsetup -i -d 11:0' failed with exit code 1.[0m
+[   28.091144] systemd[1]: Load Kernel Module loop skipped, unmet condition check ConditionKernelModuleLoaded=!loop
+[   28.100491] wireplumber[958]: [0;1;33m[0;1;38:5:185mdefault: Failed to get percentage from UPower: org.freedesktop.DBus.Error.NameHasNoOwner[0m
+[   28.105789] systemd[1]: Starting Attach File /sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/block/sr0 to Loopback Block Device...
+[   28.112431] wireplumber[958]: [0;1;39mwp-device: SPA handle 'api.libcamera.enum.manager' could not be loaded: No such file or directory[0m
+[   28.117339] wireplumber[958]: [0;1;39ms-monitors-libcamera: PipeWire's libcamera SPA plugin is missing or broken. Some camera types may not be supported.[0m
+[   28.127718] wireplumber[958]: [0;1;33m[0;1;38:5:185mspa.bluez5: BlueZ system service is not available[0m
+[   28.134061] nfsrahead[1206]: skipping non-NFS device 7:1
+[   28.146467] systemd-dissect[1200]: [0;1;31m/dev/sr0: No suitable partitions found.[0m
+[   28.187759] systemd-homed[660]: block device /sys/devices/virtual/block/loop1/loop1p1 has been removed.
+[   28.189077] systemd-homed[660]: block device /sys/devices/virtual/block/loop1/loop1p2 has been removed.
+[   28.206798] systemd-homed[660]: block device /sys/devices/virtual/block/loop1 has been removed.
+[   28.214596] systemd[1]: [0;1;39msystemd-loop@sys-devices-pci0000:00-0000:00:01.1-ata2-host1-target1:0:0-1:0:0:0-block-sr0.service: Main process exited, code=exited, status=1/FAILURE[0m
+[   28.214749] systemd[1]: [0;1;33m[0;1;38:5:185msystemd-loop@sys-devices-pci0000:00-0000:00:01.1-ata2-host1-target1:0:0-1:0:0:0-block-sr0.service: Failed with result 'exit-code'.[0m
+[   28.215423] systemd[1]: [0;1;31mFailed to start Attach File /sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/block/sr0 to Loopback Block Device.[0m
+[   28.264641] gnome-session-i[1191]: [0;1;39mStarting GNOME session target: gnome-session@gnome.target[0m
+[   28.310924] systemd[760]: Created slice Slice /app/gnome-session-manager.
+[   28.312966] systemd[760]: Created slice User Background Tasks Slice.
+[   28.314898] systemd[760]: Starting GCR ssh-agent wrapper...
+[   28.317089] systemd[760]: Starting Monitor Session leader for GNOME Session...
+[   28.321086] systemd[760]: Starting User folders update...
+[   28.342221] systemd[760]: Listening on GCR ssh-agent wrapper.
+[   28.345507] systemd[760]: Finished User folders update.
+[   28.348320] systemd[760]: Reached target Session services which should run early before the graphical session is brought up.
+[   28.351481] systemd[760]: Started Monitor Session leader for GNOME Session.
+[   28.353503] systemd[760]: Reached target Tasks to be run before GNOME Session starts.
+[   28.355618] systemd[760]: Starting GNOME Session Manager (session: gnome)...
+[   28.409513] gnome-session-service[1226]: [0;1;33m[0;1;38:5:185mApp at-spi-dbus-bus.desktop sets X-GNOME-Autostart-Phase, but gnome-session no longer manages session services[0m
+[   28.409753] gnome-session-service[1226]: [0;1;33m[0;1;38:5:185mApp ghostcat-session-start.desktop sets X-GNOME-Autostart-Phase, but gnome-session no longer manages session services[0m
+[   28.410764] gnome-session-service[1226]: [0;1;33m[0;1;38:5:185mApp gnome-keyring-pkcs11.desktop sets X-GNOME-Autostart-Phase, but gnome-session no longer manages session services[0m
+[   28.411346] gnome-session-service[1226]: [0;1;33m[0;1;38:5:185mApp gnome-keyring-secrets.desktop sets X-GNOME-Autostart-Phase, but gnome-session no longer manages session services[0m
+[   28.428364] gnome-session-service[1226]: [0;1;33m[0;1;38:5:185mApp xdg-user-dirs.desktop sets X-GNOME-Autostart-Phase, but gnome-session no longer manages session services[0m
+[   28.434444] systemd[760]: Started GNOME Session Manager (session: gnome).
+[   28.438332] systemd[760]: Reached target GNOME Session Manager is ready.
+[   28.440550] systemd[760]: Starting GNOME Shell...
+[   28.587665] accounts-daemon[1163]: [0;1;33m[0;1;38:5:185mUnable to open /etc/tcb: No such file or directory[0m
+[   28.647448] gnome-shell[1232]: [0;1;39mRunning GNOME Shell (using mutter 51.1) as a Wayland display server[0m
+[   29.006584] gnome-shell[1232]: [0;1;33m[0;1;38:5:185mFailed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist[0m
+[   29.006958] gnome-shell[1232]: [0;1;33m[0;1;38:5:185mFailed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist[0m
+[   29.007498] gnome-shell[1232]: [0;1;39mThread 'KMS thread' will be using high priority scheduling[0m
+[   29.106742] gnome-shell[1232]: [0;1;39mAdded device '/dev/dri/card1' (virtio_gpu) using atomic mode setting.[0m
+[   29.110642] gnome-shell[1232]: [0;1;39mFailed to initialize accelerated iGPU/dGPU framebuffer sharing: Not hardware accelerated[0m
+[   29.110737] gnome-shell[1232]: [0;1;39mCreated gbm renderer for '/dev/dri/card1'[0m
+[   29.111409] gnome-shell[1232]: [0;1;39mBoot VGA GPU /dev/dri/card1 selected as primary[0m
+[   29.419482] gnome-shell[1232]: [0;1;39mUsing public X11 display :0, (using unix:/tmp/.X11-unix/X1 for managed services)[0m
+[   29.419678] gnome-shell[1232]: [0;1;39mUsing Wayland display name 'wayland-0'[0m
+[   29.575275] systemd[1]: Starting Manage, Install and Generate Color Profiles...
+[   29.643951] systemd[1]: Started Manage, Install and Generate Color Profiles.
+[   30.106233] dbus-broker-launch[654]: [0;1;33m[0;1;38:5:185mActivation request for 'org.freedesktop.Avahi' failed: The systemd unit 'dbus-org.freedesktop.Avahi.service' could not be found.[0m
+[   30.299595] gnome-shell[1232]: [0;1;39mUnset XDG_SESSION_ID, getCurrentSessionProxy() called outside a user session. Asking logind directly.[0m
+[   30.346836] systemd[760]: Created slice Slice /app/dbus-:1.2-org.gnome.Shell.Screencast.
+[   30.349769] systemd[760]: Started dbus-:1.2-org.gnome.Shell.Screencast@0.service.
+[   30.439164] systemd[760]: Created slice Slice /app/dbus-:1.2-org.gnome.Shell.CalendarServer.
+[   30.444624] systemd[760]: Started dbus-:1.2-org.gnome.Shell.CalendarServer@0.service.
+[   30.595410] gnome-shell[1232]: [0;1;39mRegistering session with GDM[0m
+[   30.610308] systemd[1]: Starting Daemon for power management...
+[   30.623793] systemd[760]: Starting Evolution source registry...
+[   30.636280] systemd[760]: Created slice Slice /app/dbus-:1.2-org.gnome.Shell.Notifications.
+[   30.646189] systemd[760]: Started dbus-:1.2-org.gnome.Shell.Notifications@0.service.
+[   30.728425] systemd[760]: Started GNOME Shell.
+[   30.730144] systemd[760]: Reached target GNOME Session is initialized.
+[   30.734524] systemd[760]: Reached target GNOME basic session services.
+[   30.736420] systemd[760]: Reached target GNOME session services.
+[   30.744220] systemd[760]: Reached target GNOME Session (session: gnome).
+[   30.755569] systemd[760]: Starting Signal initialization done to GNOME Session Manager...
+[   30.771210] systemd[760]: Starting IBus Daemon for GNOME...
+[   30.782941] systemd[760]: Starting GNOME accessibility service...
+[   30.799815] systemd[760]: Starting GNOME color management service...
+[   30.811350] systemd[760]: Starting GNOME date & time service...
+[   30.821755] systemd[760]: Starting GNOME maintenance of expirable data service...
+[   30.859700] systemd[760]: Starting GNOME keyboard configuration service...
+[   30.866887] systemd[760]: Starting GNOME keyboard shortcuts service...
+[   30.901859] systemd[1]: Started Daemon for power management.
+[   30.911466] systemd[760]: Starting GNOME power management service...
+[   30.926677] systemd[760]: Starting GNOME printer notifications service...
+[   30.939149] systemd[760]: Starting GNOME RFKill support service...
+[   30.948853] systemd[760]: Starting GNOME FreeDesktop screensaver service...
+[   30.963111] systemd[760]: Starting GNOME file sharing service...
+[   30.972111] systemd[760]: Starting GNOME smartcard service...
+[   30.978350] systemd[760]: Starting GNOME sound sample caching service...
+[   30.983802] gnome-session-service[1226]: [0;1;39mEntering running state[0m
+[   31.017673] systemd[760]: Starting GNOME USB protection service...
+[   31.029748] systemd[760]: Starting GNOME WWan support service...
+[   31.043547] systemd[760]: Finished Signal initialization done to GNOME Session Manager.
+[   31.069215] systemd[1]: Starting Disk Manager...
+[   31.088291] vmware-user.desktop[1340]: vmware-user: could not open /proc/fs/vmblock/dev
+[   31.163181] gnome-session-service[1226]: [0;1;33m[0;1;38:5:185mCould not create transient scope for PID 1334: GDBus.Error:org.freedesktop.DBus.Error.UnixProcessIdUnknown: Failed to set unit properties: No such process[0m
+[   31.169502] systemd[760]: Started Application launched by gnome-session-service.
+[   31.245920] systemd[760]: Started GNOME color management service.
+[   31.251930] systemd[760]: Reached target GNOME color management target.
+[   31.263484] systemd[760]: Started GNOME date & time service.
+[   31.268221] systemd[760]: Reached target GNOME date & time target.
+[   31.279985] systemd[760]: Started GNOME maintenance of expirable data service.
+[   31.288978] systemd[760]: Reached target GNOME maintenance of expirable data target.
+[   31.291292] systemd[760]: Started GNOME accessibility service.
+[   31.293682] systemd[760]: Reached target GNOME accessibility target.
+[   31.344539] systemd[760]: Started GNOME keyboard configuration service.
+[   31.355810] systemd[760]: Reached target GNOME keyboard configuration target.
+[   31.370213] systemd[760]: Started GNOME file sharing service.
+[   31.398428] systemd[1]: Starting Locale Service...
+[   31.456581] systemd[760]: Started GNOME smartcard service.
+[   31.460142] systemd[760]: Started GNOME FreeDesktop screensaver service.
+[   31.511989] systemd[1]: Started Disk Manager.
+[   31.538060] systemd[760]: Started GNOME printer notifications service.
+[   31.547260] systemd[760]: Started GNOME RFKill support service.
+[   31.552472] systemd[760]: Started GNOME USB protection service.
+[   31.554771] systemd[760]: Started GNOME WWan support service.
+[   31.557957] systemd[760]: Reached target GNOME printer notifications target.
+[   31.566444] systemd[760]: Reached target GNOME RFKill support target.
+[   31.568663] systemd[760]: Reached target GNOME FreeDesktop screensaver target.
+[   31.577893] systemd[760]: Reached target GNOME file sharing target.
+[   31.584345] systemd[760]: Reached target GNOME smartcard target.
+[   31.593129] systemd[760]: Reached target GNOME USB protection target.
+[   31.597861] systemd[760]: Reached target GNOME WWan support target.
+[   31.600086] systemd[760]: Started GNOME power management service.
+[   31.605306] systemd[760]: Reached target GNOME power management target.
+[   31.634062] systemd[760]: Created slice Slice /app/dbus-:1.2-org.gnome.ScreenSaver.
+[   31.652288] systemd[760]: Started dbus-:1.2-org.gnome.ScreenSaver@0.service.
+[   31.668528] systemd[760]: Started GNOME sound sample caching service.
+[   31.675289] systemd[760]: Reached target GNOME sound sample caching target.
+[   31.725565] systemd[760]: Started GNOME keyboard shortcuts service.
+[   31.750697] systemd[760]: Reached target GNOME keyboard shortcuts target.
+[   31.764682] systemd[1]: Started Locale Service.
+[   31.779426] gsd-keyboard[1310]: [0;1;33m[0;1;38:5:185mg_variant_unref: assertion 'value != NULL' failed[0m
+[   31.812695] systemd[760]: Starting User preferences database...
+[   31.851916] systemd[760]: Created slice Slice /app/dbus-:1.2-org.gnome.OnlineAccounts.
+[   31.856839] systemd[760]: Started dbus-:1.2-org.gnome.OnlineAccounts@0.service.
+[   31.919269] systemd[760]: Started User preferences database.
+[   31.935635] systemd[760]: Started PipeWire PulseAudio.
+[   32.045445] systemd[760]: Started IBus Daemon for GNOME.
+[   32.049284] systemd[760]: Reached target GNOME Session.
+[   32.050915] systemd[760]: Reached target Current graphical user session.
+[   32.062107] systemd[760]: Starting Event and Task Reminders...
+[   32.068247] systemd[760]: Starting GNOME Software...
+[   32.071294] goa-daemon[1477]: [0;1;39mgoa-daemon version 3.58.1 starting[0m
+[   32.083528] systemd[760]: Starting LocalSearch indexer...
+[   32.085873] systemd[760]: Started User folders update.
+[   32.096064] systemd[760]: Created slice Slice /app/dbus-:1.2-org.freedesktop.portal.IBus.
+[   32.099295] systemd[760]: Started dbus-:1.2-org.freedesktop.portal.IBus@0.service.
+[   32.137200] systemd[760]: Created slice Slice /app/dbus-:1.2-org.gnome.Identity.
+[   32.140551] systemd[760]: Started dbus-:1.2-org.gnome.Identity@0.service.
+[   32.160875] pipewire-pulse[1489]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown[0m
+[   32.167907] pipewire-pulse[1489]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit does not give us MaxRealtimePriority, using 1[0m
+[   32.170931] pipewire-pulse[1489]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown[0m
+[   32.173989] pipewire-pulse[1489]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit does not give us MinNiceLevel, using 0[0m
+[   32.178059] pipewire-pulse[1489]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown[0m
+[   32.183274] pipewire-pulse[1489]: [0;1;33m[0;1;38:5:185mmod.rt: RTKit does not give us RTTimeUSecMax, using -1[0m
+[   32.300336] systemd[760]: Started LocalSearch indexer.
+[   32.397565] systemd[760]: Started GNOME Software.
+[   32.471775] systemd[760]: Started Evolution source registry.
+[   32.492290] systemd[760]: Starting Portal service (GTK/GNOME implementation)...
+[   32.511863] gnome-shell[1232]: [0;1;39mWill monitor session 3[0m
+[   32.582876] systemd[760]: Started Event and Task Reminders.
+[   32.591624] systemd[760]: Starting Evolution calendar service...
+[   32.636644] gnome-shell[1232]: [0;1;39mError looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation[0m
+[   32.662688] gsd-usb-protection[1343]: [0;1;33m[0;1;38:5:185mFailed to fetch USBGuard parameters: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable[0m
+[   32.794890] systemd[760]: Started Evolution calendar service.
+[   32.836190] systemd[760]: Starting Evolution address book service...
+[   32.885816] systemd[760]: Starting Virtual filesystem metadata service...
+[   32.963539] systemd[760]: Started Virtual filesystem metadata service.
+[   33.055594] systemd[760]: Started Evolution address book service.
+[   33.084570] systemd[1]: Starting Parental Controls Timer Daemon...
+[   33.177442] systemd[760]: Starting Virtual filesystem service - disk device monitor...
+[   33.250115] systemd[760]: Started Virtual filesystem service - disk device monitor.
+[   33.254658] systemd[1]: Started Parental Controls Timer Daemon.
+[   33.289931] systemd[760]: Starting Virtual filesystem service - Media Transfer Protocol monitor...
+[   33.341553] gsd-media-keys[1311]: [0;1;33m[0;1;38:5:185mFailed to grab accelerator for keybinding settings:playback-repeat[0m
+[   33.341723] gsd-media-keys[1311]: [0;1;33m[0;1;38:5:185mFailed to grab accelerator for keybinding settings:hibernate[0m
+[   33.389044] gsd-power[1320]: [0;1;33m[0;1;38:5:185mgsd_power_backlight_abs_to_percentage: assertion 'max > min' failed[0m
+[   33.393870] systemd[760]: Started Virtual filesystem service - Media Transfer Protocol monitor.
+[   33.406916] systemd[760]: Starting Virtual filesystem service - digital camera monitor...
+[   33.449407] systemd[760]: Started Virtual filesystem service - digital camera monitor.
+[   33.462525] systemd[760]: Starting Virtual filesystem service - GNOME Online Accounts monitor...
+[   33.493839] systemd[760]: Started Virtual filesystem service - GNOME Online Accounts monitor.
+[   33.510524] systemd[760]: Starting Virtual filesystem service - Apple File Conduit monitor...
+[   33.538438] systemd[760]: Started Virtual filesystem service - Apple File Conduit monitor.
+[   33.584873] localsearch-3[1508]: [0;1;33m[0;1;38:5:185mCould not get file handle for '/home/ghost': Operation not supported[0m
+[   33.593557] localsearch-3[1508]: [0;1;33m[0;1;38:5:185mCould not get file handle for '/home/ghost/Desktop': Operation not supported[0m
+[   33.600492] localsearch-3[1508]: [0;1;33m[0;1;38:5:185mCould not get file handle for '/home/ghost/Downloads': Operation not supported[0m
+[   33.603853] localsearch-3[1508]: [0;1;33m[0;1;38:5:185mCould not get file handle for '/home/ghost/Templates': Operation not supported[0m
+[   33.607539] localsearch-3[1508]: [0;1;33m[0;1;38:5:185mCould not get file handle for '/home/ghost/Public': Operation not supported[0m
+[   33.607641] localsearch-3[1508]: [0;1;33m[0;1;38:5:185mCould not get file handle for '/home/ghost/Documents': Operation not supported[0m
+[   33.608695] localsearch-3[1508]: [0;1;33m[0;1;38:5:185mCould not get file handle for '/home/ghost/Music': Operation not supported[0m
+[   33.624799] localsearch-3[1508]: [0;1;33m[0;1;38:5:185mCould not get file handle for '/home/ghost/Pictures': Operation not supported[0m
+[   33.624956] localsearch-3[1508]: [0;1;33m[0;1;38:5:185mCould not get file handle for '/home/ghost/Videos': Operation not supported[0m
+[   33.630870] localsearch-3[1508]: [0;1;33m[0;1;38:5:185mCould not get file handle for '/home/ghost/Projects': Operation not supported[0m
+[   34.340435] gnome-shell[1232]: [0;1;33m[0;1;38:5:185mFailed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist[0m
+[   34.356777] gnome-shell[1232]: [0;1;39mGNOME Shell started at Sun Nov 15 2026 17:52:06 GMT+0000 (Coordinated Universal Time)[0m
+[   34.358705] gnome-shell[1232]: [0;1;39mRegistering display with GDM[0m
+[   34.402130] NetworkManager[656]: <info>  [1794765130.5319] agent-manager: agent[1cf98220f8c21cac,:1.37/org.gnome.Shell.NetworkAgent/1000]: agent registered
+[   35.127305] systemd[760]: Started Portal service (GTK/GNOME implementation).
+[   36.133860] systemd[1]: Starting Location Lookup Service...
+[   36.211171] gsd-power[1320]: [0;1;33m[0;1;38:5:185mgsd_power_backlight_abs_to_percentage: assertion 'max > min' failed[0m
+[   36.308252] systemd[1]: Starting WPA supplicant...
+[   36.449934] systemd[1]: Started WPA supplicant.
+[   36.454525] wpa_supplicant[1785]: [0;1;39mSuccessfully initialized wpa_supplicant[0m
+[   36.467613] geoclue[1743]: [0;1;33m[0;1;38:5:185mFailed to connect to avahi service: Daemon not running[0m
+[   36.482502] systemd[1]: Started Location Lookup Service.
+[   37.073475] gnome-software[1500]: [0;1;33m[0;1;38:5:185mFailed to load /usr/lib/gnome-software/plugins-23/libgs_plugin_fwupd.so: failed to open plugin /usr/lib/gnome-software/plugins-23/libgs_plugin_fwupd.so: libfwupd.so.3: cannot open shared object file: No such file or directory[0m
+[   37.102365] systemd[760]: Created slice Slice /app/dbus-:1.2-org.gnome.Epiphany.WebAppProvider.
+[   37.112645] systemd[760]: Started dbus-:1.2-org.gnome.Epiphany.WebAppProvider@0.service.
+[   37.159415] systemd[1]: Starting flatpak system helper...
+[   37.233962] systemd[1]: Started flatpak system helper.
+[   37.622472] systemd[760]: Created slice Slice /app/dbus-:1.2-org.freedesktop.FileManager1.
+[   37.630601] systemd[760]: Started dbus-:1.2-org.freedesktop.FileManager1@0.service.
+[   37.862451] org.gnome.Nautilus[1851]: [0;1;39mConnecting to org.freedesktop.Tracker3.Miner.Files[0m
+[   38.131354] gnome-shell[1232]: [0;1;33m[0;1;38:5:185mCouldn't parse family in font property[0m
+[   38.685918] systemd[760]: dbus-:1.2-org.gnome.Shell.Screencast@0.service: Consumed 1.262s CPU time over 8.334s wall clock time, 104.5M memory peak.
+[   39.453636] systemd[760]: Created slice Slice /app/dbus-:1.2-org.gnome.NautilusPreviewer.
+[   39.456362] systemd[760]: Started dbus-:1.2-org.gnome.NautilusPreviewer@0.service.
+[   39.816658] org.gnome.NautilusPreviewer[1976]: MESA-EGL: warning: failed to get driver name for fd -1
+[   39.820637] org.gnome.NautilusPreviewer[1976]: MESA-EGL: warning: MESA-LOADER: failed to retrieve device information
+[   39.823597] org.gnome.NautilusPreviewer[1976]: MESA-EGL: warning: failed to get driver name for fd -1
+[   39.828585] org.gnome.NautilusPreviewer[1976]: MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+[   39.831791] org.gnome.NautilusPreviewer[1976]: MESA-EGL: warning: egl: failed to create dri2 screen
+[   41.002549] accounts-daemon[1163]: [0;1;33m[0;1;38:5:185mUnable to open /etc/tcb: No such file or directory[0m
+[   43.772891] gnome-software[1500]: [0;1;33m[0;1;38:5:185mOnly 0 apps for recent list, hiding[0m
+[   43.777373] gnome-software[1500]: [0;1;33m[0;1;38:5:185mOnly 0 apps for curated list, hiding[0m
+[   43.780132] gnome-software[1500]: [0;1;33m[0;1;38:5:185mfailed to get featured apps: no apps to show[0m
+[   43.793201] gnome-software[1500]: [0;1;33m[0;1;38:5:185mupdates-shell: failed to get upgrades: no plugin could handle listing distro upgrades[0m
+[   50.507895] systemd[760]: dbus-:1.2-org.gnome.NautilusPreviewer@0.service: Consumed 1.064s CPU time over 11.051s wall clock time, 76.7M memory peak.
+[   61.985928] systemd[1]: systemd-hostnamed.service: Deactivated successfully.
+[   63.101038] systemd[1]: systemd-localed.service: Deactivated successfully.
+[   64.006368] malcontent-timerd[1614]: [0;1;39mExiting due to reaching inactivity timeout[0m
+[   64.011725] systemd[1]: malcontent-timerd.service: Deactivated successfully.
+[   97.011341] geoclue[1743]: [0;1;39mService not used for 60 seconds. Shutting down..[0m
+[   97.018721] systemd[1]: geoclue.service: Deactivated successfully.
+[  179.563170] gsd-power[1320]: [0;1;33m[0;1;38:5:185mgsd_power_backlight_percentage_to_abs: assertion 'max > min' failed[0m
+[  179.565681] gsd-power[1320]: [0;1;33m[0;1;38:5:185mfailed to set dim kbd backlight to 30%: GDBus.Error:org.freedesktop.UPower.GeneralError: brightness value must be non-negative[0m
