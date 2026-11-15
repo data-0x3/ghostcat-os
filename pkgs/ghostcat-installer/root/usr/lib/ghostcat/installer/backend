@@ -198,7 +198,8 @@ def step_format(cfg):
 
 def squashfs_image():
     for base in ("/run/archiso/bootmnt", "/run/archiso/copytoram"):
-        for p in (f"{base}/ghostcat/x86_64/airootfs.sfs", f"{base}/arch/x86_64/airootfs.sfs", f"{base}/airootfs.sfs"):
+        for p in (f"{base}/ghostcat/x86_64/airootfs.sfs", f"{base}/arch/x86_64/airootfs.sfs", f"{base}/airootfs.sfs",
+                  f"{base}/x86_64/airootfs.sfs"):
             if os.path.isfile(p):
                 return p
     return None
@@ -240,6 +241,15 @@ def step_copy(cfg, w0, w):
     for f in ("x86_64/vmlinuz-linux", "amd-ucode.img", "intel-ucode.img"):
         if os.path.isfile(f"{boot}/{f}"):
             shutil.copy2(f"{boot}/{f}", f"{T}/boot/{os.path.basename(f)}")
+    if not os.path.isfile(f"{T}/boot/vmlinuz-linux"):
+        # live copié en mémoire (copytoram) : la clé n'est plus montée, mais le paquet
+        # linux garde une copie du noyau dans /usr/lib/modules/<version>/vmlinuz
+        import glob
+        for k in sorted(glob.glob(f"{T}/usr/lib/modules/*/vmlinuz")):
+            pkgbase = os.path.join(os.path.dirname(k), "pkgbase")
+            if not os.path.isfile(pkgbase) or open(pkgbase).read().strip() == "linux":
+                shutil.copy2(k, f"{T}/boot/vmlinuz-linux")
+                break
     if not os.path.isfile(f"{T}/boot/vmlinuz-linux"):
         raise Fail("noyau introuvable sur le support live")
 

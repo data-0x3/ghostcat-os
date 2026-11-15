@@ -110,15 +110,17 @@ def main():
             proc.stdin.write(data)
             proc.stdin.close()
             ok = False
+            failed = False
             for line in proc.stdout:
                 try:
                     msg = json.loads(line)
                 except ValueError:
                     continue
                 ok = ok or bool(msg.get("done"))
+                failed = failed or bool(msg.get("error"))
                 reply({"type": "backend", "data": msg})
             code = proc.wait()
-            if code != 0 and not ok:
+            if code != 0 and not ok and not failed:   # sinon la vraie raison est déjà affichée
                 reply({"type": "backend", "data": {"error": f"code {code}", "step": "finish"}})
             state["running"] = False
             if auto and ok:
