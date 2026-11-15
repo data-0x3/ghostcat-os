@@ -23,10 +23,11 @@
   <a class="mark" href="#top"><img src="assets/ghost.webp" alt="" width="28" height="28">GhostCat OS</a>
   <nav aria-label="Sections">
     <a href="#privacy" data-i18n="nav.privacy">Vie privée</a>
+    <a href="#distro" data-i18n="nav.distro">Distribution</a>
     <a href="#tools" data-i18n="nav.tools">Outils</a>
     <a href="#download" data-i18n="nav.download">Télécharger</a>
     <a href="#install" data-i18n="nav.install">Installer</a>
-    <a href="#faq">FAQ</a>
+    <a href="#source" data-i18n="nav.source">Code source</a>
   </nav>
   <div class="lang" role="group" aria-label="Langue">
     <button type="button" data-lang="fr" aria-pressed="true">FR</button>
@@ -72,6 +73,29 @@
     </ul>
   </section>
 
+  <section class="distro" id="distro" aria-labelledby="distro-title">
+    <h2 id="distro-title" data-i18n="distro.title">Une vraie distribution</h2>
+    <p class="distro-lead" data-i18n="distro.lead">GhostCat part d'Arch Linux, mais tout ce que tu vois vient de GhostCat : son dépôt de paquets, son installeur, son bureau et ses mises à jour.</p>
+    <dl class="features">
+      <div><dt data-i18n="f1.t">Installeur GhostCat</dt><dd data-i18n="f1.d">Choisis le disque, coche le chiffrement si tu veux, crée ton compte. Le système est copié depuis la clé, sans rien télécharger, et un disque externe démarre aussi sur un autre PC.</dd></div>
+      <div><dt data-i18n="f2.t">Instantanés de secours</dt><dd data-i18n="f2.d">Avant chaque mise à jour, GhostCat garde une copie du système. Si quelque chose casse, choisis l'état d'avant dans le menu de démarrage.</dd></div>
+      <div><dt data-i18n="f3.t">Mises à jour sûres</dt><dd data-i18n="f3.d"><code>ghostcat-update</code> lit d'abord les annonces d'Arch Linux, met à jour les clés de signature, puis tout le reste.</dd></div>
+      <div><dt data-i18n="f4.t">Bureau GhostCat</dt><dd data-i18n="f4.d">Un menu fantôme, un bouclier qui montre ta protection, le bureau qui apparaît en fondu et le message de bienvenue au premier lancement.</dd></div>
+      <div><dt data-i18n="f5.t">Mode fantôme</dt><dd data-i18n="f5.d">Un bouton dans les réglages rapides : le bureau passe par Tor et ton Wi-Fi prend une nouvelle adresse MAC.</dd></div>
+      <div><dt data-i18n="f6.t">Dépôt GhostCat</dt><dd data-i18n="f6.d">Chaque morceau de GhostCat est un paquet publié sur ce site. Ils se mettent à jour avec le reste du système.</dd></div>
+    </dl>
+    <div class="shot-pair">
+      <figure class="shot">
+        <img src="assets/shot-installer.jpg" alt="GhostCat Installer pendant une installation" width="1600" height="900" loading="lazy">
+        <figcaption data-i18n="shot.installer">GhostCat Installer : chaque étape s'affiche comme au démarrage du système.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-boot.jpg" alt="Menu de démarrage GhostCat" width="1600" height="900" loading="lazy">
+        <figcaption data-i18n="shot.boot">Le menu de démarrage GhostCat, avec les instantanés de secours.</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="tools" id="tools" aria-labelledby="tools-title">
     <h2 id="tools-title" data-i18n="tools.title">Attaquer, défendre, prouver</h2>
     <p class="tools-lead" data-i18n="tools.lead">69 outils rangés en trois équipes dans GhostCat Hub. Chacun se lance en un clic, et s'il n'est pas installé, le Hub l'installe pour toi.</p>
@@ -112,19 +136,13 @@
     </div>
 
     <figure class="shot shot-wide">
-      <img src="assets/hub-home.jpg" alt="GhostCat Hub, page d'accueil" width="1440" height="900" loading="lazy">
-      <figcaption data-i18n="shot.hub">GhostCat Hub : chaque outil indique s'il est installé, et se lance ou s'installe d'un clic.</figcaption>
+      <img src="assets/shot-desktop.jpg" alt="Le bureau GhostCat avec GhostCat Hub" width="1600" height="900" loading="lazy">
+      <figcaption data-i18n="shot.hub">Le bureau GhostCat et le Hub : l'état de ta protection, puis tes outils par équipe, chacun lancé ou installé d'un clic.</figcaption>
     </figure>
-    <div class="shot-pair">
-      <figure class="shot">
-        <img src="assets/setup-welcome.jpg" alt="GhostCat Setup, écran d'accueil" width="1440" height="900" loading="lazy">
-        <figcaption data-i18n="shot.setup">L'assistant du premier démarrage, avant même le bureau.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="assets/hub-purple.jpg" alt="La boucle Purple Team dans le Hub" width="1440" height="900" loading="lazy">
-        <figcaption data-i18n="shot.purple">La boucle Purple Team, étape par étape.</figcaption>
-      </figure>
-    </div>
+    <figure class="shot shot-wide shot-gap">
+      <img src="assets/shot-setup.jpg" alt="GhostCat Setup, choix du fuseau horaire" width="1600" height="900" loading="lazy">
+      <figcaption data-i18n="shot.setup">GhostCat Setup, au premier démarrage, avant même le bureau.</figcaption>
+    </figure>
     <p class="legal" data-i18n="legal">Les outils offensifs ne s'utilisent que sur tes propres systèmes, ou avec une autorisation écrite.</p>
   </section>
 
@@ -197,6 +215,24 @@
     </ol>
   </section>
 
+  <section class="source" id="source" aria-labelledby="source-title">
+    <h2 id="source-title" data-i18n="src.title">Code source</h2>
+    <p class="source-lead" data-i18n="src.lead">GhostCat est libre, sous licence GPL-3.0. Tout le code est ici, sans compte à créer.</p>
+    <div class="src-files">
+      <a class="src-file" href="download/ghostcat-os-source.tar.gz" download><b>ghostcat-os-source.tar.gz</b><span id="srcTar"></span></a>
+      <a class="src-file" href="download/ghostcat-os-source.zip" download><b>ghostcat-os-source.zip</b><span id="srcZip"></span></a>
+    </div>
+    <p class="src-meta" id="srcMeta"></p>
+
+    <h3 data-i18n="src.pkgs">Paquets GhostCat</h3>
+    <p class="source-lead" data-i18n="src.pkgs.lead">Ce sont les paquets installés par l'ISO. Sur un GhostCat déjà installé, ils arrivent avec les mises à jour.</p>
+    <ul class="pkgs" id="pkgs"></ul>
+
+    <h3 data-i18n="src.upgrade">Passer une ancienne installation sur le dépôt GhostCat</h3>
+    <div class="command"><code id="cmdUpgrade">curl -fsSL https://data-0x3.github.io/ghostcat-os/upgrade.sh | sudo bash</code>
+      <button type="button" class="copy" data-copy="#cmdUpgrade" data-i18n="copy">Copier</button></div>
+  </section>
+
   <section class="faq" id="faq" aria-labelledby="faq-title">
     <h2 id="faq-title" data-i18n="faq.title">Questions</h2>
     <details><summary data-i18n="q1">Est-ce que ça efface Windows ?</summary>
@@ -220,7 +256,7 @@
 <footer class="foot">
   <img src="assets/ghost.webp" alt="" width="48" height="48">
   <p>GhostCat OS, developed by 0x3</p>
-  <p class="foot-links"><a href="https://t.me/data0x3" rel="noopener">Telegram</a><a href="https://github.com/data-0x3/ghostcat-os" rel="noopener" data-i18n="foot.src">Code source</a></p>
+  <p class="foot-links"><a href="https://t.me/data0x3" rel="noopener">Telegram</a><a href="#source" data-i18n="foot.src">Code source</a></p>
   <p class="foot-note" data-i18n="foot.note">Ce site ne charge ni police externe ni traceur. Seul le numéro de version est lu sur GitHub.</p>
 </footer>
 

@@ -27,6 +27,30 @@
   var EN = {
     "skip": "Skip to content",
     "nav.privacy": "Privacy",
+    "nav.distro": "Distribution",
+    "nav.source": "Source code",
+    "distro.title": "A real distribution",
+    "distro.lead": "GhostCat starts from Arch Linux, but everything you see is GhostCat's own: its package repository, its installer, its desktop and its updates.",
+    "f1.t": "GhostCat Installer",
+    "f1.d": "Pick the drive, tick encryption if you like, create your account. The system is copied from the stick, nothing is downloaded, and an external drive also boots on another PC.",
+    "f2.t": "Recovery snapshots",
+    "f2.d": "Before every update, GhostCat keeps a copy of the system. If something breaks, pick the previous state in the boot menu.",
+    "f3.t": "Safe updates",
+    "f3.d": "<code>ghostcat-update</code> reads the Arch Linux news first, updates the signing keys, then everything else.",
+    "f4.t": "GhostCat desktop",
+    "f4.d": "A ghost menu, a shield that shows your protection, a desktop that fades in, and the welcome message on first launch.",
+    "f5.t": "Ghost mode",
+    "f5.d": "One button in quick settings: the desktop goes through Tor and your Wi-Fi gets a new MAC address.",
+    "f6.t": "GhostCat repository",
+    "f6.d": "Every piece of GhostCat is a package published on this site. They update with the rest of the system.",
+    "shot.installer": "GhostCat Installer: each step shows up like a system boot log.",
+    "shot.boot": "The GhostCat boot menu, with its recovery snapshots.",
+    "src.title": "Source code",
+    "src.lead": "GhostCat is free software, under the GPL-3.0 licence. All the code is here, no account needed.",
+    "src.pkgs": "GhostCat packages",
+    "src.pkgs.lead": "These are the packages the ISO installs. On an installed GhostCat, they arrive with the updates.",
+    "src.upgrade": "Move an older install to the GhostCat repository",
+
     "nav.tools": "Tools",
     "nav.download": "Download",
     "nav.install": "Install",
@@ -70,8 +94,8 @@
     "loop.2": "Replay it with CALDERA or Atomic Red Team",
     "loop.3": "Check that Suricata, Zeek or Chainsaw caught it",
     "loop.4": "Write the missing Sigma or YARA rule",
-    "shot.hub": "GhostCat Hub: every tool shows whether it is installed, and starts or installs in one click.",
-    "shot.setup": "The first-boot assistant, before the desktop even appears.",
+    "shot.hub": "The GhostCat desktop and the Hub: your protection status, then your tools by team, each started or installed in one click.",
+    "shot.setup": "GhostCat Setup, on first boot, before the desktop even appears.",
     "shot.purple": "The Purple Team loop, step by step.",
     "legal": "Offensive tools are only for your own systems, or with written permission.",
     "dl.title": "Download",
@@ -141,6 +165,7 @@
       b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
     });
     renderRelease();
+    if (typeof renderSource === "function") renderSource();
   }
 
   $$("[data-lang]").forEach(function (b) {
@@ -218,10 +243,11 @@
   var release = null, releaseFailed = false;
 
   function size(bytes) {
-    var gb = bytes / 1073741824;
-    var n = gb >= 1 ? gb.toFixed(2) : (bytes / 1048576).toFixed(0);
-    var unit = gb >= 1 ? (lang === "en" ? " GB" : " Go") : (lang === "en" ? " MB" : " Mo");
-    return (lang === "en" ? n : n.replace(".", ",")) + unit;
+    var en = lang === "en", u, n;
+    if (bytes >= 1073741824) { n = (bytes / 1073741824).toFixed(2); u = en ? " GB" : " Go"; }
+    else if (bytes >= 1048576) { n = (bytes / 1048576).toFixed(1); u = en ? " MB" : " Mo"; }
+    else { n = Math.max(1, Math.round(bytes / 1024)).toString(); u = en ? " KB" : " Ko"; }
+    return (en ? n : n.replace(".", ",")) + u;
   }
   function date(iso) {
     try {
@@ -270,6 +296,29 @@
 
     var hash = (release.body || "").match(/\b[0-9a-f]{64}\b/i);
     if (sha) sha.textContent = hash ? "SHA256 " + hash[0].toLowerCase() : "";
+  }
+
+  /* ---------- code source et paquets, servis par ce site ---------- */
+  var source = null, packages = null;
+  function renderSource() {
+    if (source) {
+      $("#srcTar").textContent = size(source.tar_size);
+      $("#srcZip").textContent = size(source.zip_size);
+      $("#srcMeta").textContent = (lang === "en" ? "Version " : "Version ") + source.commit + (lang === "en" ? ", " : ", ") + date(source.date);
+    }
+    var list = $("#pkgs");
+    if (list && packages) {
+      list.innerHTML = packages.map(function (p) {
+        return '<li><a href="repo/x86_64/' + esc(p.file) + '" download><b>' + esc(p.name) + "</b><span>" +
+          esc(lang === "en" ? (p.desc_en || p.desc) : p.desc) + "</span><em>" + size(p.size) + "</em></a></li>";
+      }).join("");
+    }
+  }
+  if (window.fetch) {
+    fetch("download/source.json").then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { source = d; renderSource(); }).catch(function () {});
+    fetch("repo/x86_64/packages.json").then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { packages = d; renderSource(); }).catch(function () {});
   }
 
   if (window.fetch) {

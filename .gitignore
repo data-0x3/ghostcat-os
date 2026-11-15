@@ -4,3 +4,4 @@ packages.missing
 repo-out/
 site/repo/
 __pycache__/
+site/download/
