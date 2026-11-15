@@ -12,14 +12,18 @@ son avancement ligne par ligne, en JSON, sur la sortie standard :
     {"error": "…", "step": "…"}             échec : l'installation s'arrête
     {"done": true}
 
-Disposition du disque (GPT), toujours la même :
+Disposition du disque (GPT) :
     1  BIOS boot   1 Mio    pour démarrer aussi sur les PC sans UEFI
     2  EFI         1 Gio    FAT32, monté sur /efi
-    3  GhostCat    le reste btrfs (éventuellement dans LUKS2), sous-volumes :
-                            @ /   @home /home   @log /var/log   @cache /var/cache
-                            @snapshots /.snapshots
-/boot reste dans @ : chaque instantané contient le noyau qui va avec, et le menu
-de démarrage peut relancer n'importe quel instantané (grub-btrfs).
+    sans chiffrement :
+    3  GhostCat    le reste, btrfs
+    avec chiffrement :
+    3  boot        1 Gio    ext4, monté sur /boot (noyau seulement, non chiffré)
+    4  GhostCat    le reste, btrfs dans LUKS2 (argon2id)
+Sous-volumes btrfs : @ /   @home /home   @log /var/log   @cache /var/cache   @snapshots /.snapshots
+Sans chiffrement, /boot reste dans @ : chaque instantané garde le noyau qui va avec.
+Avec chiffrement, GRUB n'a pas à ouvrir le disque : la phrase est demandée par l'écran
+de démarrage GhostCat (Plymouth), avec la disposition de clavier choisie dans Setup.
 
 Variables de test : GHOSTCAT_INSTALL_DRYRUN=1 affiche les commandes sans rien faire.
 """
@@ -108,6 +112,10 @@ def part(disk, n):
     return f"{disk}p{n}" if disk[-1].isdigit() else f"{disk}{n}"
 
 
+def root_part(cfg):
+    return part(cfg["disk"], 4 if cfg.get("encrypt") else 3)
+
+
 def uuid_of(dev):
     return run("blkid", "-s", "UUID", "-o", "value", dev, quiet=True).strip()
 
@@ -160,7 +168,8 @@ def step_partition(cfg):
     run("sgdisk",
         "-n1:0:+1M", "-t1:EF02", "-c1:BIOS",
         "-n2:0:+1G", "-t2:EF00", "-c2:EFI",
-        "-n3:0:0", f"-t3:{'8309' if cfg.get('encrypt') else '8304'}", "-c3:GhostCat",
+        *(["-n3:0:+1G", "-t3:8300", "-c3:boot", "-n4:0:0", "-t4:8309", "-c4:GhostCat"]
+          if cfg.get("encrypt") else ["-n3:0:0", "-t3:8304", "-c3:GhostCat"]),
         disk)
     run("partprobe", disk, check=False)
     run("udevadm", "settle")
@@ -169,13 +178,13 @@ def step_partition(cfg):
 
 def step_format(cfg):
     disk = cfg["disk"]
-    esp, root = part(disk, 2), part(disk, 3)
+    esp, root = part(disk, 2), root_part(cfg)
     run("mkfs.fat", "-F", "32", "-n", "GHOSTEFI", esp)
     if cfg.get("encrypt"):
         pw = cfg["passphrase"]
-        # PBKDF2 : GRUB sait ouvrir ce volume pour lire le noyau
-        run("cryptsetup", "luksFormat", "--batch-mode", "--type", "luks2", "--pbkdf", "pbkdf2",
-            "--iter-time", "1500", "--label", "GhostCat", root, "-", input=pw)
+        run("mkfs.ext4", "-F", "-q", "-L", "GHOSTBOOT", part(disk, 3))
+        run("cryptsetup", "luksFormat", "--batch-mode", "--type", "luks2", "--pbkdf", "argon2id",
+            "--label", "GhostCat", root, "-", input=pw)
         run("cryptsetup", "open", "--key-file", "-", root, MAPPER, input=pw)
         dev = f"/dev/mapper/{MAPPER}"
     else:
@@ -191,6 +200,9 @@ def step_format(cfg):
     for sv, mp in (("@home", "/home"), ("@log", "/var/log"), ("@cache", "/var/cache"), ("@snapshots", "/.snapshots")):
         os.makedirs(T + mp, exist_ok=True)
         run("mount", "-o", f"{opts},subvol={sv}", dev, T + mp)
+    if cfg.get("encrypt"):
+        os.makedirs(T + "/boot", exist_ok=True)
+        run("mount", part(disk, 3), T + "/boot")
     os.makedirs(T + "/efi", exist_ok=True)
     run("mount", "-o", "umask=0077", esp, T + "/efi")
     return dev
@@ -316,22 +328,11 @@ def step_system(cfg, dev):
     # sans « autodetect » : le disque démarre aussi sur un autre PC (disque externe)
     hooks = "base systemd plymouth microcode modconf kms keyboard sd-vconsole block "
     hooks += ("sd-encrypt " if cfg.get("encrypt") else "") + "filesystems"
-    files = ""
-    if cfg.get("encrypt"):
-        # une clé dans l'initramfs (lui-même sur le disque chiffré) : la phrase n'est demandée qu'une fois, par GRUB
-        if not DRY:
-            with open(T + "/crypto_keyfile.bin", "wb") as f:
-                f.write(os.urandom(64))
-            os.chmod(T + "/crypto_keyfile.bin", 0o000)
-        run("cryptsetup", "luksAddKey", "--batch-mode", "--pbkdf", "pbkdf2", "--iter-time", "1000",
-            part(cfg["disk"], 3), T + "/crypto_keyfile.bin", "--key-file", "-", input=cfg["passphrase"])
-        files = "/crypto_keyfile.bin"
+    # chiffrement : aucune clé n'est posée sur /boot (non chiffré) ; la phrase est tapée au démarrage
     write("/etc/mkinitcpio.conf", "# GhostCat OS\nMODULES=(btrfs)\nBINARIES=()\n"
-          f"FILES=({files})\nHOOKS=({hooks})\n")
+          f"FILES=()\nHOOKS=({hooks})\n")
     write("/etc/mkinitcpio.d/linux.preset", 'ALL_kver="/boot/vmlinuz-linux"\nPRESETS=(\'default\')\n'
           'default_image="/boot/initramfs-linux.img"\n')
-    if cfg.get("encrypt") and not DRY:
-        os.chmod(T + "/boot", 0o700)
 
     # services du système installé
     for unit in ("systemd-networkd.service", "systemd-networkd.socket", "systemd-networkd-wait-online.service",
@@ -392,8 +393,8 @@ def step_boot(cfg, dev):
     cmdline = "loglevel=3 quiet splash"
     linux = ""
     if cfg.get("encrypt"):
-        u = uuid_of(part(disk, 3))
-        linux = f"rd.luks.name={u}={MAPPER} rd.luks.key={u}=/crypto_keyfile.bin rd.luks.options={u}=discard"
+        u = uuid_of(root_part(cfg))
+        linux = f"rd.luks.name={u}={MAPPER} rd.luks.options={u}=discard"
     grub = T + "/etc/default/grub"
     txt = ""
     if not DRY and os.path.isfile(grub):
@@ -416,8 +417,6 @@ def step_boot(cfg, dev):
     setkey("GRUB_GFXMODE", "auto")
     setkey("GRUB_GFXPAYLOAD_LINUX", "keep")
     setkey("GRUB_DISABLE_OS_PROBER", "@false")
-    if cfg.get("encrypt"):
-        setkey("GRUB_ENABLE_CRYPTODISK", "@y")
     write("/etc/default/grub", txt)
 
     chroot("/usr/lib/ghostcat/grub-names", check=False)

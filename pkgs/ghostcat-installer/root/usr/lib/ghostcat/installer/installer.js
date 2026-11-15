@@ -294,6 +294,9 @@ function autoInstall(cfg) {
   (async () => {
     await wait(2500);
     C.disk = cfg.disk || (disks[0] && disks[0].path); renderDisks(); go(1);
+    // le test couvre le cas le plus délicat : disque chiffré (phrase tapable en AZERTY comme en QWERTY)
+    $("#encrypt").checked = C.encrypt = true; $("#cryptFields").hidden = false;
+    $("#pp1").value = $("#pp2").value = cfg.passphrase || "deluge orbite glyphe";
     await wait(2500); go(2);
     $("#fullname").value = C.fullname = cfg.fullname || "Ghost Test";
     $("#username").value = C.username = cfg.username || "ghost0";

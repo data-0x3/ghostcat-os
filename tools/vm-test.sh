@@ -79,8 +79,11 @@ qemu_args disk
 qemu-system-x86_64 "${args[@]}" &
 PID=$!
 sleep 3; shot 04-grub
-t=3
-for at in 12 18 25 35 45 60; do sleep $((at - t)); t=$at; alive || break; shot "05-boot-$(printf %03d "$at")s"; done
+# disque chiffré : la phrase est demandée par l'écran de démarrage GhostCat
+sleep 15; shot 05-passphrase
+type_text "deluge orbite glyphe"; key ret
+t=0
+for at in 5 12 20 30 45; do sleep $((at - t)); t=$at; alive || break; shot "05-boot-$(printf %03d "$at")s"; done
 # connexion : on choisit le premier compte puis on tape le mot de passe de test
 # (le système installé est en AZERTY, réglé par Setup : la touche Q du QWERTY donne « a »)
 key ret 6; type_text ghostcqt; key ret
