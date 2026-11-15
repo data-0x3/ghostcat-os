@@ -1,0 +1,275 @@
+/* GhostCat OS — site officiel — developed by 0x3
+   Noir pur et blanc, comme l'OS. Deux familles :
+   - GNU Unifont, la police bitmap des consoles Linux : nom, titres, commandes, statuts.
+     Toujours en multiples de 16 px pour garder des pixels nets.
+   - TeX Gyre Heros, une grotesque sobre : tout le texte courant.
+   Les couleurs rouge, bleu et violet ne servent qu'à coder les trois équipes,
+   et le vert « [  OK  ] » reprend le statut des journaux de démarrage. */
+
+@font-face { font-family: "Unifont"; src: url("../fonts/unifont.woff") format("woff"); font-display: swap; }
+@font-face { font-family: "Heros"; src: url("../fonts/heros-regular.woff") format("woff"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Heros"; src: url("../fonts/heros-bold.woff") format("woff"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Heros"; src: url("../fonts/heros-italic.woff") format("woff"); font-weight: 400; font-style: italic; font-display: swap; }
+
+:root {
+  --void: #000000;
+  --white: #eef0f2;
+  --fog: #9a9da3;
+  --smoke: #141518;
+  --line: #2a2c30;
+  --ok: #5fd38d;
+  --red: #ff4d6d;
+  --blue: #4d8dff;
+  --purple: #b26bff;
+
+  --pixel: "Unifont", "DejaVu Sans Mono", monospace;
+  --text: "Heros", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --measure: 64ch;
+  --page: 1120px;
+  --gutter: clamp(20px, 5vw, 48px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--void); color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  margin: 0;
+  color: var(--white);
+  background: var(--void);
+  font: 400 18px/1.65 var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: #fff; }
+p { margin: 0; }
+h1, h2, h3 { margin: 0; font-weight: 400; }
+::selection { background: var(--white); color: var(--void); }
+:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+
+code, kbd {
+  font: 16px/1 var(--pixel);
+  background: var(--smoke);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute; left: 12px; top: -60px; z-index: 30;
+  background: var(--white); color: var(--void); padding: 8px 14px; font-weight: 700;
+}
+.skip:focus { top: 12px; }
+
+/* ---------- en-tête ---------- */
+.top {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 28px;
+  padding: 14px var(--gutter);
+  background: rgba(0, 0, 0, .92);
+  border-bottom: 1px solid var(--line);
+}
+.mark { display: flex; align-items: center; gap: 10px; font: 16px var(--pixel); text-decoration: none; margin-right: auto; }
+.top nav { display: flex; gap: 24px; }
+.top nav a { font-size: 15px; color: var(--fog); text-decoration: none; }
+.top nav a:hover { color: var(--white); }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 3px; }
+.lang button {
+  font: 16px var(--pixel); color: var(--fog); background: none; border: 0; padding: 4px 10px; cursor: pointer;
+}
+.lang button[aria-pressed="true"] { background: var(--white); color: var(--void); }
+
+/* ---------- écran de démarrage (le seul moment animé de la page) ---------- */
+.boot {
+  min-height: calc(100svh - 61px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 48px var(--gutter) 64px;
+}
+.boot-ghost { width: 240px; height: 240px; animation: appear .8s ease-out both; }
+.boot-progress {
+  width: 220px; height: 2px; margin-top: 8px; background: #26272b; overflow: hidden;
+  animation: leave .4s ease-in 2.9s forwards, collapse .01s linear 3.3s forwards;
+}
+.boot-progress span { display: block; height: 100%; width: 0; background: var(--white); animation: fill 2.2s cubic-bezier(.4, 0, .2, 1) .5s forwards; }
+.boot-line {
+  margin-top: 18px; font-size: 15px; color: var(--fog);
+  animation: appear .8s ease-out 1s both, leave .4s ease-in 2.9s forwards, collapse .01s linear 3.3s forwards;
+}
+.boot-after { animation: arrive .9s cubic-bezier(.2, .7, .2, 1) 3.1s both; display: flex; flex-direction: column; align-items: center; width: 100%; min-width: 0; }
+
+@keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fill { to { width: 100%; } }
+@keyframes leave { to { opacity: 0; } }
+@keyframes collapse { to { height: 0; margin: 0; overflow: hidden; } }
+@keyframes arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.booted .boot-ghost, .booted .boot-after { animation: none; }
+.booted .boot-progress, .booted .boot-line { display: none; }
+
+.wordmark {
+  margin-top: 8px;
+  font: 128px/1 var(--pixel);
+  letter-spacing: 0;
+  text-shadow: 0 0 28px rgba(255, 255, 255, .28);
+}
+.motto { margin-top: 24px; font: italic 400 24px/1.4 var(--text); }
+.pitch { margin-top: 16px; max-width: 52ch; color: var(--fog); }
+
+/* ---------- commandes ---------- */
+.command {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; max-width: 680px;
+  margin-top: 32px; padding: 10px 10px 10px 18px;
+  background: var(--smoke); border: 1px solid var(--line); border-radius: 4px;
+  text-align: left;
+}
+.command code {
+  flex: 1; min-width: 0; overflow-x: auto;
+  background: none; border: 0; padding: 6px 0;
+  color: var(--white);
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+}
+.copy {
+  flex: none; font: 700 14px var(--text);
+  color: var(--void); background: var(--white);
+  border: 0; border-radius: 3px; padding: 9px 16px; cursor: pointer;
+}
+.copy:hover { background: #fff; }
+.copy[data-done] { background: var(--ok); }
+.hint { margin-top: 14px; font-size: 15px; color: var(--fog); max-width: 60ch; }
+.hint a { color: var(--white); margin-left: 6px; }
+.release { margin-top: 20px; font: 16px var(--pixel); color: var(--fog); }
+
+/* ---------- sections ---------- */
+section:not(.boot) {
+  max-width: var(--page); margin: 0 auto;
+  padding: 120px var(--gutter) 0;
+}
+h2 { font: 48px/1.1 var(--pixel); }
+
+/* vie privée : colonne de titre fixe + journal de statuts */
+.privacy { display: grid; grid-template-columns: 1fr 1.35fr; gap: 64px; align-items: start; }
+.privacy-head { position: sticky; top: 110px; }
+.privacy-head p { margin-top: 20px; color: var(--fog); max-width: 40ch; }
+.status { list-style: none; margin: 0; padding: 0; display: grid; gap: 32px; }
+.status li { display: grid; grid-template-columns: 112px 1fr; gap: 8px; }
+.ok { font: 16px/1.9 var(--pixel); color: var(--ok); white-space: pre; }
+.status strong { font-size: 20px; }
+.status p { color: var(--fog); max-width: 52ch; margin-top: 2px; }
+
+/* outils */
+.tools-lead { margin-top: 20px; color: var(--fog); max-width: var(--measure); }
+.teams { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 56px; }
+.team { border-top: 3px solid var(--team); padding-top: 22px; }
+.team-red { --team: var(--red); }
+.team-blue { --team: var(--blue); }
+.team-purple { --team: var(--purple); }
+.team h3 { font: 32px/1.2 var(--pixel); }
+.team > p { margin-top: 10px; color: var(--fog); }
+.team ul, .loop { margin: 22px 0 0; padding: 0; }
+.team ul { list-style: none; display: grid; gap: 12px; }
+.team ul b { display: block; }
+.team ul span { color: var(--fog); font-size: 16px; }
+.loop { counter-reset: step; list-style: none; display: grid; gap: 12px; }
+.loop li { counter-increment: step; display: grid; grid-template-columns: 28px 1fr; font-size: 16px; color: var(--fog); }
+.loop li::before { content: counter(step); font: 16px/1.65 var(--pixel); color: var(--purple); }
+
+.shot { margin: 0; }
+.shot img { border: 1px solid var(--line); border-radius: 4px; }
+.shot figcaption { margin-top: 12px; font-size: 15px; color: var(--fog); max-width: 60ch; }
+.shot-wide { margin-top: 72px; }
+.shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 36px; }
+.legal { margin-top: 40px; font-size: 15px; color: var(--fog); }
+
+/* téléchargement */
+.dl-lead { margin-top: 20px; color: var(--fog); max-width: var(--measure); }
+.tabs { display: flex; gap: 28px; margin-top: 40px; border-bottom: 1px solid var(--line); }
+.tabs button {
+  font: 400 17px var(--text); color: var(--fog); background: none; border: 0;
+  padding: 0 0 12px; margin-bottom: -1px; border-bottom: 2px solid transparent; cursor: pointer;
+}
+.tabs button[aria-selected="true"] { color: var(--white); border-bottom-color: var(--white); }
+.panel { padding-top: 24px; }
+.panel > p { color: var(--fog); }
+.panel .command { margin-top: 16px; max-width: none; }
+#panel-files .command code { white-space: normal; overflow-wrap: anywhere; line-height: 1.5; }
+.files { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
+.files a { display: flex; justify-content: space-between; gap: 16px; font: 16px var(--pixel); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.files a span { color: var(--fog); }
+.sha { margin-top: 20px; font: 16px var(--pixel); color: var(--fog); word-break: break-all; }
+.needs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 64px 0 0; }
+.needs dt { font-weight: 700; font-size: 19px; }
+.needs dd { margin: 4px 0 0; color: var(--fog); font-size: 16px; }
+
+/* installation : une vraie séquence, donc numérotée */
+.steps { list-style: none; margin: 48px 0 0; padding: 0; counter-reset: s; display: grid; gap: 44px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 88px 1fr; }
+.steps li::before { content: counter(s); font: 64px/1 var(--pixel); color: var(--white); grid-row: 1 / span 3; }
+.steps li > * { grid-column: 2; }
+.steps h3 { font-weight: 700; font-size: 21px; }
+.steps p { margin-top: 6px; color: var(--fog); max-width: var(--measure); }
+.steps p code { color: var(--white); }
+.steps kbd { color: var(--white); }
+
+/* questions */
+.faq { padding-bottom: 40px; }
+.faq h2 { margin-bottom: 28px; }
+details { border-bottom: 1px solid var(--line); }
+summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 20px;
+  padding: 20px 0; font-weight: 700; font-size: 19px;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font: 32px/0.8 var(--pixel); color: var(--fog); }
+details[open] summary::after { content: "-"; }
+details > p { padding-bottom: 20px; color: var(--fog); max-width: var(--measure); }
+details .command { margin: 0 0 20px; max-width: none; }
+
+/* pied de page */
+.foot {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  margin-top: 120px; padding: 56px var(--gutter) 64px;
+  border-top: 1px solid var(--line); text-align: center; font-size: 15px; color: var(--fog);
+}
+.foot img { margin-bottom: 6px; }
+.foot-links { display: flex; gap: 24px; }
+.foot-note { max-width: 52ch; font-size: 14px; }
+
+/* ---------- écrans étroits ---------- */
+@media (max-width: 960px) {
+  .privacy { grid-template-columns: 1fr; gap: 40px; }
+  .privacy-head { position: static; }
+  .teams { grid-template-columns: 1fr; gap: 48px; }
+  .needs { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  body { font-size: 17px; }
+  .top { gap: 16px; }
+  .top nav a:not([href="#download"]) { display: none; }
+  .wordmark { font-size: 64px; }
+  .motto { font-size: 20px; }
+  .boot-ghost { width: 176px; height: 176px; }
+  h2 { font-size: 32px; }
+  section:not(.boot) { padding-top: 88px; }
+  .shot-pair { grid-template-columns: 1fr; }
+  .status li { grid-template-columns: 1fr; gap: 2px; }
+  .steps li { grid-template-columns: 56px 1fr; }
+  .steps li::before { font-size: 48px; }
+  .command { flex-wrap: wrap; padding: 12px; }
+  .command code { flex-basis: 100%; white-space: normal; word-break: break-all; line-height: 1.5; }
+  .copy { width: 100%; }
+  p code { white-space: normal; overflow-wrap: anywhere; line-height: 1.6; }
+}
+@media (max-width: 420px) {
+  .wordmark { font-size: 48px; }
+  .needs { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .boot-ghost, .boot-after { animation: none; }
+  .boot-progress, .boot-line { display: none; }
+}
