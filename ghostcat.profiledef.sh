@@ -22,3 +22,6 @@ file_permissions+=(
   ["/etc/sudoers.d/10-ghostcat-live"]="0:0:440"
   ["/home/ghost"]="1000:1000:750"
 )
+
+# image du système en zstd : plus rapide à construire, à démarrer et à copier par l'installeur
+airootfs_image_tool_options=('-comp' 'zstd' '-Xcompression-level' '15' '-b' '1M')
