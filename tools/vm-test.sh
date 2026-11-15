@@ -32,7 +32,7 @@ type_text() {
   for ((i = 0; i < ${#1}; i++)); do
     c="${1:i:1}"
     case $c in
-      " ") c=spc ;; "=") c=equal ;; ".") c=dot ;; "-") c=minus ;;
+      " ") c=spc ;; "=") c=equal ;; ".") c=dot ;; "-") c=minus ;; "_") c=shift-minus ;; ",") c=comma ;;
     esac
     key "$c" 0.12
   done
@@ -60,7 +60,7 @@ qemu_args live
 qemu-system-x86_64 "${args[@]}" -cdrom "$ISO" -boot d &
 PID=$!
 sleep 6; shot 01-menu
-key e 1; key end; type_text " ghostcat.demo=1 ghostcat.autoinstall=1"; key ret
+key e 1; key end; type_text " ghostcat.demo=1 ghostcat.autoinstall=1 console=tty1 console=ttyS0 systemd.journald.forward_to_console=1 systemd.journald.max_level_console=info"; key ret
 t=0
 for at in 10 20 35 50 65 80 95 110 125 140 160 180 200 225 250 280 310; do
   sleep $((at - t)); t=$at; alive || break; shot "02-live-$(printf %03d "$at")s"
