@@ -21,6 +21,8 @@
       <div class="nav-sep"></div>
       <button class="nav-i" data-v="favs"><span class="dot" style="color:#ffd76b;background:#ffd76b"></span><span data-i18n="favs">Favoris</span><em class="n" id="n-favs"></em></button>
       <button class="nav-i" data-v="system"><span class="dot" style="color:var(--system);background:var(--system)"></span><span data-i18n="system">Système</span></button>
+      <div class="nav-sep"></div>
+      <button class="nav-i" data-v="dev"><span class="dot" style="color:#8e9196;background:#8e9196"></span><span data-i18n="dev">Développeur</span></button>
     </nav>
     <div class="side-foot">GhostCat OS<br>developed by 0x3<br><a id="tg">t.me/data0x3</a></div>
   </aside>
@@ -56,8 +58,10 @@ const I18N = {
       purple:"Faire travailler attaque et défense ensemble pour prouver que tes détections marchent.",
       sys:"Les réglages essentiels de ta machine en un clic.",
       f1t:"Planifier",f1p:"Choisis une technique MITRE ATT&CK à tester.",f2t:"Émuler",f2p:"Rejoue l'attaque de façon contrôlée sur ton labo.",
+      dev:"Développeur",devRole:"Analyste en cybersécurité, créateur de GhostCat OS",devNote:"Une idée, un bug, une question sur GhostCat ? Écris-moi sur Telegram ou Discord.",
+      discord:"Discord",telegram:"Telegram",copyName:"Copier",openLink:"Ouvrir",copiedDiscord:"Pseudo Discord copié",
       f3t:"Détecter",f3p:"Vérifie que tes défenses l'ont bien vue.",f4t:"Améliorer",f4p:"Écris ou ajuste la règle, puis recommence."},
-  en:{home:"Home",favs:"Favorites",system:"System",search:"Search for a tool…",hello:"Hello,",results:"Results",
+  en:{dev:"Developer",devRole:"Cybersecurity analyst, creator of GhostCat OS",devNote:"An idea, a bug, a question about GhostCat? Message me on Telegram or Discord.",discord:"Discord",telegram:"Telegram",copyName:"Copy",openLink:"Open",copiedDiscord:"Discord username copied",home:"Home",favs:"Favorites",system:"System",search:"Search for a tool…",hello:"Hello,",results:"Results",
       heroP:"Your whole cybersecurity arsenal in one place. Pick a team, find the tool, launch it in one click. If it's missing, we install it for you.",
       ready:"tools ready",protection:"Protection",ok_dns:"Encrypted DNS",vpn_dns:"VPN DNS",off_dns:"Unencrypted DNS",vpn:"VPN connected",novpn:"No VPN",fw:"Firewall on",nofw:"Firewall off",mac:"Random MAC address",nomac:"Real MAC address",ghost:"Ghost mode on",catalog:"in the catalog",favsN:"favorites",teams:"Teams",quick:"Quick actions",purpleTools:"Purple tools",readyN:"ready",
       notice:"Only use offensive tools on systems you own or have written permission to test.",
@@ -92,6 +96,7 @@ const TEAM = {
   system: {label:tr("system"),   c:"var(--system)", hex:"#e8e8f0", blurb:tr("sys")},
   favs:   {label:tr("favs"),     c:"#ffd76b",       hex:"#ffd76b"},
   home:   {label:tr("home"),     c:"#e8e8f0",       hex:"#9a9aa8"},
+  dev:    {label:tr("dev"),      c:"#8e9196",       hex:"#eef0f2"},
 };
 const FLOW = [
   {k:"01", t:tr("f1t"), p:tr("f1p"), ids:["attack-nav","d3fend"]},
@@ -203,6 +208,14 @@ function render(animate = true){
       <div class="section-t">${tr("quick")}</div>
       ${grid(TOOLS.filter(t => t.team === "system"))}
       <div class="notice"><span class="tag">[ INFO ]</span>${tr("notice")}</div>`;
+  } else if (view === "dev") {
+    html = `<div class="dev-banner"><img src="dev/banner.gif" alt=""></div>
+      <div class="dev-id"><img class="dev-avatar" src="dev/avatar.gif" alt="0x3"><div><h2>0x3</h2><p>${tr("devRole")}</p></div></div>
+      <ul class="dev-links">
+        <li><span class="k">${tr("discord")}</span><span class="v">o3hi</span><button class="btn" data-sys="copy-discord">${tr("copyName")}</button></li>
+        <li><span class="k">${tr("telegram")}</span><span class="v">t.me/data0x3</span><button class="btn pri" data-sys="telegram">${tr("openLink")}</button></li>
+      </ul>
+      <p class="dev-note">${tr("devNote")}</p>`;
   } else if (view === "favs") {
     html = grid(TOOLS.filter(t => favs.has(t.id)));
   } else if (view === "purple") {
@@ -280,6 +293,17 @@ function act(a, id, el){
   if (a === "docs")    { send({action:"docs", id}); if (PREVIEW) window.open(t.docs); }
 }
 
+/* actions sans outil : mise à jour, liens de la page développeur */
+function copyText(txt){
+  (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).catch(() => send({action:"copy", text:txt}));
+}
+document.addEventListener("click", e => {
+  const s = e.target.closest("[data-sys]");
+  if (!s) return;
+  const a = s.dataset.sys;
+  if (a === "copy-discord") { copyText("o3hi"); toast(tr("copiedDiscord")); }
+  if (a === "telegram") { send({action:"url", url:"https://t.me/data0x3"}); if (PREVIEW) window.open("https://t.me/data0x3"); }
+});
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-act],[data-v],[data-go],[data-cat],[data-open],.card");
   if (!b) return;

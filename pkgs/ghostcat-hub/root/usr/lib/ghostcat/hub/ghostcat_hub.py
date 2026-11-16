@@ -106,6 +106,15 @@ def handle(msg, reply):
         open_url(tool["docs"])
     elif action == "url" and msg.get("url") == "https://t.me/data0x3":
         open_url(msg["url"])
+    elif action == "copy" and isinstance(msg.get("text"), str) and len(msg["text"]) < 4096:
+        # presse-papiers par GTK : navigator.clipboard n'existe pas pour une page locale
+        try:
+            import gi
+            gi.require_version("Gdk", "4.0")
+            from gi.repository import Gdk
+            Gdk.Display.get_default().get_clipboard().set(msg["text"])
+        except (ImportError, ValueError, AttributeError):
+            pass
 
 
 def run_webkit(start_view=None):
