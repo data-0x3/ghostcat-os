@@ -116,6 +116,18 @@ def root_part(cfg):
     return part(cfg["disk"], 4 if cfg.get("encrypt") else 3)
 
 
+def retry(fn, tries=8):
+    for i in range(tries):
+        run("udevadm", "settle", check=False)
+        try:
+            return fn()
+        except Fail:
+            if i == tries - 1:
+                raise
+            log(f"nouvel essai dans 2 s ({i + 1}/{tries})")
+            time.sleep(2)
+
+
 def uuid_of(dev):
     return run("blkid", "-s", "UUID", "-o", "value", dev, quiet=True).strip()
 
@@ -183,9 +195,11 @@ def step_format(cfg):
     if cfg.get("encrypt"):
         pw = cfg["passphrase"]
         run("mkfs.ext4", "-F", "-q", "-L", "GHOSTBOOT", part(disk, 3))
-        run("cryptsetup", "luksFormat", "--batch-mode", "--type", "luks2", "--pbkdf", "argon2id",
-            "--label", "GhostCat", root, "-", input=pw)
-        run("cryptsetup", "open", "--key-file", "-", root, MAPPER, input=pw)
+        # juste après le partitionnement, udev examine encore les partitions : cryptsetup
+        # refuse alors un disque « utilisé ». On attend qu'il soit libre, en réessayant.
+        retry(lambda: run("cryptsetup", "luksFormat", "--batch-mode", "--type", "luks2", "--pbkdf", "argon2id",
+                          "--label", "GhostCat", root, "-", input=pw))
+        retry(lambda: run("cryptsetup", "open", "--key-file", "-", root, MAPPER, input=pw))
         dev = f"/dev/mapper/{MAPPER}"
     else:
         dev = root
