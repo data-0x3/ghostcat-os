@@ -61,7 +61,7 @@ pw_line.sprite.SetOpacity(0);
 fun password_cb(prompt, bullets) {
   global.asking = 1;
   global.tagline.sprite.SetOpacity(0);
-  t = Image.Text("Disque chiffré : tape ta phrase puis Entrée", 0.93, 0.94, 0.95, 1, "Sans 13");
+  t = Image.Text("Encrypted disk: type your passphrase, then press Enter", 0.93, 0.94, 0.95, 1, "Sans 13");
   global.pw_title.sprite.SetImage(t);
   global.pw_title.sprite.SetPosition(global.W / 2 - t.GetWidth() / 2, global.bar_y + 28, 4);
   global.pw_title.sprite.SetOpacity(1);
