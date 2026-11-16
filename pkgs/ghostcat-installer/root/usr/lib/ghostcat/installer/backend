@@ -427,12 +427,13 @@ def step_boot(cfg, dev):
     setkey("GRUB_TIMEOUT_STYLE", "menu")
     setkey("GRUB_CMDLINE_LINUX_DEFAULT", cmdline)
     setkey("GRUB_CMDLINE_LINUX", linux)
-    setkey("GRUB_THEME", "/usr/share/grub/themes/ghostcat/theme.txt")
+    setkey("GRUB_THEME", "/boot/grub/themes/ghostcat/theme.txt")   # copié par grub-names
     setkey("GRUB_GFXMODE", "auto")
     setkey("GRUB_GFXPAYLOAD_LINUX", "keep")
     setkey("GRUB_DISABLE_OS_PROBER", "@false")
     write("/etc/default/grub", txt)
 
+    os.makedirs(T + "/boot/grub", exist_ok=True)
     chroot("/usr/lib/ghostcat/grub-names", check=False)
     chroot("mkinitcpio", "-P")
     efi = os.path.isdir("/sys/firmware/efi") or DRY

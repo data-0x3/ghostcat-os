@@ -37,7 +37,7 @@ fun refresh_cb() {
   tick++;
   ghost.SetImage(frames[Math.Int(tick / 2) % NFRAMES]);   # ~25 i/s
   if (fade < 1) { fade += 0.04; ghost.SetOpacity(fade); }  # apparition douce
-  if (tick > 40 && tfade < 1) { tfade += 0.02; tagline.sprite.SetOpacity(tfade); }  # la phrase arrive après ~0,8 s
+  if (asking == 0 && tick > 40 && tfade < 1) { tfade += 0.02; tagline.sprite.SetOpacity(tfade); }  # la phrase arrive après ~0,8 s
 }
 Plymouth.SetRefreshFunction(refresh_cb);
 
@@ -47,15 +47,33 @@ fun progress_cb(duration, progress) {
 }
 Plymouth.SetBootProgressFunction(progress_cb);
 
-# mot de passe (disque chiffré)
+# mot de passe (disque chiffré) : la phrase d'accueil laisse la place à la saisie
+asking = 0;
+pw_line.sprite = Sprite(Image("bar_bg.png").Scale(280, 1));
+pw_line.sprite.SetPosition(W / 2 - 140, bar_y + 86, 3);
+pw_line.sprite.SetOpacity(0);
 fun password_cb(prompt, bullets) {
-  s = ""; for (i = 0; i < bullets; i++) s += "•";
-  pw.image  = Image.Text(prompt + "  " + s, 1, 1, 1);
-  pw.sprite = Sprite(pw.image);
-  pw.sprite.SetPosition(W / 2 - pw.image.GetWidth() / 2, bar_y + 70, 3);
+  asking = 1;
+  tagline.sprite.SetOpacity(0);
+  pw_title.image  = Image.Text("Disque chiffré : tape ta phrase puis Entrée", 0.93, 0.94, 0.95, 1, "Sans 13");
+  pw_title.sprite = Sprite(pw_title.image);
+  pw_title.sprite.SetPosition(W / 2 - pw_title.image.GetWidth() / 2, bar_y + 28, 4);
+  s = ""; for (i = 0; i < bullets; i++) s += "*";
+  if (bullets == 0) s = " ";
+  pw_dots.image  = Image.Text(s, 1, 1, 1, 1, "Sans 18");
+  pw_dots.sprite = Sprite(pw_dots.image);
+  pw_dots.sprite.SetPosition(W / 2 - pw_dots.image.GetWidth() / 2, bar_y + 58, 4);
+  pw_line.sprite.SetOpacity(1);
 }
 Plymouth.SetDisplayPasswordFunction(password_cb);
-fun normal_cb() { pw.sprite = NULL; }
+fun normal_cb() {
+  if (asking) {
+    asking = 0;
+    pw_title.sprite = NULL; pw_dots.sprite = NULL;
+    pw_line.sprite.SetOpacity(0);
+    tagline.sprite.SetOpacity(1);
+  }
+}
 Plymouth.SetDisplayNormalFunction(normal_cb);
 
 fun message_cb(text) {

@@ -81,7 +81,8 @@ PID=$!
 sleep 3; shot 04-grub
 # disque chiffré : la phrase est demandée par l'écran de démarrage GhostCat
 sleep 15; shot 05-passphrase
-type_text "deluge orbite glyphe"; key ret
+type_text "deluge"; sleep 1; shot 05-passphrase-typing
+type_text " orbite glyphe"; key ret
 t=0
 for at in 5 12 20 30 45; do sleep $((at - t)); t=$at; alive || break; shot "05-boot-$(printf %03d "$at")s"; done
 # connexion : on choisit le premier compte puis on tape le mot de passe de test

@@ -1,6 +1,14 @@
 #!/bin/sh
 # GhostCat OS — le menu de démarrage dit « GhostCat OS », pas « GhostCat OS Linux, with Linux linux ».
-# Le script 10_linux appartient au paquet grub : ce hook repasse après chaque mise à jour.
+# Le script 10_linux appartient au paquet grub : ce hook repasse après chaque mise à jour
+# de grub ou du thème.
+# Le thème est aussi copié dans /boot/grub : avec un disque chiffré, GRUB ne lit que /boot.
+if [ -d /boot/grub ]; then
+  mkdir -p /boot/grub/themes
+  rm -rf /boot/grub/themes/ghostcat
+  cp -r /usr/share/grub/themes/ghostcat /boot/grub/themes/ghostcat
+  [ -f /etc/default/grub ] && sed -i 's#^GRUB_THEME=.*#GRUB_THEME="/boot/grub/themes/ghostcat/theme.txt"#' /etc/default/grub
+fi
 f=/etc/grub.d/10_linux
 [ -f "$f" ] || exit 0
 sed -i -e 's/OS="${GRUB_DISTRIBUTOR} Linux"/OS="${GRUB_DISTRIBUTOR}"/' \
