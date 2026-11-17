@@ -1,6 +1,6 @@
-[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0009 "GhostCat" from HD(2,GPT,86C4E584-BDDA-454D-BB11-D206B45D9890,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
-BdsDxe: starting Boot0009 "GhostCat" from HD(2,GPT,86C4E584-BDDA-454D-BB11-D206B45D9890,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
-[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=9d12d0a292c14387a5c41d753af08f62;user=root;hostname=ghostcat;machineid=714eff11922d475c940fde12b8504697;bootid=0888c13728a34290b84a4c66603a1e84;pid=989;pidfdid=4528;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=b596c032e5c4443ebbe2f6fc590cbc91;type=service\P+q6E616D65\
+[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0009 "GhostCat" from HD(2,GPT,32CF271D-B4C8-4028-A274-3D13C02CAAE7,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+BdsDxe: starting Boot0009 "GhostCat" from HD(2,GPT,32CF271D-B4C8-4028-A274-3D13C02CAAE7,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=e03448e50bbe41f9bc44940db62fce64;user=root;hostname=ghostcat;machineid=b0f08f4a6654451598f0347f718c8a9b;bootid=9a2ee8e1ab804741ba7581e287b21cdc;pid=1038;pidfdid=600;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=7197829235b647f58b27a426ed9e76bb;type=service\P+q6E616D65\
 [1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
 
 ghostcat login: 
@@ -11,7 +11,7 @@ Mot de passe :
   GhostCat OS — Cybersecurity Edition
   developed by 0x3 · https://t.me/data0x3
 
-]3008;start=ed10e74058c24b1da18ba891285f9c76;user=root;hostname=ghostcat;machineid=714eff11922d475c940fde12b8504697;bootid=0888c13728a34290b84a4c66603a1e84;pid=989;pidfdid=4528;comm=login;targetuser=ghost0;sessionid=5;type=session\[m                          [m[1;37m  GhostCat OS — Cybersecurity Edition[0m[m
+]3008;start=760f50850aba46ddbb7999e1516bd2bb;user=root;hostname=ghostcat;machineid=b0f08f4a6654451598f0347f718c8a9b;bootid=9a2ee8e1ab804741ba7581e287b21cdc;pid=1038;pidfdid=600;comm=login;targetuser=ghost0;sessionid=5;type=session\[m                          [m[1;37m  GhostCat OS — Cybersecurity Edition[0m[m
 [1m[37m      /\_________/\[m       [m[90m  developed by 0x3 · https://t.me/data0x3[0m[m
 [1m[37m     |             |[m      
 [1m[37m     |  (o)   (o)  |[m      [m[1m[37m  user[m[m ▸ [m[1m[37mghost0[m@[1m[37mghostcat[m
@@ -21,17 +21,17 @@ Mot de passe :
 [1m[37m     \/\/\/\/\/\/\/[m       [m[1m[37m  pkgs[m[m ▸ [m1409 (pacman)
 [1m[37m        ) | | ([m           [m[1m[37m  de  [m[m ▸ [mGNOME 51.1
 [1m[37m        ' ' ' '[m           [m[1m[37m  term[m[m ▸ [mvt220
-[1m[37m  [m                        [m[1m[37m  cpu [m[m ▸ [mAMD EPYC 7763 64-Core (2) @ 2.44 GHz
-                          [m[1m[37m  mem [m[m ▸ [m1.44 GiB / 5.77 GiB ([32m25%[m)
+[1m[37m  [m                        [m[1m[37m  cpu [m[m ▸ [mAMD EPYC 9V74 80-Core (2) @ 2.60 GHz
+                          [m[1m[37m  mem [m[m ▸ [m1.46 GiB / 5.77 GiB ([32m25%[m)
                           
-[m]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\[?2004h[1;37mghost0@ghostcat[0m [90m~[0m $ export PS1='GC\$ ' TERM=dumb; stty cols 200
-[?2004l]3008;start=3e8d85cf-67d5-45c8-8bbc-bd8f133656e6;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\]3008;end=3e8d85cf-67d5-45c8-8bbc-bd8f133656e6;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-]3008;start=f56734e6-08d8-4e8c-b86b-9fd168ad459c;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\]3008;end=f56734e6-08d8-4e8c-b86b-9fd168ad459c;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false
-]3008;start=25e30618-d491-4d92-b33f-9837596ce00a;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\]3008;end=25e30618-d491-4d92-b33f-9837596ce00a;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ echo AVANT; pacman -Q ghostcat-hub
-]3008;start=448df76d-0990-490e-828a-2ee646cea62a;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\AVANT
+[m]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\[?2004h[1;37mghost0@ghostcat[0m [90m~[0m $ export PS1='GC\$ ' TERM=dumb; stty cols 200
+[?2004l]3008;start=ce76176f-c184-477a-947c-06249a5d828a;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\]3008;end=ce76176f-c184-477a-947c-06249a5d828a;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+]3008;start=99d4654b-0f8b-4553-9a03-7d6e9cec5f86;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\]3008;end=99d4654b-0f8b-4553-9a03-7d6e9cec5f86;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false
+]3008;start=16002da1-582f-4803-ab57-77c9bb8f7ce3;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\]3008;end=16002da1-582f-4803-ab57-77c9bb8f7ce3;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ echo AVANT; pacman -Q ghostcat-hub
+]3008;start=728148ae-add5-4528-a69e-fa142a5ac49d;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\AVANT
 [?25lghostcat-hub 2026.11.16.36-1
-[?25h]3008;end=448df76d-0990-490e-828a-2ee646cea62a;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ sudo -v
-]3008;start=44a71a71-4437-4228-b803-00bbac181457;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\
+[?25h]3008;end=728148ae-add5-4528-a69e-fa142a5ac49d;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ sudo -v
+]3008;start=328acd53-a161-40c6-8382-34bd08f8d4a9;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\
 Nous espérons que vous avez reçu de votre administrateur système local
 les consignes traditionnelles. Généralement, elles se concentrent sur ces trois éléments :
 
@@ -42,17 +42,14 @@ les consignes traditionnelles. Généralement, elles se concentrent sur ces troi
 Pour des raisons de sécurité, le mot de passe que vous tapez ne sera pas visible.
 
 [sudo] Mot de passe de ghost0 : 
-]3008;end=44a71a71-4437-4228-b803-00bbac181457;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ echo 'ghost0 ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/99-vm-test >/dev/null
-]3008;start=134485cb-2a32-4301-b139-2b4c9ecc855c;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\]3008;end=134485cb-2a32-4301-b139-2b4c9ecc855c;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ P0=$(pgrep -u ghost0 -x gnome-shell | head -1); echo SHELL-$P0
-]3008;start=8f5577de-20a5-4aa5-b91a-4b29dc5d3cf9;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\SHELL-1494
-]3008;end=8f5577de-20a5-4aa5-b91a-4b29dc5d3cf9;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ stat -c 'DCONF-AVANT %Y %n' /etc/dconf/db/local /etc/dconf/db/gdm
-]3008;start=2f331f8a-315b-4e5c-93d5-168aff375ea3;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\DCONF-AVANT 1794910871 /etc/dconf/db/local
-DCONF-AVANT 1794910871 /etc/dconf/db/gdm
-]3008;end=2f331f8a-315b-4e5c-93d5-168aff375ea3;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ yes o | ghostcat-update 2>&1 | tail -n 40; sleep 25; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-01-''TENU; else echo ETAPE-01-''TOMBE; fi
-]3008;start=99a16310-67c0-4784-9702-030a599def52;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\mise à jour de xdg-desktop-portal-gnome…
-Nouvelles dépendances optionnelles pour xdg-desktop-portal-gnome
-    papers: Print previews [installé]
-mise à jour de ghostcat-shell-extras…
+]3008;end=328acd53-a161-40c6-8382-34bd08f8d4a9;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ echo 'ghost0 ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/99-vm-test >/dev/null
+]3008;start=85c18c3c-0f71-4c60-984f-934708e8d18d;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\]3008;end=85c18c3c-0f71-4c60-984f-934708e8d18d;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ P0=$(pgrep -u ghost0 -x gnome-shell | head -1); echo SHELL-$P0
+]3008;start=eaa20b0e-57bf-4e10-a278-fceefde49f76;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\SHELL-1498
+]3008;end=eaa20b0e-57bf-4e10-a278-fceefde49f76;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ stat -c 'DCONF-AVANT %Y %n' /etc/dconf/db/local /etc/dconf/db/gdm
+]3008;start=f62aee07-f497-49fb-914b-10b4039fe094;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\DCONF-AVANT 1794912343 /etc/dconf/db/local
+DCONF-AVANT 1794912343 /etc/dconf/db/gdm
+]3008;end=f62aee07-f497-49fb-914b-10b4039fe094;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ yes o | ghostcat-update 2>&1 | tail -n 40; sleep 25; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-01-''TENU; else echo ETAPE-01-''TOMBE; fi
+]3008;start=ed94186e-905c-4f5c-b0e5-57a312784b44;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\mise à jour de ghostcat-shell-extras…
 mise à jour de ghostcat-shell…
 mise à jour de ghostcat-hub…
 mise à jour de ghostcat-setup…
@@ -77,6 +74,9 @@ mise à jour de python-jsonpatch…
 ( 2/13) Reloading device manager configuration...
 ( 3/13) Arming ConditionNeedsUpdate...
 ( 4/13) GhostCat OS : bases dconf inchangées laissées telles quelles…
+  base gdm inchangée
+  base ibus inchangée
+  base local inchangée
 ( 5/13) GhostCat OS : identité du système…
 ( 6/13) GhostCat OS : écran de connexion…
 ( 7/13) GhostCat OS : noms du menu de démarrage…
@@ -90,32 +90,32 @@ mise à jour de python-jsonpatch…
 [32m[  OK  ][0m système à jour
 [32m[  OK  ][0m applications Flatpak
 ETAPE-01-TENU
-]3008;end=99a16310-67c0-4784-9702-030a599def52;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ stat -c 'DCONF-APRES %Y %n' /etc/dconf/db/local /etc/dconf/db/gdm
-]3008;start=1df44386-d0ea-48f0-89b5-d0337253b3eb;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\DCONF-APRES 1794911375 /etc/dconf/db/local
-DCONF-APRES 1794911375 /etc/dconf/db/gdm
-]3008;end=1df44386-d0ea-48f0-89b5-d0337253b3eb;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-''OK
-]3008;start=3ee660b9-963e-47ef-8b6c-c0f118bacfcc;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\APRES
+]3008;end=ed94186e-905c-4f5c-b0e5-57a312784b44;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ stat -c 'DCONF-APRES %Y %n' /etc/dconf/db/local /etc/dconf/db/gdm
+]3008;start=00a58923-b248-4eb4-8a12-102b44883204;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\DCONF-APRES 1794912809 /etc/dconf/db/local
+DCONF-APRES 1794912809 /etc/dconf/db/gdm
+]3008;end=00a58923-b248-4eb4-8a12-102b44883204;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-''OK
+]3008;start=1b8a59b7-1c88-4a95-9a36-a0e1fb1d72af;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\APRES
 [?25lghostcat-hub 2026.11.17.44-1
 [?25htotal 3756
-drwxr-xr-x 1 root root      40 17 nov.  11:29 [0m[01;34m.[0m
-drwxr-xr-x 1 root root     122 17 nov.  11:29 [01;34m..[0m
+drwxr-xr-x 1 root root      40 17 nov.  11:53 [0m[01;34m.[0m
+drwxr-xr-x 1 root root     122 17 nov.  11:53 [01;34m..[0m
 -rw-r--r-- 1 root root 1739024 17 nov.  11:12 avatar.gif
 -rw-r--r-- 1 root root 2102239 17 nov.  11:12 banner.gif
 LISTE-OK
-]3008;end=3ee660b9-963e-47ef-8b6c-c0f118bacfcc;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub1 /usr/bin/ghostcat-hub ; echo HUB-''LANCE-hub1
-]3008;start=1c443e69-330e-4961-96ed-c61ac66252a7;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\Running as unit: hub1.service; invocation ID: 168fce4ddaab49419b03e0bb3fed8509
+]3008;end=1b8a59b7-1c88-4a95-9a36-a0e1fb1d72af;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub1 /usr/bin/ghostcat-hub ; echo HUB-''LANCE-hub1
+]3008;start=2da79a11-4bff-47cd-a136-19757b349217;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\Running as unit: hub1.service; invocation ID: 5fa6a17c014e4e84a287fc212eb2d13c
 HUB-LANCE-hub1
-]3008;end=1c443e69-330e-4961-96ed-c61ac66252a7;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub2 /usr/bin/ghostcat-hub --view=red; echo HUB-''LANCE-hub2
-]3008;start=cb7c1dd8-8fbb-48eb-b872-61d1e6a5c64b;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\Running as unit: hub2.service; invocation ID: 9171530002454b1eb7517c143e4b0bc3
+]3008;end=2da79a11-4bff-47cd-a136-19757b349217;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub2 /usr/bin/ghostcat-hub --view=red; echo HUB-''LANCE-hub2
+]3008;start=9effda71-4ed2-4a26-a6b8-005d128ec4df;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\Running as unit: hub2.service; invocation ID: 39871b7aea79405299e402c4ee6a2dd2
 HUB-LANCE-hub2
-]3008;end=cb7c1dd8-8fbb-48eb-b872-61d1e6a5c64b;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub3 /usr/bin/ghostcat-hub --view=dev; echo HUB-''LANCE-hub3
-]3008;start=d8f82b73-0dd5-4f8f-9fc3-760cc37d2445;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\Running as unit: hub3.service; invocation ID: 8cd6085f565145989bd2c22c1f05cb81
+]3008;end=9effda71-4ed2-4a26-a6b8-005d128ec4df;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub3 /usr/bin/ghostcat-hub --view=dev; echo HUB-''LANCE-hub3
+]3008;start=04960770-6600-442b-b9a5-39c3e2650422;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\Running as unit: hub3.service; invocation ID: 65852cde4408441eb5e9c69bfca21519
 HUB-LANCE-hub3
-]3008;end=d8f82b73-0dd5-4f8f-9fc3-760cc37d2445;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ journalctl --user -u hub1 -u hub2 -u hub3 --no-pager | grep -v MESA | tail -n 30; echo JOURNAL-''OK
-]3008;start=98182b77-19b5-4856-b017-a4f3630266b0;type=command;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\nov. 17 11:30:05 ghostcat systemd[1405]: Started [systemd-run] /usr/bin/ghostcat-hub.
-nov. 17 11:30:38 ghostcat systemd[1405]: hub1.service: Consumed 18.282s CPU time over 32.956s wall clock time, 500.8M memory peak.
-nov. 17 11:30:40 ghostcat systemd[1405]: Started [systemd-run] /usr/bin/ghostcat-hub --view=red.
-nov. 17 11:31:08 ghostcat systemd[1405]: hub2.service: Consumed 12.576s CPU time over 27.437s wall clock time, 487.1M memory peak.
-nov. 17 11:31:10 ghostcat systemd[1405]: Started [systemd-run] /usr/bin/ghostcat-hub --view=dev.
+]3008;end=04960770-6600-442b-b9a5-39c3e2650422;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ journalctl --user -u hub1 -u hub2 -u hub3 --no-pager | grep -v MESA | tail -n 30; echo JOURNAL-''OK
+]3008;start=90b7b462-4eb6-4e20-b062-a7c42f65f943;type=command;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\nov. 17 11:53:59 ghostcat systemd[1409]: Started [systemd-run] /usr/bin/ghostcat-hub.
+nov. 17 11:54:32 ghostcat systemd[1409]: hub1.service: Consumed 15.096s CPU time over 32.807s wall clock time, 492.5M memory peak.
+nov. 17 11:54:34 ghostcat systemd[1409]: Started [systemd-run] /usr/bin/ghostcat-hub --view=red.
+nov. 17 11:55:01 ghostcat systemd[1409]: hub2.service: Consumed 10.075s CPU time over 27.309s wall clock time, 464.9M memory peak.
+nov. 17 11:55:03 ghostcat systemd[1409]: Started [systemd-run] /usr/bin/ghostcat-hub --view=dev.
 JOURNAL-OK
-]3008;end=98182b77-19b5-4856-b017-a4f3630266b0;exit=success\]3008;start=910f17c2-9555-4796-bd47-08358348fe73;type=shell;machineid=714eff11922d475c940fde12b8504697;user=ghost0;hostname=ghostcat;bootid=0888c137-28a3-4290-b84a-4c66603a1e84;pid=2595;cwd=/home/ghost0\GC$ 
+]3008;end=90b7b462-4eb6-4e20-b062-a7c42f65f943;exit=success\]3008;start=3e60f396-473d-4099-937e-da880043437c;type=shell;machineid=b0f08f4a6654451598f0347f718c8a9b;user=ghost0;hostname=ghostcat;bootid=9a2ee8e1-ab80-4741-ba75-81e287b21cdc;pid=2591;cwd=/home/ghost0\GC$ 
