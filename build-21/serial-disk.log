@@ -1,2 +1,39 @@
-[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0009 "GhostCat" from HD(2,GPT,DB5850AF-AE93-4979-8AA2-722D2BFAC100,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
-BdsDxe: starting Boot0009 "GhostCat" from HD(2,GPT,DB5850AF-AE93-4979-8AA2-722D2BFAC100,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0009 "GhostCat" from HD(2,GPT,6300477E-6473-48F9-80E0-0856264C7087,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+BdsDxe: starting Boot0009 "GhostCat" from HD(2,GPT,6300477E-6473-48F9-80E0-0856264C7087,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=3a05183f494348789e359f1df57e3a0f;user=root;hostname=ghostcat;machineid=d5a68105cd1545dc8cd2993d8150069f;bootid=000a609b6c97412b81e9783555a8a4e4;pid=1012;pidfdid=4616;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=fa0085e29f724cff85e7cf99c475e9b5;type=service\P+q6E616D65\
+[1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
+
+ghostcat login: 
+ghostcat login: 
+ghostcat login: ghost0
+Mot de passe : 
+echo AVANT; pacman -Q ghostcat-hub; ls /usr/lib/ghostcat/hub
+sudo -v
+Identifiant incorrect
+
+ghostcat identifiant : yes | ghostcat-update 2>&1 | tail -n 60; echo FIN-$((1+1))-MAJ ${PIPESTATUS[1]}
+Mot de passe : login : expiration du délai après 60 secondes
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;end=3a05183f494348789e359[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=126a0ba146c2454f9cae1de412b6a616;user=root;hostname=ghostcat;machineid=d5a68105cd1545dc8cd2993d8150069f;bootid=000a609b6c97412b81e9783555a8a4e4;pid=2603;pidfdid=1256;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=f0f66aa4c8bb4bbcac7a5313f87fd419;type=service\P+q6E616D65\
+[1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
+
+ghostcat login: echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-$((1+1))-OK
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;end=126a0ba146c2454f9cae1de412b6a616\[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=2955fb973cf244df81cf066d1316b3bf;user=root;hostname=ghostcat;machineid=d5a68105cd1545dc8cd2993d8150069f;bootid=000a609b6c97412b81e9783555a8a4e4;pid=2803;pidfdid=5528;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=b93c067730964b268100ae89f75b83a0;type=service\P+q6E616D65\
+[1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
+
+ghostcat login: pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hubtest /usr/bin/ghostcat-hub; echo HUB-$((1+1))-LANCE
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;end=2955fb973cf244df81cf066d1316b3bf\[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=7980531c88534569b5c98a1ab274ab7d;user=root;hostname=ghostcat;machineid=d5a68105cd1545dc8cd2993d8150069f;bootid=000a609b6c97412b81e9783555a8a4e4;pid=2806;pidfdid=5531;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=aaa980df62cd42b38da755f71e9fa63d;type=service\P+q6E616D65\
+[1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
+
+ghostcat login: systemctl --user stop hubtest; sleep 2; systemd-run --user --unit=hubdev /usr/bin/ghostcat-hub --view=red; echo HUB-RED
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;end=7980531c88534569b5c98a1ab274ab7d\[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=5bc625c178704344abfc40b1fac05ac0;user=root;hostname=ghostcat;machineid=d5a68105cd1545dc8cd2993d8150069f;bootid=000a609b6c97412b81e9783555a8a4e4;pid=2912;pidfdid=5565;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=ff898fecb6cf4559b0bb00945b9ac34f;type=service\P+q6E616D65\
+[1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
+
+ghostcat login: systemctl --user stop hubdev; sleep 2; systemd-run --user --unit=hubdev2 /usr/bin/ghostcat-hub --view=dev; echo HUB-DEV
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;end=5bc625c178704344abfc40b1fac05ac0\[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=653e8ee59fbe40aa8ee0c8608bfced56;user=root;hostname=ghostcat;machineid=d5a68105cd1545dc8cd2993d8150069f;bootid=000a609b6c97412b81e9783555a8a4e4;pid=2927;pidfdid=5573;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=54c9078a9f5249f589c943e18b4b77d5;type=service\P+q6E616D65\
+[1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
+
+ghostcat login: journalctl --user -u hubtest -u hubdev -u hubdev2 --no-pager | tail -n 40; echo JOURNAL-$((1+1))-OK
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;end=653e8ee59fbe40aa8ee0c8608bfced56\[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=0908e522b15740c79d174b1d7496f1af;user=root;hostname=ghostcat;machineid=d5a68105cd1545dc8cd2993d8150069f;bootid=000a609b6c97412b81e9783555a8a4e4;pid=2930;pidfdid=5576;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=9987bb2a8edb46ffa16bbae5cb479398;type=service\P+q6E616D65\
+[1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
+
+ghostcat login: 
