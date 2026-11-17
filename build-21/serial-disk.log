@@ -1,6 +1,6 @@
-[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0009 "GhostCat" from HD(2,GPT,02D22A5E-0A5A-4E35-B814-ED9D1767F01B,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
-BdsDxe: starting Boot0009 "GhostCat" from HD(2,GPT,02D22A5E-0A5A-4E35-B814-ED9D1767F01B,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
-[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=0727f13edd2b42219583ff51ba9ff38c;user=root;hostname=ghostcat;machineid=c461d866099145a2b4a7d8859ef977ea;bootid=4811587ef7f54b919e1a4fdb718c1681;pid=1046;pidfdid=469;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=569f94279420487bb8692123160f8b1c;type=service\P+q6E616D65\
+[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0009 "GhostCat" from HD(2,GPT,EDC170D1-5151-4B02-A54B-FB524FAA3C42,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+BdsDxe: starting Boot0009 "GhostCat" from HD(2,GPT,EDC170D1-5151-4B02-A54B-FB524FAA3C42,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=b2a85a05225c4e008de59c5b0f1c56df;user=root;hostname=ghostcat;machineid=085e3650732f427784c3265b59db915c;bootid=42d1003d849b41b587e33c5cbff224e2;pid=1051;pidfdid=545;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=370ad0c3c72b4984b63f2f1b969be1b1;type=service\P+q6E616D65\
 [1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
 
 ghostcat login: 
@@ -11,7 +11,7 @@ Mot de passe :
   GhostCat OS — Cybersecurity Edition
   developed by 0x3 · https://t.me/data0x3
 
-]3008;start=bb7db1f50be146398ecca56bd670808e;user=root;hostname=ghostcat;machineid=c461d866099145a2b4a7d8859ef977ea;bootid=4811587ef7f54b919e1a4fdb718c1681;pid=1046;pidfdid=469;comm=login;targetuser=ghost0;sessionid=5;type=session\[m                          [m[1;37m  GhostCat OS — Cybersecurity Edition[0m[m
+]3008;start=9d446bc341264a9f9446501ace55dfed;user=root;hostname=ghostcat;machineid=085e3650732f427784c3265b59db915c;bootid=42d1003d849b41b587e33c5cbff224e2;pid=1051;pidfdid=545;comm=login;targetuser=ghost0;sessionid=5;type=session\[m                          [m[1;37m  GhostCat OS — Cybersecurity Edition[0m[m
 [1m[37m      /\_________/\[m       [m[90m  developed by 0x3 · https://t.me/data0x3[0m[m
 [1m[37m     |             |[m      
 [1m[37m     |  (o)   (o)  |[m      [m[1m[37m  user[m[m ▸ [m[1m[37mghost0[m@[1m[37mghostcat[m
@@ -21,17 +21,17 @@ Mot de passe :
 [1m[37m     \/\/\/\/\/\/\/[m       [m[1m[37m  pkgs[m[m ▸ [m1409 (pacman)
 [1m[37m        ) | | ([m           [m[1m[37m  de  [m[m ▸ [mGNOME 51.1
 [1m[37m        ' ' ' '[m           [m[1m[37m  term[m[m ▸ [mvt220
-[1m[37m  [m                        [m[1m[37m  cpu [m[m ▸ [mIntel(R) Xeon(R) Platinum 8370C (2) @ 2.79 GHz
-                          [m[1m[37m  mem [m[m ▸ [m1.44 GiB / 5.77 GiB ([32m25%[m)
+[1m[37m  [m                        [m[1m[37m  cpu [m[m ▸ [mAMD EPYC 9V45 96-Core (2) @ 2.60 GHz
+                          [m[1m[37m  mem [m[m ▸ [m1.42 GiB / 5.77 GiB ([32m25%[m)
                           
-[m]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\[?2004h[1;37mghost0@ghostcat[0m [90m~[0m $ export PS1='GC\$ ' TERM=dumb; stty cols 200
-[?2004l]3008;start=905218e8-042a-4df0-8f89-a01da7400139;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\]3008;end=905218e8-042a-4df0-8f89-a01da7400139;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-]3008;start=5cbe278a-57fb-4854-af63-5fd4caa1ccf4;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\]3008;end=5cbe278a-57fb-4854-af63-5fd4caa1ccf4;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false
-]3008;start=62194bc0-0237-483f-83e6-7bf927393121;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\]3008;end=62194bc0-0237-483f-83e6-7bf927393121;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ echo AVANT; pacman -Q ghostcat-hub
-]3008;start=13b3c5e1-0063-4878-a54c-7aacf3f8d672;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\AVANT
+[m]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\[?2004h[1;37mghost0@ghostcat[0m [90m~[0m $ export PS1='GC\$ ' TERM=dumb; stty cols 200
+[?2004l]3008;start=05f25405-80bc-4801-a740-2be5e369c373;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\]3008;end=05f25405-80bc-4801-a740-2be5e369c373;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+]3008;start=baf3c4b9-e00f-4368-a02a-ff64bf7e76d3;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\]3008;end=baf3c4b9-e00f-4368-a02a-ff64bf7e76d3;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false
+]3008;start=1798ff80-d0ba-48f5-ba10-e37fb717a0d9;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\]3008;end=1798ff80-d0ba-48f5-ba10-e37fb717a0d9;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ echo AVANT; pacman -Q ghostcat-hub
+]3008;start=5be258fb-463b-4276-b5ff-e785753e97cb;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\AVANT
 [?25lghostcat-hub 2026.11.16.36-1
-[?25h]3008;end=13b3c5e1-0063-4878-a54c-7aacf3f8d672;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ sudo -v
-]3008;start=1ffd72b4-8d7e-4571-a3da-f8ddcb570fef;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\
+[?25h]3008;end=5be258fb-463b-4276-b5ff-e785753e97cb;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ sudo -v
+]3008;start=42496bae-f8e2-4007-8ab9-b5675c882ea1;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\
 Nous espérons que vous avez reçu de votre administrateur système local
 les consignes traditionnelles. Généralement, elles se concentrent sur ces trois éléments :
 
@@ -42,140 +42,194 @@ les consignes traditionnelles. Généralement, elles se concentrent sur ces troi
 Pour des raisons de sécurité, le mot de passe que vous tapez ne sera pas visible.
 
 [sudo] Mot de passe de ghost0 : 
-]3008;end=1ffd72b4-8d7e-4571-a3da-f8ddcb570fef;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ echo 'ghost0 ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/99-vm-test >/dev/null
-]3008;start=dba2610c-14ba-4f6e-a034-c7d40f49020e;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\]3008;end=dba2610c-14ba-4f6e-a034-c7d40f49020e;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ P0=$(pgrep -u ghost0 -x gnome-shell | head -1); echo SHELL-$P0
-]3008;start=1fba1ba5-466f-4c59-bd41-c483309a0cd8;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\SHELL-1491
-]3008;end=1fba1ba5-466f-4c59-bd41-c483309a0cd8;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ sudo pacman -Sy >/dev/null; sleep 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-01-''TENU; else echo ETAPE-01-''TOMBE; fi
-]3008;start=a6158a8b-19cf-42f1-bba1-b861061b2f27;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\ETAPE-01-TENU
-]3008;end=a6158a8b-19cf-42f1-bba1-b861061b2f27;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ sudo touch /etc/dconf/db/local.d; sudo dconf update; sleep 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-02-''TENU; else echo ETAPE-02-''TOMBE; fi
-]3008;start=1b9dd083-2361-4fba-80a1-ce5c2c64e1af;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\ETAPE-02-TENU
-]3008;end=1b9dd083-2361-4fba-80a1-ce5c2c64e1af;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ sudo udevadm control --reload; sleep 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-03-''TENU; else echo ETAPE-03-''TOMBE; fi
-]3008;start=cd8e114b-9a35-4077-b70a-19eda79187fe;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\ETAPE-03-TENU
-]3008;end=cd8e114b-9a35-4077-b70a-19eda79187fe;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ sudo /usr/lib/ghostcat/gdm-theme; sleep 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-04-''TENU; else echo ETAPE-04-''TOMBE; fi
-]3008;start=39f11a3a-bd02-4be7-9273-f0198dfd16e2;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\ETAPE-04-TENU
-]3008;end=39f11a3a-bd02-4be7-9273-f0198dfd16e2;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ sudo touch /usr/share/fonts/ghostcat/*; sudo fc-cache -s; sleep 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-05-''TENU; else echo ETAPE-05-''TOMBE; fi
-]3008;start=a507ecc7-a49f-4267-a1bc-d980aad97bed;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\ETAPE-05-TENU
-]3008;end=a507ecc7-a49f-4267-a1bc-d980aad97bed;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ sudo glib-compile-schemas /usr/share/glib-2.0/schemas; sleep 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-06-''TENU; else echo ETAPE-06-''TOMBE; fi
-]3008;start=06d346e5-96d4-4734-8cfb-89316207fe33;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\ETAPE-06-TENU
-]3008;end=06d346e5-96d4-4734-8cfb-89316207fe33;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ <p 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-07-''TENU; else echo ETAPE-07-''TOMBE; fi
-]3008;start=38fd4779-8860-40e2-a058-d1cfb9a229cd;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\ETAPE-07-TENU
-]3008;end=38fd4779-8860-40e2-a058-d1cfb9a229cd;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ systemctl --user daemon-reload; sleep 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-08-''TENU; else echo ETAPE-08-''TOMBE; fi
-]3008;start=9348dd7f-4368-4580-be8e-49b1dd558763;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\ETAPE-08-TENU
-]3008;end=9348dd7f-4368-4580-be8e-49b1dd558763;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ <p 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-09-''TENU; else echo ETAPE-09-''TOMBE; fi
-]3008;start=c07b876e-d620-4076-9e49-cbf21e07fa1d;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\(1/2) Arming ConditionNeedsUpdate...
-(2/2) Performing snapper post snapshots for the following configurations...
-==> root: 5
-ETAPE-09-TENU
-]3008;end=c07b876e-d620-4076-9e49-cbf21e07fa1d;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ <p 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-10-''TENU; else echo ETAPE-10-''TOMBE; fi
-]3008;start=73b01b0b-1f76-47c9-a777-770e13977551;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\(1/2) Arming ConditionNeedsUpdate...
-(2/2) Performing snapper post snapshots for the following configurations...
-==> root: 7
-ETAPE-10-TENU
-]3008;end=73b01b0b-1f76-47c9-a777-770e13977551;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ <p 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-11-''TENU; else echo ETAPE-11-''TOMBE; fi
-]3008;start=0ea46815-4d66-4365-9bd2-025bde6ebff8;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\vérification de l’espace disque disponible…
-:: Exécution des crochets (« hooks ») de pré-transaction…
-(1/1) Performing snapper pre snapshots for the following configurations...
-==> root: 8
-:: Traitement des changements du paquet…
-mise à jour de ghostcat-theme…
-:: Exécution des crochets (« hooks ») de post-transaction…
-(1/7) Arming ConditionNeedsUpdate...
-(2/7) GhostCat OS : écran de connexion…
-(3/7) GhostCat OS : noms du menu de démarrage…
-(4/7) Updating system dconf databases...
-(5/7) Updating fontconfig cache...
-(6/7) Updating icon theme caches...
-(7/7) Performing snapper post snapshots for the following configurations...
-==> root: 9
-ETAPE-11-TENU
-]3008;end=0ea46815-4d66-4365-9bd2-025bde6ebff8;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ <p 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-12-''TENU; else echo ETAPE-12-''TOMBE; fi
-]3008;start=8630f131-e2e4-4f8b-bd2e-a2224170af09;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\mise à jour de ghostcat-release…
-mise à jour de ghostcat-mirrorlist…
-:: Exécution des crochets (« hooks ») de post-transaction…
-(1/4) Reloading device manager configuration...
-(2/4) Arming ConditionNeedsUpdate...
-(3/4) GhostCat OS : identité du système…
-(4/4) Performing snapper post snapshots for the following configurations...
-==> root: 11
-ETAPE-12-TENU
-]3008;end=8630f131-e2e4-4f8b-bd2e-a2224170af09;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ <sleep 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-13-''TENU; else echo ETAPE-13-''TOMBE; fi
-]3008;start=43920eb0-7720-4ebb-8b51-d511f2196508;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\mise à jour de ghostcat-update…
+]3008;end=42496bae-f8e2-4007-8ab9-b5675c882ea1;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ echo 'ghost0 ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/99-vm-test >/dev/null
+]3008;start=a4faf200-2a6d-4905-a435-fdfd5c46fdba;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\]3008;end=a4faf200-2a6d-4905-a435-fdfd5c46fdba;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ P0=$(pgrep -u ghost0 -x gnome-shell | head -1); echo SHELL-$P0
+]3008;start=6010f28c-28ff-4620-84cc-21e6e86133f0;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\SHELL-1507
+]3008;end=6010f28c-28ff-4620-84cc-21e6e86133f0;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ yes o | ghostcat-update 2>&1 | tail -n 40; sleep 25; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-01-''TENU; else echo ETAPE-01-''TOMBE; fi
+]3008;start=bdc3a5ba-b213-417c-83be-ceb7b72152b3;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\mise à jour de poppler-glib…
+mise à jour de xdg-desktop-portal-gnome…
+Nouvelles dépendances optionnelles pour xdg-desktop-portal-gnome
+    papers: Print previews [installé]
+mise à jour de ghostcat-shell-extras…
+mise à jour de ghostcat-shell…
+mise à jour de ghostcat-hub…
+mise à jour de ghostcat-setup…
+mise à jour de inotify-tools…
 mise à jour de ghostcat-installer…
+mise à jour de ghostcat-update…
 mise à jour de ghostcat-desktop…
-:: Exécution des crochets (« hooks ») de post-transaction…
-(1/3) Arming ConditionNeedsUpdate...
-(2/3) Updating the desktop file MIME type cache...
-(3/3) Performing snapper post snapshots for the following configurations...
-==> root: 13
-ETAPE-13-TENU
-]3008;end=43920eb0-7720-4ebb-8b51-d511f2196508;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ yes o | ghostcat-update 2>&1 | tail -n 40; sleep 10; p=$(pgrep -u ghost0 -x gnome-shell | head -1); if [ "$p" = "$P0" ]; then echo ETAPE-14-''TENU; else echo ETAPE-14-''TOMBE; fi
-]3008;start=a809d512-4186-4590-a48f-615173a4911c;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\recherche des conflits entre fichiers…
-vérification de l’espace disque disponible…
-:: Exécution des crochets (« hooks ») de pré-transaction…
-(1/1) Performing snapper pre snapshots for the following configurations...
-==> root: 14
-:: Traitement des changements du paquet…
-mise à jour de libplacebo…
-mise à jour de ffmpeg…
-mise à jour de gstreamer…
-mise à jour de gst-plugins-base-libs…
-mise à jour de gst-plugins-bad-libs…
-mise à jour de file-roller…
 mise à jour de gst-devtools-libs…
 mise à jour de gst-python…
 mise à jour de gst-editing-services…
 mise à jour de gst-plugins-bad…
 mise à jour de gst-plugins-base…
 mise à jour de gst-plugins-good…
-mise à jour de inotify-tools…
 mise à jour de mpv…
 mise à jour de pkgconf…
-mise à jour de poppler…
-mise à jour de poppler-glib…
 mise à jour de python-fastapi…
 mise à jour de python-grpcio-tools…
 mise à jour de python-grpcio…
 mise à jour de python-jsonpatch…
-mise à jour de xdg-desktop-portal-gnome…
-Nouvelles dépendances optionnelles pour xdg-desktop-portal-gnome
-    papers: Print previews [installé]
 :: Exécution des crochets (« hooks ») de post-transaction…
-(1/6) Reloading user manager configuration...
-(2/6) Arming ConditionNeedsUpdate...
-(3/6) Compiling GSettings XML schema files...
-(4/6) Updating icon theme caches...
-(5/6) Updating the desktop file MIME type cache...
-(6/6) Performing snapper post snapshots for the following configurations...
-==> root: 15
+( 1/12) Reloading user manager configuration...
+( 2/12) Reloading device manager configuration...
+( 3/12) Arming ConditionNeedsUpdate...
+( 4/12) GhostCat OS : identité du système…
+( 5/12) GhostCat OS : écran de connexion…
+( 6/12) GhostCat OS : noms du menu de démarrage…
+( 7/12) Updating system dconf databases...
+( 8/12) Updating fontconfig cache...
+( 9/12) Compiling GSettings XML schema files...
+(10/12) Updating icon theme caches...
+(11/12) Updating the desktop file MIME type cache...
+(12/12) Performing snapper post snapshots for the following configurations...
+==> root: 5
 [32m[  OK  ][0m système à jour
 [32m[  OK  ][0m applications Flatpak
-ETAPE-14-TENU
-]3008;end=a809d512-4186-4590-a48f-615173a4911c;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ coredumpctl list --no-pager 2>&1 | tail -n 6; sudo coredumpctl info --no-pager /usr/bin/gnome-shell 2>&1 | grep -aA30 'Stack trace of thread' | head -n 120; echo CORES-''OK
-]3008;start=5f344a9a-432e-4198-98a7-5aed4c88e18e;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\No coredumps found.
-CORES-OK
-]3008;end=5f344a9a-432e-4198-98a7-5aed4c88e18e;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-''OK
-]3008;start=7bc0849c-5b56-42e8-9c82-196a1b3fe75a;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\APRES
-[?25lghostcat-hub 2026.11.17.42-1
+ETAPE-01-TOMBE
+]3008;end=bdc3a5ba-b213-417c-83be-ceb7b72152b3;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ P0=$(pgrep -u ghost0 -x gnome-shell | head -1)
+]3008;start=8159972c-f63b-4376-9947-9704dbcc7dec;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\]3008;end=8159972c-f63b-4376-9947-9704dbcc7dec;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ sudo journalctl -b --no-pager -o short-precise --since '-6 min' _COMM=gnome-shell | grep -v MESA | tail -n 80; echo JSHELL-''OK
+]3008;start=24ce5614-a5d6-4a57-905d-badc99639fdd;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\nov. 17 10:49:32.253370 ghostcat gnome-shell[766]: Registering display with GDM
+nov. 17 10:49:32.443520 ghostcat gnome-shell[766]: Will monitor session 1
+nov. 17 10:49:32.454699 ghostcat gnome-shell[766]: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation
+nov. 17 10:49:32.455683 ghostcat gnome-shell[766]: Will monitor session 1
+nov. 17 10:49:32.704230 ghostcat gnome-shell[766]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:49:32.707280 ghostcat gnome-shell[766]: Failed to record usage: GDBus.Error:org.freedesktop.MalcontentTimer1.Child.Error.IdentifyingUser: Error identifying user: Invalid or unknown user
+nov. 17 10:50:22.056503 ghostcat gnome-shell[1507]: Running GNOME Shell (using mutter 51.1) as a Wayland display server
+nov. 17 10:50:22.075660 ghostcat gnome-shell[1507]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:50:22.075855 ghostcat gnome-shell[1507]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:50:22.075860 ghostcat gnome-shell[1507]: Thread 'KMS thread' will be using high priority scheduling
+nov. 17 10:50:22.145278 ghostcat gnome-shell[1507]: Added device '/dev/dri/card1' (virtio_gpu) using atomic mode setting.
+nov. 17 10:50:22.146040 ghostcat gnome-shell[1507]: Failed to initialize accelerated iGPU/dGPU framebuffer sharing: Not hardware accelerated
+nov. 17 10:50:22.146076 ghostcat gnome-shell[1507]: Created gbm renderer for '/dev/dri/card1'
+nov. 17 10:50:22.146080 ghostcat gnome-shell[1507]: Boot VGA GPU /dev/dri/card1 selected as primary
+nov. 17 10:50:22.421680 ghostcat gnome-shell[1507]: Using public X11 display :0, (using unix:/tmp/.X11-unix/X1 for managed services)
+nov. 17 10:50:22.421743 ghostcat gnome-shell[1507]: Using Wayland display name 'wayland-0'
+nov. 17 10:50:22.676983 ghostcat gnome-shell[1507]: Unset XDG_SESSION_ID, getCurrentSessionProxy() called outside a user session. Asking logind directly.
+nov. 17 10:50:22.758353 ghostcat gnome-shell[1507]: Registering session with GDM
+nov. 17 10:50:22.945524 ghostcat gnome-shell[1507]: Will monitor session 3
+nov. 17 10:50:23.569535 ghostcat gnome-shell[1507]: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation
+nov. 17 10:50:23.954350 ghostcat gnome-shell[766]: Gio.IOErrorEnum: GDBus.Error:org.freedesktop.MalcontentTimer1.Child.Error.IdentifyingUser: Error identifying user: Invalid or unknown user
+                                                   
+                                                   Stack trace:
+                                                     asyncCallback@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:117:23
+                                                     @resource:///org/gnome/shell/ui/init.js:20:20
+                                                     
+nov. 17 10:50:24.518733 ghostcat gnome-shell[1507]: GNOME Shell started at Tue Nov 17 2026 10:50:22 GMT+0100 (heure normale d’Europe centrale)
+nov. 17 10:50:24.519637 ghostcat gnome-shell[1507]: Registering display with GDM
+nov. 17 10:50:24.790894 ghostcat gnome-shell[766]: Shutting down GNOME Shell
+nov. 17 10:50:25.580874 ghostcat gnome-shell[1507]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:50:26.499177 ghostcat gnome-shell[1507]: Couldn't parse family in font property
+nov. 17 10:52:27.147105 ghostcat gnome-shell[1507]: Couldn't parse family in font property
+nov. 17 10:52:30.286563 ghostcat gnome-shell[1507]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:52:30.300986 ghostcat gnome-shell[1507]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:52:32.409309 ghostcat gnome-shell[1507]: Couldn't parse family in font property
+nov. 17 10:52:34.724000 ghostcat audit[1507]: ANOM_ABEND auid=1000 uid=1000 gid=1000 ses=4 pid=1507 comm="gnome-shell" exe="/usr/bin/gnome-shell" sig=11 res=1
+nov. 17 10:52:38.209736 ghostcat gnome-shell[4723]: Running GNOME Shell (using mutter 51.1) as a Wayland display server
+nov. 17 10:52:38.235164 ghostcat gnome-shell[4723]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:52:38.235266 ghostcat gnome-shell[4723]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:52:38.235270 ghostcat gnome-shell[4723]: Thread 'KMS thread' will be using high priority scheduling
+nov. 17 10:52:38.335098 ghostcat gnome-shell[4723]: Added device '/dev/dri/card1' (virtio_gpu) using atomic mode setting.
+nov. 17 10:52:38.336021 ghostcat gnome-shell[4723]: Failed to initialize accelerated iGPU/dGPU framebuffer sharing: Not hardware accelerated
+nov. 17 10:52:38.336032 ghostcat gnome-shell[4723]: Created gbm renderer for '/dev/dri/card1'
+nov. 17 10:52:38.336059 ghostcat gnome-shell[4723]: Boot VGA GPU /dev/dri/card1 selected as primary
+nov. 17 10:52:38.599969 ghostcat gnome-shell[4723]: Using public X11 display :1024, (using unix:/tmp/.X11-unix/X1025 for managed services)
+nov. 17 10:52:38.600042 ghostcat gnome-shell[4723]: Using Wayland display name 'wayland-0'
+nov. 17 10:52:38.831733 ghostcat gnome-shell[4723]: Unset XDG_SESSION_ID, getCurrentSessionProxy() called outside a user session. Asking logind directly.
+nov. 17 10:52:38.924111 ghostcat gnome-shell[4723]: Registering session with GDM
+nov. 17 10:52:39.493211 ghostcat gnome-shell[4723]: Unset XDG_SESSION_ID, getCurrentSessionProxy() called outside a user session. Asking logind directly.
+nov. 17 10:52:39.530653 ghostcat gnome-shell[4723]: Registering display with GDM
+nov. 17 10:52:39.665630 ghostcat gnome-shell[4723]: Will monitor session 6
+nov. 17 10:52:39.678669 ghostcat gnome-shell[4723]: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation
+nov. 17 10:52:39.678838 ghostcat gnome-shell[4723]: Will monitor session 6
+nov. 17 10:52:39.966676 ghostcat gnome-shell[4723]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:52:39.969106 ghostcat gnome-shell[4723]: Failed to record usage: GDBus.Error:org.freedesktop.MalcontentTimer1.Child.Error.IdentifyingUser: Error identifying user: Invalid or unknown user
+nov. 17 10:53:12.082934 ghostcat gnome-shell[5572]: Running GNOME Shell (using mutter 51.1) as a Wayland display server
+nov. 17 10:53:12.101861 ghostcat gnome-shell[5572]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:53:12.102121 ghostcat gnome-shell[5572]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:53:12.102165 ghostcat gnome-shell[5572]: Thread 'KMS thread' will be using high priority scheduling
+nov. 17 10:53:12.151274 ghostcat gnome-shell[5572]: Added device '/dev/dri/card1' (virtio_gpu) using atomic mode setting.
+nov. 17 10:53:12.152281 ghostcat gnome-shell[5572]: Failed to initialize accelerated iGPU/dGPU framebuffer sharing: Not hardware accelerated
+nov. 17 10:53:12.152291 ghostcat gnome-shell[5572]: Created gbm renderer for '/dev/dri/card1'
+nov. 17 10:53:12.152295 ghostcat gnome-shell[5572]: Boot VGA GPU /dev/dri/card1 selected as primary
+nov. 17 10:53:12.417529 ghostcat gnome-shell[5572]: Using public X11 display :0, (using unix:/tmp/.X11-unix/X1 for managed services)
+nov. 17 10:53:12.417617 ghostcat gnome-shell[5572]: Using Wayland display name 'wayland-0'
+nov. 17 10:53:12.650156 ghostcat gnome-shell[5572]: Unset XDG_SESSION_ID, getCurrentSessionProxy() called outside a user session. Asking logind directly.
+nov. 17 10:53:12.753186 ghostcat gnome-shell[5572]: Registering session with GDM
+nov. 17 10:53:13.615361 ghostcat gnome-shell[5572]: Will monitor session 8
+nov. 17 10:53:13.914979 ghostcat gnome-shell[5572]: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation
+nov. 17 10:53:13.925449 ghostcat gnome-shell[4723]: Gio.IOErrorEnum: GDBus.Error:org.freedesktop.MalcontentTimer1.Child.Error.IdentifyingUser: Error identifying user: Invalid or unknown user
+                                                    
+                                                    Stack trace:
+                                                      asyncCallback@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:117:23
+                                                      @resource:///org/gnome/shell/ui/init.js:20:20
+                                                      
+nov. 17 10:53:14.200438 ghostcat gnome-shell[5572]: GNOME Shell started at Tue Nov 17 2026 10:53:12 GMT+0100 (heure normale d’Europe centrale)
+nov. 17 10:53:14.201017 ghostcat gnome-shell[5572]: Registering display with GDM
+nov. 17 10:53:14.359466 ghostcat gnome-shell[4723]: Shutting down GNOME Shell
+nov. 17 10:53:14.644988 ghostcat gnome-shell[5572]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:53:15.557673 ghostcat gnome-shell[5572]: Couldn't parse family in font property
+JSHELL-OK
+]3008;end=24ce5614-a5d6-4a57-905d-badc99639fdd;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ <ger-arguments='-batch -iex "set debuginfod enabled on" -ex bt' /usr/bin/gnome-shell 2>&1 | grep -a '^#' | head -n 60; echo GDB-''OK
+]3008;start=f1024a27-f48f-4c20-aa65-0bdfc975ef58;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\#0  update_clock (data=0x5637fde2b620) at ../gnome-desktop/libgnome-desktop/gnome-wall-clock.c:412
+#0  update_clock (data=0x5637fde2b620) at ../gnome-desktop/libgnome-desktop/gnome-wall-clock.c:412
+#5  0x00007ff2f2e71234 in <emit signal 'changed:clock-show-weekday' on instance 0x5637ff0f8fc0 [GSettings]> (instance=instance@entry=0x5637ff0f8fc0, signal_id=<optimized out>, detail=detail@entry=2567) at ../glib/gobject/gsignal.c:3624
+#6  0x00007ff2f2f9da65 in g_settings_real_change_event (settings=0x5637ff0f8fc0 [GSettings], keys=<optimized out>, n_keys=<optimized out>) at ../glib/gio/gsettings.c:477
+#11 0x00007ff2f2e71234 in <emit signal 'change-event' on instance 0x5637ff0f8fc0 [GSettings]> (instance=instance@entry=0x5637ff0f8fc0, signal_id=<optimized out>, detail=detail@entry=0) at ../glib/gobject/gsignal.c:3624
+#12 0x00007ff2f2f9dcac in settings_backend_path_changed (backend=<optimized out>, path=<optimized out>, origin_tag=<optimized out>, target=0x5637ff0f8fc0 [GSettings]) at ../glib/gio/gsettings.c:552
+#13 settings_backend_path_changed (target=0x5637ff0f8fc0 [GSettings], backend=<optimized out>, path=<optimized out>, origin_tag=<optimized out>) at ../glib/gio/gsettings.c:543
+#14 0x00007ff2f2f94136 in g_settings_backend_invoke_closure (user_data=0x7ff2cc064ea0) at ../glib/gio/gsettingsbackend.c:270
+#15 0x00007ff2f2d3975e in g_main_dispatch (context=0x5637f97ff660) at ../glib/glib/gmain.c:3734
+#16 0x00007ff2f2d42c50 in g_main_context_dispatch_unlocked (context=0x5637f97ff660) at ../glib/glib/gmain.c:4603
+#17 g_main_context_iterate_unlocked (context=0x5637f97ff660, block=block@entry=1, dispatch=dispatch@entry=1, self=<optimized out>) at ../glib/glib/gmain.c:4672
+#18 0x00007ff2f2d42f77 in g_main_loop_run (loop=0x5637fb9430b0) at ../glib/glib/gmain.c:4877
+#19 0x00007ff2f26fe9bb in meta_context_run_main_loop (context=<optimized out>, error=0x7ffd5d0e06a0) at ../mutter/src/core/meta-context.c:509
+#20 0x00007ff2f18fbdb6 in ffi_call_unix64 () at ../src/x86/unix64.S:105
+#21 0x00007ff2f18f7a6d in ffi_call_int (cif=<optimized out>, fn=<optimized out>, rvalue=<optimized out>, avalue=<optimized out>, closure=closure@entry=0x0) at ../src/x86/ffi64.c:772
+#22 0x00007ff2f18fae32 in ffi_call (cif=<optimized out>, fn=<optimized out>, rvalue=<optimized out>, avalue=<optimized out>) at ../src/x86/ffi64.c:1165
+#23 0x00007ff2f2b7877b in Gjs::Function::invoke (this=0x5637fba46310, cx=0x5637f9828880, args=<optimized out>, this_obj=..., r_value=<optimized out>) at ../gjs/gi/inline-array.h:42
+#24 0x00007ff2f2b7924a in Gjs::Function::call (cx=0x5637f9828880, argc=<optimized out>, vp=<optimized out>) at ../gjs/gi/function.cpp:1197
+#25 0x00007ff2f061e0ab in CallJSNative (cx=0x5637f9828880, native=0x7ff2f2b79180 <Gjs::Function::call(JSContext*, unsigned int, JS::Value*)>, reason=js::CallReason::Call, args=...) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/Interpreter.cpp:494
+#26 js::InternalCallOrConstruct (cx=0x5637f9828880, args=<optimized out>, construct=<optimized out>, reason=<optimized out>) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/Interpreter.cpp:576
+#27 InternalCall (cx=<optimized out>, args=<optimized out>, reason=<optimized out>) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/Interpreter.cpp:657
+#28 js::CallFromStack (cx=<optimized out>, args=<optimized out>, reason=<optimized out>) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/Interpreter.cpp:662
+#29 js::Interpret (cx=<optimized out>, state=...) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/Interpreter.cpp:3286
+#30 0x00007ff2f0332650 in MaybeEnterInterpreterTrampoline (cx=0x5637fde2b620, state=...) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/Interpreter.cpp:395
+#31 js::RunScript (cx=0x5637fde2b620, state=...) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/Interpreter.cpp:464
+#32 js::InternalCallOrConstruct (cx=0x5637f9828880, args=..., construct=js::NO_CONSTRUCT, reason=<optimized out>) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/Interpreter.cpp:622
+#33 InternalCall (cx=0x5637f9828880, args=..., reason=<optimized out>) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/Interpreter.cpp:657
+#34 js::Call (cx=0x5637f9828880, fval=..., thisv=..., args=..., rval=..., reason=<optimized out>) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/Interpreter.cpp:689
+#35 0x00007ff2f088faf9 in JS::Call (cx=0x5637f9828880, thisv=..., fval=..., args=..., rval=...) at /usr/src/debug/js140/firefox-140.17.0/js/src/vm/CallAndConstruct.cpp:119
+#36 0x00007ff2f2bd10f4 in JS::Call (cx=<optimized out>, thisv=..., funObj=..., args=..., rval=...) at /usr/include/mozjs-140/js/RootingAPI.h:1255
+#37 GjsContextPrivate::run_main_loop_hook (this=0x5637f981faa0) at ../gjs/gjs/context.cpp:1403
+#38 0x00007ff2f2bda4c2 in GjsContextPrivate::eval_module (this=0x5637f981faa0, identifier=0x5637fb943a30 "resource:///org/gnome/shell/ui/init.js", exit_code_p=0x7ffd5d0e0ff3 "\362\001") at ../gjs/gjs/context.cpp:1556
+#39 gjs_context_eval_module (self=<optimized out>, identifier=0x5637fb943a30 "resource:///org/gnome/shell/ui/init.js", exit_code=0x7ffd5d0e0ff3 "\362\001", error=0x7ffd5d0e0ff8) at ../gjs/gjs/context.cpp:1296
+#40 0x00007ff2f2bda639 in gjs_context_eval_module_file (self=self@entry=0x5637f981fc40 [GjsContext], filename=filename@entry=0x5637ec9b3620 "resource:///org/gnome/shell/ui/init.js", exit_status_p=exit_status_p@entry=0x7ffd5d0e0ff3 "\362\001", error=error@entry=0x7ffd5d0e0ff8) at ../gjs/gjs/context.cpp:1638
+#41 0x00005637ec9b1578 in main (argc=<optimized out>, argv=<optimized out>) at ../gnome-shell/src/main.c:700
+GDB-OK
+]3008;end=f1024a27-f48f-4c20-aa65-0bdfc975ef58;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-''OK
+]3008;start=1534817c-f709-4bc8-bd67-4ba0904c611e;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\APRES
+[?25lghostcat-hub 2026.11.17.43-1
 [?25htotal 3756
-drwxr-xr-x 1 root root      40 17 nov.  10:29 [0m[01;34m.[0m
-drwxr-xr-x 1 root root     122 17 nov.  10:29 [01;34m..[0m
--rw-r--r-- 1 root root 1739024 17 nov.  10:14 avatar.gif
--rw-r--r-- 1 root root 2102239 17 nov.  10:14 banner.gif
+drwxr-xr-x 1 root root      40 17 nov.  10:52 [0m[01;34m.[0m
+drwxr-xr-x 1 root root     122 17 nov.  10:52 [01;34m..[0m
+-rw-r--r-- 1 root root 1739024 17 nov.  10:36 avatar.gif
+-rw-r--r-- 1 root root 2102239 17 nov.  10:36 banner.gif
 LISTE-OK
-]3008;end=7bc0849c-5b56-42e8-9c82-196a1b3fe75a;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub1 /usr/bin/ghostcat-hub ; echo HUB-''LANCE-hub1
-]3008;start=15e37b6e-636d-40ac-907b-0c720be975d2;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\Running as unit: hub1.service; invocation ID: 21d571cbbd5d473c8ba36ac6eac684a1
+]3008;end=1534817c-f709-4bc8-bd67-4ba0904c611e;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub1 /usr/bin/ghostcat-hub ; echo HUB-''LANCE-hub1
+]3008;start=8eadba42-e716-4c0d-9f48-327e2463d46d;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\Running as unit: hub1.service; invocation ID: 83389c12f049485db4dfc66eb01d3f65
 HUB-LANCE-hub1
-]3008;end=15e37b6e-636d-40ac-907b-0c720be975d2;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub2 /usr/bin/ghostcat-hub --view=red; echo HUB-''LANCE-hub2
-]3008;start=c1f0c0c8-cbd2-4b53-8543-ac6ee425da72;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\Running as unit: hub2.service; invocation ID: 1d947c9a5c4242e59a4584f94890196d
+]3008;end=8eadba42-e716-4c0d-9f48-327e2463d46d;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub2 /usr/bin/ghostcat-hub --view=red; echo HUB-''LANCE-hub2
+]3008;start=2db02f00-ae37-47e8-ba33-f37ff3631875;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\Running as unit: hub2.service; invocation ID: 0b10feaf7a8344028581ac7b54678f23
 HUB-LANCE-hub2
-]3008;end=c1f0c0c8-cbd2-4b53-8543-ac6ee425da72;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub3 /usr/bin/ghostcat-hub --view=dev; echo HUB-''LANCE-hub3
-]3008;start=df96a960-6707-4dd0-bf14-5188dc87b734;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\Running as unit: hub3.service; invocation ID: a0b1e05082b84b6789ccaa23d4290c0f
+]3008;end=2db02f00-ae37-47e8-ba33-f37ff3631875;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hub3 /usr/bin/ghostcat-hub --view=dev; echo HUB-''LANCE-hub3
+]3008;start=0cc8eb65-84b3-4fcb-bc2b-a1944f8197c5;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\Running as unit: hub3.service; invocation ID: c5741cb44be7458d838fe75aff51fd98
 HUB-LANCE-hub3
-]3008;end=df96a960-6707-4dd0-bf14-5188dc87b734;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ journalctl --user -u hub1 -u hub2 -u hub3 --no-pager | grep -v MESA | tail -n 30; echo JOURNAL-''OK
-]3008;start=19dd59c6-874a-4210-980f-7a3e187c812d;type=command;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\nov. 17 10:30:31 ghostcat systemd[1402]: Started [systemd-run] /usr/bin/ghostcat-hub.
-nov. 17 10:31:04 ghostcat systemd[1402]: hub1.service: Consumed 19.063s CPU time over 32.826s wall clock time, 491.9M memory peak.
-nov. 17 10:31:06 ghostcat systemd[1402]: Started [systemd-run] /usr/bin/ghostcat-hub --view=red.
-nov. 17 10:31:33 ghostcat systemd[1402]: hub2.service: Consumed 13.621s CPU time over 27.296s wall clock time, 503M memory peak.
-nov. 17 10:31:35 ghostcat systemd[1402]: Started [systemd-run] /usr/bin/ghostcat-hub --view=dev.
+]3008;end=0cc8eb65-84b3-4fcb-bc2b-a1944f8197c5;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ journalctl --user -u hub1 -u hub2 -u hub3 --no-pager | grep -v MESA | tail -n 30; echo JOURNAL-''OK
+]3008;start=9787e044-9043-472e-b028-b75c1213d293;type=command;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\nov. 17 10:56:53 ghostcat systemd[1418]: Started [systemd-run] /usr/bin/ghostcat-hub.
+nov. 17 10:57:26 ghostcat systemd[1418]: hub1.service: Consumed 14.218s CPU time over 32.778s wall clock time, 499.2M memory peak.
+nov. 17 10:57:28 ghostcat systemd[1418]: Started [systemd-run] /usr/bin/ghostcat-hub --view=red.
+nov. 17 10:57:55 ghostcat systemd[1418]: hub2.service: Consumed 9.460s CPU time over 27.275s wall clock time, 514.5M memory peak.
+nov. 17 10:57:57 ghostcat systemd[1418]: Started [systemd-run] /usr/bin/ghostcat-hub --view=dev.
 JOURNAL-OK
-]3008;end=19dd59c6-874a-4210-980f-7a3e187c812d;exit=success\]3008;start=465bbca7-c85a-433a-a665-213f5e1c2af3;type=shell;machineid=c461d866099145a2b4a7d8859ef977ea;user=ghost0;hostname=ghostcat;bootid=4811587e-f7f5-4b91-9e1a-4fdb718c1681;pid=2601;cwd=/home/ghost0\GC$ 
+]3008;end=9787e044-9043-472e-b028-b75c1213d293;exit=success\]3008;start=5dce974b-977f-4fc4-a1eb-ec8b3a0c9703;type=shell;machineid=085e3650732f427784c3265b59db915c;user=ghost0;hostname=ghostcat;bootid=42d1003d-849b-41b5-87e3-3c5cbff224e2;pid=2588;cwd=/home/ghost0\GC$ 
