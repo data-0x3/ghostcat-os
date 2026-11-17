@@ -1,6 +1,6 @@
-[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0009 "GhostCat" from HD(2,GPT,A5F73522-803E-4D3C-9E54-0DBEE9490E3B,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
-BdsDxe: starting Boot0009 "GhostCat" from HD(2,GPT,A5F73522-803E-4D3C-9E54-0DBEE9490E3B,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
-[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=9ea11a241a4f4a26bf5626d02b6e0e7d;user=root;hostname=ghostcat;machineid=74762d1ccd38460fb4b916a156fe4d54;bootid=11c6229556664ab396326c7b8d40c4b2;pid=1007;pidfdid=515;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=b41fd806efc84e498664ef17d9462d8a;type=service\P+q6E616D65\
+[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0009 "GhostCat" from HD(2,GPT,BC4D6439-C9BF-402E-9DD8-B68A4BA5FBDD,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+BdsDxe: starting Boot0009 "GhostCat" from HD(2,GPT,BC4D6439-C9BF-402E-9DD8-B68A4BA5FBDD,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=a46adccaa2284013878f63c01c10758c;user=root;hostname=ghostcat;machineid=9a498e7b86c149c1a1f9ff036782a3b7;bootid=be29c3996c424e5b9ce4517de3eb33b4;pid=1016;pidfdid=4622;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=c9987cc0154a48318f18314a4b398af4;type=service\P+q6E616D65\
 [1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
 
 ghostcat login: 
@@ -11,7 +11,7 @@ Mot de passe :
   GhostCat OS — Cybersecurity Edition
   developed by 0x3 · https://t.me/data0x3
 
-]3008;start=a0dc6f9f5e944f6f8af0957f8082453f;user=root;hostname=ghostcat;machineid=74762d1ccd38460fb4b916a156fe4d54;bootid=11c6229556664ab396326c7b8d40c4b2;pid=1007;pidfdid=515;comm=login;targetuser=ghost0;sessionid=5;type=session\[m                          [m[1;37m  GhostCat OS — Cybersecurity Edition[0m[m
+]3008;start=8b9c7a43f45245fcbb33f4e6dfdb3002;user=root;hostname=ghostcat;machineid=9a498e7b86c149c1a1f9ff036782a3b7;bootid=be29c3996c424e5b9ce4517de3eb33b4;pid=1016;pidfdid=4622;comm=login;targetuser=ghost0;sessionid=5;type=session\[m                          [m[1;37m  GhostCat OS — Cybersecurity Edition[0m[m
 [1m[37m      /\_________/\[m       [m[90m  developed by 0x3 · https://t.me/data0x3[0m[m
 [1m[37m     |             |[m      
 [1m[37m     |  (o)   (o)  |[m      [m[1m[37m  user[m[m ▸ [m[1m[37mghost0[m@[1m[37mghostcat[m
@@ -21,18 +21,18 @@ Mot de passe :
 [1m[37m     \/\/\/\/\/\/\/[m       [m[1m[37m  pkgs[m[m ▸ [m1409 (pacman)
 [1m[37m        ) | | ([m           [m[1m[37m  de  [m[m ▸ [mGNOME 51.1
 [1m[37m        ' ' ' '[m           [m[1m[37m  term[m[m ▸ [mvt220
-[1m[37m  [m                        [m[1m[37m  cpu [m[m ▸ [mAMD EPYC 9V45 96-Core (2) @ 2.60 GHz
-                          [m[1m[37m  mem [m[m ▸ [m1.47 GiB / 5.77 GiB ([32m25%[m)
+[1m[37m  [m                        [m[1m[37m  cpu [m[m ▸ [mAMD EPYC 7763 64-Core (2) @ 2.44 GHz
+                          [m[1m[37m  mem [m[m ▸ [m1.45 GiB / 5.77 GiB ([32m25%[m)
                           
-[m]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\[?2004h[1;37mghost0@ghostcat[0m [90m~[0m $ export PS1='GC\$ ' TERM=dumb; stty cols 200
-[?2004l]3008;start=14e81b53-97f9-4f80-bd3a-4ec38f5e7598;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\]3008;end=14e81b53-97f9-4f80-bd3a-4ec38f5e7598;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ echo AVANT; pacman -Q ghostcat-hub; ls /usr/lib/ghostcat/hub
-]3008;start=b314ec0e-197b-4cca-babc-ee8d719682d8;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\AVANT
+[m]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\[?2004h[1;37mghost0@ghostcat[0m [90m~[0m $ export PS1='GC\$ ' TERM=dumb; stty cols 200
+[?2004l]3008;start=b253ea82-83e5-466b-afe6-771f8eaaae43;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\]3008;end=b253ea82-83e5-466b-afe6-771f8eaaae43;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ echo AVANT; pacman -Q ghostcat-hub; ls /usr/lib/ghostcat/hub
+]3008;start=648a44de-4f24-471c-b8e5-aafc4da36960;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\AVANT
 [?25lghostcat-hub 2026.11.16.36-1
 [?25hghostcat-anim.webp  [0m[01;32mghostcat_hub.py[0m  hub.css  index.html  tools.js
-]3008;end=b314ec0e-197b-4cca-babc-ee8d719682d8;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-]3008;start=e32cc5c2-4456-4773-a1f6-700885290c20;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\]3008;end=e32cc5c2-4456-4773-a1f6-700885290c20;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false
-]3008;start=8ba339c2-26f2-464c-a3f2-327c32aa9294;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\]3008;end=8ba339c2-26f2-464c-a3f2-327c32aa9294;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ sudo -v
-]3008;start=af9e0f73-b284-48e0-92e7-aa49fbe9e027;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\
+]3008;end=648a44de-4f24-471c-b8e5-aafc4da36960;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+]3008;start=a2ac8de3-95d9-427f-8089-7bde70063372;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\]3008;end=a2ac8de3-95d9-427f-8089-7bde70063372;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false
+]3008;start=d71232d3-241f-43f5-85e5-068fa10fd9c4;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\]3008;end=d71232d3-241f-43f5-85e5-068fa10fd9c4;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ sudo -v
+]3008;start=d03c334d-e34b-48e1-82ea-e926db991412;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\
 Nous espérons que vous avez reçu de votre administrateur système local
 les consignes traditionnelles. Généralement, elles se concentrent sur ces trois éléments :
 
@@ -43,8 +43,8 @@ les consignes traditionnelles. Généralement, elles se concentrent sur ces troi
 Pour des raisons de sécurité, le mot de passe que vous tapez ne sera pas visible.
 
 [sudo] Mot de passe de ghost0 : 
-]3008;end=af9e0f73-b284-48e0-92e7-aa49fbe9e027;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ yes o | ghostcat-update 2>&1 | tail -n 60; echo FIN-$((1+1))-MAJ ${PIPESTATUS[1]}
-]3008;start=9393f1e7-df62-4800-bb1b-bd510826ee8b;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\vérification de l’intégrité des paquets…
+]3008;end=d03c334d-e34b-48e1-82ea-e926db991412;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ yes o | ghostcat-update 2>&1 | tail -n 60; echo FIN-$((1+1))-MAJ ${PIPESTATUS[1]}
+]3008;start=133725a4-4c1e-4188-a85f-a46362cb114b;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\vérification de l’intégrité des paquets…
 analyse de l’intégrité des paquets…
 chargement des fichiers des paquets…
 recherche des conflits entre fichiers…
@@ -105,65 +105,220 @@ mise à jour de python-jsonpatch…
 [32m[  OK  ][0m système à jour
 [32m[  OK  ][0m applications Flatpak
 FIN-2-MAJ 0
-]3008;end=9393f1e7-df62-4800-bb1b-bd510826ee8b;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-$((1+1))-OK
-]3008;start=8a7ed701-d72d-454e-aef4-2e34911b6f4c;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\APRES
-[?25lghostcat-hub 2026.11.17.40-1
+]3008;end=133725a4-4c1e-4188-a85f-a46362cb114b;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-$((1+1))-OK
+]3008;start=9ee624ba-3452-4b5d-9480-6aab12bab2d8;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\APRES
+[?25lghostcat-hub 2026.11.17.41-1
 [?25htotal 3756
-drwxr-xr-x 1 root root      40 17 nov.  09:41 [0m[01;34m.[0m
-drwxr-xr-x 1 root root     122 17 nov.  09:41 [01;34m..[0m
--rw-r--r-- 1 root root 1739024 17 nov.  08:59 avatar.gif
--rw-r--r-- 1 root root 2102239 17 nov.  08:59 banner.gif
+drwxr-xr-x 1 root root      40 17 nov.  10:05 [0m[01;34m.[0m
+drwxr-xr-x 1 root root     122 17 nov.  10:05 [01;34m..[0m
+-rw-r--r-- 1 root root 1739024 17 nov.  09:52 avatar.gif
+-rw-r--r-- 1 root root 2102239 17 nov.  09:52 banner.gif
 LISTE-2-OK
-]3008;end=8a7ed701-d72d-454e-aef4-2e34911b6f4c;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hubtest /usr/bin/ghostcat-hub; echo HUB-$((1+1))-LANCE
-]3008;start=e9443d2f-8742-46cd-9c3e-83e366d99df4;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\Running as unit: hubtest.service; invocation ID: d8bb1108a3094db6a18b614d75d9a135
+]3008;end=9ee624ba-3452-4b5d-9480-6aab12bab2d8;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ <|SIGBUS|SIGSEGV|SIGABRT|dumped|session-|logind|org.gnome.Shell|wayland|Xwayland' | grep -v MESA | tail -n 150; echo JRN-$((1+1))-OK
+]3008;start=87ac19c0-a909-4d62-b60e-1b9df18ccfdd;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\4  1000 ghost0      -     1424 manager       -     no -
+5  1000 ghost0      -     1016 user          ttyS0 no -
+6 60579 gdm-greeter seat0 4588 greeter       tty1  no -
+7 60579 gdm-greeter -     4614 manager-early -     no -
+TIME                         PID  UID  GID SIG     COREFILE EXE                   SIZE
+Tue 2026-11-17 10:06:09 CET 1513 1000 1000 SIGSEGV present  /usr/bin/gnome-shell 35.9M
+nov. 17 10:03:06.830418 ghostcat gnome-shell[765]: Registering display with GDM
+nov. 17 10:03:07.082011 ghostcat gnome-shell[765]: Will monitor session 1
+nov. 17 10:03:07.093342 ghostcat gnome-shell[765]: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation
+nov. 17 10:03:07.093735 ghostcat gnome-shell[765]: Will monitor session 1
+nov. 17 10:03:07.477581 ghostcat gnome-shell[765]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:03:07.481657 ghostcat gnome-shell[765]: Failed to record usage: GDBus.Error:org.freedesktop.MalcontentTimer1.Child.Error.IdentifyingUser: Error identifying user: Invalid or unknown user
+nov. 17 10:03:07.513643 ghostcat NetworkManager[642]: <info>  [1794906187.5136] agent-manager: agent[642eb94812d05cbc,:1.20/org.gnome.Shell.NetworkAgent/60578]: agent registered
+nov. 17 10:03:10.929896 ghostcat systemd[727]: dbus-:1.2-org.gnome.Shell.Screencast@0.service: Consumed 686ms CPU time over 4.974s wall clock time, 89.4M memory peak.
+nov. 17 10:03:50.317000 ghostcat audit[1353]: USER_AUTH pid=1353 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:authentication grantors=pam_shells,pam_faillock,pam_permit,pam_faillock,pam_gnome_keyring acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:03:50.317619 ghostcat gdm-password][1353]: gkr-pam: unable to locate daemon control file
+nov. 17 10:03:50.317631 ghostcat gdm-password][1353]: gkr-pam: stashed password to try later in open session
+nov. 17 10:03:50.319352 ghostcat kernel: audit: type=1100 audit(1794906230.317:181): pid=1353 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:authentication grantors=pam_shells,pam_faillock,pam_permit,pam_faillock,pam_gnome_keyring acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:03:50.320000 ghostcat audit[1353]: USER_ACCT pid=1353 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting grantors=pam_access,pam_unix,pam_permit,pam_time acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:03:50.321337 ghostcat kernel: audit: type=1101 audit(1794906230.320:182): pid=1353 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting grantors=pam_access,pam_unix,pam_permit,pam_time acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:03:50.323000 ghostcat audit[1353]: CRED_ACQ pid=1353 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:setcred grantors=pam_shells,pam_faillock,pam_permit,pam_faillock,pam_gnome_keyring acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:03:50.324414 ghostcat kernel: audit: type=1103 audit(1794906230.323:183): pid=1353 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:setcred grantors=pam_shells,pam_faillock,pam_permit,pam_faillock,pam_gnome_keyring acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:03:50.331000 ghostcat audit[1353]: SYSCALL arch=c000003e syscall=1 success=yes exit=4 a0=c a1=7fffba2cc800 a2=4 a3=0 items=0 ppid=701 pid=1353 auid=1000 uid=0 gid=1000 euid=0 suid=0 fsuid=0 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=3 comm="gdm-session-wor" exe="/usr/lib/gdm-session-worker" key=(null)
+nov. 17 10:03:50.331654 ghostcat gdm-password][1353]: pam_unix(gdm-password:session): session opened for user ghost0(uid=1000) by ghost0(uid=0)
+nov. 17 10:03:50.332555 ghostcat kernel: audit: type=1300 audit(1794906230.331:184): arch=c000003e syscall=1 success=yes exit=4 a0=c a1=7fffba2cc800 a2=4 a3=0 items=0 ppid=701 pid=1353 auid=1000 uid=0 gid=1000 euid=0 suid=0 fsuid=0 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=3 comm="gdm-session-wor" exe="/usr/lib/gdm-session-worker" key=(null)
+nov. 17 10:03:50.371004 ghostcat systemd-logind[647]: New session '3' of user 'ghost0' with class 'user' and type 'wayland'.
+nov. 17 10:03:50.420245 ghostcat systemd-logind[647]: New session '4' of user 'ghost0' with class 'manager' and type 'unspecified'.
+nov. 17 10:03:50.614036 ghostcat gdm-password][1353]: gkr-pam: unlocked login keyring
+nov. 17 10:03:50.613000 ghostcat audit[1353]: USER_START pid=1353 uid=0 auid=1000 ses=3 msg='op=PAM:session_open grantors=pam_loginuid,pam_keyinit,pam_systemd_home,pam_limits,pam_unix,pam_permit,pam_lastlog2,pam_mail,pam_umask,pam_systemd,pam_env,pam_gnome_keyring acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty2 res=success'
+nov. 17 10:03:50.613000 ghostcat audit[1353]: USER_LOGIN pid=1353 uid=0 auid=1000 ses=3 msg='uid=1000 exe="/usr/lib/gdm-session-worker" hostname=? addr=? terminal=? res=success'
+nov. 17 10:03:54.404115 ghostcat gnome-session-i[1453]: Starting GNOME session target: gnome-session@gnome.target
+nov. 17 10:03:54.422438 ghostcat systemd[1424]: Created slice Slice /app/gnome-session-manager.
+nov. 17 10:03:54.473600 ghostcat gnome-session-service[1507]: App at-spi-dbus-bus.desktop sets X-GNOME-Autostart-Phase, but gnome-session no longer manages session services
+nov. 17 10:03:54.473775 ghostcat gnome-session-service[1507]: App gnome-keyring-pkcs11.desktop sets X-GNOME-Autostart-Phase, but gnome-session no longer manages session services
+nov. 17 10:03:54.473838 ghostcat gnome-session-service[1507]: App gnome-keyring-secrets.desktop sets X-GNOME-Autostart-Phase, but gnome-session no longer manages session services
+nov. 17 10:03:54.474853 ghostcat gnome-session-service[1507]: App xdg-user-dirs.desktop sets X-GNOME-Autostart-Phase, but gnome-session no longer manages session services
+nov. 17 10:03:54.548551 ghostcat gnome-shell[1513]: Running GNOME Shell (using mutter 51.1) as a Wayland display server
+nov. 17 10:03:54.574039 ghostcat gnome-shell[1513]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:03:54.574368 ghostcat gnome-shell[1513]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:03:54.574438 ghostcat gnome-shell[1513]: Thread 'KMS thread' will be using high priority scheduling
+nov. 17 10:03:54.670868 ghostcat gnome-shell[1513]: Added device '/dev/dri/card1' (virtio_gpu) using atomic mode setting.
+nov. 17 10:03:54.672527 ghostcat gnome-shell[1513]: Failed to initialize accelerated iGPU/dGPU framebuffer sharing: Not hardware accelerated
+nov. 17 10:03:54.672543 ghostcat gnome-shell[1513]: Created gbm renderer for '/dev/dri/card1'
+nov. 17 10:03:54.672550 ghostcat gnome-shell[1513]: Boot VGA GPU /dev/dri/card1 selected as primary
+nov. 17 10:03:54.979082 ghostcat gnome-shell[1513]: Using public X11 display :0, (using unix:/tmp/.X11-unix/X1 for managed services)
+nov. 17 10:03:54.979194 ghostcat gnome-shell[1513]: Using Wayland display name 'wayland-0'
+nov. 17 10:03:55.354976 ghostcat gnome-shell[1513]: Unset XDG_SESSION_ID, getCurrentSessionProxy() called outside a user session. Asking logind directly.
+nov. 17 10:03:55.386998 ghostcat systemd[1424]: Created slice Slice /app/dbus-:1.2-org.gnome.Shell.Screencast.
+nov. 17 10:03:55.389753 ghostcat systemd[1424]: Started dbus-:1.2-org.gnome.Shell.Screencast@0.service.
+nov. 17 10:03:55.422333 ghostcat systemd[1424]: Created slice Slice /app/dbus-:1.2-org.gnome.Shell.CalendarServer.
+nov. 17 10:03:55.426454 ghostcat systemd[1424]: Started dbus-:1.2-org.gnome.Shell.CalendarServer@0.service.
+nov. 17 10:03:55.536078 ghostcat gnome-shell[1513]: Registering session with GDM
+nov. 17 10:03:55.560811 ghostcat systemd[1424]: Created slice Slice /app/dbus-:1.2-org.gnome.Shell.Notifications.
+nov. 17 10:03:55.563624 ghostcat systemd[1424]: Started dbus-:1.2-org.gnome.Shell.Notifications@0.service.
+nov. 17 10:03:55.709680 ghostcat gnome-session-service[1507]: Entering running state
+nov. 17 10:03:55.929868 ghostcat gnome-session-service[1507]: Could not create transient scope for PID 1620: GDBus.Error:org.freedesktop.DBus.Error.UnixProcessIdUnknown: Failed to set unit properties: No such process
+nov. 17 10:03:55.950639 ghostcat systemd[1424]: Started Application launched by gnome-session-service.
+nov. 17 10:03:55.957800 ghostcat systemd[1424]: Started Application launched by gnome-session-service.
+nov. 17 10:03:56.785595 ghostcat gnome-shell[1513]: Will monitor session 3
+nov. 17 10:03:56.894723 ghostcat gnome-shell[1513]: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation
+nov. 17 10:03:57.290871 ghostcat gnome-shell[765]: Gio.IOErrorEnum: GDBus.Error:org.freedesktop.MalcontentTimer1.Child.Error.IdentifyingUser: Error identifying user: Invalid or unknown user
+                                                     @resource:///org/gnome/shell/ui/init.js:20:20
+nov. 17 10:03:57.620483 ghostcat NetworkManager[642]: <info>  [1794906237.6204] agent-manager: agent[2f5671b231f3f998,:1.68/org.gnome.Shell.NetworkAgent/1000]: agent registered
+nov. 17 10:03:57.781760 ghostcat gnome-shell[1513]: GNOME Shell started at Tue Nov 17 2026 10:03:55 GMT+0100 (heure normale d’Europe centrale)
+nov. 17 10:03:57.782081 ghostcat gnome-shell[1513]: Registering display with GDM
+nov. 17 10:03:58.095175 ghostcat gnome-shell[765]: Shutting down GNOME Shell
+nov. 17 10:03:58.279940 ghostcat gnome-control-center-global-shortcuts-provider[1279]: Lost connection to Wayland compositor.
+nov. 17 10:03:58.436483 ghostcat systemd[727]: org.gnome.Shell@gdm.service: Consumed 3.098s CPU time over 53.812s wall clock time, 349M memory peak.
+nov. 17 10:03:58.490000 ghostcat audit[715]: USER_END pid=715 uid=0 auid=60578 ses=1 msg='op=PAM:session_close grantors=pam_loginuid,pam_keyinit,pam_succeed_if,pam_permit,pam_systemd,pam_env acct="gdm-greeter" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:03:58.491000 ghostcat audit[715]: CRED_DISP pid=715 uid=0 auid=60578 ses=1 msg='op=PAM:setcred grantors=pam_permit acct="gdm-greeter" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:03:58.495820 ghostcat systemd[1]: session-1.scope: Deactivated successfully.
+nov. 17 10:03:58.501019 ghostcat systemd-logind[647]: Session 1 logged out. Waiting for processes to exit.
+nov. 17 10:03:58.505393 ghostcat systemd-logind[647]: Removed session 1.
+nov. 17 10:03:58.588623 ghostcat gnome-shell[1513]: Couldn't parse family in font property
+nov. 17 10:03:58.601079 ghostcat gdm[701]: Gdm: Child process -741 was already dead.
+nov. 17 10:03:59.920142 ghostcat gnome-shell[1513]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:04:08.748220 ghostcat systemd[727]: Removed slice Slice /app/dbus-:1.2-org.gnome.Shell.Notifications.
+nov. 17 10:04:08.748460 ghostcat systemd[727]: Removed slice Slice /app/dbus-:1.2-org.gnome.Shell.Screencast.
+nov. 17 10:04:08.748472 ghostcat systemd[727]: app-dbus\x2d:1.2\x2dorg.gnome.Shell.Screencast.slice: Consumed 686ms CPU time over 1min 2.797s wall clock time, 89.4M memory peak.
+nov. 17 10:04:08.748660 ghostcat systemd[727]: Removed slice Slice /app/gnome-session-manager.
+nov. 17 10:04:08.785171 ghostcat systemd-logind[647]: Removed session 2.
+nov. 17 10:05:39.665444 ghostcat systemd-logind[647]: New session '5' of user 'ghost0' with class 'user' and type 'tty'.
+nov. 17 10:06:00.468021 ghostcat gnome-shell[1513]: Couldn't parse family in font property
+nov. 17 10:06:02.171778 ghostcat systemd-logind[647]: Watching system buttons on /dev/input/event0 (Power Button)
+nov. 17 10:06:02.307416 ghostcat systemd-logind[647]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+nov. 17 10:06:02.343671 ghostcat systemd-logind[647]: Watching system buttons on /dev/input/event3 (QEMU QEMU USB Keyboard)
+nov. 17 10:06:04.948000 ghostcat audit[1513]: ANOM_ABEND auid=1000 uid=1000 gid=1000 ses=4 pid=1513 comm="gnome-shell" exe="/usr/bin/gnome-shell" sig=11 res=1
+nov. 17 10:06:04.950339 ghostcat kernel: gnome-shell[1513]: segfault at 657689 ip 00007f0c2953c9a0 sp 00007ffcf9dabe20 error 4 in libgnome-desktop-4.so.2.1.4[139a0,7f0c29531000+e000] likely on CPU 0 (core 0, socket 0)
+nov. 17 10:06:04.950425 ghostcat kernel: audit: type=1701 audit(1794906364.948:247): auid=1000 uid=1000 gid=1000 ses=4 pid=1513 comm="gnome-shell" exe="/usr/bin/gnome-shell" sig=11 res=1
+nov. 17 10:06:04.953651 ghostcat (coredump-worker)[3529]: Process 1513 (gnome-shell) of user 1000 terminated abnormally with signal 11/SEGV, processing...
+nov. 17 10:06:09.423187 ghostcat (coredump-worker)[3529]: Process 1513 (gnome-shell) of user 1000 dumped core.
+                                                          #15 0x00007f0c292fe9bb meta_context_run_main_loop (libmutter-51.so.0 + 0xfe9bb)
+                                                          #27 0x000055a8a10dc578 n/a (gnome-shell + 0x2578)
+                                                          #30 0x000055a8a10dc995 n/a (gnome-shell + 0x2995)
+                                                          #4  0x00007f0c29430da8 n/a (libmutter-51.so.0 + 0x230da8)
+                                                          #4  0x00007f0c29429630 n/a (libmutter-51.so.0 + 0x229630)
+nov. 17 10:06:09.585285 ghostcat gnome-software[1791]: Lost connection to Wayland compositor.
+nov. 17 10:06:09.608578 ghostcat ghostcat-session[1634]: Gdk-Message: 10:06:09.586: Lost connection to Wayland compositor.
+nov. 17 10:06:09.625164 ghostcat xdg-desktop-portal-gnome[1926]: Lost connection to Wayland compositor.
+nov. 17 10:06:09.660740 ghostcat systemd[1424]: org.gnome.Shell@user.service: Main process exited, code=dumped, status=11/SEGV
+nov. 17 10:06:09.724715 ghostcat systemd[1424]: org.gnome.Shell@user.service: Failed with result 'core-dump'.
+nov. 17 10:06:09.725383 ghostcat systemd[1424]: org.gnome.Shell@user.service: Consumed 1min 31.660s CPU time over 2min 15.248s wall clock time, 662.5M memory peak.
+nov. 17 10:06:09.725474 ghostcat systemd[1424]: org.gnome.Shell@user.service: Triggering OnFailure= dependencies.
+nov. 17 10:06:09.734530 ghostcat systemd[1424]: Stopping Application launched by gnome-session-service...
+nov. 17 10:06:09.734827 ghostcat systemd[1424]: Stopping Application launched by gnome-session-service...
+nov. 17 10:06:09.746499 ghostcat systemd[1424]: Disable GNOME Shell extensions after failure skipped, unmet condition check ConditionPathExists=/run/user/1000/gnome-shell-disable-extensions
+nov. 17 10:06:09.772583 ghostcat systemd[1424]: Stopped Application launched by gnome-session-service.
+nov. 17 10:06:09.999925 ghostcat systemd[1424]: Stopped Application launched by gnome-session-service.
+nov. 17 10:06:10.096586 ghostcat gdm-password][1353]: pam_unix(gdm-password:session): session closed for user ghost0
+nov. 17 10:06:10.096000 ghostcat audit[1353]: USER_END pid=1353 uid=0 auid=1000 ses=3 msg='op=PAM:session_close grantors=pam_loginuid,pam_keyinit,pam_systemd_home,pam_limits,pam_unix,pam_permit,pam_lastlog2,pam_mail,pam_umask,pam_systemd,pam_env,pam_gnome_keyring acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty2 res=success'
+nov. 17 10:06:10.097000 ghostcat audit[1353]: USER_LOGOUT pid=1353 uid=0 auid=1000 ses=3 msg='uid=1000 exe="/usr/lib/gdm-session-worker" hostname=? addr=? terminal=? res=success'
+nov. 17 10:06:10.098349 ghostcat kernel: audit: type=1106 audit(1794906370.096:250): pid=1353 uid=0 auid=1000 ses=3 msg='op=PAM:session_close grantors=pam_loginuid,pam_keyinit,pam_systemd_home,pam_limits,pam_unix,pam_permit,pam_lastlog2,pam_mail,pam_umask,pam_systemd,pam_env,pam_gnome_keyring acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty2 res=success'
+nov. 17 10:06:10.097000 ghostcat audit[1353]: CRED_DISP pid=1353 uid=0 auid=1000 ses=3 msg='op=PAM:setcred grantors=pam_shells,pam_faillock,pam_permit,pam_faillock,pam_gnome_keyring acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty2 res=success'
+nov. 17 10:06:10.098456 ghostcat kernel: audit: type=1113 audit(1794906370.097:251): pid=1353 uid=0 auid=1000 ses=3 msg='uid=1000 exe="/usr/lib/gdm-session-worker" hostname=? addr=? terminal=? res=success'
+nov. 17 10:06:10.098482 ghostcat kernel: audit: type=1104 audit(1794906370.097:252): pid=1353 uid=0 auid=1000 ses=3 msg='op=PAM:setcred grantors=pam_shells,pam_faillock,pam_permit,pam_faillock,pam_gnome_keyring acct="ghost0" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty2 res=success'
+nov. 17 10:06:10.144223 ghostcat systemd[1]: session-3.scope: Deactivated successfully.
+nov. 17 10:06:10.149259 ghostcat systemd-logind[647]: Session 3 logged out. Waiting for processes to exit.
+nov. 17 10:06:10.151755 ghostcat systemd-logind[647]: Removed session 3.
+nov. 17 10:06:10.243000 ghostcat audit[4588]: USER_AUTH pid=4588 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:authentication grantors=pam_succeed_if,pam_permit acct="gdm-greeter" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:06:10.244404 ghostcat kernel: audit: type=1100 audit(1794906370.243:253): pid=4588 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:authentication grantors=pam_succeed_if,pam_permit acct="gdm-greeter" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:06:10.247000 ghostcat audit[4588]: USER_ACCT pid=4588 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting grantors=pam_succeed_if,pam_permit acct="gdm-greeter" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:06:10.248363 ghostcat kernel: audit: type=1101 audit(1794906370.247:254): pid=4588 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting grantors=pam_succeed_if,pam_permit acct="gdm-greeter" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:06:10.250000 ghostcat audit[4588]: CRED_ACQ pid=4588 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:setcred grantors=pam_permit acct="gdm-greeter" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:06:10.251335 ghostcat kernel: audit: type=1103 audit(1794906370.250:255): pid=4588 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:setcred grantors=pam_permit acct="gdm-greeter" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:06:10.251000 ghostcat audit[4588]: SYSCALL arch=c000003e syscall=1 success=yes exit=5 a0=8 a1=7ffe27e9c910 a2=5 a3=0 items=0 ppid=701 pid=4588 auid=60579 uid=0 gid=120 euid=0 suid=0 fsuid=0 egid=120 sgid=120 fsgid=120 tty=(none) ses=6 comm="gdm-session-wor" exe="/usr/lib/gdm-session-worker" key=(null)
+nov. 17 10:06:10.252413 ghostcat kernel: audit: type=1300 audit(1794906370.251:256): arch=c000003e syscall=1 success=yes exit=5 a0=8 a1=7ffe27e9c910 a2=5 a3=0 items=0 ppid=701 pid=4588 auid=60579 uid=0 gid=120 euid=0 suid=0 fsuid=0 egid=120 sgid=120 fsgid=120 tty=(none) ses=6 comm="gdm-session-wor" exe="/usr/lib/gdm-session-worker" key=(null)
+nov. 17 10:06:10.272026 ghostcat systemd-logind[647]: New session '6' of user 'gdm-greeter' with class 'greeter' and type 'wayland'.
+nov. 17 10:06:10.322000 ghostcat audit[4614]: USER_ACCT pid=4614 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting grantors=pam_access,pam_unix,pam_permit,pam_time acct="gdm-greeter" exe="/usr/lib/systemd/systemd-executor" hostname=? addr=? terminal=? res=success'
+nov. 17 10:06:10.323071 ghostcat (systemd)[4614]: pam_warn(systemd-user:setcred): function=[pam_sm_setcred] flags=0x8002 service=[systemd-user] terminal=[] user=[gdm-greeter] ruser=[<unknown>] rhost=[<unknown>]
+nov. 17 10:06:10.323000 ghostcat audit[4614]: CRED_ACQ pid=4614 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:setcred grantors=? acct="gdm-greeter" exe="/usr/lib/systemd/systemd-executor" hostname=? addr=? terminal=? res=failed'
+nov. 17 10:06:10.328970 ghostcat (systemd)[4614]: pam_unix(systemd-user:session): session opened for user gdm-greeter(uid=60579) by gdm-greeter(uid=0)
+nov. 17 10:06:10.332502 ghostcat systemd-logind[647]: New session '7' of user 'gdm-greeter' with class 'manager-early' and type 'unspecified'.
+nov. 17 10:06:10.332000 ghostcat audit[4614]: USER_START pid=4614 uid=0 auid=60579 ses=7 msg='op=PAM:session_open grantors=pam_loginuid,pam_keyinit,pam_systemd_home,pam_limits,pam_unix,pam_permit,pam_umask,pam_systemd,pam_env acct="gdm-greeter" exe="/usr/lib/systemd/systemd-executor" hostname=? addr=? terminal=? res=success'
+nov. 17 10:06:10.487054 ghostcat systemd[1]: Started Session 6 of User gdm-greeter.
+nov. 17 10:06:10.489000 ghostcat audit[4588]: USER_START pid=4588 uid=0 auid=60579 ses=6 msg='op=PAM:session_open grantors=pam_loginuid,pam_keyinit,pam_succeed_if,pam_permit,pam_systemd,pam_env acct="gdm-greeter" exe="/usr/lib/gdm-session-worker" hostname=ghostcat addr=? terminal=/dev/tty1 res=success'
+nov. 17 10:06:10.543681 ghostcat gnome-session-i[4633]: Starting GNOME session target: gnome-session@gnome-login.target
+nov. 17 10:06:10.556671 ghostcat systemd[4614]: Created slice Slice /app/gnome-session-manager.
+nov. 17 10:06:10.577392 ghostcat xdg-user-dirs-update[4642]: /run/gdm/home/gdm-greeter/Bureau was removed, reassigning DESKTOP to homedir
+nov. 17 10:06:10.577392 ghostcat xdg-user-dirs-update[4642]: /run/gdm/home/gdm-greeter/Téléchargements was removed, reassigning DOWNLOAD to homedir
+nov. 17 10:06:10.577392 ghostcat xdg-user-dirs-update[4642]: /run/gdm/home/gdm-greeter/Modèles was removed, reassigning TEMPLATES to homedir
+nov. 17 10:06:10.577392 ghostcat xdg-user-dirs-update[4642]: /run/gdm/home/gdm-greeter/Public was removed, reassigning PUBLICSHARE to homedir
+nov. 17 10:06:10.577392 ghostcat xdg-user-dirs-update[4642]: /run/gdm/home/gdm-greeter/Documents was removed, reassigning DOCUMENTS to homedir
+nov. 17 10:06:10.577392 ghostcat xdg-user-dirs-update[4642]: /run/gdm/home/gdm-greeter/Musique was removed, reassigning MUSIC to homedir
+nov. 17 10:06:10.577392 ghostcat xdg-user-dirs-update[4642]: /run/gdm/home/gdm-greeter/Images was removed, reassigning PICTURES to homedir
+nov. 17 10:06:10.577392 ghostcat xdg-user-dirs-update[4642]: /run/gdm/home/gdm-greeter/Vidéos was removed, reassigning VIDEOS to homedir
+nov. 17 10:06:10.577392 ghostcat xdg-user-dirs-update[4642]: /run/gdm/home/gdm-greeter/Projets was removed, reassigning PROJECTS to homedir
+nov. 17 10:06:10.697027 ghostcat gnome-shell[4651]: Running GNOME Shell (using mutter 51.1) as a Wayland display server
+nov. 17 10:06:10.734813 ghostcat gnome-shell[4651]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:06:10.735054 ghostcat gnome-shell[4651]: Failed to make thread 'KMS thread' high priority scheduled: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Destination does not exist
+nov. 17 10:06:10.735061 ghostcat gnome-shell[4651]: Thread 'KMS thread' will be using high priority scheduling
+nov. 17 10:06:10.844790 ghostcat gnome-shell[4651]: Added device '/dev/dri/card1' (virtio_gpu) using atomic mode setting.
+nov. 17 10:06:10.847095 ghostcat gnome-shell[4651]: Failed to initialize accelerated iGPU/dGPU framebuffer sharing: Not hardware accelerated
+nov. 17 10:06:10.847126 ghostcat gnome-shell[4651]: Created gbm renderer for '/dev/dri/card1'
+nov. 17 10:06:10.847134 ghostcat gnome-shell[4651]: Boot VGA GPU /dev/dri/card1 selected as primary
+nov. 17 10:06:11.212886 ghostcat gnome-shell[4651]: Using public X11 display :1024, (using unix:/tmp/.X11-unix/X1025 for managed services)
+nov. 17 10:06:11.213186 ghostcat gnome-shell[4651]: Using Wayland display name 'wayland-0'
+JRN-2-OK
+]3008;end=87ac19c0-a909-4d62-b60e-1b9df18ccfdd;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ loginctl list-sessions --no-legend | awk '$3=="ghost0" && $4=="seat0"' | wc -l | sed 's/^/SIEGE-/'
+]3008;start=56bacef8-62e1-4aa7-bc55-2a587318c1de;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\SIEGE-0
+]3008;end=56bacef8-62e1-4aa7-bc55-2a587318c1de;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hubtest /usr/bin/ghostcat-hub; echo HUB-$((1+1))-LANCE
+]3008;start=0d0d6970-a952-4f08-b6a5-d23310f06383;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\Running as unit: hubtest.service; invocation ID: 5e6c53a0a79a4b2c87ff41d27fc510af
 HUB-2-LANCE
-]3008;end=e9443d2f-8742-46cd-9c3e-83e366d99df4;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ systemctl --user stop hubtest; sleep 2; systemd-run --user --unit=hubdev /usr/bin/ghostcat-hub --view=red; echo HUB-RED
-]3008;start=51d98a1f-08d1-4aa8-9c0c-7b89eb657d7b;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\Failed to stop hubtest.service: Unit hubtest.service not loaded.
-Running as unit: hubdev.service; invocation ID: 237c9de6577d4caeb15a371c9849b1c3
+]3008;end=0d0d6970-a952-4f08-b6a5-d23310f06383;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ systemctl --user stop hubtest; sleep 2; systemd-run --user --unit=hubdev /usr/bin/ghostcat-hub --view=red; echo HUB-RED
+]3008;start=bf14aefa-81a0-4558-b3ba-b5c06d55fa8f;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\Running as unit: hubdev.service; invocation ID: 45a53c49576c49ea90d46fd3fb81a396
 HUB-RED
-]3008;end=51d98a1f-08d1-4aa8-9c0c-7b89eb657d7b;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ systemctl --user stop hubdev; sleep 2; systemd-run --user --unit=hubdev2 /usr/bin/ghostcat-hub --view=dev; echo HUB-DEV
-]3008;start=4a1c22b9-58fd-48b1-a1df-7a96f9a46468;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\Failed to stop hubdev.service: Unit hubdev.service not loaded.
-Running as unit: hubdev2.service; invocation ID: e163878852ee49afbd70f6ce5c49c0d4
+]3008;end=bf14aefa-81a0-4558-b3ba-b5c06d55fa8f;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ systemctl --user stop hubdev; sleep 2; systemd-run --user --unit=hubdev2 /usr/bin/ghostcat-hub --view=dev; echo HUB-DEV
+]3008;start=ec939134-aa38-4ba3-90d4-43c6b417268b;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\Running as unit: hubdev2.service; invocation ID: de704dcf446741c3b1184d10ab70de5c
 HUB-DEV
-]3008;end=4a1c22b9-58fd-48b1-a1df-7a96f9a46468;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ journalctl --user -u hubtest -u hubdev -u hubdev2 --no-pager | tail -n 40; echo JOURNAL-$((1+1))-OK
-]3008;start=ded22e4a-d363-43a8-b15b-ada9077fa3da;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\nov. 17 09:41:31 ghostcat systemd[1418]: Started [systemd-run] /usr/bin/ghostcat-hub.
-nov. 17 09:41:31 ghostcat ghostcat_hub.py[4682]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
-nov. 17 09:41:31 ghostcat ghostcat-hub[4682]: Traceback (most recent call last):
-nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:   File "/usr/lib/ghostcat/hub/ghostcat_hub.py", line 129, in on_activate
-nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:     win = Gtk.ApplicationWindow(application=app, title="GhostCat Hub")
-nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:   File "/usr/lib/python3.14/site-packages/gi/overrides/Gtk.py", line 571, in __init__
-nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:     raise RuntimeError(
-nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:     ...<2 lines>...
-nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:     )
-nov. 17 09:41:31 ghostcat ghostcat-hub[4682]: RuntimeError: Gtk couldn't be initialized. Use Gtk.init_check() if you want to handle this case.
-nov. 17 09:41:31 ghostcat ghostcat_hub.py[4682]: gtk_icon_theme_add_resource_path: assertion 'GTK_IS_ICON_THEME (self)' failed
-nov. 17 09:41:31 ghostcat ghostcat_hub.py[4682]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
-nov. 17 09:41:31 ghostcat ghostcat_hub.py[4682]: gtk_icon_theme_has_icon: assertion 'GTK_IS_ICON_THEME (self)' failed
-nov. 17 09:42:06 ghostcat systemd[1418]: Started [systemd-run] /usr/bin/ghostcat-hub --view=red.
-nov. 17 09:42:06 ghostcat ghostcat_hub.py[5421]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
-nov. 17 09:42:06 ghostcat ghostcat_hub.py[5421]: gtk_icon_theme_add_resource_path: assertion 'GTK_IS_ICON_THEME (self)' failed
-nov. 17 09:42:06 ghostcat ghostcat_hub.py[5421]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
-nov. 17 09:42:06 ghostcat ghostcat_hub.py[5421]: gtk_icon_theme_has_icon: assertion 'GTK_IS_ICON_THEME (self)' failed
-nov. 17 09:42:06 ghostcat ghostcat-hub[5421]: Traceback (most recent call last):
-nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:   File "/usr/lib/ghostcat/hub/ghostcat_hub.py", line 129, in on_activate
-nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:     win = Gtk.ApplicationWindow(application=app, title="GhostCat Hub")
-nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:   File "/usr/lib/python3.14/site-packages/gi/overrides/Gtk.py", line 571, in __init__
-nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:     raise RuntimeError(
-nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:     ...<2 lines>...
-nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:     )
-nov. 17 09:42:06 ghostcat ghostcat-hub[5421]: RuntimeError: Gtk couldn't be initialized. Use Gtk.init_check() if you want to handle this case.
-nov. 17 09:42:32 ghostcat systemd[1418]: Started [systemd-run] /usr/bin/ghostcat-hub --view=dev.
-nov. 17 09:42:32 ghostcat ghostcat_hub.py[5438]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
-nov. 17 09:42:32 ghostcat ghostcat_hub.py[5438]: gtk_icon_theme_add_resource_path: assertion 'GTK_IS_ICON_THEME (self)' failed
-nov. 17 09:42:32 ghostcat ghostcat_hub.py[5438]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
-nov. 17 09:42:32 ghostcat ghostcat_hub.py[5438]: gtk_icon_theme_has_icon: assertion 'GTK_IS_ICON_THEME (self)' failed
-nov. 17 09:42:32 ghostcat ghostcat-hub[5438]: Traceback (most recent call last):
-nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:   File "/usr/lib/ghostcat/hub/ghostcat_hub.py", line 129, in on_activate
-nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:     win = Gtk.ApplicationWindow(application=app, title="GhostCat Hub")
-nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:   File "/usr/lib/python3.14/site-packages/gi/overrides/Gtk.py", line 571, in __init__
-nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:     raise RuntimeError(
-nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:     ...<2 lines>...
-nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:     )
-nov. 17 09:42:32 ghostcat ghostcat-hub[5438]: RuntimeError: Gtk couldn't be initialized. Use Gtk.init_check() if you want to handle this case.
+]3008;end=ec939134-aa38-4ba3-90d4-43c6b417268b;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ journalctl --user -u hubtest -u hubdev -u hubdev2 --no-pager | tail -n 40; echo JOURNAL-$((1+1))-OK
+]3008;start=acf7a415-8e7f-492b-9604-97fcdfc731c5;type=command;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\nov. 17 10:06:58 ghostcat systemd[1424]: Started [systemd-run] /usr/bin/ghostcat-hub.
+nov. 17 10:06:58 ghostcat ghostcat-hub[6421]: MESA-EGL: warning: failed to get driver name for fd -1
+nov. 17 10:06:58 ghostcat ghostcat-hub[6421]: MESA-EGL: warning: MESA-LOADER: failed to retrieve device information
+nov. 17 10:06:58 ghostcat ghostcat-hub[6421]: MESA-EGL: warning: failed to get driver name for fd -1
+nov. 17 10:06:58 ghostcat ghostcat-hub[6421]: MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+nov. 17 10:06:58 ghostcat ghostcat-hub[6421]: MESA-EGL: warning: egl: failed to create dri2 screen
+nov. 17 10:06:58 ghostcat ghostcat-hub[6448]: MESA-EGL: warning: egl: failed to create dri2 screen
+nov. 17 10:06:58 ghostcat ghostcat-hub[6448]: MESA-EGL: warning: DRI2: failed to create screen
+nov. 17 10:06:58 ghostcat ghostcat-hub[6448]: MESA-EGL: warning: egl: failed to create dri2 screen
+nov. 17 10:06:58 ghostcat ghostcat-hub[6448]: MESA-EGL: warning: DRI2: failed to create screen
+nov. 17 10:07:31 ghostcat systemd[1424]: Stopping [systemd-run] /usr/bin/ghostcat-hub...
+nov. 17 10:07:31 ghostcat systemd[1424]: Stopped [systemd-run] /usr/bin/ghostcat-hub.
+nov. 17 10:07:31 ghostcat systemd[1424]: hubtest.service: Consumed 8.548s CPU time over 33.247s wall clock time, 383.8M memory peak.
+nov. 17 10:07:33 ghostcat systemd[1424]: Started [systemd-run] /usr/bin/ghostcat-hub --view=red.
+nov. 17 10:07:33 ghostcat ghostcat-hub[6551]: MESA-EGL: warning: failed to get driver name for fd -1
+nov. 17 10:07:33 ghostcat ghostcat-hub[6551]: MESA-EGL: warning: MESA-LOADER: failed to retrieve device information
+nov. 17 10:07:33 ghostcat ghostcat-hub[6551]: MESA-EGL: warning: failed to get driver name for fd -1
+nov. 17 10:07:33 ghostcat ghostcat-hub[6551]: MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+nov. 17 10:07:33 ghostcat ghostcat-hub[6551]: MESA-EGL: warning: egl: failed to create dri2 screen
+nov. 17 10:07:34 ghostcat ghostcat-hub[6575]: MESA-EGL: warning: egl: failed to create dri2 screen
+nov. 17 10:07:34 ghostcat ghostcat-hub[6575]: MESA-EGL: warning: DRI2: failed to create screen
+nov. 17 10:07:34 ghostcat ghostcat-hub[6575]: MESA-EGL: warning: egl: failed to create dri2 screen
+nov. 17 10:07:34 ghostcat ghostcat-hub[6575]: MESA-EGL: warning: DRI2: failed to create screen
+nov. 17 10:07:57 ghostcat systemd[1424]: Stopping [systemd-run] /usr/bin/ghostcat-hub --view=red...
+nov. 17 10:07:57 ghostcat systemd[1424]: Stopped [systemd-run] /usr/bin/ghostcat-hub --view=red.
+nov. 17 10:07:57 ghostcat systemd[1424]: hubdev.service: Consumed 6.053s CPU time over 24.363s wall clock time, 396.5M memory peak.
+nov. 17 10:07:59 ghostcat systemd[1424]: Started [systemd-run] /usr/bin/ghostcat-hub --view=dev.
+nov. 17 10:08:00 ghostcat ghostcat-hub[6656]: MESA-EGL: warning: failed to get driver name for fd -1
+nov. 17 10:08:00 ghostcat ghostcat-hub[6656]: MESA-EGL: warning: MESA-LOADER: failed to retrieve device information
+nov. 17 10:08:00 ghostcat ghostcat-hub[6656]: MESA-EGL: warning: failed to get driver name for fd -1
+nov. 17 10:08:00 ghostcat ghostcat-hub[6656]: MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+nov. 17 10:08:00 ghostcat ghostcat-hub[6656]: MESA-EGL: warning: egl: failed to create dri2 screen
+nov. 17 10:08:00 ghostcat ghostcat-hub[6680]: MESA-EGL: warning: egl: failed to create dri2 screen
+nov. 17 10:08:00 ghostcat ghostcat-hub[6680]: MESA-EGL: warning: DRI2: failed to create screen
+nov. 17 10:08:00 ghostcat ghostcat-hub[6680]: MESA-EGL: warning: egl: failed to create dri2 screen
+nov. 17 10:08:00 ghostcat ghostcat-hub[6680]: MESA-EGL: warning: DRI2: failed to create screen
 JOURNAL-2-OK
-]3008;end=ded22e4a-d363-43a8-b15b-ada9077fa3da;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ 
+]3008;end=acf7a415-8e7f-492b-9604-97fcdfc731c5;exit=success\]3008;start=bb054f45-722d-465e-823f-2d5fbcb8a302;type=shell;machineid=9a498e7b86c149c1a1f9ff036782a3b7;user=ghost0;hostname=ghostcat;bootid=be29c399-6c42-4e5b-9ce4-517de3eb33b4;pid=2594;cwd=/home/ghost0\GC$ 
