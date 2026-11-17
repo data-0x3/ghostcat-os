@@ -1,6 +1,6 @@
-[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0009 "GhostCat" from HD(2,GPT,B99C53F3-F249-40AA-BF1D-BC9F5E7DD256,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
-BdsDxe: starting Boot0009 "GhostCat" from HD(2,GPT,B99C53F3-F249-40AA-BF1D-BC9F5E7DD256,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
-[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=73e805e738a84d049ab2f7deb9b0196a;user=root;hostname=ghostcat;machineid=f2e9bc0f4654464e829eb271262f7a88;bootid=e5cc48af97e44b3e908fb1bd0a1faa45;pid=1014;pidfdid=4572;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=edc48dd8b2ff44a58b622b4650d565a1;type=service\P+q6E616D65\
+[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: loading Boot0009 "GhostCat" from HD(2,GPT,A5F73522-803E-4D3C-9E54-0DBEE9490E3B,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+BdsDxe: starting Boot0009 "GhostCat" from HD(2,GPT,A5F73522-803E-4D3C-9E54-0DBEE9490E3B,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=9ea11a241a4f4a26bf5626d02b6e0e7d;user=root;hostname=ghostcat;machineid=74762d1ccd38460fb4b916a156fe4d54;bootid=11c6229556664ab396326c7b8d40c4b2;pid=1007;pidfdid=515;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=b41fd806efc84e498664ef17d9462d8a;type=service\P+q6E616D65\
 [1mGhostCat OS[0m 7.3.4-arch1-2 (ttyS0)
 
 ghostcat login: 
@@ -11,7 +11,7 @@ Mot de passe :
   GhostCat OS — Cybersecurity Edition
   developed by 0x3 · https://t.me/data0x3
 
-]3008;start=140324a97db444969c3be5493f73c2e9;user=root;hostname=ghostcat;machineid=f2e9bc0f4654464e829eb271262f7a88;bootid=e5cc48af97e44b3e908fb1bd0a1faa45;pid=1014;pidfdid=4572;comm=login;targetuser=ghost0;sessionid=5;type=session\[m                          [m[1;37m  GhostCat OS — Cybersecurity Edition[0m[m
+]3008;start=a0dc6f9f5e944f6f8af0957f8082453f;user=root;hostname=ghostcat;machineid=74762d1ccd38460fb4b916a156fe4d54;bootid=11c6229556664ab396326c7b8d40c4b2;pid=1007;pidfdid=515;comm=login;targetuser=ghost0;sessionid=5;type=session\[m                          [m[1;37m  GhostCat OS — Cybersecurity Edition[0m[m
 [1m[37m      /\_________/\[m       [m[90m  developed by 0x3 · https://t.me/data0x3[0m[m
 [1m[37m     |             |[m      
 [1m[37m     |  (o)   (o)  |[m      [m[1m[37m  user[m[m ▸ [m[1m[37mghost0[m@[1m[37mghostcat[m
@@ -22,17 +22,17 @@ Mot de passe :
 [1m[37m        ) | | ([m           [m[1m[37m  de  [m[m ▸ [mGNOME 51.1
 [1m[37m        ' ' ' '[m           [m[1m[37m  term[m[m ▸ [mvt220
 [1m[37m  [m                        [m[1m[37m  cpu [m[m ▸ [mAMD EPYC 9V45 96-Core (2) @ 2.60 GHz
-                          [m[1m[37m  mem [m[m ▸ [m1.46 GiB / 5.77 GiB ([32m25%[m)
+                          [m[1m[37m  mem [m[m ▸ [m1.47 GiB / 5.77 GiB ([32m25%[m)
                           
-[m]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\[?2004h[1;37mghost0@ghostcat[0m [90m~[0m $ export PS1='GC\$ ' TERM=dumb; stty cols 200
-[?2004l]3008;start=f687df23-4e6b-4bcb-b652-5332ad071321;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\]3008;end=f687df23-4e6b-4bcb-b652-5332ad071321;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ echo AVANT; pacman -Q ghostcat-hub; ls /usr/lib/ghostcat/hub
-]3008;start=c688a072-4400-4e57-ba69-08deea068b10;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\AVANT
+[m]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\[?2004h[1;37mghost0@ghostcat[0m [90m~[0m $ export PS1='GC\$ ' TERM=dumb; stty cols 200
+[?2004l]3008;start=14e81b53-97f9-4f80-bd3a-4ec38f5e7598;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\]3008;end=14e81b53-97f9-4f80-bd3a-4ec38f5e7598;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ echo AVANT; pacman -Q ghostcat-hub; ls /usr/lib/ghostcat/hub
+]3008;start=b314ec0e-197b-4cca-babc-ee8d719682d8;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\AVANT
 [?25lghostcat-hub 2026.11.16.36-1
 [?25hghostcat-anim.webp  [0m[01;32mghostcat_hub.py[0m  hub.css  index.html  tools.js
-]3008;end=c688a072-4400-4e57-ba69-08deea068b10;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-]3008;start=bef43551-9305-42a7-9034-6a223e5b9082;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\]3008;end=bef43551-9305-42a7-9034-6a223e5b9082;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false
-]3008;start=6bc45f67-5f55-4433-b57c-994642a5581e;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\]3008;end=6bc45f67-5f55-4433-b57c-994642a5581e;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ sudo -v
-]3008;start=59b2b439-e028-4173-b6db-7f95002c4de7;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\
+]3008;end=b314ec0e-197b-4cca-babc-ee8d719682d8;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+]3008;start=e32cc5c2-4456-4773-a1f6-700885290c20;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\]3008;end=e32cc5c2-4456-4773-a1f6-700885290c20;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false
+]3008;start=8ba339c2-26f2-464c-a3f2-327c32aa9294;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\]3008;end=8ba339c2-26f2-464c-a3f2-327c32aa9294;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ sudo -v
+]3008;start=af9e0f73-b284-48e0-92e7-aa49fbe9e027;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\
 Nous espérons que vous avez reçu de votre administrateur système local
 les consignes traditionnelles. Généralement, elles se concentrent sur ces trois éléments :
 
@@ -43,99 +43,127 @@ les consignes traditionnelles. Généralement, elles se concentrent sur ces troi
 Pour des raisons de sécurité, le mot de passe que vous tapez ne sera pas visible.
 
 [sudo] Mot de passe de ghost0 : 
-]3008;end=59b2b439-e028-4173-b6db-7f95002c4de7;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ yes | ghostcat-update 2>&1 | tail -n 60; echo FIN-$((1+1))-MAJ ${PIPESTATUS[1]}
-]3008;start=85783305-6663-4aa6-9376-59f7b7249382;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\
-      /\_/\      GHOSTCAT OS — mise à jour
-     ( o.o )
-      \~~~/
-
-[33m[ WARN ][0m Arch Linux annonce une action manuelle :
-  - Mkinitcpio >=42 requires manual intervention for TPM2-based unlocking of LUKS devices
-    https://archlinux.org/news/mkinitcpio-42-requires-manual-intervention-for-tpm2-based-unlocking-of-luks-devices/
-  - virtualbox-ext-vnc >= 7.2.12-2 requires manual intervention
-    https://archlinux.org/news/virtualbox-ext-vnc-7212-2-requires-manual-intervention/
-  - kea >= 1:3.0.3-6 update requires manual intervention
-    https://archlinux.org/news/kea-1303-6-update-requires-manual-intervention/
-
-[1;37m[ghostcat][0m trousseaux de clés
-:: Synchronisation des bases de données de paquets…
-téléchargement de ghostcat…
-téléchargement de core…
-téléchargement de extra…
-téléchargement de multilib…
-téléchargement de blackarch…
-:: Synchronisation des bases de données de paquets…
-téléchargement de ghostcat…
-téléchargement de core…
-téléchargement de extra…
-téléchargement de multilib…
-téléchargement de blackarch…
-avertissement : archlinux-keyring-20260909-1 est à jour -- ignoré
- il n’y a rien à faire
-[1;37m[ghostcat][0m système, outils et GhostCat (un instantané est pris avant)
-:: Début de la mise à jour complète du système…
-résolution des dépendances…
-recherche des conflits entre paquets…
-
-Paquets (33) ffmpeg-2:9.0.2-5  file-roller-44.8-1  ghostcat-desktop-2026.11.17.39-1  ghostcat-hub-2026.11.17.39-1  ghostcat-installer-2026.11.17.39-1  ghostcat-mirrorlist-2026.11.17.39-1  ghostcat-privacy-2026.11.17.39-1  ghostcat-release-2026.11.17.39-1  ghostcat-setup-2026.11.17.39-1  ghostcat-shell-2026.11.17.39-1  ghostcat-shell-extras-2026.11.17.39-1  ghostcat-theme-2026.11.17.39-1  ghostcat-update-2026.11.17.39-1  gst-devtools-libs-1.28.9-2  gst-editing-services-1.28.9-2  gst-plugins-bad-1.28.9-2  gst-plugins-bad-libs-1.28.9-2  gst-plugins-base-1.28.9-2  gst-plugins-base-libs-1.28.9-2  gst-plugins-good-1.28.9-2  gst-python-1.28.9-2  gstreamer-1.28.9-2  inotify-tools-4.26.282-1  libplacebo-7.387.0-1  mpv-1:0.42.0-2  pkgconf-3.0.11-1  poppler-26.11.0-1  poppler-glib-26.11.0-1  python-fastapi-0.163.1-1  python-grpcio-1.84.3-1  python-grpcio-tools-1.84.3-1  python-jsonpatch-1.47-1  xdg-desktop-portal-gnome-51.0-2
-
-Taille totale du téléchargement :   54,93 MiB
-Taille totale installée :          168,59 MiB
-Taille de mise à jour nette :        4,50 MiB
-
-:: Procéder à l’installation ? [O/n] y
-[31m[FAILED][0m la mise à jour a échoué : rien n'est perdu, l'instantané d'avant est dans le menu de démarrage
-FIN-2-MAJ 1
-]3008;end=85783305-6663-4aa6-9376-59f7b7249382;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-$((1+1))-OK
-]3008;start=f76fcfc9-8197-4c4d-b072-04ab297d801b;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\APRES
-[?25lghostcat-hub 2026.11.16.36-1
-[?25hls: impossible d'accéder à '/usr/lib/ghostcat/hub/dev': Aucun fichier ou dossier de ce nom
+]3008;end=af9e0f73-b284-48e0-92e7-aa49fbe9e027;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ yes o | ghostcat-update 2>&1 | tail -n 60; echo FIN-$((1+1))-MAJ ${PIPESTATUS[1]}
+]3008;start=9393f1e7-df62-4800-bb1b-bd510826ee8b;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\vérification de l’intégrité des paquets…
+analyse de l’intégrité des paquets…
+chargement des fichiers des paquets…
+recherche des conflits entre fichiers…
+vérification de l’espace disque disponible…
+:: Exécution des crochets (« hooks ») de pré-transaction…
+(1/1) Performing snapper pre snapshots for the following configurations...
+==> root: 4
+:: Traitement des changements du paquet…
+mise à jour de libplacebo…
+mise à jour de ffmpeg…
+mise à jour de gstreamer…
+mise à jour de gst-plugins-base-libs…
+mise à jour de gst-plugins-bad-libs…
+mise à jour de file-roller…
+mise à jour de ghostcat-release…
+mise à jour de ghostcat-mirrorlist…
+mise à jour de ghostcat-privacy…
+mise à jour de ghostcat-theme…
+mise à jour de poppler…
+mise à jour de poppler-glib…
+mise à jour de xdg-desktop-portal-gnome…
+Nouvelles dépendances optionnelles pour xdg-desktop-portal-gnome
+    papers: Print previews [installé]
+mise à jour de ghostcat-shell-extras…
+mise à jour de ghostcat-shell…
+mise à jour de ghostcat-hub…
+mise à jour de ghostcat-setup…
+mise à jour de inotify-tools…
+mise à jour de ghostcat-installer…
+mise à jour de ghostcat-update…
+mise à jour de ghostcat-desktop…
+mise à jour de gst-devtools-libs…
+mise à jour de gst-python…
+mise à jour de gst-editing-services…
+mise à jour de gst-plugins-bad…
+mise à jour de gst-plugins-base…
+mise à jour de gst-plugins-good…
+mise à jour de mpv…
+mise à jour de pkgconf…
+mise à jour de python-fastapi…
+mise à jour de python-grpcio-tools…
+mise à jour de python-grpcio…
+mise à jour de python-jsonpatch…
+:: Exécution des crochets (« hooks ») de post-transaction…
+( 1/12) Reloading user manager configuration...
+( 2/12) Reloading device manager configuration...
+( 3/12) Arming ConditionNeedsUpdate...
+( 4/12) GhostCat OS : identité du système…
+( 5/12) GhostCat OS : écran de connexion…
+( 6/12) GhostCat OS : noms du menu de démarrage…
+( 7/12) Updating system dconf databases...
+( 8/12) Updating fontconfig cache...
+( 9/12) Compiling GSettings XML schema files...
+(10/12) Updating icon theme caches...
+(11/12) Updating the desktop file MIME type cache...
+(12/12) Performing snapper post snapshots for the following configurations...
+==> root: 5
+[32m[  OK  ][0m système à jour
+[32m[  OK  ][0m applications Flatpak
+FIN-2-MAJ 0
+]3008;end=9393f1e7-df62-4800-bb1b-bd510826ee8b;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-$((1+1))-OK
+]3008;start=8a7ed701-d72d-454e-aef4-2e34911b6f4c;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\APRES
+[?25lghostcat-hub 2026.11.17.40-1
+[?25htotal 3756
+drwxr-xr-x 1 root root      40 17 nov.  09:41 [0m[01;34m.[0m
+drwxr-xr-x 1 root root     122 17 nov.  09:41 [01;34m..[0m
+-rw-r--r-- 1 root root 1739024 17 nov.  08:59 avatar.gif
+-rw-r--r-- 1 root root 2102239 17 nov.  08:59 banner.gif
 LISTE-2-OK
-]3008;end=f76fcfc9-8197-4c4d-b072-04ab297d801b;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hubtest /usr/bin/ghostcat-hub; echo HUB-$((1+1))-LANCE
-]3008;start=9c5d304e-b555-4c57-8ce9-9d4973453bea;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\Running as unit: hubtest.service; invocation ID: a8075735a6974e2eb48cc626297d0131
+]3008;end=8a7ed701-d72d-454e-aef4-2e34911b6f4c;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hubtest /usr/bin/ghostcat-hub; echo HUB-$((1+1))-LANCE
+]3008;start=e9443d2f-8742-46cd-9c3e-83e366d99df4;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\Running as unit: hubtest.service; invocation ID: d8bb1108a3094db6a18b614d75d9a135
 HUB-2-LANCE
-]3008;end=9c5d304e-b555-4c57-8ce9-9d4973453bea;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ systemctl --user stop hubtest; sleep 2; systemd-run --user --unit=hubdev /usr/bin/ghostcat-hub --view=red; echo HUB-RED
-]3008;start=c58a3525-3d74-4e81-8b67-0f37eeeadf5c;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\Running as unit: hubdev.service; invocation ID: f5625e91d7024870a23cac782cd8d276
+]3008;end=e9443d2f-8742-46cd-9c3e-83e366d99df4;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ systemctl --user stop hubtest; sleep 2; systemd-run --user --unit=hubdev /usr/bin/ghostcat-hub --view=red; echo HUB-RED
+]3008;start=51d98a1f-08d1-4aa8-9c0c-7b89eb657d7b;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\Failed to stop hubtest.service: Unit hubtest.service not loaded.
+Running as unit: hubdev.service; invocation ID: 237c9de6577d4caeb15a371c9849b1c3
 HUB-RED
-]3008;end=c58a3525-3d74-4e81-8b67-0f37eeeadf5c;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ systemctl --user stop hubdev; sleep 2; systemd-run --user --unit=hubdev2 /usr/bin/ghostcat-hub --view=dev; echo HUB-DEV
-]3008;start=4aaee48a-731d-4398-9f6a-cb3cb2edb03e;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\Running as unit: hubdev2.service; invocation ID: 9bc479dc5efd477fa43d440d7df89a78
+]3008;end=51d98a1f-08d1-4aa8-9c0c-7b89eb657d7b;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ systemctl --user stop hubdev; sleep 2; systemd-run --user --unit=hubdev2 /usr/bin/ghostcat-hub --view=dev; echo HUB-DEV
+]3008;start=4a1c22b9-58fd-48b1-a1df-7a96f9a46468;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\Failed to stop hubdev.service: Unit hubdev.service not loaded.
+Running as unit: hubdev2.service; invocation ID: e163878852ee49afbd70f6ce5c49c0d4
 HUB-DEV
-]3008;end=4aaee48a-731d-4398-9f6a-cb3cb2edb03e;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ journalctl --user -u hubtest -u hubdev -u hubdev2 --no-pager | tail -n 40; echo JOURNAL-$((1+1))-OK
-]3008;start=68f1397e-4537-459d-beb6-ce040401b022;type=command;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\nov. 17 08:51:52 ghostcat systemd[1419]: Started [systemd-run] /usr/bin/ghostcat-hub.
-nov. 17 08:51:52 ghostcat ghostcat-hub[2790]: MESA-EGL: warning: failed to get driver name for fd -1
-nov. 17 08:51:52 ghostcat ghostcat-hub[2790]: MESA-EGL: warning: MESA-LOADER: failed to retrieve device information
-nov. 17 08:51:52 ghostcat ghostcat-hub[2790]: MESA-EGL: warning: failed to get driver name for fd -1
-nov. 17 08:51:52 ghostcat ghostcat-hub[2790]: MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
-nov. 17 08:51:52 ghostcat ghostcat-hub[2790]: MESA-EGL: warning: egl: failed to create dri2 screen
-nov. 17 08:51:52 ghostcat ghostcat-hub[2815]: MESA-EGL: warning: egl: failed to create dri2 screen
-nov. 17 08:51:52 ghostcat ghostcat-hub[2815]: MESA-EGL: warning: DRI2: failed to create screen
-nov. 17 08:51:52 ghostcat ghostcat-hub[2815]: MESA-EGL: warning: egl: failed to create dri2 screen
-nov. 17 08:51:52 ghostcat ghostcat-hub[2815]: MESA-EGL: warning: DRI2: failed to create screen
-nov. 17 08:52:25 ghostcat systemd[1419]: Stopping [systemd-run] /usr/bin/ghostcat-hub...
-nov. 17 08:52:25 ghostcat systemd[1419]: Stopped [systemd-run] /usr/bin/ghostcat-hub.
-nov. 17 08:52:25 ghostcat systemd[1419]: hubtest.service: Consumed 4.877s CPU time over 33.108s wall clock time, 390.3M memory peak.
-nov. 17 08:52:27 ghostcat systemd[1419]: Started [systemd-run] /usr/bin/ghostcat-hub --view=red.
-nov. 17 08:52:27 ghostcat ghostcat-hub[2891]: MESA-EGL: warning: failed to get driver name for fd -1
-nov. 17 08:52:27 ghostcat ghostcat-hub[2891]: MESA-EGL: warning: MESA-LOADER: failed to retrieve device information
-nov. 17 08:52:27 ghostcat ghostcat-hub[2891]: MESA-EGL: warning: failed to get driver name for fd -1
-nov. 17 08:52:27 ghostcat ghostcat-hub[2891]: MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
-nov. 17 08:52:27 ghostcat ghostcat-hub[2891]: MESA-EGL: warning: egl: failed to create dri2 screen
-nov. 17 08:52:27 ghostcat ghostcat-hub[2915]: MESA-EGL: warning: egl: failed to create dri2 screen
-nov. 17 08:52:27 ghostcat ghostcat-hub[2915]: MESA-EGL: warning: DRI2: failed to create screen
-nov. 17 08:52:27 ghostcat ghostcat-hub[2915]: MESA-EGL: warning: egl: failed to create dri2 screen
-nov. 17 08:52:27 ghostcat ghostcat-hub[2915]: MESA-EGL: warning: DRI2: failed to create screen
-nov. 17 08:52:49 ghostcat systemd[1419]: Stopping [systemd-run] /usr/bin/ghostcat-hub --view=red...
-nov. 17 08:52:49 ghostcat systemd[1419]: Stopped [systemd-run] /usr/bin/ghostcat-hub --view=red.
-nov. 17 08:52:49 ghostcat systemd[1419]: hubdev.service: Consumed 3.334s CPU time over 22.497s wall clock time, 458.3M memory peak.
-nov. 17 08:52:51 ghostcat systemd[1419]: Started [systemd-run] /usr/bin/ghostcat-hub --view=dev.
-nov. 17 08:52:52 ghostcat ghostcat-hub[2990]: MESA-EGL: warning: failed to get driver name for fd -1
-nov. 17 08:52:52 ghostcat ghostcat-hub[2990]: MESA-EGL: warning: MESA-LOADER: failed to retrieve device information
-nov. 17 08:52:52 ghostcat ghostcat-hub[2990]: MESA-EGL: warning: failed to get driver name for fd -1
-nov. 17 08:52:52 ghostcat ghostcat-hub[2990]: MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
-nov. 17 08:52:52 ghostcat ghostcat-hub[2990]: MESA-EGL: warning: egl: failed to create dri2 screen
-nov. 17 08:52:52 ghostcat ghostcat-hub[3014]: MESA-EGL: warning: egl: failed to create dri2 screen
-nov. 17 08:52:52 ghostcat ghostcat-hub[3014]: MESA-EGL: warning: DRI2: failed to create screen
-nov. 17 08:52:52 ghostcat ghostcat-hub[3014]: MESA-EGL: warning: egl: failed to create dri2 screen
-nov. 17 08:52:52 ghostcat ghostcat-hub[3014]: MESA-EGL: warning: DRI2: failed to create screen
+]3008;end=4a1c22b9-58fd-48b1-a1df-7a96f9a46468;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ journalctl --user -u hubtest -u hubdev -u hubdev2 --no-pager | tail -n 40; echo JOURNAL-$((1+1))-OK
+]3008;start=ded22e4a-d363-43a8-b15b-ada9077fa3da;type=command;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\nov. 17 09:41:31 ghostcat systemd[1418]: Started [systemd-run] /usr/bin/ghostcat-hub.
+nov. 17 09:41:31 ghostcat ghostcat_hub.py[4682]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
+nov. 17 09:41:31 ghostcat ghostcat-hub[4682]: Traceback (most recent call last):
+nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:   File "/usr/lib/ghostcat/hub/ghostcat_hub.py", line 129, in on_activate
+nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:     win = Gtk.ApplicationWindow(application=app, title="GhostCat Hub")
+nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:   File "/usr/lib/python3.14/site-packages/gi/overrides/Gtk.py", line 571, in __init__
+nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:     raise RuntimeError(
+nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:     ...<2 lines>...
+nov. 17 09:41:31 ghostcat ghostcat-hub[4682]:     )
+nov. 17 09:41:31 ghostcat ghostcat-hub[4682]: RuntimeError: Gtk couldn't be initialized. Use Gtk.init_check() if you want to handle this case.
+nov. 17 09:41:31 ghostcat ghostcat_hub.py[4682]: gtk_icon_theme_add_resource_path: assertion 'GTK_IS_ICON_THEME (self)' failed
+nov. 17 09:41:31 ghostcat ghostcat_hub.py[4682]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
+nov. 17 09:41:31 ghostcat ghostcat_hub.py[4682]: gtk_icon_theme_has_icon: assertion 'GTK_IS_ICON_THEME (self)' failed
+nov. 17 09:42:06 ghostcat systemd[1418]: Started [systemd-run] /usr/bin/ghostcat-hub --view=red.
+nov. 17 09:42:06 ghostcat ghostcat_hub.py[5421]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
+nov. 17 09:42:06 ghostcat ghostcat_hub.py[5421]: gtk_icon_theme_add_resource_path: assertion 'GTK_IS_ICON_THEME (self)' failed
+nov. 17 09:42:06 ghostcat ghostcat_hub.py[5421]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
+nov. 17 09:42:06 ghostcat ghostcat_hub.py[5421]: gtk_icon_theme_has_icon: assertion 'GTK_IS_ICON_THEME (self)' failed
+nov. 17 09:42:06 ghostcat ghostcat-hub[5421]: Traceback (most recent call last):
+nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:   File "/usr/lib/ghostcat/hub/ghostcat_hub.py", line 129, in on_activate
+nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:     win = Gtk.ApplicationWindow(application=app, title="GhostCat Hub")
+nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:   File "/usr/lib/python3.14/site-packages/gi/overrides/Gtk.py", line 571, in __init__
+nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:     raise RuntimeError(
+nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:     ...<2 lines>...
+nov. 17 09:42:06 ghostcat ghostcat-hub[5421]:     )
+nov. 17 09:42:06 ghostcat ghostcat-hub[5421]: RuntimeError: Gtk couldn't be initialized. Use Gtk.init_check() if you want to handle this case.
+nov. 17 09:42:32 ghostcat systemd[1418]: Started [systemd-run] /usr/bin/ghostcat-hub --view=dev.
+nov. 17 09:42:32 ghostcat ghostcat_hub.py[5438]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
+nov. 17 09:42:32 ghostcat ghostcat_hub.py[5438]: gtk_icon_theme_add_resource_path: assertion 'GTK_IS_ICON_THEME (self)' failed
+nov. 17 09:42:32 ghostcat ghostcat_hub.py[5438]: gtk_icon_theme_get_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
+nov. 17 09:42:32 ghostcat ghostcat_hub.py[5438]: gtk_icon_theme_has_icon: assertion 'GTK_IS_ICON_THEME (self)' failed
+nov. 17 09:42:32 ghostcat ghostcat-hub[5438]: Traceback (most recent call last):
+nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:   File "/usr/lib/ghostcat/hub/ghostcat_hub.py", line 129, in on_activate
+nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:     win = Gtk.ApplicationWindow(application=app, title="GhostCat Hub")
+nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:   File "/usr/lib/python3.14/site-packages/gi/overrides/Gtk.py", line 571, in __init__
+nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:     raise RuntimeError(
+nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:     ...<2 lines>...
+nov. 17 09:42:32 ghostcat ghostcat-hub[5438]:     )
+nov. 17 09:42:32 ghostcat ghostcat-hub[5438]: RuntimeError: Gtk couldn't be initialized. Use Gtk.init_check() if you want to handle this case.
 JOURNAL-2-OK
-]3008;end=68f1397e-4537-459d-beb6-ce040401b022;exit=success\]3008;start=e7ffbd58-ffc1-45e0-880e-cded23a56bc9;type=shell;machineid=f2e9bc0f4654464e829eb271262f7a88;user=ghost0;hostname=ghostcat;bootid=e5cc48af-97e4-4b3e-908f-b1bd0a1faa45;pid=2595;cwd=/home/ghost0\GC$ 
+]3008;end=ded22e4a-d363-43a8-b15b-ada9077fa3da;exit=success\]3008;start=948d8271-ec82-4981-803f-9f72c047aa96;type=shell;machineid=74762d1ccd38460fb4b916a156fe4d54;user=ghost0;hostname=ghostcat;bootid=11c62295-5666-4ab3-9632-6c7b8d40c4b2;pid=2592;cwd=/home/ghost0\GC$ 
