@@ -128,7 +128,7 @@ relogin() {  # la session graphique est tombée : on se reconnecte comme l'utili
 # étape <n> <commande> : lance une partie de la mise à jour et vérifie que gnome-shell a tenu
 etape() {
   local n=$1; shift
-  ser "$*; sleep 10; p=\$(pgrep -u $U -x gnome-shell | head -1); if [ \"\$p\" = \"\$P0\" ]; then echo ETAPE-$n-''TENU; else echo ETAPE-$n-''TOMBE; fi"
+  ser "$*; sleep 25; p=\$(pgrep -u $U -x gnome-shell | head -1); if [ \"\$p\" = \"\$P0\" ]; then echo ETAPE-$n-''TENU; else echo ETAPE-$n-''TOMBE; fi"
   serwait "ETAPE-$n-(TENU|TOMBE)" 900 || true
   if grep -aq "ETAPE-$n-TOMBE" "$SHOTS/serial-disk.log"; then
     echo "  étape $n ($*) : gnome-shell est tombé"; shot "08-tombe-etape-$n"; relogin
@@ -148,24 +148,14 @@ if serwait "login:" 60; then
   # machine de test : sudo sans mot de passe, pour que les étapes ne restent pas bloquées
   ser "echo '$U ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/99-vm-test >/dev/null"
   ser "P0=\$(pgrep -u $U -x gnome-shell | head -1); echo SHELL-\$P0"
-  # chaque morceau de la mise à jour séparément, pour trouver celui qui fait tomber la session
-  etape 01 "sudo pacman -Sy >/dev/null"
-  etape 02 "sudo touch /etc/dconf/db/local.d; sudo dconf update"
-  etape 03 "sudo udevadm control --reload"
-  etape 04 "sudo /usr/lib/ghostcat/gdm-theme"
-  etape 05 "sudo touch /usr/share/fonts/ghostcat/*; sudo fc-cache -s"
-  etape 06 "sudo glib-compile-schemas /usr/share/glib-2.0/schemas"
-  etape 07 "sudo gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor; sudo update-desktop-database -q"
-  etape 08 "systemctl --user daemon-reload"
-  etape 09 "sudo pacman -S --noconfirm ghostcat-shell-extras 2>&1 | tail -n 3"
-  etape 10 "sudo pacman -S --noconfirm ghostcat-shell 2>&1 | tail -n 3"
-  etape 11 "sudo pacman -S --noconfirm ghostcat-theme 2>&1 | tail -n 15"
-  etape 12 "sudo pacman -S --noconfirm ghostcat-privacy ghostcat-release ghostcat-mirrorlist 2>&1 | tail -n 8"
-  etape 13 "sudo pacman -S --noconfirm ghostcat-setup ghostcat-hub ghostcat-update ghostcat-installer ghostcat-desktop 2>&1 | tail -n 8"
-  # pacman est en français : « O » pour oui (un « y » vaut non)
-  etape 14 "yes o | ghostcat-update 2>&1 | tail -n 40"
-  ser "coredumpctl list --no-pager 2>&1 | tail -n 6; sudo coredumpctl info --no-pager /usr/bin/gnome-shell 2>&1 | grep -aA30 'Stack trace of thread' | head -n 120; echo CORES-''OK"
-  serwait "CORES-OK" 120 || true
+  # la mise à jour telle que l'utilisateur la lance (pacman est en français : « O » pour oui)
+  etape 01 "yes o | ghostcat-update 2>&1 | tail -n 40"
+  if grep -aq "ETAPE-01-TOMBE" "$SHOTS/serial-disk.log"; then
+    ser "sudo journalctl -b --no-pager -o short-precise --since '-6 min' _COMM=gnome-shell | grep -v MESA | tail -n 80; echo JSHELL-''OK"
+    serwait "JSHELL-OK" 60 || true
+    ser "sudo pacman -S --noconfirm --needed gdb >/dev/null 2>&1; sudo DEBUGINFOD_URLS=https://debuginfod.archlinux.org coredumpctl debug --no-pager --debugger-arguments='-batch -iex \"set debuginfod enabled on\" -ex bt' /usr/bin/gnome-shell 2>&1 | grep -a '^#' | head -n 60; echo GDB-''OK"
+    serwait "GDB-OK" 900 || true
+  fi
   ser "echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-''OK"
   serwait "LISTE-OK" 30 || true
 
