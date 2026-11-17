@@ -6,5 +6,5 @@ _apply() {
 }
 # « dconf update » seulement à la première installation : lors des mises à jour, c'est le
 # hook de dconf qui s'en charge, après 90-ghostcat-dconf-keep (pas de réécriture inutile)
-post_install() { dconf update 2>/dev/null || true; _apply; }
-post_upgrade() { _apply; }
+post_install() { dconf update 2>/dev/null || true; /usr/lib/ghostcat/dconf-keep --record; _apply; }
+post_upgrade() { /usr/lib/ghostcat/dconf-keep --record-missing; _apply; }
