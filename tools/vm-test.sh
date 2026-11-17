@@ -40,7 +40,7 @@ button() {  # button <left|wheel-down|wheel-up>
   qmp "{\"execute\":\"input-send-event\",\"arguments\":{\"events\":[{\"type\":\"btn\",\"data\":{\"down\":false,\"button\":\"$1\"}}]}}"
 }
 # fenêtre lancée depuis la console : clic sur sa barre de titre pour la prendre, puis Super+Haut
-focus_max() { point 800 74; button left; sleep 1; key meta_l-up 3; }
+focus_max() { key esc 1; point 800 74; button left; sleep 1; key meta_l-up 3; }
 wheel() { local i; for ((i = 0; i < $2; i++)); do button "wheel-$1"; sleep 0.15; done; sleep 1; }
 # console série : on écrit dans la prise, on lit le journal
 ser() { printf '%s\r' "$1" | socat -t1 - "UNIX-CONNECT:$RUN/ser" >/dev/null 2>&1 || true; sleep 0.5; }
@@ -121,44 +121,65 @@ key meta_l 2
 
 # ---------- 3. mise à jour par ghostcat-update, puis le Hub ----------
 U=ghost0; P=ghostcat
+relogin() {  # la session graphique est tombée : on se reconnecte comme l'utilisateur
+  key ret 6; type_text ghostcqt; key ret; sleep 25; key esc 2
+  ser "P0=\$(pgrep -u $U -x gnome-shell | head -1)"
+}
+# étape <n> <commande> : lance une partie de la mise à jour et vérifie que gnome-shell a tenu
+etape() {
+  local n=$1; shift
+  ser "$*; sleep 10; p=\$(pgrep -u $U -x gnome-shell | head -1); if [ \"\$p\" = \"\$P0\" ]; then echo ETAPE-$n-''TENU; else echo ETAPE-$n-''TOMBE; fi"
+  serwait "ETAPE-$n-(TENU|TOMBE)" 900 || true
+  if grep -aq "ETAPE-$n-TOMBE" "$SHOTS/serial-disk.log"; then
+    echo "  étape $n ($*) : gnome-shell est tombé"; shot "08-tombe-etape-$n"; relogin
+  else
+    echo "  étape $n ($*) : gnome-shell a tenu"
+  fi
+}
 ser ""; sleep 2; ser ""
 if serwait "login:" 60; then
   ser "$U"; serwait "assword|ot de passe" 20 && ser "$P"; sleep 5
   ser "export PS1='GC\\$ ' TERM=dumb; stty cols 200"
-  ser "echo AVANT; pacman -Q ghostcat-hub; ls /usr/lib/ghostcat/hub"
-  # pas de verrouillage d'écran pendant la mise à jour (sinon les captures du Hub montrent l'écran verrouillé)
   ser "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/\$(id -u)/bus"
+  # pas de verrouillage d'écran pendant la mise à jour
   ser "gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false"
+  ser "echo AVANT; pacman -Q ghostcat-hub"
   ser "sudo -v"; serwait "sudo\\] " 20 && ser "$P"; sleep 3
+  # machine de test : sudo sans mot de passe, pour que les étapes ne restent pas bloquées
+  ser "echo '$U ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/99-vm-test >/dev/null"
+  ser "P0=\$(pgrep -u $U -x gnome-shell | head -1); echo SHELL-\$P0"
+  # chaque morceau de la mise à jour séparément, pour trouver celui qui fait tomber la session
+  etape 01 "sudo pacman -Sy >/dev/null"
+  etape 02 "sudo touch /etc/dconf/db/local.d; sudo dconf update"
+  etape 03 "sudo udevadm control --reload"
+  etape 04 "sudo /usr/lib/ghostcat/gdm-theme"
+  etape 05 "sudo touch /usr/share/fonts/ghostcat/*; sudo fc-cache -s"
+  etape 06 "sudo glib-compile-schemas /usr/share/glib-2.0/schemas"
+  etape 07 "sudo gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor; sudo update-desktop-database -q"
+  etape 08 "systemctl --user daemon-reload"
+  etape 09 "sudo pacman -S --noconfirm ghostcat-shell-extras 2>&1 | tail -n 3"
+  etape 10 "sudo pacman -S --noconfirm ghostcat-shell 2>&1 | tail -n 3"
+  etape 11 "sudo pacman -S --noconfirm ghostcat-theme 2>&1 | tail -n 15"
+  etape 12 "sudo pacman -S --noconfirm ghostcat-privacy ghostcat-release ghostcat-mirrorlist 2>&1 | tail -n 8"
+  etape 13 "sudo pacman -S --noconfirm ghostcat-setup ghostcat-hub ghostcat-update ghostcat-installer ghostcat-desktop 2>&1 | tail -n 8"
   # pacman est en français : « O » pour oui (un « y » vaut non)
-  ser "yes o | ghostcat-update 2>&1 | tail -n 60; echo FIN-\$((1+1))-MAJ \${PIPESTATUS[1]}"
-  serwait "FIN-2-MAJ" 2400 || true
-  ser "echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-\$((1+1))-OK"
-  serwait "LISTE-2-OK" 30 || true
-  shot 08a-apres-maj-bureau
-  # ce que la session graphique a vécu pendant la mise à jour
-  ser "loginctl list-sessions --no-legend; coredumpctl list --no-pager 2>&1 | tail -n 5; sudo journalctl -b --no-pager -o short-precise --since '-8 min' | grep -aiE 'gnome-shell|gnome-session|gdm|mutter|segfault|SIGBUS|SIGSEGV|SIGABRT|dumped|session-|logind|org.gnome.Shell|wayland|Xwayland' | grep -v MESA | tail -n 150; echo JRN-\$((1+1))-OK"
-  serwait "JRN-2-OK" 60 || true
-  # si la session a été fermée, on se reconnecte comme le ferait l'utilisateur
-  ser "loginctl list-sessions --no-legend | awk '\$3==\"$U\" && \$4==\"seat0\"' | wc -l | sed 's/^/SIEGE-/'"
-  sleep 3
-  if tail -c 400 "$SHOTS/serial-disk.log" | grep -aq "SIEGE-0"; then
-    echo "  session graphique fermée par la mise à jour : reconnexion"
-    key ret 6; type_text ghostcqt; key ret; sleep 30; shot 08b-reconnexion
-  fi
-  # l'ancien Hub tourne encore (une seule instance) : on le ferme et on lance le nouveau
-  ser "pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hubtest /usr/bin/ghostcat-hub; echo HUB-\$((1+1))-LANCE"
-  serwait "HUB-2-LANCE" 30 || true
-  sleep 12; shot 08-hub-apres-maj
-  focus_max; shot 09-hub-plein-ecran
-  point 1000 600; wheel down 8; shot 10-hub-molette-bas
-  wheel up 8; shot 11-hub-molette-haut
-  ser "systemctl --user stop hubtest; sleep 2; systemd-run --user --unit=hubdev /usr/bin/ghostcat-hub --view=red; echo HUB-RED"
-  sleep 12; focus_max; point 1000 600; shot 12-red; wheel down 10; shot 13-red-molette
-  ser "systemctl --user stop hubdev; sleep 2; systemd-run --user --unit=hubdev2 /usr/bin/ghostcat-hub --view=dev; echo HUB-DEV"
-  sleep 12; focus_max; shot 14-developpeur; point 1000 600; wheel down 6; shot 15-developpeur-bas
-  ser "journalctl --user -u hubtest -u hubdev -u hubdev2 --no-pager | tail -n 40; echo JOURNAL-\$((1+1))-OK"
-  serwait "JOURNAL-2-OK" 30 || true
+  etape 14 "yes o | ghostcat-update 2>&1 | tail -n 40"
+  ser "coredumpctl list --no-pager 2>&1 | tail -n 6; sudo coredumpctl info --no-pager /usr/bin/gnome-shell 2>&1 | grep -aA30 'Stack trace of thread' | head -n 120; echo CORES-''OK"
+  serwait "CORES-OK" 120 || true
+  ser "echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-''OK"
+  serwait "LISTE-OK" 30 || true
+
+  # le nouveau Hub (l'ancien, s'il tourne encore, est fermé : une seule instance)
+  hub() {  # hub <unité> [--view=…]
+    ser "pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=$1 /usr/bin/ghostcat-hub ${2:-}; echo HUB-''LANCE-$1"
+    serwait "HUB-LANCE-$1" 30 || true; sleep 12; focus_max
+  }
+  hub hub1;          shot 09-hub-accueil;      point 1000 600; wheel down 8;  shot 10-hub-molette-bas; wheel up 8; shot 11-hub-molette-haut
+  hub hub2 --view=red; point 1000 600;         shot 12-red; wheel down 10; shot 13-red-molette
+  hub hub3 --view=dev; shot 14-developpeur;    point 1000 600; wheel down 6;  shot 15-developpeur-bas
+  # bouton « Copier » du pseudo Discord, puis lecture du presse-papiers depuis la session
+  ser "journalctl --user -u hub1 -u hub2 -u hub3 --no-pager | grep -v MESA | tail -n 30; echo JOURNAL-''OK"
+  serwait "JOURNAL-OK" 30 || true
 else
   echo "pas de console série : passe de mise à jour sautée"
 fi
