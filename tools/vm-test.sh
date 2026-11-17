@@ -135,6 +135,17 @@ if serwait "login:" 60; then
   serwait "FIN-2-MAJ" 2400 || true
   ser "echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-\$((1+1))-OK"
   serwait "LISTE-2-OK" 30 || true
+  shot 08a-apres-maj-bureau
+  # ce que la session graphique a vécu pendant la mise à jour
+  ser "loginctl list-sessions --no-legend; coredumpctl list --no-pager 2>&1 | tail -n 5; sudo journalctl -b --no-pager -o short-precise --since '-8 min' | grep -aiE 'gnome-shell|gnome-session|gdm|mutter|segfault|SIGBUS|SIGSEGV|SIGABRT|dumped|session-|logind|org.gnome.Shell|wayland|Xwayland' | grep -v MESA | tail -n 150; echo JRN-\$((1+1))-OK"
+  serwait "JRN-2-OK" 60 || true
+  # si la session a été fermée, on se reconnecte comme le ferait l'utilisateur
+  ser "loginctl list-sessions --no-legend | awk '\$3==\"$U\" && \$4==\"seat0\"' | wc -l | sed 's/^/SIEGE-/'"
+  sleep 3
+  if tail -c 400 "$SHOTS/serial-disk.log" | grep -aq "SIEGE-0"; then
+    echo "  session graphique fermée par la mise à jour : reconnexion"
+    key ret 6; type_text ghostcqt; key ret; sleep 30; shot 08b-reconnexion
+  fi
   # l'ancien Hub tourne encore (une seule instance) : on le ferme et on lance le nouveau
   ser "pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hubtest /usr/bin/ghostcat-hub; echo HUB-\$((1+1))-LANCE"
   serwait "HUB-2-LANCE" 30 || true
