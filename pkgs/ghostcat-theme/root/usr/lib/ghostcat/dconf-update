@@ -1,0 +1,38 @@
+#!/bin/sh
+# GhostCat OS — « dconf update » seulement quand les réglages du système ont changé.
+# developed by 0x3 · https://t.me/data0x3
+#
+# Pendant une mise à jour, pacman réinstalle les fichiers de /etc/dconf/db/*.d même
+# identiques, et le hook de dconf lance alors « dconf update », qui réécrit toujours les
+# bases. Chaque session ouverte reçoit un « tout a changé » et GNOME Shell peut planter
+# (horloge de gnome-desktop libérée pendant une notification en attente) : la session
+# se ferme en pleine mise à jour. On remplace ce hook (même nom, dans /etc/pacman.d/hooks)
+# par ce script, qui garde l'empreinte des fichiers de chaque base et ne reconstruit
+# que si elle a bougé.
+#
+#   dconf-update                  hook : reconstruit si besoin
+#   dconf-update --record         noter les empreintes actuelles
+#   dconf-update --record-missing noter les empreintes manquantes (mise à niveau)
+STATE=/var/lib/ghostcat/dconf
+mkdir -p "$STATE"
+sums() {
+  for d in /etc/dconf/db/*.d; do
+    [ -d "$d" ] || continue
+    printf '%s %s\n' "$(basename "$d" .d)" \
+      "$(cd "$d" && find . -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum | cut -d' ' -f1)"
+  done
+}
+case ${1:-} in
+  --record) sums > "$STATE/sums"; exit 0 ;;
+  --record-missing) [ -f "$STATE/sums" ] || sums > "$STATE/sums"; exit 0 ;;
+esac
+now="$(sums)"
+need=0
+for d in /etc/dconf/db/*.d; do [ -d "$d" ] && [ ! -f "${d%.d}" ] && need=1; done
+[ "$now" = "$(cat "$STATE/sums" 2>/dev/null)" ] || need=1
+if [ $need = 1 ]; then
+  dconf update && printf '%s\n' "$now" > "$STATE/sums"
+else
+  echo "  réglages du système inchangés : bases dconf laissées telles quelles"
+fi
+exit 0

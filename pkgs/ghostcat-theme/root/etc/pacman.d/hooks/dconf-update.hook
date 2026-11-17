@@ -1,0 +1,14 @@
+# GhostCat OS — remplace le hook de dconf du même nom (/usr/share/libalpm/hooks) :
+# les bases ne sont reconstruites que si les réglages ont vraiment changé, pour ne pas
+# fermer la session graphique pendant une mise à jour. developed by 0x3
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Path
+Target = etc/dconf/db/*
+
+[Action]
+Description = Updating system dconf databases...
+When = PostTransaction
+Exec = /usr/lib/ghostcat/dconf-update

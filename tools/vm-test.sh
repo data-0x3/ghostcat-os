@@ -149,7 +149,7 @@ if serwait "login:" 60; then
   ser "echo '$U ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/99-vm-test >/dev/null"
   ser "P0=\$(pgrep -u $U -x gnome-shell | head -1); echo SHELL-\$P0"
   # la mise à jour telle que l'utilisateur la lance (pacman est en français : « O » pour oui)
-  ser "stat -c 'DCONF-AVANT %Y %n' /etc/dconf/db/local /etc/dconf/db/gdm"
+  ser "ls /usr/share/libalpm/hooks /etc/pacman.d/hooks 2>/dev/null | grep -i dconf | sed 's/^/HOOK-/'; stat -c 'DCONF-AVANT %Y %n' /etc/dconf/db/local /etc/dconf/db/gdm"
   etape 01 "yes o | ghostcat-update 2>&1 | tail -n 40"
   ser "stat -c 'DCONF-APRES %Y %n' /etc/dconf/db/local /etc/dconf/db/gdm"
   if grep -aq "ETAPE-01-TOMBE" "$SHOTS/serial-disk.log"; then
