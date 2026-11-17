@@ -42,9 +42,9 @@ button() {  # button <left|wheel-down|wheel-up>
 wheel() { local i; for ((i = 0; i < $2; i++)); do button "wheel-$1"; sleep 0.15; done; sleep 1; }
 # console série : on écrit dans la prise, on lit le journal
 ser() { printf '%s\r' "$1" | socat -t1 - "UNIX-CONNECT:$RUN/ser" >/dev/null 2>&1 || true; sleep 0.5; }
-serwait() {  # serwait <motif> <secondes>
+serwait() {  # serwait <motif-étendu> <secondes>
   local t=0
-  until grep -qa -- "$1" "$SHOTS/serial-disk.log" 2>/dev/null; do
+  until grep -Eqa -- "$1" "$SHOTS/serial-disk.log" 2>/dev/null; do
     sleep 2; t=$((t + 2)); ((t < $2)) || { echo "  série : « $1 » pas vu en $2 s"; return 1; }
   done
 }
@@ -121,10 +121,13 @@ key meta_l 2
 U=ghost0; P=ghostcat
 ser ""; sleep 2; ser ""
 if serwait "login:" 60; then
-  ser "$U"; serwait "assword" 20 && ser "$P"; sleep 5
+  ser "$U"; serwait "assword|ot de passe" 20 && ser "$P"; sleep 5
   ser "export PS1='GC\\$ ' TERM=dumb; stty cols 200"
   ser "echo AVANT; pacman -Q ghostcat-hub; ls /usr/lib/ghostcat/hub"
-  ser "sudo -v"; serwait "sudo] " 20 && ser "$P"; sleep 3
+  # pas de verrouillage d'écran pendant la mise à jour (sinon les captures du Hub montrent l'écran verrouillé)
+  ser "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/\$(id -u)/bus"
+  ser "gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false"
+  ser "sudo -v"; serwait "sudo\\] " 20 && ser "$P"; sleep 3
   ser "yes | ghostcat-update 2>&1 | tail -n 60; echo FIN-\$((1+1))-MAJ \${PIPESTATUS[1]}"
   serwait "FIN-2-MAJ" 2400 || true
   ser "echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-\$((1+1))-OK"
