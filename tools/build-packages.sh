@@ -8,6 +8,10 @@
 #   VERSION                 version de tous les paquets GhostCat (obligatoire)
 #   GHOSTCAT_SIGNING_KEY    clé privée OpenPGP (armure ASCII) : si présente, les paquets
 #                           et le dépôt sont signés et le paquet ghostcat-keyring est créé
+#   PREV_REPO_URL           dépôt déjà publié : un paquet dont les sources n'ont pas changé
+#                           y est repris tel quel (même version), au lieu d'être reconstruit.
+#                           Une mise à jour ne télécharge et ne réinstalle ainsi que ce qui
+#                           a vraiment changé (sources.txt : nom, empreinte, fichier).
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="$(realpath -m "${1:?dossier de sortie}")"
@@ -68,14 +72,33 @@ else
 fi
 
 # ---- construction ----
+PREV="${PREV_REPO_URL:-}"
+: > "$WORK/prev.txt"
+if [[ -n $PREV ]] && curl -fsS --retry 3 "$PREV/sources.txt" -o "$WORK/prev.txt" 2>/dev/null; then
+  say "dépôt précédent : $PREV ($(wc -l < "$WORK/prev.txt") paquets connus)"
+fi
+: > "$WORK/sources.txt"
+mkdir -p "$WORK/out"
 chown -R builder: "$WORK"
 for dir in "$WORK"/pkgs/*/; do
   [[ -f $dir/PKGBUILD ]] || continue
   name="$(basename "$dir")"
+  # empreinte des sources du paquet (+ ce qui change son contenu sans changer ses fichiers)
+  hash="$( { (cd "$dir" && find . -type f ! -name '*.pkg.tar.*' -print0 | sort -z | xargs -0 sha256sum)
+             sha256sum "$WORK/pkgs/_common.sh" | cut -d' ' -f1
+             echo "gnome-shell=$GS_VER signature=${FPR:-aucune}"; } | sha256sum | cut -c1-20)"
+  old="$(awk -v n="$name" -v h="$hash" '$1 == n && $2 == h {print $3}' "$WORK/prev.txt")"
+  if [[ -n $old ]] && curl -fsS --retry 3 "$PREV/$old" -o "$WORK/out/$old" 2>/dev/null; then
+    say "paquet $name : inchangé, repris ($old)"
+    echo "$name $hash $old" >> "$WORK/sources.txt"
+    continue
+  fi
   sed -i "s/^pkgver=0$/pkgver=$VERSION/" "$dir/PKGBUILD"
   say "paquet $name"
   su builder -c "cd '$dir' && GS_VER='$GS_VER' PKGDEST='$WORK/out' makepkg -f --nodeps --noconfirm --noprogressbar" >/dev/null \
     || { echo "échec : $name"; su builder -c "cd '$dir' && GS_VER='$GS_VER' PKGDEST='$WORK/out' makepkg -f --nodeps --noconfirm" | tail -30; exit 1; }
+  built="$(cd "$WORK/out" && ls -1 "$name-$VERSION-"*.pkg.tar.zst | head -1)"
+  echo "$name $hash $built" >> "$WORK/sources.txt"
 done
 
 # ---- dépôt ----
@@ -93,5 +116,6 @@ for l in ghostcat.db ghostcat.files ghostcat.db.sig ghostcat.files.sig; do
   [[ -L $l ]] && cp --remove-destination "$(readlink -f "$l")" "$l"
 done
 echo "${FPR:-unsigned}" > "$OUT/signing"
+cp "$WORK/sources.txt" "$OUT/sources.txt"
 ls -lh "$OUT"
 rm -rf "$WORK" "$GNUPGHOME"

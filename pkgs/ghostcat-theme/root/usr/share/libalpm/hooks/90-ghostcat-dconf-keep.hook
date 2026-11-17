@@ -1,0 +1,11 @@
+# GhostCat OS — passe avant le hook de dconf (ordre alphabétique : « 90- » avant « dconf »)
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Path
+Target = etc/dconf/db/*
+
+[Action]
+Description = GhostCat OS : bases dconf inchangées laissées telles quelles…
+When = PostTransaction
+Exec = /usr/lib/ghostcat/dconf-keep

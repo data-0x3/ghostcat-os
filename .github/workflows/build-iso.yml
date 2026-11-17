@@ -50,7 +50,7 @@ jobs:
         run: |
           sudo docker run --rm --privileged \
             -v "$PWD:/build" -w /build \
-            -e EDITION="$EDITION" -e VERSION="$VERSION" -e GHOSTCAT_SIGNING_KEY \
+            -e EDITION="$EDITION" -e VERSION="$VERSION" -e GHOSTCAT_SIGNING_KEY -e PREV_REPO_URL=https://data-0x3.github.io/ghostcat-os/repo/x86_64 \
             archlinux:latest bash -euo pipefail -c '
               pacman-key --init && pacman-key --populate archlinux
               pacman -Syu --noconfirm --needed archiso curl git libarchive glib2 gnome-shell base-devel grub

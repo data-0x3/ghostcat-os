@@ -37,7 +37,7 @@ jobs:
         run: |
           VERSION="$(date -u +%Y.%m.%d).$(git rev-list --count HEAD)"
           sudo docker run --rm -v "$PWD:/build" -w /build \
-            -e VERSION="$VERSION" -e GHOSTCAT_SIGNING_KEY \
+            -e VERSION="$VERSION" -e GHOSTCAT_SIGNING_KEY -e PREV_REPO_URL=https://data-0x3.github.io/ghostcat-os/repo/x86_64 \
             archlinux:latest bash -euo pipefail -c '
               pacman-key --init >/dev/null && pacman-key --populate archlinux >/dev/null
               pacman -Syu --noconfirm --needed gnome-shell >/dev/null

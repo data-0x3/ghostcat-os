@@ -1,0 +1,25 @@
+#!/bin/sh
+# GhostCat OS — évite de réécrire les bases dconf du système quand rien n'a changé.
+# developed by 0x3 · https://t.me/data0x3
+#
+# Pendant une mise à jour, pacman réinstalle les fichiers de /etc/dconf/db/*.d même
+# identiques, puis le hook de dconf lance « dconf update », qui réécrit la base.
+# Chaque session ouverte reçoit alors un « tout a changé » et GNOME Shell peut planter
+# (horloge de gnome-desktop libérée pendant une notification en attente).
+# Ce hook passe avant celui de dconf : si la base recompilée est identique à l'actuelle,
+# le dossier est daté juste avant la base et « dconf update » n'y touche pas.
+command -v dconf >/dev/null || exit 0
+for d in /etc/dconf/db/*.d; do
+  [ -d "$d" ] || continue
+  db="${d%.d}"
+  [ -f "$db" ] || continue
+  tmp="$(mktemp)" || continue
+  if dconf compile "$tmp" "$d" 2>/dev/null && cmp -s "$tmp" "$db"; then
+    t=$(( $(stat -c %Y "$db") - 1 ))
+    touch -d "@$t" "$d"
+    [ -d "$d/locks" ] && touch -d "@$t" "$d/locks"
+    find "$d" -newer "$db" -exec touch -h -d "@$t" {} + 2>/dev/null
+  fi
+  rm -f "$tmp"
+done
+exit 0

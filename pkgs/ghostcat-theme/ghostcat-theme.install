@@ -1,9 +1,10 @@
 _apply() {
-  dconf update 2>/dev/null || true
   if command -v plymouth-set-default-theme >/dev/null; then
     [ -f /etc/plymouth/plymouthd.conf ] || printf '[Daemon]\nTheme=ghostcat\nShowDelay=0\n' > /etc/plymouth/plymouthd.conf
     plymouth-set-default-theme ghostcat 2>/dev/null || true
   fi
 }
-post_install() { _apply; }
+# « dconf update » seulement à la première installation : lors des mises à jour, c'est le
+# hook de dconf qui s'en charge, après 90-ghostcat-dconf-keep (pas de réécriture inutile)
+post_install() { dconf update 2>/dev/null || true; _apply; }
 post_upgrade() { _apply; }
