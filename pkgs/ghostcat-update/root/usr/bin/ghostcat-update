@@ -45,7 +45,13 @@ ART
 
 # 1. annonces Arch Linux depuis la dernière mise à jour
 mkdir -p "$STATE"
-last=$(cat "$STATE/last-update" 2>/dev/null || echo 0)
+last=$(cat "$STATE/last-update" 2>/dev/null)
+if [[ -z $last ]]; then
+  # première mise à jour : le système a été construit avec les paquets du moment,
+  # les annonces plus anciennes que sa construction ne le concernent pas
+  first=$(head -c 40 /var/log/pacman.log 2>/dev/null | sed -n 's/^\[\([^]]*\)\].*/\1/p')
+  last=$(date -d "$first" +%s 2>/dev/null || echo 0)
+fi
 if news=$(curl -fsS --max-time 8 https://archlinux.org/feeds/news/ 2>/dev/null); then
   found=$(NEWS="$news" python3 -c '
 import os, sys, email.utils, re, xml.etree.ElementTree as ET

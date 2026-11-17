@@ -39,6 +39,8 @@ button() {  # button <left|wheel-down|wheel-up>
   qmp "{\"execute\":\"input-send-event\",\"arguments\":{\"events\":[{\"type\":\"btn\",\"data\":{\"down\":true,\"button\":\"$1\"}}]}}"
   qmp "{\"execute\":\"input-send-event\",\"arguments\":{\"events\":[{\"type\":\"btn\",\"data\":{\"down\":false,\"button\":\"$1\"}}]}}"
 }
+# fenêtre lancée depuis la console : clic sur sa barre de titre pour la prendre, puis Super+Haut
+focus_max() { point 800 74; button left; sleep 1; key meta_l-up 3; }
 wheel() { local i; for ((i = 0; i < $2; i++)); do button "wheel-$1"; sleep 0.15; done; sleep 1; }
 # console série : on écrit dans la prise, on lit le journal
 ser() { printf '%s\r' "$1" | socat -t1 - "UNIX-CONNECT:$RUN/ser" >/dev/null 2>&1 || true; sleep 0.5; }
@@ -128,7 +130,8 @@ if serwait "login:" 60; then
   ser "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/\$(id -u)/bus"
   ser "gsettings set org.gnome.desktop.session idle-delay 0; gsettings set org.gnome.desktop.screensaver lock-enabled false"
   ser "sudo -v"; serwait "sudo\\] " 20 && ser "$P"; sleep 3
-  ser "yes | ghostcat-update 2>&1 | tail -n 60; echo FIN-\$((1+1))-MAJ \${PIPESTATUS[1]}"
+  # pacman est en français : « O » pour oui (un « y » vaut non)
+  ser "yes o | ghostcat-update 2>&1 | tail -n 60; echo FIN-\$((1+1))-MAJ \${PIPESTATUS[1]}"
   serwait "FIN-2-MAJ" 2400 || true
   ser "echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-\$((1+1))-OK"
   serwait "LISTE-2-OK" 30 || true
@@ -136,13 +139,13 @@ if serwait "login:" 60; then
   ser "pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hubtest /usr/bin/ghostcat-hub; echo HUB-\$((1+1))-LANCE"
   serwait "HUB-2-LANCE" 30 || true
   sleep 12; shot 08-hub-apres-maj
-  key esc 2; key meta_l-up 3; shot 09-hub-plein-ecran
+  focus_max; shot 09-hub-plein-ecran
   point 1000 600; wheel down 8; shot 10-hub-molette-bas
   wheel up 8; shot 11-hub-molette-haut
   ser "systemctl --user stop hubtest; sleep 2; systemd-run --user --unit=hubdev /usr/bin/ghostcat-hub --view=red; echo HUB-RED"
-  sleep 12; key meta_l-up 3; point 1000 600; shot 12-red; wheel down 10; shot 13-red-molette
+  sleep 12; focus_max; point 1000 600; shot 12-red; wheel down 10; shot 13-red-molette
   ser "systemctl --user stop hubdev; sleep 2; systemd-run --user --unit=hubdev2 /usr/bin/ghostcat-hub --view=dev; echo HUB-DEV"
-  sleep 12; key meta_l-up 3; shot 14-developpeur; point 1000 600; wheel down 6; shot 15-developpeur-bas
+  sleep 12; focus_max; shot 14-developpeur; point 1000 600; wheel down 6; shot 15-developpeur-bas
   ser "journalctl --user -u hubtest -u hubdev -u hubdev2 --no-pager | tail -n 40; echo JOURNAL-\$((1+1))-OK"
   serwait "JOURNAL-2-OK" 30 || true
 else
