@@ -8,7 +8,10 @@
 #      bureau, puis l'installeur se lance tout seul (ghostcat.autoinstall=1) et installe
 #      sur le disque virtuel, avant d'éteindre la machine ;
 #   2. disque installé : menu GRUB GhostCat, démarrage, écran de connexion, connexion,
-#      apparition du bureau et GhostCat Hub.
+#      apparition du bureau et GhostCat Hub ;
+#   3. mise à jour : par la console série (ouverte par un identifiant systemd passé à la VM,
+#      sans toucher au disque), ghostcat-update tire les paquets publiés sur le dépôt,
+#      puis le Hub est relancé, défilé à la molette et photographié page par page.
 set -euo pipefail
 ISO="$1"; SHOTS="$2"
 mkdir -p "$SHOTS"
@@ -27,6 +30,24 @@ shot() {
   return 0
 }
 key() { mon "sendkey $1"; sleep "${2:-0.3}"; }
+# QMP : pointeur absolu (0..32767) et molette, ce que le moniteur texte ne sait pas faire
+qmp() { printf '{"execute":"qmp_capabilities"}\n%s\n' "$1" | socat -t1 - "UNIX-CONNECT:$RUN/qmp" >/dev/null 2>&1 || true; sleep 0.2; }
+point() {  # point <x> <y> en pixels d'un écran 1600x900
+  qmp "{\"execute\":\"input-send-event\",\"arguments\":{\"events\":[{\"type\":\"abs\",\"data\":{\"axis\":\"x\",\"value\":$(( $1 * 32767 / 1600 ))}},{\"type\":\"abs\",\"data\":{\"axis\":\"y\",\"value\":$(( $2 * 32767 / 900 ))}}]}}"
+}
+button() {  # button <left|wheel-down|wheel-up>
+  qmp "{\"execute\":\"input-send-event\",\"arguments\":{\"events\":[{\"type\":\"btn\",\"data\":{\"down\":true,\"button\":\"$1\"}}]}}"
+  qmp "{\"execute\":\"input-send-event\",\"arguments\":{\"events\":[{\"type\":\"btn\",\"data\":{\"down\":false,\"button\":\"$1\"}}]}}"
+}
+wheel() { local i; for ((i = 0; i < $2; i++)); do button "wheel-$1"; sleep 0.15; done; sleep 1; }
+# console série : on écrit dans la prise, on lit le journal
+ser() { printf '%s\r' "$1" | socat -t1 - "UNIX-CONNECT:$RUN/ser" >/dev/null 2>&1 || true; sleep 0.5; }
+serwait() {  # serwait <motif> <secondes>
+  local t=0
+  until grep -qa -- "$1" "$SHOTS/serial-disk.log" 2>/dev/null; do
+    sleep 2; t=$((t + 2)); ((t < $2)) || { echo "  série : « $1 » pas vu en $2 s"; return 1; }
+  done
+}
 type_text() {
   local c i
   for ((i = 0; i < ${#1}; i++)); do
@@ -48,8 +69,11 @@ qemu_args() {  # qemu_args <nom-du-journal>
     -drive "if=pflash,format=raw,readonly=on,file=$OVMF_CODE"
     -drive "if=pflash,format=raw,file=$RUN/vars.fd"
     -drive "file=$RUN/disk.qcow2,if=virtio,format=qcow2"
-    -monitor "unix:$RUN/mon,server,nowait" -display none -no-reboot
-    -serial "file:$SHOTS/serial-$1.log")
+    -monitor "unix:$RUN/mon,server,nowait" -qmp "unix:$RUN/qmp,server,nowait" -display none -no-reboot
+    -chardev "socket,id=ser0,path=$RUN/ser,server=on,wait=off,logfile=$SHOTS/serial-$1.log"
+    -serial chardev:ser0
+    # identifiant systemd : une invite de connexion sur le port série (getty-generator)
+    -smbios "type=11,value=io.systemd.credential:getty.ttys.serial=ttyS0")
 }
 
 qemu-img create -f qcow2 "$RUN/disk.qcow2" 60G >/dev/null
@@ -92,6 +116,35 @@ t=0
 for at in 3 6 10 15 25 40 60 90; do sleep $((at - t)); t=$at; alive || break; shot "06-desktop-$(printf %03d "$at")s"; done
 key meta_l 3; shot 07-overview
 key meta_l 2
+
+# ---------- 3. mise à jour par ghostcat-update, puis le Hub ----------
+U=ghost0; P=ghostcat
+ser ""; sleep 2; ser ""
+if serwait "login:" 60; then
+  ser "$U"; serwait "assword" 20 && ser "$P"; sleep 5
+  ser "export PS1='GC\\$ ' TERM=dumb; stty cols 200"
+  ser "echo AVANT; pacman -Q ghostcat-hub; ls /usr/lib/ghostcat/hub"
+  ser "sudo -v"; serwait "sudo] " 20 && ser "$P"; sleep 3
+  ser "yes | ghostcat-update 2>&1 | tail -n 60; echo FIN-\$((1+1))-MAJ \${PIPESTATUS[1]}"
+  serwait "FIN-2-MAJ" 2400 || true
+  ser "echo APRES; pacman -Q ghostcat-hub; ls -la /usr/lib/ghostcat/hub/dev; echo LISTE-\$((1+1))-OK"
+  serwait "LISTE-2-OK" 30 || true
+  # l'ancien Hub tourne encore (une seule instance) : on le ferme et on lance le nouveau
+  ser "pkill -f ghostcat_hub.py; sleep 2; systemd-run --user --unit=hubtest /usr/bin/ghostcat-hub; echo HUB-\$((1+1))-LANCE"
+  serwait "HUB-2-LANCE" 30 || true
+  sleep 12; shot 08-hub-apres-maj
+  key esc 2; key meta_l-up 3; shot 09-hub-plein-ecran
+  point 1000 600; wheel down 8; shot 10-hub-molette-bas
+  wheel up 8; shot 11-hub-molette-haut
+  ser "systemctl --user stop hubtest; sleep 2; systemd-run --user --unit=hubdev /usr/bin/ghostcat-hub --view=red; echo HUB-RED"
+  sleep 12; key meta_l-up 3; point 1000 600; shot 12-red; wheel down 10; shot 13-red-molette
+  ser "systemctl --user stop hubdev; sleep 2; systemd-run --user --unit=hubdev2 /usr/bin/ghostcat-hub --view=dev; echo HUB-DEV"
+  sleep 12; key meta_l-up 3; shot 14-developpeur; point 1000 600; wheel down 6; shot 15-developpeur-bas
+  ser "journalctl --user -u hubtest -u hubdev -u hubdev2 --no-pager | tail -n 40; echo JOURNAL-\$((1+1))-OK"
+  serwait "JOURNAL-2-OK" 30 || true
+else
+  echo "pas de console série : passe de mise à jour sautée"
+fi
 stop
 rm -rf "$RUN"
 ls -1 "$SHOTS"

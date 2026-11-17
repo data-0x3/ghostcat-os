@@ -24,7 +24,7 @@ jobs:
   vm:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 110
+    timeout-minutes: 170
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
