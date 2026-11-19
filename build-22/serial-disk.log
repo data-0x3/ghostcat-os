@@ -1,0 +1,27 @@
+[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;056;240t[2J[001;001H[2J[001;001H[=3h[2J[001;001H[2J[001;001H[8;042;160t[2J[001;001HBdsDxe: failed to load Boot0009 "GhostCat" from HD(2,GPT,1B3B9C53-08D2-460E-B5EA-AF9C5C1EC8A4,0x1000,0x200000)/\EFI\GhostCat\grubx64.efi: Not Found
+BdsDxe: failed to load Boot0003 "UEFI Misc Device" from PciRoot(0x0)/Pci(0x5,0x0): Not Found
+
+>>Start PXE over IPv4.
+  PXE-E16: No valid offer received.
+BdsDxe: failed to load Boot0004 "UEFI PXEv4 (MAC:525400123456)" from PciRoot(0x0)/Pci(0x4,0x0)/MAC(525400123456,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0): Not Found
+
+>>Start PXE over IPv6.
+  PXE-E16: No valid offer received.
+BdsDxe: failed to load Boot0005 "UEFI PXEv6 (MAC:525400123456)" from PciRoot(0x0)/Pci(0x4,0x0)/MAC(525400123456,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000,0x0,Static,0000:0000:0000:0000:0000:0000:0000:0000,0x40,0000:0000:0000:0000:0000:0000:0000:0000): Not Found
+
+>>Start HTTP Boot over IPv4.....
+  Error: Could not retrieve NBP file size from HTTP server.
+
+  Error: Server response timeout.
+BdsDxe: failed to load Boot0006 "UEFI HTTPv4 (MAC:525400123456)" from PciRoot(0x0)/Pci(0x4,0x0)/MAC(525400123456,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)/Uri(): Not Found
+
+>>Start HTTP Boot over IPv6.
+  Error: Could not retrieve NBP file size from HTTP server.
+
+  Error: Unexpected network error.
+BdsDxe: failed to load Boot0007 "UEFI HTTPv6 (MAC:525400123456)" from PciRoot(0x0)/Pci(0x4,0x0)/MAC(525400123456,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000,0x0,Static,0000:0000:0000:0000:0000:0000:0000:0000,0x40,0000:0000:0000:0000:0000:0000:0000:0000)/Uri(): Not Found
+BdsDxe: No bootable option or device was found.
+BdsDxe: Press any key to enter the Boot Manager Menu.
+BdsDxe: loading Boot0000 "BootManagerMenuApp" from Fv(7CB8BDC9-F8EB-4F34-AAEA-3EE4AF6516A1)/FvFile(EEC25BDC-67F2-4D95-B1D5-F81B2039D11D)
+BdsDxe: starting Boot0000 "BootManagerMenuApp" from Fv(7CB8BDC9-F8EB-4F34-AAEA-3EE4AF6516A1)/FvFile(EEC25BDC-67F2-4D95-B1D5-F81B2039D11D)
+[2J[001;001H[1m[37m[44m[014;062H┌[014;063H─[014;064H─[014;065H─[014;066H─[014;067H─[014;068H─[014;069H─[014;070H─[014;071H─[014;072H─[014;073H─[014;074H─[014;075H─[014;076H─[014;077H─[014;078H─[014;079H─[014;080H─[014;081H─[014;082H─[014;083H─[014;084H─[014;085H─[014;086H─[014;087H─[014;088H─[014;089H─[014;090H─[014;091H─[014;092H─[014;093H─[014;094H─[014;095H─[014;096H─[014;097H─[014;098H─[014;099H┐[015;062H│[015;063H                                    [015;099H│[016;062H├[016;063H─[016;064H─[016;065H─[016;066H─[016;067H─[016;068H─[016;069H─[016;070H─[016;071H─[016;072H─[016;073H─[016;074H─[016;075H─[016;076H─[016;077H─[016;078H─[016;079H─[016;080H─[016;081H─[016;082H─[016;083H─[016;084H─[016;085H─[016;086H─[016;087H─[016;088H─[016;089H─[016;090H─[016;091H─[016;092H─[016;093H─[016;094H─[016;095H─[016;096H─[016;097H─[016;098H─[016;099H┤[017;062H│[017;063H                                    [017;099H│[018;062H│[018;063H                                    [018;099H│[019;062H│[019;063H                                    [019;099H│[020;062H│[020;063H                                    [020;099H│[021;062H│[021;063H                                    [021;099H│[022;062H│[022;063H                                    [022;099H│[023;062H│[023;063H                                    [023;099H│[024;062H│[024;063H                                    [024;099H│[025;062H├[025;063H─[025;064H─[025;065H─[025;066H─[025;067H─[025;068H─[025;069H─[025;070H─[025;071H─[025;072H─[025;073H─[025;074H─[025;075H─[025;076H─[025;077H─[025;078H─[025;079H─[025;080H─[025;081H─[025;082H─[025;083H─[025;084H─[025;085H─[025;086H─[025;087H─[025;088H─[025;089H─[025;090H─[025;091H─[025;092H─[025;093H─[025;094H─[025;095H─[025;096H─[025;097H─[025;098H─[025;099H┤[026;062H│[026;063H                                    [026;099H│[027;062H│[027;063H                                    [027;099H│[028;062H│[028;063H                                    [028;099H│[029;062H└[029;063H─[029;064H─[029;065H─[029;066H─[029;067H─[029;068H─[029;069H─[029;070H─[029;071H─[029;072H─[029;073H─[029;074H─[029;075H─[029;076H─[029;077H─[029;078H─[029;079H─[029;080H─[029;081H─[029;082H─[029;083H─[029;084H─[029;085H─[029;086H─[029;087H─[029;088H─[029;089H─[029;090H─[029;091H─[029;092H─[029;093H─[029;094H─[029;095H─[029;096H─[029;097H─[029;098H─[029;099H┘[015;068HPlease select boot device:[017;063HGhostCat[018;063HEFI Firmware Setup[019;063HUEFI Misc Device[020;063HUEFI PXEv4 (MAC:525400123456)[021;063HUEFI PXEv6 (MAC:525400123456)[022;063HUEFI HTTPv4 (MAC:525400123456)[023;063HUEFI HTTPv6 (MAC:525400123456)[024;063HEFI Internal Shell[026;068H↑ and ↓ to move selection[027;067HENTER to select boot device[028;075HESC to exit[0m[37m[40m[1m[37m[40m[017;063HGhostCat[0m[37m[40m
