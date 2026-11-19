@@ -7,5 +7,6 @@ pkgdesc="GhostCat OS : l'assistant de démarrage (langue, clavier, fuseau, vie p
 arch=(any)
 url="https://data-0x3.github.io/ghostcat-os/"
 license=(GPL-3.0-or-later)
-depends=(python python-gobject gtk4 webkitgtk-6.0 sudo cage dconf ghostcat-privacy ghostcat-theme)
+depends=(python util-linux python-gobject gtk4 webkitgtk-6.0 sudo cage dconf ghostcat-privacy ghostcat-theme)
+install=ghostcat-setup.install
 package() { _ghostcat_install; }

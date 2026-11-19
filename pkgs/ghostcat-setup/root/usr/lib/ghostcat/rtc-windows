@@ -1,0 +1,18 @@
+#!/bin/sh
+# GhostCat OS — heure juste sur un PC qui a aussi Windows.
+# developed by 0x3 · https://t.me/data0x3
+#
+# L'horloge matérielle du PC (RTC) ne connaît pas de fuseau. Windows y range l'heure
+# locale, Linux l'heure UTC : sur un PC avec Windows, GhostCat lisait donc l'heure de
+# Paris comme si c'était UTC et affichait une heure de trop (deux l'été), tant qu'aucune
+# synchronisation réseau ne l'avait corrigée — toujours en session live, par exemple.
+# Si un disque Windows (NTFS ou BitLocker) est présent, on lit la RTC en heure locale,
+# comme Windows : les deux systèmes affichent la même heure, juste.
+# Pour garder la RTC en UTC malgré tout : sudo touch /etc/ghostcat/rtc-utc
+[ -e /etc/ghostcat/rtc-utc ] && exit 0
+grep -qsx 'LOCAL' /etc/adjtime && exit 0
+blkid -o device -t TYPE=ntfs >/dev/null 2>&1 || blkid -o device -t TYPE=BitLocker >/dev/null 2>&1 || exit 0
+# même effet que « timedatectl set-local-rtc 1 », sans D-Bus (on tourne tôt au démarrage)
+printf '0.0 0 0.0\n0\nLOCAL\n' > /etc/adjtime
+hwclock --hctosys --localtime 2>/dev/null || true
+echo "disque Windows trouvé : horloge du PC lue en heure locale"

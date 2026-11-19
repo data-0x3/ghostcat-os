@@ -1,0 +1,14 @@
+[Unit]
+Description=GhostCat OS : heure du PC partagée avec Windows
+Documentation=https://data-0x3.github.io/ghostcat-os/
+DefaultDependencies=no
+After=systemd-udev-trigger.service local-fs.target
+Before=time-set.target systemd-timesyncd.service sysinit.target shutdown.target
+Conflicts=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/ghostcat/rtc-windows
+
+[Install]
+WantedBy=sysinit.target
